@@ -3,7 +3,7 @@
 
 [cnblog班级地址](https://edu.cnblogs.com/campus/njust/LuClass)
 
-## 第1次作业
+## 第1次作业(Test)
 
 01 [作业内容](https://edu.cnblogs.com/campus/njust/LuClass/homework/8675)
 
