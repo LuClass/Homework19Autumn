@@ -3,6 +3,8 @@
 
 [cnblog班级地址](https://edu.cnblogs.com/campus/njust/LuClass)
 
+[作业提交指南](https://app.yinxiang.com/fx/b499dd00-20ce-4945-9596-9f9b70c68e22)
+
 ## 第1次作业(Test)
 
 01 [作业内容](https://edu.cnblogs.com/campus/njust/LuClass/homework/8675)
