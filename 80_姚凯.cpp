@@ -11,10 +11,10 @@
 using namespace std;
 int main (void)
 {
-double C;
+double C,F,K;
 cin>>C;
-double F=C*9/5+32;
-double K=C+273.15;
+F=C*9/5+32;
+K=C+273.15;
 cout<<"F="<<F<<endl;
 cout<<"K="<<K<<endl;
 	return 0;
