@@ -16,6 +16,6 @@ int main(void){
 	cout<<"please input a tmp(C)"<<endl;
 	cin>>c;
 	f=c*(9.0/5)+32;
-	cout<<"="<<f;
+	cout<<"k="<<f;
 	return 0;
 }
