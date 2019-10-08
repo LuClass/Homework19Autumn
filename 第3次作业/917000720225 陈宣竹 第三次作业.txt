@@ -1,0 +1,73 @@
+(1)
+using namespace std;
+#include <iostream>
+#include <cmath>
+int main()
+{
+	int n,i,c,j,d,b,a[n];
+	n=0;
+	i=0;
+	j=0;
+	cout<<"请输入一个整数：";
+	cin>>n;
+	if(n>0||n<0)
+	{
+		if(n>0)
+		{
+			cout<<"0";
+		}
+		if(n<0)
+		{
+			cout<<"1";
+		}
+		d=abs(n);
+		while(d!=0)
+		{
+			a[i]=d%2;
+			i++;
+			c=i;
+			d=d/2;
+		}
+		for(j=c-1;j>=0;j--)
+		{
+			b=a[j];
+			cout<<b;
+		}
+	}
+	else
+	{
+		cout<<"0";
+	}
+	return 0;
+}
+
+(6)
+using namespace std;
+#include <iostream>
+#include <cmath>
+int main()
+{
+	double a,b,c,d,e,x,y;
+	cout<<"请输入三个实数：";
+	cin>>a>>b>>c;
+	d=b*b-4*a*c;
+	if(d<0)
+	{
+		cout<<"方程无根"<<endl; 
+	}
+	else if(d==0)
+	{
+		cout<<"方程有一个根"<<endl;
+		e=(-b)/(2*a);
+		cout<<e<<endl; 
+	}
+	else
+	{
+		cout<<"方程有两个根"<<endl;
+		d=sqrt(d);
+		x=((-b)+d)/(2*a);
+		y=((-b)-d)/(2*a);
+		cout<<x<<" "<<y<<endl; 
+	}
+	return 0; 
+}
