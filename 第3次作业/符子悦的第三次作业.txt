@@ -1,29 +1,34 @@
-11£¨1£©
+11ï¼ˆ1ï¼‰
 using namespace std;
 #include <iostream>
 int main (void)
 {
 int a,b=0,c=1;
-cout<<"ÊäÈëÒ»¸öÕûÊý"<<endl;
+cout<<"è¾“å…¥ä¸€ä¸ªæ•´æ•°"<<endl;
 cin>>a;
 while(a>0)
 {b=(a%2)*c+b;a=a/2;c=c*10;}
-cout<<"Æä¶þ½øÖÆÎª"<<b;
+cout<<"å…¶äºŒè¿›åˆ¶ä¸º"<<b;
 return 0;
 }
 
 
-11£¨6£©
+11ï¼ˆ6ï¼‰
 using namespace std;
 #include <iostream>
+#include<math.h>
 int main (void)
 {
-int a,b=0,c=1;
-cout<<"ÊäÈëÒ»¸öÕûÊý"<<endl;
-cin>>a;
-while(a>0)
-{b=(a%2)*c+b;a=a/2;c=c*10;}
-cout<<"Æä¶þ½øÖÆÎª"<<b;
+int a,b,c,d;
+cout<<"æ±‚æ–¹ç¨‹a*x*x+b*x+cçš„æ ¹,åˆ†åˆ«è¾“å…¥a,b,c"<<endl;
+cin>>a>>b>>c;
+d=b*b-a*c*4;
+if(d>0)
+{cout<<"x1="<<(-b+sqrt(d))/(a*2)<<endl;
+cout<<"x2="<<(-b-sqrt(d))/(a*2);}
+else if(d==0)
+cout<<"x="<<(-b/(a*2));
+else
+cout<<"è¯¥æ–¹ç¨‹æ— è§£";
 return 0;
-	}
-
+}
