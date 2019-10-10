@@ -1,0 +1,47 @@
+﻿王雨昕的第三次作业
+(1)
+#include <iostream>
+#include <iomanip>
+
+using  namespace std;
+
+int main()
+{
+int a;
+int j=30,k;
+unsigned int i=1073741824;
+ cin>>a;
+ 
+ while(j>=0)
+ {
+ 	k=a&i;
+ 	cout<<(k>>j--)<<"";
+ 	i>>=1;
+  }
+ 
+}
+
+(6)
+#include <iostream>
+#include<math.h>
+using namespace std;
+int main(void)
+{ 
+  int a,b,c;
+  float delta;
+  cout<<"请输入二次项系数a=";
+  cin>>a; 
+  cout<<"请输入一次项系数b=";
+  cin>>b;
+   cout<<"请输入常数项c=";
+  cin>>c;
+  delta=(b*b)-(4*a*c);
+  if (delta<0)
+   cout<<"此方程无实数解";
+   else if (delta=0)
+    cout<<"此方程有唯一实数解="<<(-b-sqrt(b*b-4*a*c))/(2*a);
+   else 
+    cout<<"此方程解="<<(-b-sqrt(b*b-4*a*c))/(2*a)<<"或"<<(-b+sqrt(b*b-4*a*c))/(2*a);
+   
+  return 0;
+}
