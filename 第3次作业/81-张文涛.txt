@@ -1,0 +1,51 @@
+P68.11
+(1)
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	int a;
+	int j=7,k;
+	unsigned int i=128;
+	cin>>a;
+	while(j>=0)
+	{
+		k=a&i;
+		cout<<(k>>j--);
+		i>>=1;
+	}
+}
+
+
+
+(6)
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+{
+	float a,b,c,s,x1,x2;
+	cin>>a>>b>>c;
+	s=b*b-4*a*c;
+	if(a==0)
+	{
+	x1=-(c/b);
+	cout<<"此方程的解为：x1="<<x1;
+	}else if(a!=0,b==0,s<0)
+	{
+	cout<<"此方程无解"<<endl;
+	}else if(s<0)
+	{
+		cout<<"此方程无解"<<endl;
+	}else if(s==0)
+	{
+		x1=(-1*b+sqrt(s))/(2*a);
+		cout<<"此方程的解为：x1=x2="<<x1<<endl;
+	}else
+	{
+		x1=(-1*b+sqrt(s))/(2*a);
+		x2=(-1*b-sqrt(s))/(2*a);
+		cout<<"此方程的解为：x1="<<x1<<" "<<"x2="<<x2<<endl;
+	}
+} 
