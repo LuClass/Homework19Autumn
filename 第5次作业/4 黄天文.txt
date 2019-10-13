@@ -85,13 +85,17 @@ main()
   {
     for(j=1;j<10;j++)
     {
+    	
       result=i*j;
-      printf("%d*%d=%-3d",i,j,result); /*-3d表示左对齐，占3位*/
-    }
-    cout<<endl; /*每一行后换行*/
-  }
-  cin.get();
-}
+	  cout<<i<<"*"<<j<<"=";
+	  cout.setf(std::ios::left);
+	  cout.width(3);
+	  cout<<result;
+    
+  } cout<<endl;
+  
+}cin.get();
+} 
 5.
 #include<bits/stdc++.h>
 using namespace std;
