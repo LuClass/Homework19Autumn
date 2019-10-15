@@ -38,3 +38,23 @@ int main()
 }
 (8)
 #include<iostream>
+using namespace std;
+int main()
+{
+	int a,sum = 1;
+	
+	cin >> a;
+	for(int h = 1;h * h < a;h++)
+	if(a % h == 0)
+	cout << h << ' ' << a / h << ' ';
+	cout << endl;
+	for(int n = 2;n <= 100;n++,sum = 1)
+	{
+		for(int h = 2;h * h < n;h++)
+		if(n % h == 0)
+		sum += ( h + n / h);
+		if(sum == n)
+		cout << sum <<' ';
+	}
+	return 0;
+}
