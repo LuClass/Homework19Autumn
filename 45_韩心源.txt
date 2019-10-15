@@ -1,39 +1,54 @@
-﻿11.⑴
-＃include <iostream>
-using namespace std;
-int main(void)
-{
- int a,b=0,c=1;
- cout<<"输入一个整数"<<endl;
- cin>>a;
- while(a>0)
- {
- b=(a％2)*c+b;
- a=a／2;
- c=c*10;
- }
- cout<<"其二进制为"<<b<<endl;
- return 0;
-}
-11.⑹
+﻿11.⑷
 #include <iostream>
-#include <math.h>
 using namespace std;
-int main(void)
+int main()
 {
- int a,b,c,d;
- cout<<"求方程a*x*x+b*x+c=0的根，输入a,b,c";
- cin>>a>>b>>c;
- d=b*b-4a*c;
- if(d>0)
- {
-  cout<<"x1=(-b+sqrt(d))／(a*2)";
-  cout<<"x2=(-b-sqrt(d))／(a*2)"<<endl;
- }
- else if(d==0)
- cout<<"x1=x2=-b／(a*2)"<<endl;
- else
- cout<<"方程无解"<<endl;
- return 0;
+	int count=0;
+  char x=0;
+  do{
+    x = cin.get();
+    if(x >='0'&&x<='9')
+	 count++;
+    }
+  while(x != '\n');
+  cout<<"count="<<count<<endl;
+  return 0;
 }
+⑺
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+    cout<<"    "<<1<<"/"<<2<<endl;
+	int a=2,b=1,c,n=2;
+	while (n<=20){
+		c=a,a=a+b,b=c;
+		n++;
+		cout<<setw(5)<<a<<"/"<<b<<endl;
+          }
+		return 0;
+}
+⑻
 
+#include <iostream>
+using namespace std;
+int main(){
+          int x;
+	cout<<"输入正整数";
+	cin>>x;
+	for (int a=1;a<=x;a++){
+		if (x%a==0)
+		cout<<"它的分子有"<<a<<endl; 
+	} 
+		for (int y=2;y<=100;y++){
+          int s=0;
+			for (int b=1;b<y;b++){
+		    if (y%b==0)
+		    s+=b;
+	        }
+		if (s==y)
+		cout<<"完全数有"<<s<<endl; 
+		}
+	return 0;
+}
