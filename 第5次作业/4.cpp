@@ -8,7 +8,7 @@ int main()
   int day,month,year,sum,leap;
   cout<<"please input year,month,day"<<endl;
   cin>>year>>month>>day;
-  switch(month) /*ÏÈ¼ÆËãÄ³ÔÂÒÔÇ°ÔÂ·İµÄ×ÜÌìÊı*/
+  switch(month) /*å…ˆè®¡ç®—æŸæœˆä»¥å‰æœˆä»½çš„æ€»å¤©æ•°*/
   {
     case 1:sum=0;break;
     case 2:sum=31;break;
@@ -24,12 +24,12 @@ int main()
     case 12:sum=334;break;
     default:cout<<"data error"<<endl;
   }
-  sum=sum+day; /*ÔÙ¼ÓÉÏÄ³ÌìµÄÌìÊı*/
-  if(year%400==0||(year%4==0&&year%100!=0)) /*ÅĞ¶ÏÊÇ²»ÊÇÈòÄê*/
+  sum=sum+day; /*å†åŠ ä¸ŠæŸå¤©çš„å¤©æ•°*/
+  if(year%400==0||(year%4==0&&year%100!=0)) /*åˆ¤æ–­æ˜¯ä¸æ˜¯é—°å¹´*/
     leap=1;
   else
     leap=0;
-  if(leap==1&&month>2) /*Èç¹ûÊÇÈòÄêÇÒÔÂ·İ´óÓÚ2,×ÜÌìÊıÓ¦¸Ã¼ÓÒ»Ìì*/
+  if(leap==1&&month>2) /*å¦‚æœæ˜¯é—°å¹´ä¸”æœˆä»½å¤§äº2,æ€»å¤©æ•°åº”è¯¥åŠ ä¸€å¤©*/
     sum++;
   cout<<"It is the day."<<sum;
   return 0;

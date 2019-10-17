@@ -1,0 +1,48 @@
+23题
+#include<iostream>
+using namespace std;
+int main(){
+	int x;
+	cin>>x;
+	if(x<=2)
+	  return 0;
+	  else   
+	    if(x%2==0)
+	     cout<<"是"<<endl;
+		  else  
+		  cout<<"不符合条件"<<endl;
+		  return 0; 
+} 
+24题
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main(){
+	int x,y;
+	cin>>x;
+	y=abs(x);
+	if(y>8)
+	cout<<"输入正确"<<endl;
+	 else
+	 cout<<"输入不符合要求"<<endl; 
+}
+25，26，27题
+#include<iostream>
+using namespace std;
+int main(){
+	cout<<"48.25    "<<0<<"   "<<0.333333<<"    "<<1<<"    "<<7<<endl;
+	cout<<"48.26    "<<27<<"   "<<27<<"    "<<27<<"    "<<567<<endl;
+	cout<<"48.27    "<<"True"<<"   "<<"Ture"<<"    "<<31<<"    "<<0<<endl;
+}
+28题
+#include<iostream>
+using namespace std;
+int main(){
+	int C,F;
+	double k;
+	cin>>C;
+	F=C*(9/5)+32;
+	k=C+273.15;
+	cout<<"  "<<F<<"  "<<k<<"  "<<endl;
+}
+}
