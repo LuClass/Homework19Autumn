@@ -1,0 +1,72 @@
+#include<iostream>
+using namespace std;
+int main()
+{int count=0;
+char ch=0;
+do{ch=cin.get();
+if(ch>='0'&&ch<='9')
+count++;	
+}
+while(ch!='\n');
+cout<<"count="<<count<<endl;
+return 0;		
+}
+
+
+
+
+#include<iostream>
+using namespace std;
+int main()
+{int x=1,a1=2,a2=1,a3;
+cout<<"第1项=2/1"<<endl; 
+while(x<=19)
+{a3=a1;
+a1=a1+a2;
+a2=a3;
+cout<<"第"<<x+1<<"项="<<a1<<"/"<<a2<<endl; 
+x++;	
+}	
+}
+
+
+
+
+显示因子：
+#include<iostream>
+using namespace std;
+int main()
+{int x,i=1;
+cout<<"输入一个正整数"<<endl; 
+cin>>x;
+cout<<"x的因子为"; 
+while(i<=x)
+{if(x%i==0)
+cout<<i<<endl;
+i++;
+}	
+}
+
+
+
+求1~100的完全数：
+#include<iostream>
+using namespace std;
+int main()
+{int x=1;
+
+do{int i=1,sum=0;
+
+while(i<x)
+{if(x%i==0)
+sum=sum+i;
+i++;
+}
+if(x==sum)
+cout<<sum<<endl;
+x++;
+sum=0;
+}
+while(x<=100);
+
+}
