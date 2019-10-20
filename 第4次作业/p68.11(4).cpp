@@ -1,14 +1,14 @@
-#include <iostream>
 using namespace std;
-int main()
+#include <iostream>
+int main(void)
 {
- 	int a;
- 	char k;
- 	for(a=0;(k=getchar())!='\n';){
- 		if(k<='9'&&k>='0'){
- 			a++;
-		}
-	 }
-	 cout<<a;
-return 0;
+	char c;
+	int digit=0;
+    while((c=getchar())!='\n')
+    {
+	if(c>='0'&&c<='9')
+          digit++;
+    }
+    cout<<"digit="<<digit;
+	return 0;
 }

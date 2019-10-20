@@ -1,9 +1,10 @@
+#include<iostream> 
 using namespace std;
-#include <iostream>
 int main()
 {
   long int i;
   int bonus1,bonus2,bonus4,bonus6,bonus10,bonus;
+  cout<<"ÀûÈói=";
   cin>>i; 
   bonus1=100000*0.1;
   bonus2=bonus1+100000*0.75;
@@ -22,6 +23,6 @@ int main()
                   bonus=bonus6+(i-600000)*0.015;
                     else
                       bonus=bonus10+(i-1000000)*0.01;
-  cout<<"bonus="<<bonus<<endl;
-  return 0; 
+  cout<<"bonus="<<bonus;
+  return 0;
 }

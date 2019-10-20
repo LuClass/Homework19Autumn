@@ -1,10 +1,11 @@
-using namespace std;
 #include <iostream>
+using namespace std;
 int main()
 {
   long int i;
   int bonus1,bonus2,bonus4,bonus6,bonus10,bonus;
-  cin>>i; 
+ cin>>i;
+ cout<<"月利润为："<<i<<endl; 
   bonus1=100000*0.1;
   bonus2=bonus1+100000*0.75;
   bonus4=bonus2+200000*0.5;
@@ -22,6 +23,7 @@ int main()
                   bonus=bonus6+(i-600000)*0.015;
                     else
                       bonus=bonus10+(i-1000000)*0.01;
-  cout<<"bonus="<<bonus<<endl;
+  cout<<"应发放奖金总数为："<<bonus<<endl;
   return 0; 
 }
+

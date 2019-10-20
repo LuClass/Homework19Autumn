@@ -57,7 +57,7 @@ int main(void)
 	sum+=day;
 	if((year%400==0||(year%4==0&&year%100!=0))&&month>=3)
 	sum++;
-	cout<<"No. of the year:"<<sum;
+	cout<<"No.of the year:"<<sum;
 	return 0;	
 }
 
