@@ -2,12 +2,12 @@
 using namespace std;
 
 int Zuhe(int a,int b){
-	int i,cap=1,bott=1;
+	int i,cap=1,bot=1;
 	for(i=a-b+1;i<=a;i++)
 		cap*=i;
 	for(i=1;i<=b;i++)
-		bott*=i;
-	return cap/bott;
+		bot*=i;
+	return cap/bot;
 }
 
 int main(){
