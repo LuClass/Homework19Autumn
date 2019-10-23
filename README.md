@@ -37,3 +37,15 @@
 
 02 [作业提交](https://github.com/LuClass/Homework19Autumn/tree/master/%E7%AC%AC5%E6%AC%A1%E4%BD%9C%E4%B8%9A)
 
+## 第6次作业
+
+01 [作业内容](https://edu.cnblogs.com/campus/njust/LuClass/homework/9853)
+
+02 [作业提交](https://github.com/LuClass/Homework19Autumn/tree/master/%E7%AC%AC6%E6%AC%A1%E4%BD%9C%E4%B8%9A)
+
+## 第7次作业
+
+01 [作业内容](https://edu.cnblogs.com/campus/njust/LuClass/homework/9854)
+
+02 [作业提交](https://github.com/LuClass/Homework19Autumn/tree/master/%E7%AC%AC7%E6%AC%A1%E4%BD%9C%E4%B8%9A)
+
