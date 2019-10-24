@@ -17,7 +17,7 @@ int main(){
 	for(int i=2;i<=500;i++){
 		if(isprime(i)){
 			if(isprime(i+2)){
-				cout<<i<<"ºÍ"<<i+2<<"	";
+				cout<<i<<"å’Œ"<<i+2<<"	";
 				k++;
 				if(k==5){
 					cout<<endl;
