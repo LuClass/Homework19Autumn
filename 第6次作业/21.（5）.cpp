@@ -1,34 +1,22 @@
 
-#include<iostream>
 using namespace std;
-int Prime(int n)
+#include <iostream>
+bool twnum(int a)
 {
-	int m;
-	m=n;
-	while(n>1){
-		for(int i=2;i<=n;i++){
-		
-			if(n%i==0){
-				if(n==i)
-				cout<<i;
-				else
-				cout<<i<<"*";
-				n=n/i;
-				
-				break;
-			}	
-		}
-		
-		
-	}   
-}
-int main(){
-	int m;
-	cout<<"请输入正整数x="; 
-	cin>>m;
-	cout<<m<<"=";
-	Prime(m);
-	
-	
-	return 0;
-}
+	int b=a+2;
+	int i;
+	for(i=2;i<b;i++)
+	if(b%i==0)
+    return false;
+	return true;
+ } 
+ int main()
+ {
+ 	int a,b,i;
+ 	for(a=3;a<500;a++)
+ 	{
+ 		if(twnum(a-2)&&twnum(a))
+ 		cout<<a<<" ";
+	 }
+	 return 0;
+ }
