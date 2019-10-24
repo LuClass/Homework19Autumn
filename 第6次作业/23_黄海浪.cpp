@@ -53,7 +53,7 @@ int main() {
         if(n==1) cout<<1;
         for(int i=2;i<=n;++i){
             if(!(n%i)){
-                if(prime(n)){
+                if(n==i){
                     cout<<i;
                     break;
                 }else{
