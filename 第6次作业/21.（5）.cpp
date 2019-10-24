@@ -1,22 +1,27 @@
-
-using namespace std;
 #include <iostream>
-bool twnum(int a)
+using namespace std;
+
+void Prime(int n)
 {
-	int b=a+2;
-	int i;
-	for(i=2;i<b;i++)
-	if(b%i==0)
-    return false;
-	return true;
- } 
- int main()
- {
- 	int a,b,i;
- 	for(a=3;a<500;a++)
- 	{
- 		if(twnum(a-2)&&twnum(a))
- 		cout<<a<<" ";
-	 }
-	 return 0;
- }
+        int a;
+	while(n!=1)
+{
+	for(int i=2;i<=n;i++)
+	{
+		if(n%i==0)
+		{
+			a=i;
+			break;
+		}
+	}
+	cout<<a<<" ";
+	n=n/a;
+   }
+}
+int main()
+{
+	int x;
+	cin>>x;
+	Prime(x);
+	return 0;
+}
