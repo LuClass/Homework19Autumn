@@ -1,0 +1,17 @@
+23，x>2&&x%2==0
+24,  x<-8&&x>8
+25,  A:0   B:0.3333333  C:1    D:7
+26,  A:4   B:27  C:8    D:162
+27,  A:1   B:-37   C:31 D:1
+28(1)#include<iostream>
+using namespace std;
+int main(){
+    double C,F,K;
+    cin>>C;
+    F=C*9/5+32;
+    K=C+273.15;
+    cout<<"对应的华氏温度F="<<F<<endl;
+	cout<<"对应的绝对温度K="<<K<<endl; 
+	return 0; 
+}
+ 
