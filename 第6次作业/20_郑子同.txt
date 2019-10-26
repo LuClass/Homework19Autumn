@@ -1,0 +1,93 @@
+(2).
+#include <iostream>
+using namespace std;
+int C(double n,double k){
+	double x=1;
+	int i;
+	for (i=1;n>=i;i++)
+	x=x*i;
+	for (i=1;k>=i;i++)
+	x=x/i;
+	for(i=1;(n-k)>=i;i++)
+	x=x/i;
+	return x;
+}
+
+int main(void) {
+	double a,b,y;
+	cout<<"计算C(n,k)=n!/(k!X(n-k)!),请输入整数n，k，且n>k"<<endl;
+	cin>>a>>b; 
+	y=C(a,b);
+	cout<<"C("<<a<<","<<b<<")="<<y<<endl;
+}
+
+
+(4).
+#include <iostream>
+using namespace std;
+int C(int a){
+	int i;
+	bool x,y;
+    for(i=2;i<a;i++){
+	
+    if(a%i==0){
+	 return false;
+	 break;
+	}
+}
+    return true;
+}
+
+int main(void) {
+	int i;
+	for(i=3;i<499;i++) 
+	 if(C(i)&&C(i+2))
+	 cout<<i<<"和"<<i+2<<endl;
+}
+
+
+(5)
+#include <iostream>
+using namespace std;
+int D(int b){
+	char x;
+	int i,j,c;
+	bool t;
+	c=0;
+	cout<<b<<"=";
+	for (i=2;b!=1;){
+		t=true;
+		for (j=2;j<i;j++){
+		   if(i%j==0&&i!=2){
+		      t=false;
+		   }
+		}
+		if(t==false){          //i是否为质数 
+		i++;
+		continue;
+		}
+		
+		if(b%i!=0){            //i是否为因数 
+			i++;
+			continue;
+		}
+		if(b%i==0){            //判断输出的第几个因数 
+		c++;
+		}
+		if(b%i==0&&c==1){      //第一个不加*号 
+		cout<<i;
+		b=b/i;
+		}
+		if(b%i==0&&c!=1){
+		cout<<"*"<<i;
+		b=b/i; 
+		}
+	}
+}
+
+int main(){
+	int n;
+	cout<<"请输入整数n"<<endl;
+	cin>>n;
+	D(n);
+}
