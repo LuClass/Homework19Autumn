@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+int main() {
+	int count=0;
+	char ch=0;
+	do{
+		ch=cin.get();
+		if(ch>=48&&ch<=57)
+		count++;
+	}while(ch!='\n');
+	cout<<"count="<<count<<endl;
+	return 0;
+}
+
+
+#include<iostream>
+using namespace std;
+int main(){
+	cout<<1<<"/"<<2<<endl;
+	int a=3,b=2,c;
+	for(int i=1;i<20;i++)
+	{
+	  cout<<a<<"/"<<b<<endl;
+	  c=a+b;
+	  b=a;
+  	  a=c;
+    }
+	  return 0;
+}
+
+
+#include<iostream>
+using namespace std;
+int main(){
+	int x;
+	cin>>x;
+	for(int i=1;i<=x;i++)
+	{  if(x%i==0)
+	   cout<<i<<" ";
+	  }
+	cout<<endl;
+	for(int i=1;i<=100;i++){
+		int sum=0;
+		for(int j=1;j<i;j++)
+		{
+		   if(i%j==0)
+		   sum+=j;
+		}
+		if(i==sum)
+		cout<<i<<endl;
+	}  
+	return 0;
+}
