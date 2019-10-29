@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-//¶¨Òå×ª»»º¯Êý 
+//å®šä¹‰è½¬æ¢å‡½æ•°
 int turn(int n){
 	int sum=0;
 	while(n!=0){
@@ -10,7 +10,7 @@ int turn(int n){
 	}	
 	return sum;	
 }
-//²âÊÔ 
+//æµ‹è¯•
 int main(){
 	int n;
 	while(cin>>n){
