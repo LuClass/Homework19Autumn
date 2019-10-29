@@ -10,7 +10,7 @@ int turn(int n){
 	}	
 	return sum;	
 }
-//测试
+//主函数测试
 int main(){
 	int n;
 	while(cin>>n){
