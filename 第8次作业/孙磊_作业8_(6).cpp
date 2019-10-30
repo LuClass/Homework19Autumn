@@ -1,40 +1,27 @@
-//×÷Òµ£¨6£©
+//ä½œä¸šï¼ˆ6ï¼‰
 #include<iostream>
 using namespace std;
 
-//¶¼ÊÇÔËÓÃÕ·×ªÏà³ı·¨ 
-//µİÍÆ·½°¸ 
-int gcd1(int a, int b) {
-	while(b!=0){
-		int temp=b;
-		b=a%b;
-		a=temp;
-	}
-	return a;
-} 	
-
-//µİ¹é·½°¸ 
-int gcd2(int a,int b){
+//è¿ç”¨è¾—è½¬ç›¸é™¤æ³• 
+//æœ€å¤§å…¬çº¦æ•°
+int gcd(int a,int b){
 	if(b == 0)
 	return a;
 	else
-	return gcd2(b,a%b);
+	return gcd(b,a%b);
 }
 
-//×îĞ¡¹«±¶Êı=³Ë»ı/×î´ó¹«Ô¼Êı 
+//æœ€å°å…¬å€æ•°=ä¹˜ç§¯/æœ€å¤§å…¬çº¦æ•° 
 int lcm(int a, int b){
-	return a*b/gcd1(a, b);
+	return a*b/gcd(a, b);
 }	
 
-//²âÊÔ 
+//æµ‹è¯• 
 int main(){
-	int a=8,b=6;
-	int c=15,d=4; 
-	cout<<gcd1(a,b)<<endl;
-	cout<<gcd2(a,b)<<endl;
-	cout<<gcd1(c,d)<<endl;
-	cout<<gcd2(c,d)<<endl;
-	cout<<lcm(a,b)<<endl;
-	cout<<lcm(c,d)<<endl;
+	int a,b;
+	while(cin>>a>>b){
+		cout<<gcd(a,b)<<endl;
+		cout<<lcm(a,b)<<endl;	
+	}
 	return 0;
 }
