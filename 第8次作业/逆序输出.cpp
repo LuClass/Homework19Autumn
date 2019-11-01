@@ -3,13 +3,14 @@ using namespace std;
 #include<cmath>
 int inverted(int a)
 {
-	int r;
-	while(a!=0)
-	{
-		r=a%10;
-		cout<<r;
-		a=a/10; 
-}
+
+	if(a==0)
+	    return 0;
+	else
+	    {
+	    	cout<<a%10;
+	    	inverted(a/10);
+		}
 }
 int main()
 {
