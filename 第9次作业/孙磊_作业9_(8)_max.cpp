@@ -1,4 +1,4 @@
-//£¨8£©-1-¶¨Òåmaxº¯Êý 
+//(8)-1-max.cpp
 #include <iostream>
 using namespace std;
 
