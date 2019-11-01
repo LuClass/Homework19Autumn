@@ -1,4 +1,4 @@
-//£¨8£©-1-¶¨ÒåtoHexº¯Êý 
+//(8)-1-toHex.cpp 
 #include <iostream>
 using namespace std;
 
