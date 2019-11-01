@@ -1,7 +1,7 @@
 //(8)-1-main.cpp 
 #include <iostream>
-#include "孙磊_作业9_(8)_toHex.cpp" 
-#include "孙磊_作业9_(8)_max.cpp" 
+#include "瀛欑_浣滀笟9_(8)_toHex.cpp" 
+#include "瀛欑_浣滀笟9_(8)_max.cpp" 
 using namespace std;
 
 void toHex(int a);
