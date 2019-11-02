@@ -1,0 +1,57 @@
+（6）#include<iostream>
+using namespace std;
+factor(int m,int n)
+ {  int i,k;
+ if(m<n)
+  { k=m;
+    m=n;
+    n=k;
+  }
+   while(n!=0)
+   { i=m%n;
+     m=n;
+     n=i;
+   }
+   return m;
+ }
+ multiple(int m,int n)
+ {int a;
+   a=m*n/factor(m,n);
+   return a;
+ }
+ int main(void)
+{  int m,n;
+   cin>>m>>n;
+   cout<<"最大公约数="<<factor(m,n);
+   cout<<"最小公倍数="<<multiple(m,n);
+}
+
+
+
+（7）方法一：
+#include<iostream>
+using namespace std;
+int main()
+{  int x,y=1,i=1;
+   cin>>x;
+   for(;x!=0;x=i)
+   {y=x%10;
+   cout<<y;
+   i=x/10;} 
+}
+
+
+方法二：#include<iostream>
+using namespace std;
+  char X(int n)
+ {
+   if(n%10>0)
+    cout<<n%10;
+	X(n/10);
+ }
+   int main()
+   {   int n;
+       cin>>n;
+      cout<<X(n);
+   }
+ 

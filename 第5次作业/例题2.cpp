@@ -1,13 +1,10 @@
-#include<iostream>
-#include<stdio.h>
-#include<conio.h>
 using namespace std;
-int main(void)
+#include <iostream>
+int main()
 {
-	//¡¾³ÌÐò2¡¿
   long int i;
   int bonus1,bonus2,bonus4,bonus6,bonus10,bonus;
-  scanf("%ld",&i); 
+  cin>>i; 
   bonus1=100000*0.1;
   bonus2=bonus1+100000*0.75;
   bonus4=bonus2+200000*0.5;
@@ -25,8 +22,6 @@ int main(void)
                   bonus=bonus6+(i-600000)*0.015;
                     else
                       bonus=bonus10+(i-1000000)*0.01;
-  printf("bonus=%d",bonus);
-  getch(); 
-
- return 0;
+  cout<<"bonus="<<bonus<<endl;
+  return 0; 
 }

@@ -13,4 +13,3 @@ int main(){
 	toHex(a);
 	return 0;
 }
-
