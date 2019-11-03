@@ -1,11 +1,15 @@
+#include "hex.h"
+#include "max.h"
+
 using namespace std;
-#include <iostream>
-long int max(int,int);
-void toHex(int);
-int main()
-{
-	int c,d;
-	cin>>c>>d;
-	toHex(max(c,d));
+
+int max(int a,int b);
+void toHex(int x);
+
+int main(){
+	int a,b;
+	cin>>a>>b;
+	a=max(a,b);
+	toHex(a);
 	return 0;
 }
