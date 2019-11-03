@@ -1,0 +1,66 @@
+（8）.
+//main.cpp
+#include <iostream>
+using namespace std;
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+#include "max.h"
+#include "toHex.h"
+int main() {
+	
+	int a,b,c;
+	cin>>a>>b;
+	c=max(a,b);
+	cout<<c<<endl;
+	toHex(c);
+	return 0;
+}
+//max.h
+#include <iostream>
+using namespace std;
+int max(int x,int y)
+{
+	if(x>y)
+	return x;
+	else return y;
+	
+}
+//toHex.h
+#include <iostream>
+using namespace std;
+void toHex(int x)
+{
+	cout<<hex<<x;
+}
+(9).
+//函数法
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+{   double area(double,double,double);
+	double a,b,c;
+	cin>>a>>b>>c;
+                if(a+b>c&&a+c>b&&b+c>a)
+	cout<<area(a,b,c);
+                else
+                cout<<"error";
+ } 
+ double area(double x,double y,double z){
+ 	double s=(x+y+z)/2;
+ 	return sqrt(s*(s-x)*(s-y)*(s-z));
+ }
+//有参宏定义
+#include <iostream>
+#include <math.h>
+using namespace std;
+#define area(a,b,c) sqrt(s*(s-a)*(s-b)*(s-c))
+int main(){
+	double a,b,c,s;
+	cin>>a>>b>>c;
+	s=(a+b+c)/2;
+	if(a+b>c&&a+c>b&&b+c>a)
+	cout<<area(a,b,c);
+    else
+    cout<<"error";
+} 
+
