@@ -1,0 +1,45 @@
+using namespace std;
+#include<iostream>
+int main (){
+double n,k,a,b,c,d,e,f,C;
+for(n=2;n<11;n++){
+for(k=1;k<n;k++){
+for(e=1,f=n-k;f>0;f--)e*=f;
+for(a=1,b=n;b>0;b--)a*=b;
+for(c=1,d=k;d>0;d--)c*=d;
+C=a/c*e;
+if(n==4&&k==2)cout<<C<<endl;
+if(n==6&&k==4)cout<<C<<endl;
+if(n==8&&k==7)cout<<C<<endl;
+}
+}
+}
+
+
+using namespace std;
+#include <iostream>
+int main (){
+int a,b,c,d,e,f=1;
+for(a=2;a<501;a++){
+for(b=2;b*b<=a;b++)if(a%b==0)break;
+if(b*b>a){c=a;d=c+2;
+for(e=2;e*e<=d;e++)if(d%e==0)break;
+if(e*e>d)f=d-2;if(f==c)cout<<a<<"Óë"<<a+2<<endl;e=2;
+}b=2;
+}
+}
+
+
+using namespace std;
+#include <iostream>
+int main (){
+int a,b,c;
+cin>>a;
+c=a;
+cout<<a<<"=";
+for(b=2;b<=a;){
+	
+if(a%b==0){a/=b;cout<<"*"<<b;}
+else if(b=b)b++;
+}
+}
