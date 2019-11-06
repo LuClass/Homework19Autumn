@@ -15,7 +15,7 @@ int getNum(int a[]) {
 int main() {
 	int a[22];
 	memset(a, 0 , sizeof(a));
-	int k = 1;
+	int k = 0;
 	while (getNum(a) != 1) {
 		for (int i = 1; i < 22; i++) {
 			if (a[i] == 0) {
@@ -23,7 +23,7 @@ int main() {
 			}
 			if (k == 5) {
 				a[i] = 1;
-				k = 1;
+				k = 0;
 			}
 		}
 	}
