@@ -1,98 +1,154 @@
-2..
+14.(2).
 #include<iostream>
 using namespace std;
-int bonus1 = 10000;
-int bonus2 = bonus2 + 75000;
-int bonus4 = bonus2 + 100000;
-int bonus6 = bonus4 + 60000;
-int bonus10 = bonus6 + 60000;
+void getRandom(int a[],int n)
+{
+	srand(a[0]);
+	for(int i=0;i<n;i++)
+	a[i]=rand()%101;
+}
+int getMax(const int a[],int n)
+{
+	int max=a[0];
+	for(int i=1;i<n;i++)
+	if(max<a[i])
+	max=a[i];
+	return max;
+}
+void print(int a[],int n)
+{
+	for(int i=0;i<n;i++)
+	cout<<a[i]<<endl;
+}
 int main()
 {
-	long int i;
-	cin >> i;
-	switch (i/100000)
-	{
-		case 0:cout << i*0.1;
-				break;
-		case 1:cout << bonus1 + (i-100000)*0.075;
-				break;
-		case 2:cout << bonus2 + (i-200000)*0.05;
-				break;
-		case 3:cout << bonus2 + (i-200000)*0.05;
-				break;
-		case 4:cout << bonus4 + (i-400000)*0.03;
-				break;
-		case 5:cout << bonus4 + (i-400000)*0.03;
-				break;
-		case 6:cout << bonus6 + (i-600000)*0.015;
-				break;
-		case 7:cout << bonus6 + (i-600000)*0.015;
-				break;
-		case 8:cout << bonus6 + (i-600000)*0.015;
-				break;
-		case 9:cout << bonus6 + (i-600000)*0.015;
-				break;
-		default:cout << bonus10 + (i-1000000)*0.01;
-				break;
-	}
+	int a[8];
+	getRandom(a,8);
+	print(a,8);
+	cout<<getMax(a,8);
 }
-13.
+		if(a[i])
+		{
+			m++;
+			if(m%5==0)
+			out(a,i);
+		}
+		if(i=20)
+		i=-1;
+	}
+	return chiji(a,21);
+}
+int main()
+{
+	int a[21]={0};
+	start(a,21);
+	cout<<process(a,21)+1;
+	
+}
+(5).
 #include<iostream>
 using namespace std;
-main()
+bool isSu(int n)
 {
-	int i,j,k;
-	for(int n = 100;n<1000;n++)
-	{
-		i = n/100;
-		j = n/10%10;
-		k = n%10;
-		if(n == i*i*i +j*j*j +k*k*k)
-		cout<<n<<' ';
-	}
+	if(n==2|| (n==3) ||(n==5)||(n==7))
+	return true;
+	if(n%2==0)
+	return false;
+	for(int i=3;i*i<=n;i+=2)
+	if(n%i==0)
+	return false;
+	return true;
 }
-16.
+int sumWei(int n)
+{
+	int sum = 0;
+	while(n!=0)
+	{
+		sum+=n%10;
+		n/=10;
+	}
+	return sum;
+}
+int sumSu(int n)
+{
+	int sum=0,tem=n;
+	while(tem%2==0)
+	{
+		tem/=2;
+		sum+=2;
+	}
+	for(int i = 3;i<=n;i+=2)
+		while(tem%i==0)
+		{
+			tem/=i;
+			sum+=sumWei(i);
+		}
+	return sum;
+}
+bool isSmith(int n)
+{
+	if(isSu(n)||sumSu(n)!=sumWei(n))
+	return false;
+	return true;
+}
+int main()
+{
+	int a;
+	cin>>a;
+	if(a<0)
+	a=4;
+	while(!isSmith(a))
+	a++;
+	cout<<a;
+}
+(10)
 #include<iostream>
 using namespace std;
-main()
+void out(int a[],int n)
 {
-	int a,b,a1,b1,rest;
-	cin>>a>>b;
-	if(a<b)
-	{
-		rest = a;a = b;b = rest;
-	}
-	a1=a;
-	b1=b;
-	while(b1 != 0)
-	{
-		rest = a1%b1;a1 = b1;b1 = rest;
-	}
-	cout<<a1<<' '<<a*b/a1;
+	a[n]-=1;
 }
-23.
-#include<iostream>
-using namespace std;
-main()
+int survived(int a[],int n)
 {
-	int chang,gao,j = 0;
-	cin >> chang >> gao;
-	for(int i = 1;i <= gao;i++)
+	int count=0;
+	for(int i = 0;i<n;i++)
+	if(a[i])
+	count++;
+	return count;
+}
+void start(int a[],int n)
+{
+	for(int i=0;i<n;i++)
+	a[i]=1;
+}
+int chiji(int a[],int n)
+{
+	int i = 0;
+	for(;i<n;i++)
+	if(a[i])
+	break;
+	return i;
+}
+int process(int a[],int n)
+{
+	int m=0;
+	for(int i = 0;survived(a,21)!=1;i++)
 	{
-		j++;
-		for(int re = 1;re <= j;re++)
-		cout << ' ';      //Êä³ö¿Õ°×
-		for(int re = 1;re <= chang;re++)
-		cout << '*';      //Êä³öÐÇÐÇ
-		cout << endl;
+		if(a[i])
+		{
+			m++;
+			if(m%5==0)
+			out(a,i);
+		}
+		if(i=20)
+		i=-1;
 	}
-	for(int i = 1;i <= gao;i++)
-	{
-		for(int re = 1;re <= j;re++)
-		cout << ' ';      //Êä³ö¿Õ°×
-		for(int re = 1;re <= chang;re++)
-		cout << '*';      //Êä³öÐÇÐÇ
-		j--;
-		cout << endl;
-	}	
+	return chiji(a,21);
+}
+int main()
+{
+	int a[21]={0};
+	start(a,21);
+	cout<<process(a,21)+1;
+	
 }
