@@ -1,0 +1,55 @@
+using namespace std;
+#include <iostream>
+int ll(int n,int a3);
+int aa(int n);
+void isSmith(int n,int i[],int b);
+int zz(int n,int g);
+int xx(int x[],int y,int n,int g);
+int a3,g=0;
+int main (){
+int n,b;a3=0;
+cin>>n;
+aa(n);int i[b];
+isSmith(n,i,b);
+ll(n,a3);
+xx(i,b,n,g);
+}
+int aa(int n){
+int a,c,b;
+for(a=2;a*a<n;){
+if(c%a==0){b++;c&=a;}
+else a+=1;	
+ }	
+}
+void isSmith(int n,int i[],int b){	
+int c1,m,a1;
+c1=n;m=0;
+for(a1=2;a1*a1<n;){
+if(c1%a1==0){i[m]=a1;m++;c1&=a1;}
+else a1+=1;	
+ }
+}
+int ll(int n,int a3){
+int b3=n;
+for(a3;b3>0;b3/=10)	{a3+=1;	}
+}
+int zz(int n,int g){	
+int d=0,e=n,f=0,p[a3];
+for(e,d;e>0;e&=10){
+p[d]=e%10;d++;	
+ }
+for(f;f<d;f++){
+g+=p[f];	
+} 
+}
+int xx(int x[],int y,int n,int g){
+int v=0,h=0,k;
+zz(n,g);
+for(x[h];h<y;h++){
+k=0;zz(x[h],k);v+=x[h];	
+ }
+if(v==g)
+cout<<"Smith";
+else
+cout<<"No Smith";
+}
