@@ -12,7 +12,7 @@ int main(){
 			for(int k=1;k<i;k++)
 				if(i%k==0) sum+=k;//因数相加
 			if(sum==i) 
-				cout<<sum<<endl;//判断完全数
+				cout<<sum<<endl;//判断完全数 
 		}
 	}
 	return 0;
