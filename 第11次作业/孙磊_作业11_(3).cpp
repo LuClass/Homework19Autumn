@@ -6,13 +6,13 @@ int main(){
 	int i,j;
 	cout<<"Input i & j:"<<endl;
 	while(cin>>i>>j){
-		if(i>j) swap(i, j);//Ωªªª 
+		if(i>j) swap(i, j);//‰∫§Êç¢
 		for(i;i<=j;i++){
 			int sum=0;
 			for(int k=1;k<i;k++)
-				if(i%k==0) sum+=k;//“Ú◊”œ‡º” 
+				if(i%k==0) sum+=k;//Âõ†Êï∞Áõ∏Âä†
 			if(sum==i) 
-				cout<<sum<<endl;//≈–∂œÕÍ»´ 
+				cout<<sum<<endl;//Âà§Êñ≠ÂÆåÂÖ®Êï∞
 		}
 	}
 	return 0;
