@@ -17,7 +17,7 @@ xx(i,b,n,g);
 int aa(int n){
 int a,c,b;
 for(a=2;a*a<n;){
-if(c%a==0){b++;c&=a;}
+if(c%a==0){b++;c/=a;}
 else a+=1;	
  }	
 }
@@ -25,7 +25,7 @@ void isSmith(int n,int i[],int b){
 int c1,m,a1;
 c1=n;m=0;
 for(a1=2;a1*a1<n;){
-if(c1%a1==0){i[m]=a1;m++;c1&=a1;}
+if(c1%a1==0){i[m]=a1;m++;c1/=a1;}
 else a1+=1;	
  }
 }
@@ -35,7 +35,7 @@ for(a3;b3>0;b3/=10)	{a3+=1;	}
 }
 int zz(int n,int g){	
 int d=0,e=n,f=0,p[a3];
-for(e,d;e>0;e&=10){
+for(e,d;e>0;e/=10){
 p[d]=e%10;d++;	
  }
 for(f;f<d;f++){
@@ -51,5 +51,5 @@ k=0;zz(x[h],k);v+=x[h];
 if(v==g)
 cout<<"Smith";
 else
-cout<<"No Smith";
+cout<<"Not Smith";
 }
