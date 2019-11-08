@@ -13,9 +13,9 @@ else return false;
 }
 int main()
 {int a,b,c,n=0;
-cout<<"ÇëÊäÈëÁ½¸öÕıÕûÊı";
+cout<<"è¯·è¾“å…¥ä¸¤ä¸ªæ­£æ•´æ•°";
 cin>>a>>b;
-cout<<"Æä¼äË®ÏÉ»¨Êı";
+cout<<"å…¶é—´æ°´ä»™èŠ±æ•°";
 int i=a>b?b:a;
 for(;(a>b?b:a)<=i&&i<=(a>b?a:b);i++) 
 {if(sxh(i)==1)
@@ -24,6 +24,6 @@ n++;
 }
 }
 if(n==0)
-cout<<"²»´æÔÚ"<<endl;
+cout<<"ä¸å­˜åœ¨"<<endl;
 return 0;
 }
