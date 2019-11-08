@@ -18,12 +18,17 @@ int main()
 	int j,k=0;
 	for(j=0;;j++)
 	{
-		if(a[j%21+1]!=0)
+		if(a[j%21]!=0)
 		k=k+1;
 		if(k%5==0)
-		a[j]=0;
+		a[j%21]=0;
 		if(f(a)==1)
 		break;	
 	}
-	cout<<j%21<<endl;
+	for(int n=0;n<21;n++)
+	{
+		if(a[n]!=0)
+		cout<<a[n]<<endl;
+	}
+	cout<<endl;
 }
