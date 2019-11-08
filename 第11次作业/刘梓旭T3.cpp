@@ -12,16 +12,16 @@ else return false;
 }
 int main()
 {int a,b,c,n=0;
-cout<<"ÇëÊäÈëÁ½¸öÕıÕûÊı";
+cout<<"è¯·è¾“å…¥ä¸¤ä¸ªæ­£æ•´æ•°";
 cin>>a>>b;
-cout<<"Æä¼äÍêÈ«Êı";
+cout<<"å…¶é—´å®Œå…¨æ•°";
 for(int i=a>b?b:a;(a>b?b:a)<=i&&i<=(a>b?a:b);i++) 
 {if(wqs(i)==1)
 cout<<i<<" ";
 n++;
 }
 if(n==0)
-cout<<"²»´æÔÚ";
+cout<<"ä¸å­˜åœ¨";
 return 0;
 
 }
