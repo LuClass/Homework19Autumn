@@ -8,16 +8,14 @@ using namespace std;
 bool JudgePalindromeNumber(int number){
     int ans[20],index=0;
     memset(ans,0,sizeof(ans));
-    cin>>number;
     number<0?abs(number):number;
     do{
         ans[index++]=number%10;
         number/=10;
     }while(number);
     for(int i=0;i<=index/2;i++)
-        if(ans[i]!=ans[--index]){
+        if(ans[i]!=ans[--index])
             return false;
-        }
     return true;
 }
 
@@ -44,6 +42,7 @@ bool JudgePerfectNumber(int number){
 int main(){
     
     int pali_number,begin_narciss_number,end_narciss_number,begin_perfect_number,end_perfect_number;
+
     //Palindrome number
     cin>>pali_number;
     JudgePalindromeNumber(pali_number);
@@ -58,6 +57,6 @@ int main(){
     cin>>begin_perfect_number>>end_perfect_number;    
     for(;begin_perfect_number<=end_perfect_number;)
         if(JudgePerfectNumber(begin_perfect_number++))
-            cout<<begin_perfect_number-1;
+            cout<<begin_perfect_number-1<<endl;
 
 }
