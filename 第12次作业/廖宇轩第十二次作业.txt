@@ -1,0 +1,51 @@
+14.（7）#include <iostream>
+using namespace std;
+
+
+int getSet(int rs[],const int a[],int n)
+{
+
+	int num = 1;
+	rs[0] = a[0];
+	for (int i=1;i<n;i++)
+	{
+
+		for (int j = 0;j<num;)
+		{
+			if (rs[j] == a[i])
+			{
+				break;
+
+			}
+			j++;
+			if (j == num)
+			{
+
+				rs[j] = a[i];
+				num++;
+			}
+	   }
+
+
+		
+    }
+
+
+	return num;
+
+}
+int main()
+{
+	int a[] = { 3,1,2,3,1,5,2,1 }, rs[8];
+	int num = getSet(rs, a, 8);
+	cout<<num<<endl;
+
+	for (int i = 0; i < num; i++)
+	{
+
+		cout << rs[i] << '\t';
+
+	}
+
+
+}
