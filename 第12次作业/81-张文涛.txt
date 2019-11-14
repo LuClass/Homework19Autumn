@@ -82,6 +82,6 @@ int main()
 	for (int t=0;t<n;t++)
 		cin>>a[t];		
 	//cout<<getSet(rs,a,8)<<endl;
-	orderNum(rs,a,8);
+	orderNum(rs,a,n);
 	return 0;
 }
