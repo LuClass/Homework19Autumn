@@ -38,8 +38,7 @@ int getWordCount(char a[]){
     unsigned long len = strlen(a);
     int s=0;
     for(int i=1;i<len;++i){
-        char c1 =tolower(a[i]);
-        if((c1<'a'||c1>'z')&&(islower(a[i-1])||isupper(a[i-1]))){
+        if( ((!islower(a[i]))&&(!isupper(a[i]))) && (islower(a[i-1])||isupper(a[i-1])) ){
             ++s;
         }
     }
