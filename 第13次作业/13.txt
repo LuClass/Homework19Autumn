@@ -1,0 +1,75 @@
+P144 14.（6）
+#include <iostream>
+#include <cstring>
+#define MAX 10
+using namespace std;
+int getRev(char a[]){
+	int ans=0;
+	for(int i=0;a[i+1];++i){
+		for(int j=i+1;a[j];++j){
+			if(a[i]>a[j])
+			ans++;
+		}
+	}
+	return ans;
+}
+char b[MAX][20];
+int c[MAX];
+void getrev(char a[][20],int c[],int n){
+	for(int k=0;k<n;++k){
+		c[k]=0;
+		for(int i=0;a[k][i+1];++i){
+			for(int j=i+1;a[k][j];++j){
+				if(a[k][i]>a[k][j])
+				c[k]++;
+			}
+		}
+	}
+	for(int i=0;i<n-1;++i){
+		for(int j=0;j<n-i-1;++j){
+			if(c[j]>c[j+1]){
+				int t=c[j];c[j]=c[j+1];c[j+1]=t;
+				char temp[20];
+				strcpy(temp,a[j]);
+				strcpy(a[j],a[j+1]);
+				strcpy(a[j+1],temp);
+			}
+		}
+	}
+}
+int main()
+{
+	char a[]="DAABEC";
+	cout<<getRev(a)<<endl; 
+	for(int i=0;i<MAX;++i)
+	cin.getline(b[i],20);
+	getrev(b,c,MAX);
+	for(int i=0;i<MAX;++i)
+	cout<<b[i]<<' '<<c[i]<<endl;
+	return 0;
+}
+
+（8）
+#include <iostream>
+#include <cstring>
+#define MAX 654321
+using namespace std;
+int getWordCount(char a[]){
+	int ans=0;
+	int i=0;
+	while(a[i]){
+		for(;a[i]&&(a[i]==' '||a[i]=='\t');++i);
+		if(a[i]>='A'&&a[i]<='Z'||a[i]>='a'&&a[i]<='z')
+		ans++;
+		for(;a[i]&&(a[i]>='A'&&a[i]<='Z'||a[i]>='a'&&a[i]<='z');++i);
+		//cout<<ans<<'*';
+	}
+	return ans;
+}
+char a[MAX];
+int main()
+{
+	cin.getline(a,MAX);
+	cout<<getWordCount(a)<<endl;
+	return 0;
+}
