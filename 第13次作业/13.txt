@@ -1,4 +1,4 @@
-P144 14.（6）
+//P144 14.（6）
 #include <iostream>
 #include <cstring>
 #define MAX 10
@@ -49,7 +49,7 @@ int main()
 	return 0;
 }
 
-（8）
+//（8）
 #include <iostream>
 #include <cstring>
 #define MAX 654321
