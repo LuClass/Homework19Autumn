@@ -4,20 +4,20 @@ using namespace std;
 
 int getSet(int rs[],const int a[],int n){
 	int k=0;
-	bool flage;
+	bool flag;
 	rs[k] = a[k];
 	k++;
 	for(int i=1;i<n;i++){
-		flage = true;
+		flag = true;
 		for(int j=0;j<k;j++){
 			if(a[i] == rs[j]){
 				
-			    flage = false;
+			    flag = false;
 				break;
 				
 			}			
 		}
-		if(flage){
+		if(flag){
 			rs[k] = a[i];
 			k++;
 		}
@@ -27,19 +27,19 @@ int getSet(int rs[],const int a[],int n){
 
 int getSetandNum(int rs[],int num[], int a[],int n){
 	int k=0;
-	bool flage;
+	bool flag;
 	rs[k] = a[k];
 	num[k]++;
 	k++;
 	for(int i=1;i<n;i++){
-		flage = true;
+		flag = true;
 		for(int j=0;j<k;j++){
 			if(a[i] == rs[j]){				
-			    flage = false;
+			    flag = false;
 				num[j]++;				
 			}			
 		}
-		if(flage){
+		if(flag){
 			rs[k] = a[i];
 			num[k]++;
 			k++;
