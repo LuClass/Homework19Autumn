@@ -74,8 +74,7 @@ int main(){
     {//附加
         char arr[60];
         cin.getline(arr, 51);
-        int len = strlen(arr);
-        for(int i=0;i<len;++i){
+        for(int i=0;arr[i];++i){
             cout<<arr[i];
             if(arr[i]<='Z'&&arr[i]>='A'){
                 arr[i] -= 'A'-'a';
