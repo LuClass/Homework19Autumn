@@ -53,6 +53,8 @@ int main(){
         fc t1 = f(1,5,1);
         if(t1.isSolved){
             cout<<"x1:"<<t1.x1<<" x2:"<<t1.x2<<endl;
+        }else{
+            cout<<"无解"<<endl;
         }
     }
     
