@@ -23,12 +23,12 @@ fc f(int a,int b,int c){
     fc tmp;
     if(b*b-4*a*c<0){
         return tmp;
-    }else{
-        double deta = sqrt(b*b-4*a*c);
-        tmp.x1 = (-b-deta)/2.0/a;
-        tmp.x2 = (-b+deta)/2.0/a;
-        tmp.isSolved=true;
     }
+    double deta = sqrt(b*b-4*a*c);
+    tmp.x1 = (-b-deta)/2.0/a;
+    tmp.x2 = (-b+deta)/2.0/a;
+    tmp.isSolved=true;
+    
     return tmp;
 }
 
