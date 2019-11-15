@@ -1,0 +1,106 @@
+7.
+（1）
+#include<iostream> 
+using namespace std;
+#define s 8
+#define as 3,1,2,3,1,5,2,1
+
+int getset(int rs[],const int a[],int n) {
+	int r=1;
+	rs[0]=a[0];
+	for(int i=1;i<n;i++){
+		for(int j=0;j<i;j++){
+			if(a[j]==a[i])
+		   break;
+			if(j==i-1)
+		   	rs[r++]=a[i];
+		}  
+	}
+	return r; 
+}
+int main(){
+	const int a[s]={as};
+	int rs[s],cs[s]={0};
+	cout<<"r="<<getset(rs,a,s)<<endl; 
+	cout<<"rs["<<getset(rs,a,s)<<"]:";
+	for(int i=0;i<getset(rs,a,s);i++)
+		cout<<rs[i]<<" ";
+	return 0;
+}
+
+（2）
+#include<iostream> 
+using namespace std;
+#define s 8
+#define as 3,1,2,3,1,5,2,1
+
+int getcs(int rs[],int cs[],const int a[],int n){
+	int r=1;
+	rs[0]=a[0];
+	for(int i=1;i<n;i++){
+		for(int j=0;j<i;j++){
+			if(a[j]==a[i])
+		   break;
+			if(j==i-1)
+		   	rs[r++]=a[i];
+		}  
+	}
+	for(int i=0;i<getset(rs,a,s);i++){
+		for(int j=0;j<n;j++){
+			if(rs[i]==a[j])
+			cs[i]++;
+		}	   
+	}
+	return r;
+}
+int main(){
+                 const int a[s]={as};
+	int rs[s],cs[s]={0};
+	cout<<endl<<"cs["<<getcs(rs,cs,a,s)<<"]=";
+	for(int i=0;i<getset(rs,a,s);i++)
+		cout<<cs[i]<<" ";
+		return 0;
+}
+
+（3）
+#include<iostream> 
+using namespace std;
+#define s 8
+#define as 3,1,2,3,1,5,2,1
+
+int getxs(int rs[],int cs[],const int a[],int n){
+	int r=1;
+	rs[0]=a[0];
+	for(int i=1;i<n;i++){
+		for(int j=0;j<i;j++){
+			if(a[j]==a[i])
+		   break;
+			if(j==i-1)
+		   	rs[r++]=a[i];
+		} 
+	}
+	for(int i=0;i<r;i++){
+		for(int j=0;j<n;j++){
+			if(rs[i]==a[j])
+			cs[i]++;
+		}	   
+	}
+	int h,t;
+	for(int i=0;i<n;i++){
+		for(int j=i+1;j<n;j++)
+		   if(cs[i]<cs[j]){
+		   	h=cs[i];cs[i]=cs[j];cs[j]=h;
+		   	t=rs[i];rs[i]=rs[j];rs[j]=t;
+		   }  
+	}
+	for(int i=0;i<r;i++)
+	cout<<rs[i]<<":"<<cs[i]<<endl; 
+	return r;
+}
+
+int main(){
+	const int a[s]={as};
+	int rs[s],cs[s]={0};
+	getxs(rs,cs,a,s);
+	return 0;
+}
