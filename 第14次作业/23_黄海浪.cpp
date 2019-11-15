@@ -70,5 +70,19 @@ int main(){
             cout<<"不是三角形"<<endl;
         }
     }
+    cout<<endl;
+    {//附加
+        char arr[60];
+        cin.getline(arr, 51);
+        int len = strlen(arr);
+        for(int i=0;i<len;++i){
+            cout<<arr[i];
+            if(arr[i]<='Z'&&arr[i]>='A'){
+                arr[i] -= 'A'-'a';
+            }
+        }
+        cout<<endl;
+        cout<<arr<<endl;
+    }
     return 0;
 }
