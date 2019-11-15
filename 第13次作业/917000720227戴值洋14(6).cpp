@@ -19,9 +19,9 @@ int getRev(char a[])
 	return num;
 } 
 
-void sort(char a[][20])
+void sort(char a[][21])
 {
-	char b[20];
+	char b[21];
 	for(int i=0;i<MAX-1;i++)
 	{
 		for(int j=0;j<MAX-1-i;j++)
@@ -38,12 +38,12 @@ void sort(char a[][20])
 
 int main()
 {
-	char a[MAX][20];
+	char a[MAX][21];
 	for(int i=0;i<MAX;i++)
 	{
-		cin.getline(a[i],20);
+		cin.getline(a[i],21);
 	}
-	cout<<"°´ÄæÐòÊýÉýÐòÊä³ö½á¹ûÎª£º"<<endl;
+	cout<<"æŒ‰é€†åºæ•°å‡åºè¾“å‡ºç»“æžœä¸ºï¼š"<<endl;
 	sort(a);
 	for(int j=0;j<MAX;j++)
 	{
@@ -51,7 +51,7 @@ int main()
 		{
 			cout<<a[j][k];
 		}
-		cout<<" ÄæÐòÊýÎª£º"<<getRev(a[j])<<endl;
+		cout<<" é€†åºæ•°ä¸ºï¼š"<<getRev(a[j])<<endl;
 	}
 	return 0;
 }
