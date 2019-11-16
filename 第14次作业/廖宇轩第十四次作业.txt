@@ -1,0 +1,94 @@
+（1）#include <iostream>
+#include <math.h>
+using namespace std;
+
+typedef struct EE 
+{
+	double x1;
+	double  x2;
+	int m;
+}hs;
+ hs f(int a, int b, int c)
+{
+	double x = b * b - 4 * a*c;
+	 hs returning;
+	if (x > 0)
+	{
+		returning.x1 = (-b + sqrt(x)) / 2 * a;
+		returning.x2 = (-b - sqrt(x)) / 2 * a;
+		returning.m = 2;
+
+    }
+	else if (x == 0)
+	{
+
+		returning.x1 = -b/ 2 * a;
+		returning.x2 = -b / 2 * a;
+		returning.m = 1;
+
+	}
+	else
+	{
+		returning.x1 =-1;
+		returning.x2 = -1; 
+		returning.m = 0;
+
+	}
+	return returning;
+}
+ int main()
+ {
+	 int a, b, c;
+	 cin >> a >> b >> c;
+	 hs hsz = f(a, b, c);
+	 cout << hsz.m << endl;
+	 cout << hsz.x1 << endl;
+	 cout << hsz.x2 << endl;
+ }
+（2）#include <iostream>
+#include <math.h>
+using namespace std;
+
+typedef struct Point
+{
+	double x;
+	double  y;
+}poi;
+
+double dist(poi a, poi b)
+{
+	return sqrt((a.x - b.x)*(a.x - b.x) + (a.y - b.y)*(a.y - b.y));
+
+}
+typedef struct thrp
+{
+	poi m1;
+	poi m2;
+	poi m3;
+}tp;
+void  tra(tp t)
+{
+	double a = dist(t.m1, t.m2);
+	double b=dist(t.m3, t.m2);
+	double c = dist(t.m1, t.m3);
+	double max = a > (b > c ? b : c) ? a : (b > c ? b : c);
+		if (max <(a+b+c - max))
+		{
+			cout << "YES"<<endl;
+			cout << "周长为" << a + b + c<<endl;
+			double p = (a + b + c) / 2;
+			cout << "面积为" << sqrt(p*(p - a)*(p - b)*(p - c));
+
+        }
+		else
+		{
+			cout << "NO";
+		}
+}
+int main()
+{
+	double a, b, c, d, e, f;
+	cin >> a >> b >> c >> d >> e >> f;
+	tp tt = { {a,b},{c,d},{e,f} };
+	tra(tt);
+}
