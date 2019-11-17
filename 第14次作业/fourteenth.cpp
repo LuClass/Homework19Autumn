@@ -5,11 +5,11 @@ using namespace std;
 char a[1 << 10];
 
 int main() {
-	cin.getline(a,51);
+	cin.getline(a, 51);
 	cout << a << endl;
-	for (int i = 0; i < 51 && a[i]!='\0'; ++i) {
-		if ('a' <=a[i] && a[i] <= 'z') {
-			a[i] -= 'a' - 'A';
+	for (int i = 0; i < 51 && a[i] != '\0'; ++i) {
+		if ('A' <= a[i] && a[i] <= 'Z') {
+			a[i] += 'a' - 'A';
 		}
 	}
 	cout << a << endl;
