@@ -51,13 +51,13 @@ int main()
 {
 	int a[N]={3,1,2,3,1,5,2,1},rs[999];
 	int num=getSet(rs,a,N);
-	cout<<"¼¯ºÏÖĞÔªËØµÄ¸öÊı"<<num<<endl;
+	cout<<"é›†åˆä¸­å…ƒç´ çš„ä¸ªæ•°"<<num<<endl;
 	for(int i=0;i<num;i++)
 	  cout<<rs[i]<<'\t';
 	cout<<endl;
-	cout<<"¸÷ÔªËØ³öÏÖ´ÎÊı"<<endl;
+	cout<<"å„å…ƒç´ å‡ºç°æ¬¡æ•°"<<endl;
 	cishu(rs,num);
-	cout<<"½µ´ÎÅÅĞòºó£¬¸÷ÔªËØ³öÏÖ´ÎÊı"<<endl;
+	cout<<"é™æ¬¡æ’åºåï¼Œå„å…ƒç´ å‡ºç°æ¬¡æ•°"<<endl;
  	paixu(rs,num);
 	return 0;
 }
