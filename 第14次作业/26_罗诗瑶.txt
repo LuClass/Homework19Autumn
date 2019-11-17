@@ -1,4 +1,4 @@
-（1）
+//（1）
 #include<iostream>
 #include<iomanip>
 #include<math.h>
@@ -51,7 +51,7 @@ int main(){
 }
 
 
-（2）
+//（2）
 #include<iostream>
 #include<iomanip>
 #include<math.h>
@@ -105,3 +105,23 @@ int main(){
 	system("pause");
 	return 0;
 }
+
+
+//补充
+#include<iostream>
+using namespace std;
+int main(){
+	char c[50];
+	cin.getline(c,50);
+	cout<<c<<endl;
+	int n=0;
+	for(int j=0;c[j]!='\0';j++){
+		n++;
+	}
+	for(int i=0;i<n;i++){
+		if(c[i]>='A' && c[i]<='Z')
+			c[i]+=32;
+	}
+	cout<<c<<endl;	
+	return 0;
+} 
