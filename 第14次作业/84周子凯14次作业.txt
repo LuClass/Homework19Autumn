@@ -1,0 +1,103 @@
+﻿
+＃包括< iostream的>
+＃包括<字符串>
+＃包括< CMATH >
+使用 名称空间 std ;
+
+struct  QiuGen {
+	双倍 x1，x2;
+	字符串s;
+	INT判断;
+};
+
+QiuGen f（int a，int b，int c）{
+	邱根q;
+	int d = b * b- 4 * a * c;
+	如果（d> 0）{
+		q。法官 = 2 ;
+		q。x1 =（-b + sqrt（d））/ 2 * a;
+		q。x2 =（-b- sqrt（d））/ 2 * a;
+		q。s = “函数有两个不同实根！” ;
+	}
+
+	否则 如果（d == 0）{
+		q。法官 = 1 ;
+		q。x1 = q x2 =（-b + sqrt（d））/ 2 * a;
+		q。s = “函数有一个实根！” ;
+	}
+
+	其他 {
+		q。判断 = 0 ;
+		q。s = “函数无实根！” ;
+	}
+
+	返回 q;
+}
+int  main（）{
+	int a，b，c;
+	cin >> a >> b >> c;
+	QiuGen q = f（a，b，c）;
+	if（q。法官 == 0 || q。法官 == 1 || q。法官 == 2）
+	cout << q。s << endl;
+	如果（q。法官 == 1 || q。法官 == 2）
+	cout << “ x1 = ” << q。x1 << endl;
+	如果（q。法官 == 2）
+	cout << “ x2 = ” << q x2 << endl;
+	返回 0 ;
+
+} 
+  
+＃包括< iostream的>
+＃包括< math.h >
+使用 名称空间 std ;
+
+结构 点 {
+	整数 x，y;
+};
+
+struct  Trangle {
+	int x，y，z;
+};
+
+void  distanFunc（点 a，点 b）{
+	COUT << SQRT（（一个。X -b。X）*（一个。X -b。X）+（一个。ý -b。Ý）*（一个。ý -b。Ý））<< ENDL;	
+}
+
+无效 tranFunc（三角形t）{
+	如果（吨。X +吨。ý -t。ž <= 0 ||吨。ý +吨。Ž -t。X <= 0 ||吨。Ž +吨。X -t。Ŷ <= 0）{
+		cout << “不能构成三角形！” ;
+	}
+	其他 {
+		cout << “周长为：” << t。x + t y + t z << endl;
+		双 P =（双）（吨X +吨ý。+ T Ž）/ 2 ;
+		COUT << “面积为：” << SQRT（P *（PT X）*（PT Ý）*（PT Ž））<< ENDL;
+	}
+}
+int  main（）{
+	点 a，b;
+	cin >> a。x >> a Ÿ ;
+	cin >> b。x >> b Ÿ ;
+	distanFunc（a，b）;
+	三角形t;
+	cin >> t x >> t y >> t。z ;
+	tranFunc（t）;
+	返回 0 ;
+} 
+
+＃包括< iostream的>
+使用 名称空间 std ;
+int  main（）{
+	char str [ 51 ]，str_cpy [ 51 ];
+	cin。getline（str，51）;
+	int i = 0 ;
+	而（str [i]！= 0）{
+		str_cpy [i] = str [i];
+		如果（str [i]> = 65 && str [i] <= 90）
+			str [i] = str [i] + 32 ;
+			i ++;
+	}
+	cout << str_cpy << endl;
+	cout << str << endl;
+	返回 0 ;
+}
+
