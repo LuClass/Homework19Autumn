@@ -94,3 +94,19 @@ int main() {
 	return 0;
 
 }
+附加：将字符串中大写字母改为小写。
+#include<iostream>
+using namespace std;
+int main() {
+	char a[50];
+	cin.getline(a, 50); 
+	cout << "before:" << a << endl;
+	for (int i = 0; i < 50; i++)
+	{
+		if (a[i] >= 'A'&&a[i] <= 'Z')
+			a[i] = a[i]+32;
+	}
+	cout << "after:" << a << endl;
+	system("pause");
+	return 0;
+}
