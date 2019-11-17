@@ -1,74 +1,96 @@
-第十三次作业
- 144.14.（8）
+第十四次作业
+ 174.14.（1）
  #include<iostream>
-#include<string.h>
+#include<math.h>
 using namespace std;
-int getWordCount(char a[])
+//构建结构体确定方程的根和根的个数。 
+struct Result{
+	double x,x1,x2;
+	int count;
+};
+//构建返回值为结构体的函数，方程系数作为实参，判断方程根的个数并且为结构体赋值。 
+Result f(int a,int b,int c)
 {
-	int count=1;
-	for(int i=0;i<=strlen(a);i++)
+	Result R;
+	double delta=b*b-4*a*c;
+	if(delta<0)
+	   R.count=0;
+	else if(delta==0)
+	   {
+	   	R.count=1;
+	   	R.x=-b/2/a;
+	   }
+	else
 	{
-		if(a[i]=='\t'||(a[i]==' '&&a[i+1]!=' '))
-		count++;
+		R.count=2;
+		R.x1=(-b+sqrt(delta))/2/a;
+		R.x2=(-b-sqrt(delta))/2/a;
 	}
-	return count;
+	return R;  
 }
 int main(){
-	 char a[100];
-	 cin.getline(a,100);
-	 cout<<"word count="<<getWordCount(a)<<endl;
-	 return 0;
-}
-（6）
- #include<iostream>
-#include<string.h>
-using namespace std;
-#define MAX 3
-int getRev(char a[])
-{
-	int count=0;
-	//遍历字符串，并且比较大小，遇到字符串的结尾符'\0'时结束，否则会继续进行！ 
-	for(int i=0;a[i]!='\0';i++)
-	{
-		for(int j=i+1;a[j]!='\0';j++)
-		{
-			if(a[i]>a[j])
-			   count++;
-		}
-	}
-	return count;
-}
-
-int main()
-{
-	//确定输入MAX个字符串，每个字符串字符数不超过20个。 
-	char a[MAX][20];
-	//得到输入的字符串 
-	for(int i=0;i<MAX;i++)
-	{
-		cin>>a[i];
-		cout<<"字符串"<<a[i]<<"的逆序个数是"<<getRev(a[i]) <<endl;
-	}
-	int t[MAX];
-	for(int i=0;i<MAX;i++)
-	{
-		t[i]=getRev(a[i]);
-	}
-	//冒泡排序法，将两个有对应关系的数组一起相应排序。 
-	for(int j=0;j<MAX;j++)
-	{
-		for(int i=0;i<MAX-1;i++)//保证其中最大的下标不越界，即i+1<MAX. 
-	    {
-	         if(t[i]>t[i+1])
-	        {
-	        	int temp1;char temp2[20];
-	        	temp1=t[i];strcpy(temp2,a[i]);
-	        	t[i]=t[i+1];strcpy(a[i],a[i+1]);
-	        	t[i+1]=temp1;strcpy(a[i+1],temp2);
-	     	}
-		}
-	}
-	for(int i=0;i<MAX;i++)
-		cout<<a[i]<<":"<<t[i]<<endl;
+	int a,b,c;
+	cin>>a>>b>>c;
+	Result result=f(a,b,c);
+	if(result.count==0)
+		cout<<"The equation has no roots"<<endl;
+	else if(result.count==1)
+	    cout<<"The equation has one root :x="<<result.x<<endl;
+	else
+	    cout<<"The equation has two roots :x1="<<result.x1<<"  x2= "<<result.x2<<endl;
 	return 0;
+}
+（2）
+#include<iostream>
+#include<math.h>
+using namespace std;
+//构建点坐标的结构体
+struct point {
+	double x, y;
+};
+//编写求两点间距离的函数
+double distance(point point1, point point2) //以结构体为形参，调用x,y代入计算 
+{
+	double d = sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
+	return d;
+}
+//构建三角形结构体，成员是三边长. 
+struct triangle {
+	double d1 ;
+	double d2 ;
+	double d3 ;
+};
+//计算三角形周长和面积，三角形结构体引用作为形参 
+double getperimeter(triangle &t1)
+{
+	return t1.d1 + t1.d2 + t1.d3;
+}
+double getarea(triangle &t1)
+{
+	return sqrt(getperimeter(t1)*(getperimeter(t1) - t1.d1)*(getperimeter(t1) - t1.d2)*(getperimeter(t1) - t1.d3));
+}
+//main函数
+int main() {
+	point p1, p2, p3;
+	double x1, y1;
+	cin >> x1 >> y1;
+	p1 = { x1,y1 };
+	double x2, y2;
+	cin >> x2 >> y2;
+	p2 = { x2,y2 };
+	double x3, y3;
+	cin >> x3 >> y3;
+	p3 = { x3,y3 };
+
+	triangle T = { distance(p1,p2),distance(p1,p3),distance(p2,p3) };//结构体triangle的初始化！区别在结构体里面初始化的话，再加上另一个结构体point类型的成员，不好搞。
+	if (fabs(T.d1 + T.d2) > T.d3 && fabs(T.d1 - T.d2) < T.d3)
+	{
+		cout << "T's perimeter is " << getperimeter(T) << endl;
+		cout << "T's area is " << getarea(T) << endl;
+	}
+	else
+		cout << "points p1,p2,p3 can't form triangle! ";
+	system("pause");
+	return 0;
+
 }
