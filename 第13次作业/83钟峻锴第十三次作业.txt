@@ -1,0 +1,80 @@
+(6)
+
+#include <iostream>
+#include <string.h>
+#define MAX 3
+using namespace std;
+int getRev(char a[])
+{
+	int count=0,i,j,n;
+	n=strlen(a);
+	for(i=0;i<n;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			if(a[i]>a[j])
+			count++;
+		}
+	}
+	return count;
+}
+
+int main()
+{
+	int i=0;
+	char a[MAX][21];
+	for(;i<MAX;i++)
+	{
+	cin.getline(a[i],20);
+	}
+	int count[MAX];
+	for (i=0;i<MAX;i++)
+	count[i]=getRev(a[i]);
+	char tem[21];
+	int tmp,j;
+	for (i=0;i<MAX-1;i++)
+	{
+		for (j=i+1;j<MAX;j++)
+		{
+			if (count[i]<count[j])
+			{	tmp=count[j];
+				count[j]=count[i];
+				count[i]=tmp;
+				strcpy(tem,a[i]);
+				strcpy(a[i],a[j]);
+				strcpy(a[j],tem);
+			}
+		}
+	}
+	for (i=0;i<MAX;i++)
+	{
+		cout<<a[i]<<" "<<count[i]<<endl;
+	}
+	return 0;
+}
+
+(8)
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+int getWordCount(char a[])
+{
+	int count,i,n;
+	n=strlen(a);
+	if(a[0]==32||a[0]==9)
+	count=0;
+	else
+	count=1;
+	for(i=0;i<n-1;i++)
+	if(((a[i]==32)||(a[i]==9))&&((a[i+1]!=32)&&(a[i+1]!=9)))
+	count++;
+	return count;
+}
+int main()
+{
+	char a[999];
+	cin.getline(a,999);
+	cout<<getWordCount(a);
+	return 0;
+}
