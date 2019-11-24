@@ -1,54 +1,93 @@
-﻿11.⑷
-#include <iostream>
-using namespace std;
-int main()
-{
-	int count=0;
-  char x=0;
-  do{
-    x = cin.get();
-    if(x >='0'&&x<='9')
-	 count++;
-    }
-  while(x != '\n');
-  cout<<"count="<<count<<endl;
-  return 0;
-}
-⑺
-#include <iostream>
-#include <iomanip>
-using namespace std;
-int main()
-{
-    cout<<"    "<<1<<"/"<<2<<endl;
-	int a=2,b=1,c,n=2;
-	while (n<=20){
-		c=a,a=a+b,b=c;
-		n++;
-		cout<<setw(5)<<a<<"/"<<b<<endl;
-          }
-		return 0;
-}
-⑻
-
-#include <iostream>
-using namespace std;
-int main(){
-          int x;
-	cout<<"输入正整数";
-	cin>>x;
-	for (int a=1;a<=x;a++){
-		if (x%a==0)
-		cout<<"它的分子有"<<a<<endl; 
-	} 
-		for (int y=2;y<=100;y++){
-          int s=0;
-			for (int b=1;b<y;b++){
-		    if (y%b==0)
-		    s+=b;
-	        }
-		if (s==y)
-		cout<<"完全数有"<<s<<endl; 
-		}
-	return 0;
-}
+(3)
+#include<iostream>
+ using namespace std;
+ int getMax(int a, int b) {
+ 	int temp;
+ 	if (a < 0)
+ 		a = -a;
+ 	if (b < 0)
+ 		b = -b;
+ 	if (a < b) {
+ 		temp = b;
+ 		b = a;
+ 		a = temp;
+ 	}
+ 	while (b != 0) {
+ 		temp = a % b;
+ 		a = b;
+ 		b = temp;
+ 	}
+ 	return a;
+ }
+ struct Fraction {
+ 	int a, b;
+ 	Fraction(int x, int y) :a(x), b(y) {
+ 		if (b == 0) {
+ 			throw "denominator is zero";
+ 		}
+ 		if (a == 0) {
+ 			b = 1;
+ 			return;
+ 		}
+ 		int t = getMax(a, b);
+ 		if (t != 1) {
+ 			a = a / t;
+ 			b = b / t;
+ 		}
+ 	}
+ 	void print() {
+ 		cout << "(" << a << "/" << b << ")";
+ 	}
+ };
+ Fraction operator +(Fraction f1, Fraction f2) {
+ 	return Fraction(f1.a*f2.b + f1.b*f2.a, f2.b*f1.b);
+ }
+ Fraction operator -(Fraction f1, Fraction f2) {
+ 	return Fraction(f1.a*f2.b - f1.b*f2.a, f2.b*f1.b);
+ }
+ Fraction operator *(Fraction f1, Fraction f2) {
+ 	return Fraction(f1.a*f2.a, f2.b*f1.b);
+ }
+ Fraction operator /(Fraction f1, Fraction f2) {
+ 	return Fraction(f1.a*f2.b, f2.a*f1.b);
+ }
+ using f = Fraction;
+ int main() {
+ 	f f1 = operator +(f(1, 2), f(2, 3));
+ 	f1.print;
+ 	return 0;
+ }
+(4)
+#include<iostream>
+ using namespace std;
+ 	enum type{percent,level};
+ struct Course{
+ 	char CID[20];
+ 	char Cname[20];
+      type a1;
+ }; 
+ union kaohechengji{
+ 	float x;
+ 	char y[2];
+ };
+ struct xueshenggrades{
+ 	char xuehao[20];
+ 	char xueshengname[20];
+ 	Course c1;
+ 	kaohechengji m1;
+ };
+  void PrintAGrade(xueshenggrades *m){
+  	if(m==NULL) return ;
+  	cout<<m->xuehao<<"  "<<m->xueshengname<<"  "<<m->c1.CID<<"  "<<m->c1.Cname<<" "<<m->c1.a1<<" ";
+  	if(m->c1.a1==0)
+  	cout<<m->m1.x<<endl;
+  	else
+  	cout<<m->m1.y[2]<<endl;
+  }
+  int main(){
+  	xueshenggrades a={"123","Tom",{"0001","Math"},{90.0}};
+  	xueshenggrades b={"124","Jerry",{"0002","CPP"},{'A'}};
+  	PrintAGrade(&a);
+  	PrintAGrade(&b);
+  	return 0;
+  } 
