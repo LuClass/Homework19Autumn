@@ -107,3 +107,82 @@ int main(){
 
 
 //（4）
+#include<iostream>
+#include<string.h>
+#include<string>
+#include<stdlib.h>
+using namespace std;
+#define N 1005
+struct Course{
+	char ID[5];
+	string name;
+	int way;
+}cl[N]; 
+
+struct Student{
+	char num[10];
+	string name;
+	char ID[5];
+	union Score{
+		int s;
+		char ch;
+	}score[N];
+}st[N];
+
+
+int main(){
+	cout<<"请输入课程门数和查询学生人数"<<endl; 
+	int n,m;
+	cin>>n>>m;//课程门数n，查询学生人数 m
+	//输入课程信息 
+	for(int i=0;i<n;i++){
+		cout<<"请输入课程编号和名称:"; 
+		cin>>cl[i].ID>>cl[i].name; 
+		cout<<endl;
+		cout<<"输入课程考核方式(“1”为百分制，“2”为等级制):";
+		cin>>cl[i].way;
+		cout<<"\n";
+		system("cls");
+	}
+	
+	//输入查询学生信息 
+	for(int i=0;i<m;i++){
+		cout<<"请输入学生学号和姓名:";
+		cin>>st[i].num>>st[i].name;
+		cout<<endl;
+		for(int k=0;k<n;k++){
+			cout<<"请输入要查询的课程编号:";
+			cin>>st[i].ID;
+			
+			for(int j=0;j<n;j++){
+				//判断对应课程考核方式
+				if(!strcmp(st[i].ID,cl[j].ID)){
+					if(cl[j].way==1){
+						cout<<"请输入学生百分成绩:";
+						cin>>st[i].score[j].s; 
+					}
+					else if(cl[j].way==2){
+						cout<<"请输入学生等级成绩:";
+						cin>>st[i].score[j].ch; 
+					}
+				}
+			}
+		}
+		system("cls");
+	}
+	cout<<"\n\n";
+	//输出所有学生成绩 
+	for(int i=0;i<n;i++){
+		cout<<st[i].num<<' '<<st[i].name<<' ';
+		for(int j=0;j<m;j++){
+			if(cl[j].way==1){
+				cout<<cl[j].name<<":"<<st[i].score[j].s<<' ';
+			}
+			else
+				cout<<cl[j].name<<":"<<st[i].score[j].ch<<' ';
+		}
+		cout<<"\n";
+	}	
+
+	return 0;
+} 
