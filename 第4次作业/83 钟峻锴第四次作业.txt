@@ -1,0 +1,62 @@
+(4)
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a,b=0;
+	while(1)
+	{a=cin.get();
+	if(a=='\n')
+	break;
+	if(a<='9'&&a>='0')
+	b++;
+  }
+    cout<<b;
+	return 0;
+}
+
+
+
+
+(7)
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	int a=1,b=2,c,d=2;
+	cout<<a<<"/"<<b<<setw(5)<<" ";
+	for(a=3,b=2,c,d;d<=20;d++)
+	{cout<<a<<"/"<<b<<setw(5)<<" ";
+	c=a,a+=b,b=c;
+    }
+    return0
+}
+
+
+
+(8)
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x,y,z,a,b,c;
+	cout<<"输入一个正整数x=";
+	cin>>x;
+	for(x,a=1;a<=x;a++)
+	{if(x%a==0)
+	cout<<a<<" "; 
+	}
+	cout<<endl;
+    for(y=2,b=1;y<=100;y++)
+    {for(b=1,c=0;b<=y-1;b++)
+    {if(y%b==0)
+    c+=b;
+    }
+	if(c==y)
+    cout<<y<<' ';
+    }
+    return 0;
+}
+
+

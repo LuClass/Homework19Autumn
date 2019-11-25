@@ -1,0 +1,71 @@
+（2）
+using namespace std;
+#include <iostream>
+int C(int n,int k)
+{int x,y,z,m;
+  if(n<=k)
+   cout<<"please correct your input";
+  else {
+    for(x=1;n>=1;n--)
+    x*=n;
+    for(y=1;k>=1;k--)
+    y*=k;
+    for(z=1,m=n-k;m>=1;m--)
+    z*=m;
+    int w=x/(y*z);
+    cout<<"结果是："<<w<<endl;}
+}
+main()
+{C(4,2);
+ C(6,4);
+ C(8,7);
+ return 0;
+}
+
+
+
+（4）using namespace std;
+#include <iostream>
+bool isPrime(unsigned n)
+{if(n<2)
+  return false;
+ if(n==2||n==3||n==5||n==7)
+  return true;
+ for(int i=2;i*i<=n;i++)
+    if(n%i==0)
+      return false;
+    return true ; 
+	
+}
+main()
+{cout<<"500以内的孪生素数有："<<endl;
+for(int x=1,y=3;x<=498;x++,y++)
+    if(isPrime(x)&&isPrime(y))
+      cout<<x<<","<<y<<endl;
+    return 0;
+}
+
+
+(5)using namespace std;
+#include <iostream>
+bool isPrime(unsigned n)
+{if(n<2)
+  return false;
+ if(n==2||n==3||n==5||n==7)
+  return true;
+ for(int i=2;i*i<=n;i++)
+    if(n%i==0)
+      return false;
+    return true ; 
+	
+}
+main()
+{int x,i,t;
+ cin>>x;
+ cout<<x<<"="<<"1";
+ for(i=2;;i++)
+  if(isPrime(i))
+     for(int t=x%i;t==0;t=x/i)
+        cout<<"*"<<i;
+    
+

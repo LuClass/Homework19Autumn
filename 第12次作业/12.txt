@@ -1,0 +1,74 @@
+P144  14.（7）
+#include <iostream>
+#include <cstring>
+using namespace std;
+int getSet(int rs[],const int a[],int n){
+	int count=0;
+	for(int i=0;i<n;++i){
+		int j;
+		for(j=0;j<count;++j){
+			if(a[i]==rs[j]){
+				break;
+			}
+		}
+		if(j==count){
+			rs[count++]=a[i];
+		}
+	}
+	return count;
+} 
+int getSet(int rs[],int cs[],const int a[],int n){
+	int count=0;
+	for(int i=0;i<n;++i){
+		int j;
+		for(j=0;j<count;++j){
+			if(a[i]==rs[j]){
+				++cs[j];
+				break;
+			}
+		}
+		if(j==count){
+			++cs[count];
+			rs[count++]=a[i];
+		}
+	}
+	return count;
+} 
+int getset(int rs[],int cs[],const int a[],int n){
+	int count=0;
+	for(int i=0;i<n;++i){
+		int j;
+		for(j=0;j<count;++j){
+			if(a[i]==rs[j]){
+				++cs[j];
+				break;
+			}
+		}
+		if(j==count){
+			++cs[count];
+			rs[count++]=a[i];
+		}
+	}
+	for(int i=0;i<count-1;++i){
+		for(int j=0;j<count-i-1;++j){
+			if(cs[j]<cs[j+1]){
+				int t=cs[j];cs[j]=cs[j+1];cs[j+1]=t;
+				t=rs[j];rs[j]=rs[j+1];rs[j+1]=t;
+			}
+		}
+	}
+	return count;
+}
+int main()
+{
+	int a[8]={3,1,2,3,1,5,2,1};
+	int b[20];
+	int c[20];
+	memset(c,0,sizeof(c));
+	int t=getset(b,c,a,8);
+	for(int i=0;i<t;++i){
+		cout<<b[i]<<' '<<c[i]<<endl;
+	}
+	
+	return 0;
+}

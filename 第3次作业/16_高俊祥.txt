@@ -1,0 +1,54 @@
+11.(1)
+#include<iostream>
+using namespace std;    
+int main() {
+	int num, a[32];
+		cout << "请输入一个整数：";
+		cin >> num;
+		if (num > 0) {
+			for (int i = 0; i < 32; i++) {
+				a[i] = num % 2;
+				num /= 2;
+			}
+			cout << "二进制形式为：";
+			for (int i = 31; i >= 0; i--) {
+				cout << a[i];
+			}
+		}
+		else {
+			num = -num - 1;
+			for (int i = 0; i < 32; i++) {
+				a[i] = num % 2;
+				num /= 2;
+			}
+			cout << "二进制表示形式为：";
+			for (int i = 31; i >= 0; i--) {
+				cout << (a[i] + 1) % 2;
+			}
+		}
+		cout << endl;
+}
+11.(6)
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main(){
+	double a,b,c;
+	double x1,x2;
+	cout<<"请输入a,b,c：";
+	cin>>a>>b>>c;
+                double temp=b*b-4*a*c;
+                if(temp<0){
+		cout<<"该方程无解"; 
+	}
+	else if(temp==0){
+                                cout<<"该方程有一解（两相同解）"<<endl;
+		x1=-b/(2*a);
+		cout<<"x="<<x1<<endl;
+	}
+	else{
+		x1=(-b+sqrt(temp))/(2*a);
+		x2=(-b-sqrt(temp))/(2*a);
+		cout<<"该方程有两解："<<endl<<"x1="<<x1<<endl<<"x2="<<x2<<endl;;
+	}
+} 

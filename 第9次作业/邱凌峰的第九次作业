@@ -1,0 +1,44 @@
+（9）
+#include<iostream>
+#include<math.h>
+#define S(p,q,i) (p+q+i)/2
+#define AREA(a,b,c,d) sqrt(a*(a-b)(a-c)(a-d)) 
+using namespace std;
+int main(){
+double x,y,z,area;
+cin>>x>>y>>z;
+area=AREA(S(x,y,z),x,y,z);
+cout<<"面积等于"<<area；
+return 0；
+}
+
+
+（8）
+//main.cpp
+int main(){
+int i,h;
+cin>>i>>h;
+//max.cpp
+int max;
+if(i<=h){
+i=h;
+cout<<i;
+}
+else{
+cout<<i;
+}
+#hex.cpp
+#include<iostream>
+#include"main.cpp"
+#include"max.cpp"
+using namespace std;
+int m;
+for(;i>=16;i=i/16){
+m=i%16;
+cout<<m;
+}
+cout<<i;
+return 0;
+}
+
+

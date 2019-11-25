@@ -1,0 +1,77 @@
+﻿  //水仙花
+#include<iostream>
+using namespace std;
+int main()
+{
+	int i,j,k,a,b,x;
+	cin>>a>>b
+		for (x=a;x<=b;x++)
+		{
+			i=x%10;     //个位 
+			j=x/10%10;   //十位 
+			k=x/100;     //百位 
+			if (x==(i*i*i+j*j*j+k*k*k))
+			cout<<x<<endl;
+		}	
+	return 0;
+}
+
+//回文数
+#include<iostream>
+using namespace std;
+
+bool isHuiws(unsigned long long n)
+{
+	if (n<0||(n>0&&n%10==0))
+	return false;
+	unsigned long long a=0;
+	while (n>a)
+	{
+		a=a*10+n%10;
+		n=n/10;
+	}
+	return ((n==a)||(n==a/10));
+}
+
+int main(void)
+{
+	unsigned long long n=0; 
+	cout<<"请输入一个正整数"<<endl;
+	cin>>n;	
+	if (isHuiws(n))
+	cout<<"回文数"<<endl;
+	else 
+	cout<<"不是回文数"<<endl;
+	return 0;
+} 
+
+//完全数
+#include<iostream>
+using namespace std;
+
+bool isWanshu(unsigned long n)
+{
+	unsigned long a=0;
+	for (unsigned long b=1;b<n;b++)
+	{
+		if (a%b==0)
+		{
+			a=a+b;
+		}
+	}
+	if (a==n)
+	return true;
+	else
+	return false;
+} 
+
+int main ()
+{
+	unsigned long n;
+	cin>>n;
+	if (isWanshu(n))
+	cout<<"是完全数"<<endl;
+	else 
+	cout<<"不是完全数"<<endl;
+	return 0;
+}
