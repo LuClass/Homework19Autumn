@@ -1,0 +1,33 @@
+11.(1)#include <iostream>
+   using namespace std;
+   int main (void)
+{
+       long int a;
+       long j=7,k
+       unsigned long int i=2147483647;
+       cin>>a;
+       while(j>=0){
+       k=a&i;
+       cout<<(k>>j--)<<" ";
+      }
+}
+
+(6)#include <iostream>
+   #include <math.h>
+   using namespace std;
+   int main (void)
+{
+      float a,b,c,p,x1,x2;
+      p=b*b-4*a*c;
+      cin>>a>>b>>c;
+      if(p>0){
+        x1=(-b+sqrt(p))/(2*a);
+        x2=(-b-sqrt(p))/(2*a);
+        cout<<"有两个根:x1=""<<x1<<" "<<"x2="<<x2<<endl;}
+      else if(p==0){
+        x1=x2=-b/(2*a);
+        cout<<"有一个根:x1=x2=""<<x1<<endl;}
+           else{
+               cout<<"方程无根"<<endl;}
+      renturn 0;
+      }

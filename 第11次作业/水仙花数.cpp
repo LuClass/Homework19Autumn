@@ -1,19 +1,25 @@
 #include <iostream>
-using namespace  std;
+using namespace std;
+#include <math.h>
 int main()
 {
-	int i,j,a,b,c;
+	int i,j;
+	cout<<"请输入两个整数i与j(i<j):";
 	cin>>i>>j;
-	if(i>=j)
-	   return false;
-	else
-	   for(int k=i;k<=j;k++)
-	   {
-	   a=k/100;
-	   b=k/10%10;
-	   c=k%10;
-	   if(a*100+b*10+c==a*a*a+b*b*b+c*c*c) 
-	   cout<<k<<' ';  
-	   }
-	return 0;  
-}
+	int sum,a,K; 
+	cout<<i<<"到"<<j<<"之间的水仙花数有：";
+	for(int k=i;k<=j;k++)
+	{
+		sum=0;
+		K=k;
+		while(K!=0)
+		{
+			a=K%10;
+			sum+=pow(a,3);
+			K/=10;
+		}
+		if(sum==k)
+		cout<<k<<" ";
+	}
+	return 0;
+} 

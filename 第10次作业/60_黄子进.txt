@@ -1,0 +1,309 @@
+14.(2).
+#include<iostream>
+using namespace std;
+void getRandom(int a[],int n)
+{
+	srand(a[0]);
+	for(int i=0;i<n;i++)
+	a[i]=rand()%101;
+}
+int getMax(const int a[],int n)
+{
+	int max=a[0];
+	for(int i=1;i<n;i++)
+	if(max<a[i])
+	max=a[i];
+	return max;
+}
+void print(int a[],int n)
+{
+	for(int i=0;i<n;i++)
+	cout<<a[i]<<endl;
+}
+int main()
+{
+	int a[8];
+	getRandom(a,8);
+	print(a,8);
+	cout<<getMax(a,8);
+}
+		if(a[i])
+		{
+			m++;
+			if(m%5==0)
+			out(a,i);
+		}
+		if(i=20)
+		i=-1;
+	}
+	return chiji(a,21);
+}
+int main()
+{
+	int a[21]={0};
+	start(a,21);
+	cout<<process(a,21)+1;
+	
+}
+(5).
+#include<iostream>
+using namespace std;
+bool isSu(int n)
+{
+	if(n==2|| (n==3) ||(n==5)||(n==7))
+	return true;
+	if(n%2==0)
+	return false;
+	for(int i=3;i*i<=n;i+=2)
+	if(n%i==0)
+	return false;
+	return true;
+}
+int sumWei(int n)
+{
+	int sum = 0;
+	while(n!=0)
+	{
+		sum+=n%10;
+		n/=10;
+	}
+	return sum;
+}
+int sumSu(int n)
+{
+	int sum=0,tem=n;
+	while(tem%2==0)
+	{
+		tem/=2;
+		sum+=2;
+	}
+	for(int i = 3;i<=n;i+=2)
+		while(tem%i==0)
+		{
+			tem/=i;
+			sum+=sumWei(i);
+		}
+	return sum;
+}
+bool isSmith(int n)
+{
+	if(isSu(n)||sumSu(n)!=sumWei(n))
+	return false;
+	return true;
+}
+int main()
+{
+	int a;
+	cin>>a;
+	if(a<0)
+	a=4;
+	while(!isSmith(a))
+	a++;
+	cout<<a;
+}
+(10)
+#include<iostream>
+using namespace std;
+void out(int a[],int n)
+{
+	a[n]-=1;
+}
+int survived(int a[],int n)
+{
+	int count=0;
+	for(int i = 0;i<n;i++)
+	if(a[i])
+	count++;
+	return count;
+}
+void start(int a[],int n)
+{
+	for(int i=0;i<n;i++)
+	a[i]=1;
+}
+int chiji(int a[],int n)
+{
+	int i = 0;
+	for(;i<n;i++)
+	if(a[i])
+	break;
+	return i;
+}
+int process(int a[],int n)
+{
+	int m=0;
+	for(int i = 0;survived(a,21)!=1;i++)
+	{
+		if(a[i])
+		{
+			m++;
+			if(m%5==0)
+			out(a,i);
+		}
+		if(i=20)
+		i=-1;
+	}
+	return chiji(a,21);
+}
+int main()
+{
+	int a[21]={0};
+	start(a,21);
+	cout<<process(a,21)+1;
+	
+}
+
+		case 2:cout<<'A';break;
+	}
+	X2=(rand()%38)+2;
+	Y2=(rand()%18)+2;
+	gotoxy(X2,Y2);
+	switch(d2=rand()%3)
+	{
+		case 0:cout<<'B';break;
+		case 1:cout<<'C';break;
+		case 2:cout<<'A';break;
+	}
+	X3=(rand()%38)+2;
+	Y3=(rand()%18)+2;
+	gotoxy(X3,Y3);
+	switch(d3=rand()%3)
+	{
+		case 0:cout<<'B';break;
+		case 1:cout<<'C';break;
+		case 2:cout<<'A';break;
+	}
+}
+void draw()
+{
+	for(int x=1;x<40;x+=2)
+	{
+		gotoxy(x,1);
+		cout<<'_';
+		gotoxy(x,20);
+		cout<<'_';
+	}
+	for(int x=2;x<20;x++)
+	{
+		gotoxy(1,x);
+		cout<<'|';
+		gotoxy(40,x);
+		cout<<'|';
+	}
+	gotoxy(41,11);
+	cout<<"step:"<<step;
+	if(exist1)
+	{gotoxy(X1,Y1);
+	switch(d1)
+	{
+		case 0:cout<<'B';break;
+		case 1:cout<<'C';break;
+		case 2:cout<<'A';break;
+	}}
+	if(exist2)
+	{gotoxy(X2,Y2);
+	switch(d2)
+	{
+		case 0:cout<<'B';break;
+		case 1:cout<<'C';break;
+		case 2:cout<<'A';break;
+	}}
+	if(exist3)
+	{gotoxy(X3,Y3);
+	switch(d3)
+	{
+		case 0:cout<<'B';break;
+		case 1:cout<<'C';break;
+		case 2:cout<<'A';break;
+	}}
+}
+void xin()
+{
+	char ch;
+	draw();
+		gotoxy(x,y);
+		cout<<'A';
+		ch=getch();
+		switch(ch)
+		{
+			case 'w':y--;
+			break;
+			case 's':y++;
+			break;
+			case 'a':x--;
+			break;
+			case 'd':x++;
+			break;
+			default:m--;step--;break;
+		}
+		step++;
+}
+void jin()
+{
+	char ch;
+	draw();
+		gotoxy(x,y);
+		cout<<'B';
+		ch=getch();
+		switch(ch)
+		{
+			case 'w':y--;
+			break;
+			case 's':y++;
+			break;
+			case 'a':x--;
+			break;
+			case 'd':x++;
+			break;
+			default:m--;step--;break;
+		}
+		step++;
+}
+void mao()
+{
+	char ch;
+	draw();
+		gotoxy(x,y);
+		cout<<'C';
+		ch=getch();
+		switch(ch)
+		{
+			case 'w':y--;
+			break;
+			case 's':y++;
+			break;
+			case 'a':x--;
+			break;
+			case 'd':x++;
+			break;
+			default:m--;step--;break;
+		}
+		step++;
+}
+void judge()
+{
+	if(x==X1&&y==Y1&&(m%3)==d1)
+	exist1=false;
+	if(x==X2&&y==Y2&&(m%3)==d2)
+	exist2=false;
+	if(x==X3&&y==Y3&&(m%3)==d3)
+	exist3=false;
+}
+int main()
+{
+	char ch;
+	Rand();
+	while(exist1||exist2||exist3)
+	{
+		switch(m%3)
+		{
+			case 0:xin();break;
+			case 1:jin();break;
+			case 2:mao();break;
+		}
+		judge();
+		clrscr();
+		m++;
+	}
+	cout<<"you win with "<<step<<" step!";
+}

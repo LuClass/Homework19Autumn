@@ -1,0 +1,88 @@
+#include<iostream>
+using namespace std;
+bool f(int rs[],int n,int num)
+{
+	for(int i=0;i<n;i++)
+	{
+		if(rs[i]==num) return false;
+	}
+	return true;
+}
+int getSet(int rs[],const int a[],int n)
+{
+	rs[0]=a[0];
+	int sum=1;//计数值 
+	for(int i=1;i<n;i++)
+	{
+		if(f(rs,sum,a[i]))
+		{
+			rs[sum]=a[i];
+			sum++;
+		}
+	} 
+	return sum;
+}
+int f2(int rs[],const int a[],int n)
+{
+	cout<<"各元素出现次数分别为{ ";
+	int sum=getSet(rs,a,n);
+	for(int i=0;i<sum;i++)
+	{
+		int count=0;
+		for(int j=0;j<n;j++)
+		{
+			if(rs[i]==a[j])
+			{
+				count++;
+			}
+		}
+		cout<<count<<" ";
+	}
+	cout<<"}"<<endl;
+} 
+int f3(int rs[],const int a[],int n)
+{
+	int sum=getSet(rs,a,n);
+	int b[sum];
+	for(int i=0;i<sum;i++)
+	{
+		int count=0;
+		for(int j=0;j<n;j++)
+		{
+			if(rs[i]==a[j])
+			{
+				count++;
+			}
+			b[i]=count;
+		}
+	}
+	int t1,t2;
+	for(int i=0;i<sum-1;i++)
+	{
+		for(int j=0;j<sum-1-i;j++)
+		{
+			if(b[j]<b[j+1])
+			{
+				t1=b[j];
+				b[j]=b[j+1];
+				b[j+1]=t1;
+				t2=rs[j];
+				rs[j]=rs[j+1];
+				rs[j+1]=t2;
+			}
+		}
+	}
+	for(int k=0;k<sum;k++)
+	{
+		cout<<rs[k]<<":"<<b[k]<<endl;
+	}
+} 
+int main()
+{
+	int a[]={3,1,2,3,1,5,2,1};
+	int rs[8];
+	int n=8;
+	cout<<getSet(rs,a,n)<<endl;
+	f2(rs,a,n);
+	f3(rs,a,n);
+}

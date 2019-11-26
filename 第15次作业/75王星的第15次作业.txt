@@ -1,0 +1,98 @@
+!14.(3).
+#include <iostream>
+#include <iomanip>
+using namespace std;
+struct Fraction{int a;int b;};
+Fraction F;
+int yueshu(int a,int b)
+{
+	int yu;
+	if (b>a)
+	{
+		int temp;
+		temp=a;a=b;b=temp;
+	}
+	int i=a,j=b;
+	yu=a%b;
+	while (yu!=0)
+	{
+		i=j;
+		j=yu;
+		yu=i%j;
+	}
+	return j;
+}
+Fraction huajian()
+{
+	int y=yueshu(F.a,F.b);
+	if (F.b<0)
+	{
+		F.a=F.a/((-1)*y);F.b=F.b/((-1)*y);
+	}
+	return F;
+}
+int jia(int a,int b,int c,int d)
+{
+	int i,j;
+	j=b*d;
+	i=a*d+b*c;
+	cout<<"+"<<endl<<i<<endl<<j<<endl;
+}
+int jian(int a,int b,int c,int d)
+{
+	int i,j;
+	j=b*d;
+	i=a*d-b*c;
+	cout<<"-"<<endl<<i<<endl<<j<<endl;
+}
+int cheng(int a,int b,int c,int d)
+{
+	int i,j;
+	i=a*c;
+	j=b*d;
+	cout<<"*"<<endl<<i<<endl<<j<<endl;
+}
+int chu(int a,int b,int c,int d)
+{
+	int i,j;
+	i=a*d;
+	j=b*c;
+	cout<<"/"<<endl<<i<<endl<<j<<endl;
+}
+int main()
+{
+	Fraction F1,F2;
+	cin>>F1.a>>F1.b>>F2.a>>F2.b;
+	huajian(F1);
+	huajian(F2);
+	int i;i=F1.a*F2.b-F1.b*F2.a;
+	if(i<0)
+	cout<<"a<b"<<endl;
+	else
+	cout<<"a>b"<<endl;
+	jia(F1.a,F1.b,F2.a,F2.b);
+	jian(F1.a,F1.b,F2.a,F2.b);
+	cheng(F1.a,F1.b,F2.a,F2.b);
+	chu(F1.a,F1.b,F2.a,F2.b);
+}
+(4).
+#include <iostream>
+using namespace std;
+struct Course
+{
+	int coursenumber;
+	char coursename;
+	enum examtype{num,level};
+ } ;
+ enum level {A,B,C,D,E};
+struct Student
+{
+	int studentnumber;
+	char studentname;
+	Course coursenumber;
+	union CourseGrade
+	{
+		char level;
+		float num;
+	};
+ } ;
