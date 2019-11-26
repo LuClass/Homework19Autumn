@@ -1,0 +1,102 @@
+21-（8）
+main.cpp 
+
+#include<iostream>
+#include"max.h"
+#include"toHex.h"
+using namespace std;
+void toHex(int m);
+int max(int m,int n);
+
+int main()
+{
+	int m,n;
+	cin>>m>>n;
+	toHex(max(m,n));
+}
+//max.h
+#include<iostream>
+using namespace std;
+int max(int m,int n) 
+{
+	return m>n?m:n;
+}
+//toHex.h
+#include<iostream>
+using namespace std;
+void toHex(int m) 
+{
+	cout<<"最大值的十六进制为："<<hex<<m;
+}
+
+21-（8）不配置多文件
+#include<iostream>
+using namespace std;
+int max(int m,int n) 
+{
+	return m>n?m:n;
+}
+void toHex(int m) 
+{
+	cout<<"最大值的十六进制为："<<hex<<m;
+}
+int main()
+{
+	int m,n;
+	cin>>m>>n;
+	toHex(max(m,n));
+}
+
+21-（9）函数
+#include<iostream>
+#include<math.h>
+using namespace std;
+bool is(float a,float b,float c)
+{
+	if(a<=0||b<=0||c<=0) return false;
+	if(a+b<=c||a+c<=b||b+c<=a) return false;
+	return true;
+}
+float sum(float a,float b,float c)
+{
+	float s;
+	s=(a+b+c)/2;
+	float sum;
+	sum=sqrt(s*(s-a)*(s-b)*(s-c));
+	return sum;
+}
+int main()
+{
+	float a,b,c;
+	cin>>a>>b>>c;
+	while(!is(a,b,c))
+	{
+		cout<<"非三角形,请输入正确的三条边长："<<endl;
+		cin>>a>>b>>c;
+	}
+	cout<<"面积为："<<sum(a,b,c)<<endl;
+}
+
+21-（9）宏
+#include<iostream>
+#include<math.h>
+#define s ((a+b+c)/2)
+#define sum sqrt(s*(s-a)*(s-b)*(s-c))
+using namespace std;
+bool is(float a,float b,float c)
+{
+	if(a<=0||b<=0||c<=0) return false;
+	if(a+b<=c||a+c<=b||b+c<=a) return false;
+	return true;
+}
+int main()
+{
+	float a,b,c;
+	cin>>a>>b>>c;
+	while(!is(a,b,c))
+	{
+		cout<<"非三角形,请输入正确的三条边长："<<endl;
+		cin>>a>>b>>c;
+	}
+	cout<<"面积为："<<sum<<endl;
+}

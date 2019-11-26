@@ -1,0 +1,28 @@
+using namespace std;
+#include <iostream>
+#include <math.h>
+int main (){
+int s,a,b,c,d;
+cout<<"inprut a b c"<<endl;
+cin>>a>>b>>c;
+s=(a+b+c)/2;
+d=s*(s-a)*(s-b)*(s-c);
+cout<<sqrt(d);
+}
+
+
+using namespace std;
+#include <iostream>
+#include <math.h>
+#define S(a,b,c) ((a+b+c)/2)
+#define Q(s,a,b,c) (s*(s-a)*(s-b)*(s-c))
+#define W(s)  sqrt(s)
+int main (){
+int a,b,c,s,d,e;
+cout<<"input a b c"<<endl;
+cin>>a>>b>>c;	
+s=S(a,b,c);
+d=Q(s,a,b,c);
+e=W(d);
+cout<<e;
+	}

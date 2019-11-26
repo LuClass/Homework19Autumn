@@ -1,0 +1,46 @@
+11.(1)
+#include <iostream>
+using namespace std;
+int main(void) {
+	int x,v[8];
+    int i,n;
+    for (i=0;i<8;i++)
+	      v[i]=0;
+    cout<<"输入 int x\n";
+    cin>>x;
+    n=0;
+    while(1){
+       v[n] = x%2;
+       n++;
+       x = x/2;
+     if (x==0) break;
+    }
+     for (i=7;i>=0;i--)
+     cout<<v[i];
+     return 0;
+}
+
+
+11.(6)
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main(void) {
+	double x1,x2,a,b,c;
+    cout<<"请输入ax2+bx+c=0的系数a\n"<<"a=";
+	cin>>a;
+	cout<<"b=";
+	cin>>b;
+	cout<<"c=";
+	cin>>c;
+	if((b*b-4*a*c)>=0){
+	   x1=(-b+sqrt(b*b-4*a*c))/(2*a);
+	   x2=(-b-sqrt(b*b-4*a*c))/(2*a);
+	   cout<<"x1="<<x1<<endl;
+	   cout<<"x2="<<x2<<endl;
+	   }
+	else
+	  cout<<"方程无根"<<endl;
+	  return 0; 
+	
+}

@@ -1,0 +1,62 @@
+#include<iostream>
+using namespace std;
+int getSet(int rs[],const int a[],int n){
+	int c = 0; int m; 
+	for(int i = 0;i < n;i++){ 
+	m = 1; 
+	for(int j = 0;j<c;j++) { 
+	if(a[i] == rs[j]) 
+	m = 0;
+} 
+	 if(m == 1) 
+	 rs[c++] = a[i];
+} 
+for(int i=0;i<c;i++){
+	if(i==c-1)
+	cout<<rs[i]<<'\n';
+	else
+	cout<<rs[i];
+	
+}
+	return c;
+}
+void getNum( int b[],int m[],int n,const int a[],int l){
+	for(int i=0;i<n;i++){
+		int s=0;
+		for(int v=0;v<l;v++){
+			if(b[i]==a[v])
+			s++;
+		}
+		m[i]=s;
+	}
+	
+}
+void getOrd( int b[], int m[],int n){
+	int i,j,t,x;
+	for(i=0;i<n-1;i++)
+	for(j=0;j<n-1-i;j++)
+	if(m[j]<m[j+1]){
+		t=m[j];
+		m[j]=m[j+1];
+		m[j+1]=t;
+		x=b[j];
+		b[j]=b[j+1];
+		b[j+1]=x;
+	}
+}
+void show(int b[],int m[],int n){
+	for(int i=0;i<n;i++){
+		cout<<b[i]<<":"<<m[i]<<'\n';
+	}
+}
+int main(){
+	int rs[4],m[4];
+	int a[8]={3,1,2,3,1,5,2,1};
+	int n=8,k;
+	k=getSet(rs,a,8);
+	cout<<k<<'\n';
+	getNum(rs,m,4,a,8);
+	getOrd(rs,m,4);
+	show(rs,m,4);
+	return 0;
+}

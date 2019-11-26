@@ -1,0 +1,44 @@
+11.
+(1)
+#include<iostream>
+using namespace std;
+int main()
+{
+	int x,i;
+	
+	cin >> x;
+	if( x >= 0)
+	cout << 0;
+	else
+	{
+		x += 2147483648;
+		cout << 1;
+	}
+	for(i = 30; i >= 0; i--)
+	{
+		if( x >= ( 1 << i ))
+		{
+			cout << 1;
+			x -= 1 << i;
+		}
+		else
+		cout << 0;
+	}
+}
+(2)
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+	float a,b,c,n;
+	
+	cin >> a >> b >> c;
+	n = b * b - 4 * a * c;
+	if( n > 0)
+	cout << "x1=" << (-b + sqrt(n))/(2 * a) <<" x2="<< (-b - sqrt(n))/(2 * a);
+	else if( n == 0)
+	cout << "x=" << (-b + sqrt(n))/(2 * a);
+	else
+	cout << "None!";
+}

@@ -1,0 +1,29 @@
+21.（9）
+#include<iostream>
+#include<math.h>
+using namespace std;
+double S(double a,double b,double c){
+	double area,s;
+	s=(a+b+c)/2;
+	area=sqrt(s*(s-a)*(s-b)*(s-c));
+    return area;
+} 
+int main(){
+	double a,b,c;
+	cin>>a>>b>>c;
+	cout<<S(a,b,c);
+	return 0;
+}
+#include<iostream>
+#include<math.h>
+#define s(a,b,c) ((a+b+c)/2)
+using namespace std;
+int main(){
+	double o,n,m,l;
+	cin>>n>>m>>l;
+	o=s(n,m,l);
+	double area;
+	area=sqrt(o*(o-n)*(o-m)*(o-l));
+	cout<<area;
+	return 0;
+}
