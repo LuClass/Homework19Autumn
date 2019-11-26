@@ -1,0 +1,123 @@
+14.（1）
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+struct Ans{
+	int a;
+	int b;
+	int c;
+	int x1=0;
+	int x2=0;
+	int ins;
+};
+Ans f(int a,int b,int c){
+	Ans ans;
+	ans.a=a;ans.b=b;ans.c=c;
+	ans.ins=ans.b*ans.b-4*ans.a*ans.c;
+	ans.x1=(-ans.b+sqrt(ans.ins))/(2*ans.a);
+	ans.x2=(-ans.b-sqrt(ans.ins))/(2*ans.a);
+	return ans;
+} 
+int main(){
+	int a,b,c;
+	cout<<"请输入a,b,c：";
+	cin>>a>>b>>c;
+	Ans ans=f(a,b,c);
+	if(ans.ins<0){
+		cout<<"该方程无解"; 
+	}
+	else if(ans.ins==0){
+    	cout<<"该方程有一解（两相同解）:"<<endl;
+    	cout<<ans.x1;
+	}
+	else{
+		cout<<"该方程有两解："<<endl<<"x1="<<ans.x1<<endl<<"x2="<<ans.x2<<endl;;
+	}
+} 
+
+14.（2）
+#include<iostream>
+#include<math.h>
+using namespace std;
+struct Point{
+	int x;
+	int y;
+};
+int dis(Point p1,Point p2){
+	return sqrt((p1.x-p2.x)*(p1.x-p2.x)+(p1.y-p2.y)*(p1.y-p2.y));
+}
+struct San{
+	Point p1,p2,p3;
+	int c,s;
+	bool pan(Point p1,Point p2,Point p3){
+		if((dis(p1,p2)+dis(p1,p3)>dis(p2,p3))&&(dis(p1,p2)+dis(p2,p3)>dis(p1,p3))&&(dis(p3,p2)+dis(p1,p3)>dis(p2,p1)))
+			return 1;
+		else 
+			return 0;
+	}
+	int ac(Point p1,Point p2,Point p3){
+		return dis(p1,p2)+dis(p1,p3)+dis(p2,p3);
+	}
+	int as(Point p1,Point p2,Point p3){
+		return sqrt(c*(c/2-dis(p1,p2))*(c/2-dis(p1,p3))*(c/2-dis(p2,p3))/2);
+	}
+};
+int main(){
+	Point p1,p2,p3;
+	cout<<"请输入第一个点的x,y："<<endl;
+	cin>>p1.x>>p1.y;
+	cout<<"请输入第二个点的x,y："<<endl;
+	cin>>p2.x>>p2.y;
+	cout<<"请输入第三个点的x,y："<<endl;
+	cin>>p3.x>>p3.y;
+	San san;
+	san.p1=p1;
+	san.p2=p2;
+	san.p3=p3;
+	san.c=san.ac(p1,p2,p3);
+	san.s=san.as(p1,p2,p3);
+	if(san.pan(p1,p2,p3)){
+		cout<<"能构成三角形！"<<endl;
+		cout<<"周长为："<<san.c<<endl<<"面积为："<<san.s<<endl;
+	}
+	else
+		cout<<"不能构成三角形！";
+}
+
+字符串修改
+#include<iostream>
+using namespace std;
+int main(){
+	char a[50];
+	char b[50];
+	for(int i=0;i<50;i++){
+		cin.get(a[i]);
+		if(a[i]=='\n')
+			break;
+	}
+	for(int i=0;i<50;i++){
+		b[i]=a[i];
+		if(a[i]=='\n')
+			break;
+	}
+	for(int i=0;i<50;i++){
+		if(b[i]>=97&&b[i]<=122)
+			b[i]-=32;
+		if(b[i]=='\n')
+			break;
+	}
+	cout<<"修改前: ";
+	for(int i=0;i<50;i++){
+		if(a[i]=='\n')
+			break;
+		cout<<a[i];
+	}
+	cout<<endl;
+	cout<<"修改后: ";
+	for(int i=0;i<50;i++){
+		if(b[i]=='\n')
+			break;
+		cout<<b[i];
+	}
+} 

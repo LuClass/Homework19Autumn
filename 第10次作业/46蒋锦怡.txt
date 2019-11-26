@@ -1,0 +1,132 @@
+#include<stdlib.h>
+#include<time.h>
+#include<iostream>
+using namespace std;
+void getRandom(int a[],int n){
+	srand(time(NULL));
+	for(int i=0;i<n;i++)
+	   a[i]=rand() % 100;
+}
+int getMax(const int a[],int n){
+	int i,k;
+	int max=a[0];
+	for(i=1;i<n;i++)
+	{if(max<a[i]){
+		
+		max=a[i];
+		k=i;
+		
+	}
+	}cout<<max<<'\t'<<k;
+	return 0;
+}
+    int main()
+{
+	int n;
+	cin>>n;
+	int a[n];
+	getRandom(a,n);
+	for(auto e:a){
+		cout<<e<<" ";
+	}cout<<endl;
+	getMax(a,n);
+	return 0;
+}
+(5)
+#include<iostream>
+using namespace std;
+bool isPrime(int n){
+	if(n<2) 
+	return false;
+	if(n=2)
+	return true;
+	for(int i=2;i*i<n;i++){
+		if(n%i==0)
+		return false;
+	}
+	    return true;
+	
+}
+long int SUM(long int y){
+	int sum1=0;
+	while(y!=0)
+{
+	sum1+=y%10;
+	y/=10;
+	
+}
+    return sum1;
+}
+long int factor(long int n){
+    int i=2;
+	int sum=0;
+	while(i!=n){
+		if(n%i==0)
+	{
+		n=n/i;
+		sum+=SUM(i);	}
+		else
+		i++;
+		
+	}return sum;
+		
+	}
+	bool isSmith(int n){
+		long int m;
+		m=n;
+		if(factor(m)==SUM(m))
+		return true;
+		else return false;
+	}
+	
+	int main()
+ {int n;
+ cout<<"请输入一个正非素整数n：";
+ cin>>n;
+ if(isPrime(n)==1){
+ 	cout<<"输入的数有误";
+ 	return 0;
+ }
+ if (isSmith(n)==1)
+ cout<<"该数是Smith数"<<endl;
+ else cout<<"该数不是Smith数"<<endl;
+ for(int a=4937775;a++;)
+ {if(isSmith(a)==1)
+ {cout<<"4937774的下一个史密斯数是"<<a;
+ break;
+ }
+ }
+ return 0;
+ }
+(10)
+#include<iostream>
+ using namespace std;
+ int main()
+ {int a[20];
+  int x=21,round=0,m=21;
+  for(int y=0;y<=20;y++)
+   a[y]=y+1;
+  while(1){
+  for(int z=0;z<=20;z++){
+  if(a[z]!=999)
+   {round+=1;
+  if(round%5==0)
+    { a[z]=999;
+  m-=1;
+    }
+   }
+  if(m==1)
+  break;
+                       }
+  if(m==1)
+  break;
+ }
+
+ for(int n=0;n<=20;n++){
+ if(a[n]!=999)
+ cout<<"Winner is No."<<n+1;
+
+ }
+
+ return 0;
+ }

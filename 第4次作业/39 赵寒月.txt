@@ -1,0 +1,71 @@
+第四次作业
+ （4）
+#include<iostream>
+#include<string.h>
+using namespace std;
+int main ()
+{
+	char str[1024];
+	int i,count=0;
+	cout<<"请输入若干字符：";
+	cin>>str; 
+	int j=strlen(str);
+	for(i=0;i<j;i++)
+	{
+		if(str[i]>='0'&&str[i]<='9')
+		 {
+		 	count++;
+		   }  
+		   
+	}
+	cout<<"字符中数字的个数为："<<count<<endl;
+	return 0;
+}
+（7）
+#include<iostream>
+using namespace std;
+int main()
+{
+  int s1=3,s2=2;
+  cout<<"1/2,3/2,";
+  cout<<s1+s2<<"/"<<s1<<",";
+  for(int i=3;i<=20;i++)
+  {
+  	  s1=s1+s2;
+  	  s2=s1-s2;
+  	  cout<<s1+s2<<'/'<<s1<<",";
+  }
+  return 0;
+}
+（8）
+#include<iostream>
+using namespace std;
+int main()
+{
+	int x,i;
+	cout<<"请输入一个正整数：";
+	cin>>x;
+	int s[1024];
+	for(int j=1;j<=x;j++)
+	{
+		if(x%j==0)
+		  s[i++]=j;
+	}
+	cout<<x<<"的因子为：";
+	for(int t=0;t<i;t++)
+	    cout<<s[t]<<' ';
+	cout<<endl<<"0~100内完全数为：";
+    for(int k=2;k<=100;k++)
+    {
+    	int sum=0;
+    	for(int j=1;j<k;j++)
+		{
+			if(k%j==0)
+			   sum+=j;		
+		}
+		if(sum==k)
+		   cout<<k<<endl;
+	}
+	
+	return 0;
+}

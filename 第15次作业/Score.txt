@@ -1,0 +1,11 @@
+using namespace std;
+#include<iostream>
+#include<string.h>
+enum test{score;grade;};
+	union Number{
+	unsigned char c[4];
+	int x;
+	float y;
+};
+struct Course{string No,namec,exam;test present};
+struct res{string num,names,mark,Number x};

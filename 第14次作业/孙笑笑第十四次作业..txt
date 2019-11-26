@@ -1,0 +1,72 @@
+14/(1)
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct Hanshu{
+	int x1,x2;
+} h;
+int f(int a,int b,int c){
+	if(b*b-4*a*c>0){
+	h.x1=(-b+sqrt(b*b-4*a*c))/(2*a);
+	h.x2=(-b-sqrt(b*b-4*a*c))/(2*a);}
+	else if(b*b-4*a*c==0)
+	h.x1=h.x2=-b/(2*a);
+}
+int main(){
+	int a,b,c;
+	cin>>a>>b>>c;
+	f(a,b,c);
+	cout<<"x1="<<h.x1<<" "<<"x2="<<h.x2;
+}
+
+
+(2)
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct Point{
+	int x,y;
+} o;
+int X(Point o){
+	int d;
+	d=abs(o.x-o.y);
+	return d; 
+}
+struct Sanjiao{
+	int x,y,z;
+} f;
+int J(Sanjiao f){
+	int s,p;
+	if(f.x+f.y==f.z||f.x+f.z==f.y||f.z+f.y==f.x)
+	cout<<"not sanjiao";
+	else{
+		p=(f.x+f.y+f.z)/2;
+		s=sqrt(p*(p-f.x)*(p-f.y)*(p-f.z));
+		return s;
+	}
+}
+int main(){
+	cin>>o.x>>o.y;
+	cin>>f.x>>f.y>>f.z;
+	cout<<X(o);
+	cout<<J(f);
+}
+¸½¼Ó
+#include <iostream>
+using namespace std;
+int main()
+{
+	char a[50];
+	cin.getline(a,50);
+    int i;  
+ 	for(i=0;a[i];i++)
+ 	{
+ 		if(a[i]>='A'&&a[i]<='Z')
+ 		{
+ 			a[i]+=32;
+ 			cout<<a[i];
+ 		}
+ 		else cout<<a[i];
+ 	 } 
+ 	 return 0;
+  } 
