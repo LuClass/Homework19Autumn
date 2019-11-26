@@ -1,15 +1,25 @@
-#include<iostream.h>
-#include<math.h>
-void main()
-{    int i,j,k,x,y,sum;
-     cin>>x>>y;
-	 for(i=x;i<=y;i++)
-     {   sum=1;
-	     k=i;
-		 for(j=2;j<=sqrt(k);j++)
-		     if(k%j==0)
-			     sum+=j+k/j;
-		 if(i==sum&&i!=1)
-			 cout<<i<<'\t';
-	 }
+#include <iostream>
+using namespace std;
+int main()
+{
+	int i,j;
+	cout<<"请输入两个整数i j(i<j):";
+	cin>>i>>j;
+	cout<<i<<"到"<<j<<"之间的完全数有：";
+	int sum,m;
+	for(int k=i;k<=j;k++)
+	{
+		sum=1;
+		for(int m=2;m<=k/2;m++)
+		{
+			if(k%m==0)
+			{
+				sum+=m;
+			}
+		}
+		if(sum==k)
+		cout<<k<<" ";
+	}
+	return 0;
 }
+
