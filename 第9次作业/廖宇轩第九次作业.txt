@@ -1,0 +1,43 @@
+
+int ar (int a,int b,int c)
+          {     int s;
+	s = (a + b + c) / 2;
+	int area;
+	area = sqrt(s*(s - a)*(s - b)*(s - c));
+                cout<<area;
+          }
+
+
+//main
+#include <iostream>
+using namespace std;
+int max(int a, int b);
+void toHex(int x);
+
+int main()
+{
+	int a, b;
+	cin >> a >> b;
+	toHex(max(a, b));
+
+}
+
+//max
+#include <iostream>
+using namespace std;
+int max(int a, int b)
+{
+	int c;
+    c=a > b ? a : b;
+	return c;
+}
+
+
+//hex
+#include <iostream>
+using namespace std;
+ void toHex(int x) 
+{
+	 cout << hex << x;
+}
+

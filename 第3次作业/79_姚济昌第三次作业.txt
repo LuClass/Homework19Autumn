@@ -1,0 +1,43 @@
+二进制转化
+#include <iostream>
+using namespace std;
+int main(){
+int a,b;
+cout<<"请输入一个整数"<<endl;
+cin>>a;
+cout<<"该数的二进制形式为"<<endl;
+  while(b<32){
+
+  if((a&1<<31)+=0)<<cout<<"0";
+  else
+  cout<<"1";
+  a=a<<1;
+  b++;}
+  return 0;}
+
+解二次方程
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main(){double a,b,c,x1,x2,k;
+cout<<"请输入系数a=";
+cin>>a;
+cout<<"请输入系数b=";
+cin>>b;
+cout<<"请输入系数c=";
+cin>>c;
+k=b*b-a*c*4;
+ 
+   if (k==0)
+   {x1=x2=(-b+sqrt(b*b-a*c*4))/(a*2);
+   cout<<"一个解"<<"x1="<<x1<<"x2="<<x2;}
+
+   else if (k>0)
+   {x1=(-b+sqrt(b*b-a*c*4))/(a*2);
+   x2=(-b-sqrt(b*b-a*c*4))/(a*2);
+   cout<<"两个解"<<"x1="<<x1<<"x2="<<x2;}
+
+   else
+   {cout<<"无解"<<endl;}
+
+return 0;}

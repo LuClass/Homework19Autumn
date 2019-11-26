@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+struct Fraction{
+	int a;
+	int b;
+};
+int S(Fraction *f){
+	if(f->a==0){
+	f->b=1;
+	return 0;}
+	else
+	for(int i=(f->a>f->b?f->b:f->a);i>=2;i--){
+		if(f->a%i==0&&f->b%i==0){
+			return i;
+			break;
+		}
+	}
+}
+int Compare(float a,float b){
+	if(a-b>0)
+	cout<<a<<">"<<b;
+	else if(a-b<0)
+	cout<<a<<"<"<<b;
+	else
+	cout<<a<<"="<<b;
+	cout<<endl;
+	cout<<a+b<<" "<<a-b<<" "<<a*b<<" "<<a/b;
+}
+int main(){
+	Fraction f[]={{2,5},{3,6}}
+	cout<<f->a/S(f)<<"/"<<f->b/S(f);
+}
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+enum method{BaiFen,DengJi
+};
+struct Course{
+	char num,lesson;
+	method M;
+};
+struct Grade{
+	char num1,name,lesson;
+	int grade;
+};
+void P(char a){
+	if(a>='A'&&a<='E')
+	cout<<"DingJi";
+	else if(a>=0&&a<=100)
+	cout<<"BaiFen";
+}
+void N(Course *c){
+	cout<<c->num<<" "<<c->lesson<<" "<<c->M;
+} 
+void O(Grade *g){
+	cout<<g->num1>>" ">>g->name>>" ">>g->lesson>>" ">>g->grade>>endl;
+}
+int main(){
+		Course *c;
+		Grade *g;
+		n(c)
+		O(g);
+		
+}

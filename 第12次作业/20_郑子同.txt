@@ -1,0 +1,98 @@
+(1)
+#include <iostream>
+using namespace std;
+int getSet(int rs[],const int a[],int n){
+	bool t;
+	int c=0;
+	for(int i=0;i<n;i++){
+		t=true;
+		for(int j=0;j<i;j++){
+			if(a[j]==a[i])
+			t=false;
+		}
+		if(t){
+		   rs[c]=a[i];
+		   c++;
+	    }
+	}
+    return c;
+}
+int main(){
+	int a[]={5,2,3,4,4,2,3,5};
+	int rs[sizeof(a)/sizeof(int)];
+	int n=sizeof(a)/sizeof(int);
+	cout<<getSet(rs,a,n);
+}
+
+(2)
+#include <iostream>
+using namespace std;
+int getSet(int rs[][2],const int a[],int n){
+	bool t;
+	int c=0;
+	for(int i=0;i<n;i++){
+		t=true;
+		for(int j=0;j<c;j++){
+			if(a[i]==rs[j][0]){
+			rs[j][1]++;
+			t=false;
+		}
+		}
+		if(t){
+		   rs[c][0]=a[i];
+		   rs[c][1]=1;
+		   c++;
+	    }
+	}
+	for(int x=0;x<c;x++){
+		cout<<rs[x][0]<<",";
+		
+    }
+	cout<<endl;
+    for(int x=0;x<c;x++){
+		cout<<rs[x][1]<<",";
+	}
+    cout<<endl;
+    return c;
+}
+int main(){
+	int a[]={5,2,3,4,4,2,3,5};
+	int rs[sizeof(a)/sizeof(int)][2];
+	int n=sizeof(a)/sizeof(int);
+	cout<<getSet(rs,a,n);
+}
+
+
+(3)
+#include <iostream>
+using namespace std;
+int getSet(int rs[][2],const int a[],int n){
+	bool t;
+	int c=0;
+	for(int i=0;i<n;i++){
+		t=true;
+		for(int j=0;j<c;j++){
+			if(a[i]==rs[j][0]){
+			rs[j][1]++;
+			t=false;
+		}
+		}
+		if(t){
+		   rs[c][0]=a[i];
+		   rs[c][1]=1;
+		   c++;
+	    }
+	}
+	for(int x=0;x<c;x++){
+	    
+		cout<<rs[x][0]<<":";
+		cout<<rs[x][1]<<endl;
+    }
+    return c;
+}
+int main(){
+	int a[]={5,2,3,4,4,2,3,5};
+	int rs[sizeof(a)/sizeof(int)][2];
+	int n=sizeof(a)/sizeof(int);
+	getSet(rs,a,n);
+}

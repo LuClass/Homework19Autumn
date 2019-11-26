@@ -1,0 +1,93 @@
+174.1
+using namespace std;
+#include <iostream>
+#include <math.h>
+struct solution{
+	 int count;
+	float x,x1,x2;
+};
+solution f(int a,int b,int c)
+{
+	solution root;
+	float derta;
+    derta=b*b-4*a*c;
+    if (derta==0)
+{
+	root.count=1;
+	root.x=-b/(2*a);
+	//cout<<root.count<<endl;
+	//cout<<root.x<<endl;
+}
+	else if (derta>0)
+{
+	root.count=2;
+	root.x1=(-b+sqrt(b*b-4*a*c))/2*a;
+	root.x2=(-b-sqrt(b*b-4*a*c))/2*a;
+	//cout<<root.count<<endl;
+	//cout<<root.x1<<endl;
+	//cout<<root.x2<<endl;
+}	
+         else if (derta<0)
+         {
+         	root.count=0;
+         	//cout<<root.count<<endl;
+         	//cout<<"no answer";
+		 }
+		 
+    return root;
+	
+}
+int main()
+{
+	int a,b,c;
+	cin>>a>>b>>c;
+	f(a,b,c);
+	return 0;
+}
+
+171.2
+
+using namespace std;
+#include <iostream>
+#include <math.h>
+struct Point{
+	int x,y;
+};
+float f(Point a, Point b)
+{
+	float m;
+	cin>>a.x>>a.y;
+	cin>>b.x>>b.y;
+	m=sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+	return m;
+}
+float g(Point a,Point b, Point c)
+{
+	float C,S;
+	cin>>a.x>>a.y;
+	cin>>b.x>>b.y;
+	cin>>c.x>>c.y;
+	if (a.x==b.x&&b.x==c.x)
+	cout<<"no striange";
+	else if (a.y==b.y&&b.y==c.y)
+	     cout<<"no striange";
+	     else
+	     {
+	     	int m,n,l;
+	     	m=sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+	     	n=sqrt((a.x-c.x)*(a.x-c.x)+(a.y-c.y)*(a.y-c.y));
+	     	l=sqrt((c.x-b.x)*(c.x-b.x)+(c.y-b.y)*(c.y-b.y));
+	     	C=m+n+l;
+	     	S=sqrt((C/2)*(C/2-m)*(C/2-n)*(C/2-l));
+	     	cout<<C<<' '<<S;
+		 }
+	
+}
+int main()
+{
+	Point a,b;
+	Point c,d,e;
+	cout<<f(a,b);
+	g(c,d,e);
+    return 0;
+}
