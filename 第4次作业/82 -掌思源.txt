@@ -1,0 +1,51 @@
+（4）
+#include<iostream>
+using namespace std;
+int main(){
+int n=0;
+char a;
+do{
+	a=cin.get();
+	if(a>='0'&&a<='9')
+	n++;
+}while(a!='\n');
+cout<<"n="<<n<<endl;
+return 0;
+} 
+（7）
+#include<iostream>
+using namespace std;
+int main(){
+	int a=1,b=2,c=3,d=2,t;
+	cout<<a<<"/"<<b<<'\n';
+	for(int i=1;i<=19;i++){
+	cout<<c<<"/"<<d<<'\n';
+	t=d;
+	d=c;
+	c=c+t;
+	}
+	return 0;
+}
+（8）
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x,k,sum,n;
+	cin>>x;
+	for(x,k=1;k>=1,k<=x;k++)
+	{if(x%k==0)
+	cout<<k<<" ";
+	}
+    cout<<endl;
+	for(n=1;n<=100;n++)
+	{
+	for(k=1,sum=0;k<n;k++)
+	{
+	if(n%k==0)
+	sum +=k;
+	}
+	if(n==sum)
+	cout<<sum<<' ';
+	return 0;
+}

@@ -1,0 +1,81 @@
+21-（2）
+#include<iostream>
+using namespace std;
+int f1(int n)
+{
+	int x=1;
+	for(int i=2;i<n+1;i++)
+	{
+		x=x*i;
+	}
+	return x;
+}
+int f2(int n,int k)
+{
+	int y;
+	y=f1(n)/(f1(k)*f1(n-k));
+	cout<<"C("<<n<<","<<k<<")="<<y<<endl;
+}
+int main()
+{
+	f2(4,2);f2(6,4);f2(8,7);
+}
+
+21-（4）
+#include<iostream>
+using namespace std;
+bool isPrime(unsigned n)
+{
+	if(n<2) return false;
+	for(int i=2;i<n;i++)
+	{
+		if(n%i==0)	return false;
+	}
+}
+int main()
+{
+	int n;
+	for(int j=2;j<500;j++)
+	{
+		if(isPrime(j)&&isPrime(j-2))
+		cout<<j-2<<" "<<j<<endl;
+	}
+}
+
+21-（5）
+#include<iostream>
+using namespace std;
+bool isPrime(unsigned n)
+{
+	if(n<2) return false;
+	for(int i=2;i<n;i++)
+	{
+		if(n%i==0)	return false;
+	}
+}
+int main()
+{
+	int x;
+	cin>>x;
+	if(isPrime(x))
+	{
+		cout<<x<<"="<<x<<endl;
+	}
+	else
+	{
+		cout<<x<<"=";
+		for(int i=2;i<=x;i++)
+		{
+			while(x!=i)
+			{
+				if(x%i==0)
+				{
+					cout<<i<<"*";
+					x=x/i;
+				} 
+				else break;
+			}
+		}
+		cout<<x; 
+	}
+}

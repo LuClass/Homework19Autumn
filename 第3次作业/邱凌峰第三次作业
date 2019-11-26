@@ -1,0 +1,45 @@
+(1)
+#include<iostream>
+#include<iomanip>
+#include<iostream> 
+using namespace std;
+int main()
+{
+int a;
+int j=31,k;
+unsigned int i=2147483647;
+cin>>a;
+while(j>=0)
+ {
+	k=a&i;
+	cout<<(k>>j--)<<" ";
+	i>>=1;
+ } 
+ 
+ 
+}
+
+
+
+(6)#include<iostream>
+#include<math.h>
+using namespace std;
+int main(){
+	int a,b,c;
+	double m,n,k;
+	cin>>a>>b>>c;
+    k=b^2-4*a*c;
+	if(k>0)
+	{m=(-b-sqrt(k))/2*a;
+	 n=(-b+sqrt(k))/2*a;
+	cout<<"方程有两个解"<<m<<" "<<n;}
+	else if(k==0)
+	{ m=(-b+sqrt(k))/2*a;
+	cout<<"方程只有一个解";
+	cout<<m;
+	} 
+	else
+	{cout<<"方程没有解";}
+	return 0; 
+}
+

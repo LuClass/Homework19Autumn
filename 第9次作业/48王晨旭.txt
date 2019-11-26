@@ -1,0 +1,65 @@
+9.1
+#include <iostream>
+#include <math.h>
+using namespace std;
+void area(float a,float b,float c){
+	float s=(a+b+c)/2;
+	float area=sqrt(s*(s-a)*(s-b)*(s-c));
+	cout<<area<<endl;
+}
+int main(){
+	float a,b,c;
+	cin>>a>>b>>c;
+	area(a,b,c);
+	return 0;
+}
+
+
+9.2
+#define S(a,b,c)  ((a+b+c)/2)
+#define area(a,b,c) sqrt(S(a,b,c)*(S(a,b,c)-a)*(S(a,b,c)-b)*(S(a,b,c)-c))
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main(){
+double a,b,c;
+    cin>>a>>b>>c;
+    cout<<area(a,b,c)<<endl;
+    return 0;
+}   
+
+
+8.
+
+main.cpp
+#include<iostream>
+using namespace std;
+int x;
+int a, b;
+int max(int x1, int x2);
+void toHex();
+int main() {
+	cout << "please input two integers" << endl;
+	cin >> a >> b;
+	x = max(a, b);
+	cout << "最大值为：" << x<< endl;
+	cout << "十六进制为: " << endl;
+	toHex();
+	return 0;
+}
+
+toHex.cpp
+#include<iostream>
+using namespace std;
+void toHex() {
+	extern int x;
+	cout << hex << x;
+}
+
+max.cpp
+#include<iostream>;
+using namespace std;
+int max(int x1, int x2) {
+	extern int a, b;
+	return (a > b ? a : b);

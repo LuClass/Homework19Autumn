@@ -1,0 +1,15 @@
+using namespace std;
+#include <iostream>
+int main (){
+int n,a,b,c,d;
+cout<<"输入一个5位正整数n"<<endl; 
+cin>>n;
+a=n/10000;
+b=n%10;
+c=n/1000%10;
+d=n/10%10;
+if(a==b&&c==d)
+cout<<"n为回文数";
+else
+cout<<"n不为回文数"; 
+}
