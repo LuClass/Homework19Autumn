@@ -1,0 +1,33 @@
+11（1）：
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a,b,i=1,result=0;
+	cin>>a;
+	while(a)
+	{b=a%2;
+	a/=2;
+	result+=b*i;
+	i*=10;
+	}
+	cout<<result; 
+	return 0;
+}
+11（6）：
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+{
+	float a,b,c,det;
+	cin>>a>>b>>c;
+	det=b*b-4*a*c;
+	if(det<0)
+	cout<<"无解"; 
+	else if(det==0)
+	cout<<"有一解 x="<<(-b/(2*a))<<endl;
+	else cout<<"有两解 x="<<(-b+sqrt(det))/(2*a)<<"和 x="<<(-b-sqrt(det)) /(2*a);
+	 
+	
+}

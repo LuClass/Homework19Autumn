@@ -1,0 +1,102 @@
+(2)
+void getRandom(int a[],int n){
+	srand(time(NULL)); 
+	for(int i =0;i<n;i++)
+	   a[i]=rand()%100;
+	for(int i =0;i<n;i++)
+	   cout<<a[i]<<endl;
+} 
+
+
+int getMax(const int a[],int n){
+	int max,index;
+	max=a[0];
+	index=0;
+	for(int i=1;i<n;i++){
+		if(a[i]>a[i-1]){
+			max=a[i];
+			index=i;
+		}
+	}
+	cout<<max<<endl;
+	cout<<index<<endl;
+}
+
+
+(5)
+#include <iostream>
+using namespace std;
+bool isSmith(int n){
+	int i,j,c,sum,tum;
+	sum=0;
+	tum=0;
+	bool t;
+	c=n;
+	for (i=2;n!=1;){
+		if(n%i==0){            //i是否为因数 （不是质数一定不是因数） 
+		    n=n/i;
+		    for(int d=i;d!=0;){
+			sum=sum+d%10;
+			d=d/10;
+		    }
+		}
+		if(n%i!=0)
+		    i++;
+		
+	}
+	for(;c!=0;){
+		tum=tum+c%10;
+		c=c/10;
+	}
+	if(tum==sum)
+	  return true;
+	else
+	  return false;
+}
+
+int main(){
+	for(int i=4937774;;i++){
+	   if(isSmith(i)){
+	      cout<<i<<endl;
+	      break;
+                }
+        }
+}
+
+(10)
+#include <iostream>
+using namespace std;
+
+int main(){
+	int a[21],c=0;
+	for(int i=0;i<=20;i++){
+		a[i]=1;
+	}
+	for(int i=1,j=0;;i++){
+		for(;;){
+		    if(a[j]%5!=0)
+	           break;
+			if(a[j]%5==0)
+	           j++;
+	        if(j>20)
+			  j=0;
+	    }
+			if(i%5==0)
+			   c++;
+			a[j]=i;
+			j++;
+			if(j>20)
+			  j=0;
+			if(c==20){
+			  
+			  break;
+		    }
+	}
+	for(int j=0;;j++){
+		if(a[j]%5!=0){
+		   cout<<a[j]+2<<endl;
+		   cout<<j+1<<endl;
+		   break;
+		   }
+	}
+}
