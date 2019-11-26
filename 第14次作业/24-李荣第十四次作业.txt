@@ -1,0 +1,98 @@
+P174.14.(1)
+#include<iostream>
+#include<math.h>
+using namespace std;
+struct Node{
+	int count;//解的数量 
+	double x1;
+	double x2;
+};
+Node f(int a,int b,int c){
+	Node p;
+	double n=b*b-4*a*c;
+	if(n<0)
+	    p.count=0;
+	else if(n==0) {
+		p.count=1;
+		p.x1=-b/(2*a);
+		p.x2=p.x1;
+	}
+	else{
+		n=sqrt(n);
+		p.count=2;
+		p.x1=(n-b)/(2*a);
+		p.x2=(-n-b)/(2*a);
+	}
+	return p;
+}
+int main(){
+	int a,b,c;
+	cin>>a>>b>>c;
+	Node p=f(a,b,c);
+	if(p.count==0)
+	    cout<<"方程无根"<<endl;
+	else if(p.count==1)
+                    cout<<"方程有一根：" <<p.x1<<endl;
+                else
+                    cout<<"方程有两根："<<p.x1<<" "<<p.x2<<endl;
+		
+                return 0; 
+	
+}
+
+(2)
+#include<iostream>
+#include<math.h>
+using namespace std;
+struct Point{
+	int x;
+	int y;
+};
+
+
+	bool isTriangle(Point a,Point b,Point c){
+		double ab=distance(a,b);
+	    double ac=distance(a,c);
+	    double bc=distance(b,c);
+		if((ab+ac>bc)&&(ab+bc>ac)&&(ac+bc>ab))
+		    return true;
+		else
+		    return false;
+	}
+	
+	double grith(Point a,Point b,Point c){
+		return ab+ac+bc;
+	}
+	
+	double area(Point a,Point b,Point c){
+		int m=(ab+bc+ac)/2;
+        return sqrt(m*(m-ab)*(m-bc)*(m-ac));
+	}
+double distance(Point a,Point b){
+	return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+}
+int main(){
+	cout<<"请输入三个点的坐标："; 
+    Point a,b,c;
+    cin>>a.x<<a.y<<b.x<<b.y<<c.x<<c.y;
+    cout<<Triangle.isTriangle(a,b,c)<<endl;
+    cout<<Triangle.grith(a,b,c)<<endl;
+	return 0;	
+}
+
+
+(3)
+#include<iostream>
+using namespace std;
+char str[50];
+int main(){
+	cin.getline(str,50);
+	cout<<str<<endl;;
+	for(int i=0;str[i];i++){
+		if(str[i]>='A'&&str[i]<='Z'){
+			str[i]=str[i]+'a'-'A';
+		}
+	}
+	cout<<str<<endl;
+	return 0;
+}

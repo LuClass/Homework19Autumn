@@ -1,0 +1,57 @@
+8.
+using namespace std;
+#include <iostream>
+#include "hex.cpp"
+#include "max.cpp"
+main()
+{
+	int x,y;
+	cin>>x>>y;
+	x=max(x,y);
+	hex(x);
+}
+
+max.cpp:
+int max(int a,int b)
+{
+	return a>b? a:b;
+}
+hex.cpp:
+void hex(int a)
+{
+	cout<<hex<<a;
+}
+
+
+
+using namespace std;
+#include <iostream>
+#include <math.h>
+int _area(int a,int b,int c)
+{
+	int area;
+	const int s=(a+b+c)/2;
+	area=sqrt(s*(s-a)*(s-b)*(s-c));
+	cout<<area;
+	return area;
+}
+int main()
+{
+	int a,b,c,area;
+	cin>>a>>b>>c;
+	_area(a,b,c);
+	return 0;
+}
+
+using namespace std;
+#include <iostream>
+#include <math.h>
+#define  s   (a+b+c)/2
+#define area   sqrt(s*(s-a)*(s-b)*(s-c))
+int main()
+{
+	int a,b,c;
+	cin>>a>>b>>c;
+	cout<<area;
+	return 0;
+}

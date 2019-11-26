@@ -1,0 +1,46 @@
+11（4）
+using namespace std;
+#include <iostream>
+int main (void)
+{
+	int count=0,x;
+	while((x=cin.get())!='\n')
+	{if(x>='0'&&x<='9')
+	count++;}
+	cout<<"count="<<count;
+	return 0;
+	}
+
+11（7)using namespace std;
+#include <iostream>
+#include <iomanip>
+int main (void)
+{
+	int a,b,c;
+	cout<<"   1/2"<<endl;
+	for(a=1,b=2,c=0;c<=18;c++){
+	b=c+b;a=a+b;cout<<setw(4)<<a<<"/"<<b<<endl;
+}   return 0;
+		
+	}
+
+11(8)
+using namespace std;
+#include <iostream>
+int main (void)
+{
+	int a,b=1,c,d,e;
+	cout<<"输入一个正整数"<<endl;
+	cin>>a;
+	cout<<"其因子为:";
+	for(a,b;b<a;b++)
+{
+	if(a%b==0) {cout<<b<<' ';}
+				}
+	cout<<endl;
+	for(c=1;c<=100;c++)
+	{e=0;for(d=1;d<c;d++){if(c%d==0) e+=d;}
+	if(e==c)cout<<e<<' ';
+		}
+	return 0;
+	}

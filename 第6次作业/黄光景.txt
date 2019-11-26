@@ -1,0 +1,72 @@
+1.
+#include <iostream>
+using namespace std;
+int J(int m) 
+{
+	int t=1;
+	for(int i=1;i<=m;i++) 
+    t=t*i;
+	return t;
+}
+
+int main() 
+{  int n,k;
+	cout<<"please input n, k(n>k) :"<<endl;
+	cin>>n>> k;
+	cout<<"C(n,k)="<<J(n)/J(k) /J(n-k)<<endl ;
+	cout<<endl<<"C(4,2)="<<J(4) /J(2) /J(2) ;
+	cout<<endl<<"C(6,4)="<<J(6) /J(4) /J(2) ;
+	cout<<endl<<"C(8,7)="<<J(8) /J(7) /J(1) ;
+}
+
+2.
+#include <iostream>
+using namespace std;
+bool isprime (unsigned n) {
+     if(n<2) return false;
+     if(n==2||n==3||n==5||n==7) 
+     return true;
+     for(unsigned i=2;i*i<=n;i++) 
+       if(n%i==0) return false;
+     return true;
+}
+int main () 
+{   cout<<"500以内孪生素数有：";
+	for(int i=2;i<=500;i++) 
+	  { if(isprime(i) ==1&&isprime (i+2) ==1) 
+     cout<<endl<<i<<"和"<<i+2<<"   ";
+	  }
+	  return 0;
+}
+
+
+3.
+#include<iostream>
+using namespace std;
+bool isprime (unsigned n) 
+{
+     if(n<2) return false;
+     if(n==2||n==3||n==5||n==7) 
+     return true;
+     for(unsigned i=2;i*i<=n;i++) 
+       if(n%i==0) return false;
+     return true;
+} 
+int main() 
+{ int x;cout<<"please input x:";
+  cin>>x;
+  cout<<endl<<x<<"=";
+  for (int i=2;i<=x;i++) 
+    
+    if (isprime(i)==1&&x%i==0) 
+    {cout<<i<<"*";
+      x=x/i;
+      if(x%i==0) 
+      {cout<<i<<"*";
+        x=x/i;}
+ 
+    }
+
+return 0;
+  	
+}

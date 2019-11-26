@@ -1,0 +1,70 @@
+6.
+include <iostream>
+using namespace std;
+
+int getWordCount(char a[])
+{
+	int num=0,flag=0,i;
+	for(i=0;a[i]!=0;i++)
+	{
+		if(a[i]!=' '&&a[i]!='\t'&&flag==0)
+		{
+			num++;flag=1;
+		}
+		else if(a[i]==' '||a[i]=='\t')
+			flag = 0;
+	}
+	return num;
+}
+
+int main()
+{
+	cout<<getWordCount("hhhh  hh	hhh uy iuiuiuiu88")<<endl;
+	return 1;
+}
+
+8
+#include <iostream>
+#include <string.h>
+using namespace std;
+#define MAX 4
+
+int getRev(char a[])
+{
+	int num=0,i;
+	for(i=0;a[i]!=0;i++)
+	{
+		if(a[i+1]==0)
+			break;
+		if(a[i]>a[i+1])
+			num++;
+	}
+	return num;
+}
+
+void sortRev(char a[][21])
+{
+	int i,j;
+	char t[21];
+	for(i=0;i<MAX-1;i++)
+		for(j=0;j<MAX-i-1;j++)
+			if(getRev(a[j])>getRev(a[j+1]))
+			{
+				strcpy(t,a[j]);strcpy(a[j],a[j+1]);strcpy(a[j+1],t);
+			}
+}
+
+void putStr(char a[][21])
+{
+	int i;
+	for(i=0;i<MAX;i++)
+		cout<<getRev(a[i])<<' '<<a[i]<<endl;
+}
+
+int main()
+{
+	char a[][21]={{"996312531"},{"98642"},{"98453"},{"123"}};
+	sortRev(a);
+	putStr(a);
+	return 1;
+}
