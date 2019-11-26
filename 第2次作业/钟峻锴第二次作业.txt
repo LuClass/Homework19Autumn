@@ -1,0 +1,32 @@
+p48 
+23.
+x>2&&x%2==0
+24.
+x>8||x<-8
+25.
+(a)0
+(b)0.333333
+(c)1
+(d)7
+26.
+(a)a=4
+(b)a=27
+(c)a=-1
+(d)a=162
+27.
+(a)1
+(b)1
+(c)31
+(d)0
+28.
+using namespace std;
+#include <iostream>
+int main()
+{
+   float C, F, K;
+   cout<<"ÉãÊÏÎÂ¶ÈC=";
+   cin>>C;
+   F=C*9/5+32, K=C+273.15;
+   cout<<"»ªÊÏÎÂ¶ÈF="<<F<<'\t'<<"¾ø¶ÔÎÂ¶ÈK="<<K<<endl;
+   return 0;
+}

@@ -1,0 +1,121 @@
+（2）
+using namespace std;
+#include<iostream>
+int main (void)
+{
+	long int i,s,b1,b2,b4,b6,b10;
+	b1=100000*0.1;
+	b2=b1+100000*0.75;
+	b4=b2+200000*0.05;
+	b6=b4+200000*0.3;
+	b10=b6+400000*0.015;
+	cout<<"输入当月利润i=";
+	cin>>i;
+	if(i<=100000)
+	 { s=0.1*i;} 
+	  else if(i<200000)
+	   {s=b1+(i-100000)*0.75;}
+	    else if(i<400000)
+	     {s=b2+(i-200000)*0.5;}
+	      else if(i<600000)
+	       {s=b4+(i-400000)*0.3;}
+	        else if(i<1000000)
+	         {s=b6+(i-600000)*0.015;}
+	          else 
+	           {s=b10+(i-1000000)*0.1;}
+   cout<<"应发奖金总数="<<s<<endl;	            
+	return 0;
+}
+
+
+（4）
+using namespace std;
+#include<iostream>
+int main (void)
+{
+    long int i,j,k,y,sum;
+    cout<<"输入年月日";
+	cin>>i>>j>>k;
+    switch(j)
+    {
+    case 1:y=0;
+	break;
+    case 2:y=31;
+	break;
+    case 3:y=59;
+	break;
+    case 4:y=90;
+	break;
+    case 5:y=121;
+	break;
+    case 6:y=151;
+	break;
+    case 7:y=182;
+	break;
+    case 8:y=212;
+	break;
+    case 9:y=243;
+	break;
+    case 10:y=273;
+	break;
+    case 11:y=304;
+	break;
+    case 12:y=334; 
+	break;
+	default:cout<<"月份输入错误";
+	break;
+	} 
+    if(j<=2)
+      {sum=y+k;}
+     else
+       {if (i%4==0)
+          {sum=y+k;}
+         else
+		  {sum=y+k+1;}
+	   }
+	   cout<<"这是一年的第"<<sum<<"天"; 
+	   
+	return 0;
+}
+
+
+
+（6）
+using namespace std;
+#include<iostream>
+int main (void)
+{ cout<<"   **********"<<endl;
+  cout<<"  *"<<endl;
+  cout<<" *"<<endl;
+  cout<<"*"<<endl;
+  cout<<"*"<<endl;
+  cout<<"*"<<endl;
+  cout<<" *"<<endl;
+  cout<<"  *"<<endl;
+  cout<<"   **********"<<endl;
+ return 0;
+}
+
+
+
+（8）
+using namespace std;
+#include<iostream>
+int main (void)
+{
+	int i=1,j=1;
+	while(j<=9)
+	{ while(i<=9)
+	  {if(i<=j)
+	     {cout<<i<<"*"<<j<<"="<<i*j<<" ";}
+		 i++;  
+	  }  
+	i=1;
+	cout<<endl;
+	j++;
+	}
+	
+	
+	return 0;
+	
+}

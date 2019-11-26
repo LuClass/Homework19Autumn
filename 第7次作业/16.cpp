@@ -1,20 +1,15 @@
-using namespace std;
-#include <iostream>
-int GCD(int m,int n)
-{
-	if(m%n==0)
-    return n;
-    else
-    return GCD(n,m%n);	 
-}
-int LCM(int m,int n)
-{
-	int gcd=GCD(m,n);
-	return m*n/gcd;
-}
-int main(){
-	int m,n;
-	cin>>m>>n;
-	cout<<"最大公约数为："<<GCD(m,n)<<" 最小公倍数为："<<LCM(m,n); 
-	return 0;
+#include<iostream.h>
+void main()
+{    int a,b,num1,num2,t;
+     cin>>a>>b;
+	 num1=a>b?a:b;
+	 num2=a>b?b:a;
+	 cout<<num1<<'\t'<<num2<<'\t';
+     while(num2!=0)
+	 {   t=num1%num2;
+	     num1=num2;
+		 num2=t;		 
+	 }
+	 cout<<num1;
+
 }

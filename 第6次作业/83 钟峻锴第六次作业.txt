@@ -1,0 +1,94 @@
+(2)
+
+#include <iostream>
+using  namespace std;
+int C(int n,int k)
+{int a,i;
+	if (n>k)
+{	for (a=n-k, i=a;i>1;)
+	a*=--i;
+    for (n, i=n;i>1;)
+	n*=--i;
+	for (k, i=k;i>1;)
+	k*=--i;
+	return n/(k*a);}
+	
+	}
+int main()
+{cout<<C(4,2)<<" "<<C(6,4)<<" "<<C(8,7);
+return 0;}
+
+
+(4)
+
+#include <iostream>
+#include <cmath>
+using  namespace std;
+int C(int n)
+{int i;
+	for (n, i=2;i<=sqrt(n);i++)
+    if (n%i==0)
+    return 0;
+    return n;}
+int main()
+{
+	for (int i=1;i<=500;i++)
+	{if (C(i)&&C(C(i)+2))
+	  cout<<i<<"|"<<i+2<<" ";}
+	  return 0;
+	}
+
+
+(5)
+
+
+
+
+#include <iostream>
+#include <cmath>
+using  namespace std;
+long int C(long int n)
+{long int i;
+	for (n, i=2;i<=sqrt(n);i++)
+    if (n%i==0)
+    return 0;
+    return n;}
+int main(){
+	long int x,y,z,k;
+	cin>>x;
+	cout<<x<<"=";
+	if(C(x))
+	cout<<x;
+	for (x,y=2,z=x,k;y<z;y++)
+	{if(C(y))
+	  {if(!(x%y))
+	    {k=x;
+		x/=y;
+	    cout<<y;if(x==1)
+	  break;
+	  if(y!=k)
+	  cout<<"*";
+	   y=1;}
+	  }
+	  else continue;
+    }
+	  return 0;
+	     }     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+using namespace std;
+6.
+int main() {
+	int a, b, m, n, temp;
+	cout << "please input two numbers" << endl;
+	cin >> a >> b;
+	if (a < b) {
+		temp = a;
+		a = b;
+		b = temp;
+	}
+	m = a; n = b;
+	while (n != 0) {
+		temp = m % n;
+		m = n;
+		n = temp;
+	}
+	cout << "最大公因数为： " << m << endl;
+	cout << "最小公倍数为： " << a * b / m;
+	return 0;
+}
+7//递推
+#include<iostream>
+using namespace std;
+int main() {
+	long n;
+	cout<< "please input a unsigned long integer" << endl;
+	cin >> n;
+	while (n != 0) {
+		cout << n % 10;
+		n = n / 10;
+	}
+	return 0;
+}
+7//递归
+#include<iostream>
+using namespace std;
+void afterchange(long n) {
+	if (n != 0) {
+		cout << n % 10;
+		afterchange(n / 10);
+	}
+	else
+		cout << endl;
+}
+int main() {
+	long n;
+	cout<< "please input a unsigned long integer" << endl;
+	cin >> n;
+	afterchange(n);
+	return 0;
+}

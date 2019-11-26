@@ -1,40 +1,23 @@
 using namespace std;
 #include <iostream>
-#include <math.h>
-bool isPrime(int x){
-	if(x<2)
-	return false;
-	else
+int main()
+{
+	int m,n;
+	cout<<"输入一个整数"<<endl;
+	cin>>m;
+	cout<<"m=";
+	for(n=2;n<=m;n++)
 	{
-		for(int i=2;i<=sqrt(x);i++)
+		while(n!=1)
 		{
-			if(x%i==0)
-			return false;
-		}
-		return true;
-	}
-}
-int main(){
-	int x;
-	cin>>x;
-	cout<<x<<"=";
-	if(x!=1)
-	{
-		while(!isPrime(x))
-		{
-			for(int i=2;i<x/2;i++)
+			if(m%n==0)
 			{
-				if(x%i==0)
-				{
-					x/=i;
-					cout<<i<<"*";
-					break;
-				}
+				cout<<n<<"*";
+				m=m/n;
 			}
+			else
+			  break;
 		}
-		cout<<x;
 	}
-	else
-	cout<<x;
 	return 0;
 }

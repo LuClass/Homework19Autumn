@@ -1,0 +1,61 @@
+（4）
+#include <iostream>
+using namespace std;
+int main(void){
+	int count=0;
+  char x = 0; 
+  do{
+    x = cin.get();		
+    if(x >= '0' && x <='9' )
+	 count++;
+  }while(x != '\n');		
+  cout<<"count="<<count<<endl;
+  return 0;
+}
+
+（7）
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(){
+	int a=3,b=2,i,c,d;
+	cout<<setw(6)<<"1/2";
+	for(i=2;i<=20;i++){
+		
+		
+		cout<<setw(6)<<a<<'/'<<b;
+		c=a+b;
+		b=a;
+		a=c;
+		if(++d%5==0)
+		cout<<endl;
+		}
+	    return 0;        
+	}
+
+ （8）
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main(){  int num,sum;
+int factor,j;
+cout<<"请输入一个正整数"<<endl;
+   cin>>num; 
+    if(!num>=1)
+cout<<"这不是一个正整数"<<endl;
+else
+ {cout<<num<<" 的公因数为: ";
+       for(factor = 1;factor <= num;factor++) 
+        {   if((num % factor) == 0)     
+        cout<<factor<<" ";   } 
+          cout<<endl; } 
+           cout<<"-----------------------------------------"<<endl;
+                   cout<<"1至100间的完全数为: "<<endl;  
+                  for(j = 1;j <= 100;j++)  
+                   {    sum = 0;  
+                      for(factor = 1;factor <= j;factor++)  
+                        {     if((j % factor) == 0)       sum += factor;     }  
+                         sum-=j;
+						    if(sum == j)    
+							  cout<<j<<"   ";   }    
+                          cout<<endl;     }  
