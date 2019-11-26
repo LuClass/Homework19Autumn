@@ -1,0 +1,71 @@
+（3）#include<iostream>
+using namespace std;
+struct fraction{int a,b;
+};
+void simplize(fraction x)
+{
+	int t;
+	if(x.a==0)
+	x.b=1;
+	else
+	x.a>0?t=x.a:t=x.a;
+	t>=x.b?t=x.b:t;
+	for(;t>=2;t--)
+	{
+		if(x.a%t==0&&x.b%t==0)
+		{x.a/=t;
+		x.b/=t;
+		break;
+		}
+	}
+	cout<<x.a<<"/"<<x.b<<endl;
+}
+void calculate(fraction x,fraction y)
+{
+	    int i;
+		y.b>x.b?i=y.b:i=x.b;
+		for(;;i++)
+		{
+			if(i%y.b==0&&i%x.b==0)
+			{x.a=x.a*(i/x.b);
+			y.a=y.a*(i/y.b);
+			y.b=i;
+			x.b=i;
+			break;}
+		}
+		if(x.a==y.a)
+		cout<<"x"<<"="<<"y"<<endl;
+		if(x.a>y.a)
+		cout<<"x"<<">"<<"y"<<endl;
+		else
+		cout<<"x"<<"<"<<"y"<<endl;
+        cout<<"x+y="<<y.a+x.a<<"/"<<y.b<<endl;
+        cout<<"x*y="<<y.a*x.a<<"/"<<y.b*x.b<<endl;
+        cout<<"x-y="<<x.a-y.a<<"/"<<y.b<<endl;
+        cout<<"x/y="<<x.a+y.b<<"/"<<x.b*y.a<<endl;
+	}
+int main()
+{
+	fraction x={4,6},y={1,2};
+	simplize(x);
+	calculate(x,y);
+	
+}
+
+（4）
+#include<iostream>
+using namespace std;
+enum type{per,lev;
+};
+struct course{char cnum[10];
+char cname[10];
+type p;
+};
+union mark{float m1;
+char m2;
+};
+struct grade{char snum[10;
+char sname[10];
+course c;
+mark m;
+};

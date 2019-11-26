@@ -1,0 +1,102 @@
+2.
+#include<iostream>
+#include<time.h>
+#include<stdlib.h>
+using namespace std;
+void makeRandom(int date[],int n){
+	srand(time(NULL));
+	for(int i=0;i<n;i++){
+		date[i]=rand()%100;
+	}
+}
+int getMax(int a[],int n){    //如果用const的话，在赋给一个数组即可
+	int maxValue,maxIndex;    
+	for(int i=0;i<n-1;i++){
+		if(a[i]<a[i+1]){
+			a[i]=a[i+1];    
+			maxValue=a[i+1];
+			maxIndex=i+1;
+		}
+	}
+	cout<<maxValue<<endl;
+	return maxIndex;
+}
+int main(){
+	int a[10];
+	makeRandom(a,10);
+	cout<<getMax(a,10)<<endl;
+}
+
+5.
+#include<iostream>
+using namespace std;
+int sum(int n){
+	int sum2=0;
+	while(n){
+		sum2+=n%10;
+		n=n/10;
+	}
+	return sum2;
+}
+int facter(unsigned int n){
+	unsigned int i=2,m=n;
+	unsigned int sum1=0;
+	while (i<m){
+		while(n%i==0){
+			n=n/i;
+			sum1+=sum(i);
+		}
+		i++;
+	}
+   	return sum1;
+}
+bool isSmith(int n){
+	if(sum(n)==facter(n)){
+		return true;
+	}
+	return false;
+}
+int main(){
+	int n;
+	cin>>n;
+	if(isSmith(n)){
+		cout<<"Yes"<<endl;
+	}
+	else
+	cout<<"No"<<endl;
+	int k=4937774;
+	while(!isSmith(k)){
+		k++;
+	}
+	cout<<k<<endl;
+}
+
+10
+#include<iostream>
+using namespace std;
+int m=21;
+int n=5;
+int main(){
+	int a[m],sum=0,x,count=0;
+	for(int i=0;i<m;i++)
+		a[i]=1;
+	for(int i=0;;i++)
+	{
+		x=i%m;
+		if(a[x])
+		{
+			sum+=a[x];
+			if(sum%n==0)
+			{
+				a[x]=0;
+				count++;
+				if(count==m-1) 
+					break;
+			}
+		}
+	}
+	for(int i;i<m;i++)
+		if(a[i]==1)
+			cout<<i+1<<'\t';
+	return 0;
+}

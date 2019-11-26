@@ -1,0 +1,136 @@
+2.
+using namespace std;
+#include <iostream>
+#include <time.h>
+#include <stdlib.h>
+void getRamdow(int a[],int n)
+{
+	srand(time(NULL));
+	for (int i=0;i<n;i++)
+{
+	a[i]=rand()%100;
+	cout<<a[i]<<'\t';
+}	
+}
+int getMax(int a[],int n)
+{
+	int i,j=0,t;
+	for (i=0;i<n-1;i++)
+{
+	if (a[i]<a[i+1])
+	{
+		j=i+1;
+	}
+	else
+	{
+		t=a[i];
+		a[i]=a[i+1];
+		a[i+1]=t;
+	}	
+}
+    cout<<"max="<<a[n-1]<<endl;
+    cout<<"下标="<<j;
+}
+int main()
+{
+	int a[100];
+	int n;
+	cin>>n;
+	getRamdow(a,n);
+	getMax(a,n);
+	return 0;
+}
+
+5.
+using namespace std;
+#include <iostream>
+bool a(int n)
+{
+	if (n==1||n==2)
+	return false;
+	int i,t=0;
+	for (i=2;i<n;i++)
+{
+	if (n%i==0)
+	t++;
+}
+    if (t==0)
+    return false;
+	else
+	return true;
+}
+bool b(int n)
+{
+	int i=2,j,x,y,z;
+	y=0;x=n;z=0;
+	while (i<=n)
+{
+	if (n%i==0)
+{
+	n=n/i;
+	j=i;
+	for (;j>=1;j=j/10)
+	y=y+j%10;
+}
+    else i++;
+}
+	for (;x>=1;x=x/10)
+    z=z+x%10;
+	if (y==z)
+	return true;
+	return false;
+}
+bool isSmith(int n)
+{
+	
+	if (a(n)&&b(n))
+{
+	cout<<endl;
+	cout<<n<<"是Smith数"; 
+	return true;
+}
+	else 
+{
+	cout<<n<<"不是Smith数"; 
+	return false;
+}
+}
+int main()
+{
+	int n,m,x=0;
+	cin>>n;
+	isSmith(n);
+	for (m=4937775;x=0;m++)
+{
+	if (a(m)&&b(m))
+{
+	cout<<"4937774下一个Smith数是"<<m;
+	x=1;
+}
+}
+	return 0;
+}
+10.
+using namespace std;
+#include <iostream>
+int main()
+{
+	int a[21]={0};
+	int i,j=0;
+    for (i=1;i<=101;i++)
+{
+	if (j==21)
+	j=0;
+	if (a[j]==1)
+	i--;
+	if (i%5==0)
+	a[j]=1;
+	j++;
+}
+    for (i=0;i<21;i++)
+{
+	if (a[i]==0)
+	cout<<"编号为"<<i+1;
+}
+	return 0;
+}

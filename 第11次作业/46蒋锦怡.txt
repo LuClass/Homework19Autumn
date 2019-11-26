@@ -1,0 +1,60 @@
+(1)#include<iostream>
+using namespace std;
+int main(){
+	int i,j,a,b,c,n;
+	cin>>i>>j;
+	for(n=i;n<=j;n++){
+	
+		if(n>=100&&n<=1000){
+	    a=n/100;
+		b=n/10%10;
+		c=n%10;
+		   if(n==a*a*a+b*b+c)
+		   cout<<n<<' ';
+		
+		   
+		}
+	}return 0;
+	
+	}
+(2)
+#include<iostream>
+using namespace std;
+void isHuiwen(int number){
+	int n=0;
+	int m=number;
+	while(m!=0){
+		n=n*10+m%10;
+		m=m/10;
+	}
+	if(n==number)
+	  cout<<"yes"<<endl;
+	else
+	cout<<"no"<<endl;}
+	int main()
+	{int number;
+	cin>>number;
+	 isHuiwen(number);
+	 
+	 
+	 
+	
+	} 
+(3)
+#include<iostream>
+using namespace std;
+int main(){
+   int i,j,n;
+   cin>>i>>j;
+   for(n=i;n<=j;n++){
+   	int s=0;
+   	for(int k=1;k<=n/2;k++){
+   		if((n%k)==0){
+		   
+   		
+   		s+=k;
+   		if(n==s)
+   		cout<<n<<endl; }
+	   }
+   }return 0;
+}

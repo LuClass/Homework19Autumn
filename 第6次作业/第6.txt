@@ -1,0 +1,69 @@
+﻿T2. 
+#include <iostream>
+using namespace std;
+unsigned p(unsigned n)
+{
+int i=1;
+for(i=1;i<=n;i++)
+	p*=i;
+	return p;
+}
+unsigned f(unsigned n,unsigned k)
+{int c1,c2,c3,c;
+c1=p(n);
+c2=p(k);
+c3=p(n-k);
+c=c1/(c2*c3);
+return c;
+}
+int main (void)
+{
+cout<<"c(4,2)="<<c(4,2)<<endl;
+cout<<"c(6,4)="<<c(6,4)<<endl;
+cout<<"c(8,7)="<<c(8,7)<<endl;
+
+}
+T4.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+bool isPrime(unsigned n)
+{if(n<2) 
+return false;
+if (n == 2 || n == 3|| n == 5|| n == 7)	
+return true;
+for (int i = 2; i*i <= n; i++)
+if (n % i == 0)
+return false;
+return true;
+}
+int main ()
+{
+cout<<"500之内的孪生素数有："<<endl; 
+int x=0;
+	for(int n=3,m=5;n<=498;n+=2)
+	m=n+2;
+	if(isPrime(n) && isPrime(m)){
+	cout<<setw(3)<<n<<"and"<<setw(3)<<m<<" ";
+}
+}
+T5. 
+#include <iostream>
+using namespace std;
+int main()
+{int x,i=2;	
+cout<<"请输入正整数x:"<<endl;
+cin>>x;
+cout<<x<<"=";
+	  for(i=2;i<=x;i++)
+	   {if(x%i==0)
+	   {cout<<i;
+	   x=x/i;
+	   if(x!=1)
+	   cout<<"*"; 
+	   i=1;
+	   }
+	   }
+	   if(x!=1)
+	     cout<<x;
+	  }

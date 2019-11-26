@@ -1,0 +1,66 @@
+11.（4）
+#include<iostream>
+using namespace std;
+int main(){
+	char a;
+	int n=0;
+	cin.get(a);
+	while (a!='\n'){
+	if(a<='9'&&a>='0')
+	n++;
+	cin.get(a);
+}
+   cout<<n<<endl;
+   return 3;
+}
+
+11. （7）
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main(){
+int a=3,b=2,c=2,n=3;
+cout<<setw(6)<<"1"<<"/"<<setw(6)<<"2"<<'\t';
+cout<<setw(6)<<"3"<<"/"<<setw(6)<<"2"<<'\t';
+while(n<=20&&n>=3){
+ n++;
+b=a;
+a=a+c;
+c=b;
+cout<<setw(6)<<a<<"/"<<setw(6)<<b<<'\t';
+}
+return 0;
+}
+
+11.(8)
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+int main(){
+int x,N=1;
+cout<<"putin x=";
+cin>>x;
+cout<<"factors=";
+while(N<=x){
+if(x%N==0)
+cout<<N<<" ";
+N++;}
+system("pause");
+cout<<"Perfect number(1~100)=";
+int s=1,h=0;
+N=0;
+while(s<=100){
+    while(N<s-1){
+ N++;
+      if(s%N==0){
+       h=h+N;
+      }
+ }
+if(h==s)
+cout<<s<<" ";
+h=0;
+N=0;
+s++;
+}
+return 0;
+}

@@ -1,0 +1,59 @@
+11(4)
+#include<iostream>
+using namespace std;
+int main(){
+	int count=0;
+	char ch=0;
+	while(ch!='\n'){
+		cin.get(ch);
+		if(ch>='0'&&ch<='9'){
+			count++;
+		}
+	}
+	cout<<count<<endl;
+	return 0;
+} 
+
+11(7)
+#include<iostream>
+using namespace std;
+int main(){
+	int count=0;     
+	cout<<'1'<<'/'<<'2'<<' ';
+	for(int a=3,b=2,temp=0;count<19;count++){
+		cout<<a<<'/'<<b<<' ';
+		temp=a;    //引入中间变量，保存a未改变之前的值
+		a=a+b;
+		b=temp;
+	}
+	return 0;
+}
+
+11(8)
+#include<iostream>
+using namespace std;
+void perfectnumber(int m){
+	for(int i=2;i<=m;i++){         //存疑，sum=0初始化不能放表达式一 
+		int sum=0;
+		for(int k=1;k<i;k++){
+			if(i%k==0){
+				sum+=k;
+			}
+		}
+		if(i==sum){
+			cout<<i<<"  ";
+		}
+	}
+}
+int main(){
+	int n;
+	cin>>n;
+	for(int j=1;j<=n;j++){
+		if(n%j==0){
+			cout<<j<<' ';
+		}
+	}
+	cout<<endl;
+	perfectnumber(100);
+	return 0;
+}

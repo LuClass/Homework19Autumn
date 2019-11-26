@@ -1,0 +1,14 @@
+using namespace std;
+#include <iostream>
+int main()
+{
+    int a=0;
+    char x;
+    do{
+    x=cin.get();
+    if(x>='0'&&x<='9')
+    a++;
+    }while(x!='\n');
+    cout<<"数字字符的个数为"<<a<<endl;
+    return 0;
+}

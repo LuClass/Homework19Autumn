@@ -1,0 +1,56 @@
+8.
+#include<iostream>
+#include"max.cpp"
+#include"hex.cpp"
+using namespace std;
+int main(){
+	int x,y;
+	cin>>x>>y;
+	hex((max(x,y)));
+	return 0;
+} 
+ 
+int max(int x,int y){
+	if(x>y) 
+	return x;
+    else 
+    return y;
+}
+
+#include<iostream>
+using namespace std;
+void hex(int x){	
+	cout<<hex<<x;
+}
+
+9.
+(9)ÓÃº¯Êý
+#include<iostream>
+#include<math.h>
+using namespace std;
+double area(double a,double b,double c){
+	double s=(a+b+c)/2;
+	return sqrt(s*(s-a)*(s-b)*(s-c));
+}
+int main(){
+	double a,b,c;
+	cin>>a>>b>>c;
+	cout<<area(a,b,c);
+} 
+ 
+(9)ÓÃºê
+#include <iostream>
+#include <math.h>
+using namespace std;
+#define s(a,b,c) (a+b+c)/2
+#define area(s) sqrt(s*(s-a)*(s-b)*(s-c))
+int main()
+{
+	int a,b,c;
+	cin>>a>>b>>c;
+	cout<<area(s(a,b,c));
+	return 0;
+	}
+
+
+

@@ -1,0 +1,46 @@
+﻿#include <iostream>
+using namespace std;
+int main(void)
+{
+     cin.get()
+     int num,count=0;
+     cin>>i;
+     if(i>='0'&i<='9')
+    num= count++;
+     {cout<<"num="<<endl}
+   return 0;
+}
+
+#include <iostream>
+using namespace std;
+int main ()
+{   int a=2,b=1,c,k=1;
+	for(int a=2,b=1,c;k<=20;k++)
+{
+   c=a;a=a+b;b=c;
+   cout<<a;cout<<"/";cout<<b;cout<<' ';
+}
+}
+
+#include<iostream>
+using namespace std;
+int main(void){
+ int x,y=0;
+ cout<<"输入正整数";
+ cin>>x;
+ cout<<"它的因子是"; 
+ for(int a=1;a<=x;a++)
+ {if(x%a==0)
+  cout<<a<<" ";
+ }
+ cout<<"完全数为"; 
+ for(int n=2;n<=100;n++){
+  for(int b=1;b<n;b++) {
+    if(n%b==0)
+      y+=b;}
+  if(y==n)
+      cout<<n<<" ";
+      y=0;
+	          }
+ return 0;
+}

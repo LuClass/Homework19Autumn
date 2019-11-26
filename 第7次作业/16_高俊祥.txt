@@ -1,0 +1,109 @@
+2题用switch
+#include<iostream>
+using namespace std;
+int main(){
+  double  i;
+  double bonus1,bonus2,bonus4,bonus6,bonus10,bonus;
+  cin>>i;
+  bonus1=100000*0.1;
+  bonus2=bonus1+100000*0.075;
+  bonus4=bonus2+200000*0.05;
+  bonus6=bonus4+200000*0.03;
+  bonus10=bonus6+400000*0.015;
+	int k=i/100000;
+	switch(k){
+		case 0:bonus=i*0.1;break;
+		case 1:bonus=bonus1+(i-100000)*0.075;break;
+		case 2:
+		case 3:bonus=bonus2+(i-200000)*0.05;break;
+		case 4:
+		case 5:bonus=bonus4+(i-400000)*0.03;break;
+		case 6:
+		case 7:
+		case 8:
+		case 9:bonus=bonus6+(i-600000)*0.015;break;
+		default: bonus=bonus10+(i-1000000)*0.01;break;	   
+	}            
+cout<<"bonus="<<bonus<<endl;
+}
+
+
+13题
+#include<iostream>
+#include<iomanip>
+using namespace std;
+bool is(int x){
+	int temp=x;
+	int a[3];
+	a[0]=x%10;
+	x/=10;
+	a[1]=x%10;
+	x/=10;
+	a[2]=x%10;
+	if(a[0]*a[0]*a[0]+a[1]*a[1]*a[1]+a[2]*a[2]*a[2]==temp)
+	return 1;
+	else 
+	return 0;
+}
+int main(){
+	for(int i=100;i<1000;i++){
+		if(is(i)){
+			cout<<i<<' ';
+		}
+	}
+}
+
+
+16题
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int yueshu(int a,int b){
+   while (a%b != 0) 
+     {
+        int temp = a;
+        a = b;
+        b = temp % a;
+     }
+    return b;
+}
+int main(){
+	int a,b;
+	cout<<"please input two number:"<<endl;
+	cin>>a>>b;
+	int yue;
+	int bei;
+	yue=yueshu(a,b);
+	bei=a*b/yue;
+	cout<<"最大公约数为:"<<yue<<endl;
+	cout<<"最小公倍数为:"<<bei<<endl; 
+}
+
+
+
+23题
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main(){
+	int length,hight;
+	cout<<"请输入长度和高度:"<<endl;
+	cin>>length>>hight;
+	for(int i=0;i<hight;i++){
+		for(int k=0;k<=i;k++)
+		cout<<" ";
+		for(int j=0;j<length;j++){
+			cout<<"*";
+		}
+		cout<<endl;
+	} 
+	cout<<endl;
+	for(int i=hight;i>0;i--){
+		for(int k=0;k<i;k++)
+		cout<<" ";
+		for(int j=0;j<length;j++){
+			cout<<"*";
+		}
+		cout<<endl;
+	}
+}
