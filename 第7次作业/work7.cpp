@@ -1,0 +1,116 @@
+2
+#include<iostream>
+using namespace std;
+int main()
+{
+	long int i,x,sum=0;
+	int bonus1,bonus2,bonus4,bonus6,bonus10,bonus;
+	cin>>i;
+	bonus1=100000*0.1;
+	bonus2=bonus1+100000*0.75;
+	bonus4=bonus2+200000*0.5;
+	bonus6=bonus4+200000*0.3;
+	bonus10=bonus6+400000*0.15;
+	x=i;
+	while(x>100000)
+	{
+		x=x-100000;
+		sum++;
+	} 
+	switch(sum)
+	{
+		case 0:bonus=i*0.1;
+		    break; 
+		case 1:bonus=bonus1+(i-100000)*0.075;
+			break;
+		case 2:
+		case 3:bonus=bonus2+(i-200000)*0.05;
+			break;
+		case 4:
+		case 5: bonus=bonus4+(i-400000)*0.03;
+			break;
+		case 6:
+		case 7:
+		case 8:
+		case 9:bonus=bonus6+(i-600000)*0.015;
+			break;
+		default: bonus=bonus10+(i-1000000)*0.01;
+	}
+	cout<<"bonus="<<bonus<<endl;
+}
+
+
+
+13
+#include<iostream>
+using namespace std;
+int main()
+{
+	int a,b,c;
+	for(int i=100;i<1000;i++)
+	{
+		a=i/100;
+		b=i/10%10;
+		c=i%10;
+		if(a*100+b*10+c==a*a*a+b*b*b+c*c*c)
+		cout<<i<<endl;
+	}
+}
+
+16
+#include<iostream>
+using namespace std;
+int main()
+{
+	int m,n,x,y,z;
+	cin>>x>>y;
+	if(x<y)
+	{
+		z=x;
+		x=y;
+		y=z;
+	}
+	m=x;n=y;
+	while(n!=0)
+	{
+		z=m%y;
+		m=n;
+		n=z;
+	}
+	cout<<"最大公约数为："<<m<<endl;
+	cout<<"最小公倍数为："<<x*y/m; 
+}
+
+23
+#include<iostream>
+using namespace std;
+int main()
+{
+	int x,y;
+	cin>>x>>y;
+	for(int j=0;j<y;j++)
+	{
+		for(int k=0;k<j;k++)
+		{
+			cout<<" ";
+		}
+		for(int i=0;i<x;i++)
+		{
+			cout<<"*";
+		}
+		cout<<endl;
+	}
+	cout<<endl;
+	for(int j=0;j<y;j++)
+	{
+		for(int k=y;k>j;k--)
+		{
+			cout<<" ";
+		}
+		for(int i=0;i<x;i++)
+		{
+			cout<<"*";
+		}
+		cout<<endl;
+	}
+}

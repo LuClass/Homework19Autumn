@@ -1,0 +1,132 @@
+2.
+using namespace std;
+#include<iostream>
+int main(void)
+{
+long int i;
+int bonus1,bonus2,bonus4,bonus6,bonus10,bonus;
+cin>>i; 
+bonus1=100000*0.1;
+bonus2=bonus1+100000*0.75;
+bonus4=bonus2+200000*0.5;
+bonus6=bonus4+200000*0.3;
+bonus10=bonus6+400000*0.15;
+switch(int(i/100000))
+{
+  	case 0:
+    bonus=i*0.1;
+    break;
+    case 1:
+    bonus=bonus1+(i-100000)*0.075;
+    break;
+    case 2:
+    case 3:
+   	bonus=bonus2+(i-200000)*0.05;
+    break;
+    case 4:
+    case 5:
+    bonus=bonus4+(i-400000)*0.03;
+    break;
+    case 6:
+    case 7:
+    case 8:
+    bonus=bonus6+(i-600000)*0.015;
+    break;
+    default:
+    bonus=bonus10+(i-1000000)*0.01;
+	}
+	cout<<bonus;
+    return 0;
+}
+
+
+13.
+using namespace std;
+#include<iostream>
+int main(void)
+{
+	int x;
+	for(x=100;x<=999;x++)
+	{
+		int a=x%10;
+		int b=((x-a)/10)%10;
+		int c=(x-10*b-a)/100;
+		int sum=a*a*a+b*b*b+c*c*c;
+		if(sum==x)
+		cout<<x<<endl;
+	}
+return 0;
+}
+
+16.
+using namespace std;
+#include<iostream>
+bool f(int x,int i)
+{
+	if(x%i==0)
+	return 1;
+	return 0;
+}
+
+int main(void)
+{
+	int m,n,t;
+	cin>>m>>n;
+	int i=1;
+	for(;i<=m&&i<=n;i++)
+	{
+		if(f(m,i)==1&&f(n,i)==1)
+		t=i;	
+	}
+	cout<<t;
+}
+
+23.
+using namespace std;
+#include<iostream>
+int main(void)
+{
+	int h,s;
+	cin>>h>>s;
+	int h0,s0;
+	int space=0;
+	for(h0=1;h0<=h;h0++)
+	{
+		for (s0=1;s0<=s;s0++)
+		{
+			cout<<"*";
+			if(s0==s)
+			{
+				cout<<endl;
+				space++;
+			}	
+		}
+		for (int i=1;i<=space;i++)
+		{
+			cout<<" ";
+		}
+	}
+	cout<<endl;
+	
+	
+	space=h-1;
+	
+	for(h0=1;h0<=h;h0++)
+	{
+		for (int i=1;i<=space;i++)
+		{
+			cout<<" ";
+		}
+		for (s0=1;s0<=s;s0++)
+		{
+			cout<<"*";
+			if(s0==s)
+			{
+				cout<<endl;
+				space--;
+			}	
+		}
+		
+	}	
+	return 0;
+}
