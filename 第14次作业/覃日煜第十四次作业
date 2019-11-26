@@ -1,0 +1,111 @@
+(1)
+#include<iostream>
+#include<math.h>
+using namespace std;
+struct getjie{
+	float jie1,jie2;
+};
+  getjie f(int a,int b,int c)
+  {   float m;
+	  getjie r;
+  	cin>>a>>b>>c;
+  	m=b*b-4*a*c;
+  	if(m>0)
+  	{   
+  		r.jie1=(-b+sqrt(m))/(2*a);
+  		r.jie2=(-b-sqrt(m))/(2*a);
+	  }
+	if(m==0)
+	{  
+		r.jie1=(-b)/(2*a);
+		r.jie2=r.jie1;
+	}
+	if(m<0)
+	{
+	  r.jie1=0;
+	  r.jie2=0;	
+	}
+	return r;
+  }
+  void coutjie(getjie&r)
+  {	cout<<r.jie1<<" "<<r.jie2;
+  }
+  void wujie(getjie&r)
+  {   if(r.jie1==0&&r.jie2==0)
+  	cout<<"无解"<<endl; 
+  }
+  int main()
+  {  int a,b,c;
+  	getjie x=f(a,b,c);
+	 coutjie(x);
+	 wujie(x);
+  }
+ 
+
+(2)
+#include<iostream>
+#include<math.h>
+using namespace std;
+struct point{int x,y;
+};
+ float length(point a1,point a2)
+ {
+ 	float L,x1,y1;
+ 	x1=a1.x-a2.x;
+ 	y1=a1.y-a2.y;
+ 	L=sqrt(x1*x1+y1*y1);
+ 	return L;
+ }
+ struct sanj{bool jud;float C,S;
+ };
+ 
+ sanj sanj1(point a1,point a2,point a3)
+ {  sanj k;
+ 	float l1,l2,l3,u;
+ 	l1=length(a1,a2);
+ 	l2=length(a2,a3);
+ 	l3=length(a1,a3);
+ 	if(l1+l2>l3&&l1-l2<l3)
+ 	k.jud=1;
+ 	else
+ 	k.jud=0;
+ 	if(k.jud==1)
+ 	{
+ 		k.C=l1+l2+l3;
+ 		u=(l1+l2+l3)/2;
+ 		k.S=sqrt(u*(u-l1)*(u-l2)*(u-l3));
+    }
+    return k;
+ }
+ int main()
+ {  point a1={1,1},a2={2,2},a3={1,2};
+    sanj k=sanj1(a1,a2,a3);
+    if(k.jud==1)
+    cout<<"可构成三角形"<<" "<<"S="<<k.S<<" "<<"C="<<k.C;
+	else
+	cout<<"不可构成三角形"; 
+    }
+
+
+(3)
+#include<iostream>
+using namespace std;
+int main()
+{
+	char a[50];
+	int i;
+	cin.getline(a,50);
+	for(i=0;a[i]!='\0';i++)
+	{
+		cout<<a[i];
+	}
+	cout<<endl;
+	   for(i=0;a[i]!='\0';i++)
+	 {   
+		if(a[i]>='a'&&a[i]<='z')
+		 {   a[i]-=32;
+		 }
+	 }
+     for(i=0;a[i]!='\0';i++)
+	 cout<<a[i];   
+}

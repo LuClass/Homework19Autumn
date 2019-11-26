@@ -1,0 +1,50 @@
+(4).
+#include <iostream>
+using namespace std;
+int main(){int count=0;
+char ch=0;
+do{ch=cin.get();
+if(ch>='0'&&ch<='9'
+)count++;
+}while(ch!='\n');
+cout<<"count="<<count<<endl;
+return 0;
+}
+(7).
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+ cout<<setw(5)<<1<<"/"<<2;
+    cout<<endl;
+    for(int a=1,b=2,c,i=1;i<=19;i++)
+    {c=b;b=a+b;a=c;
+    cout<<setw(5)<<b<<"/"<<a;
+    cout<<endl;
+    }
+    return 0;
+    }
+(8).
+#include <iostream>
+using namespace std;
+int main(){
+int x,i,y=1,j,sum;
+cout<<"输入正整数:";
+cin>>x;
+for(i=1;i<=x;i++){
+if(x%i==0)cout<<" "<<i;
+}
+cout<<endl;
+cout<<"1~100之间的完全数:"; 
+ for(y=2;y<=100;y++)
+{sum=0;
+for(j=1;j<=y;j++)
+{if(y%j==0)
+sum+=j;
+}
+if(sum==2*y)
+cout<<' '<<y;
+}
+return 0;
+}

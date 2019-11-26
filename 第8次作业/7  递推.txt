@@ -1,0 +1,15 @@
+﻿#include<iostream>
+using namespace std;
+int main(){
+    int m, n; 
+	    cout<<"请输入正整数:";
+	    cin>>m;		
+	    if (m <= 0)		
+	cout<<"error！！"<<endl;		
+	else	
+       n = m % 10;	
+		cout << n;	
+		m /= 10; 	
+	    cout<<'\n';
+    return 0;
+}

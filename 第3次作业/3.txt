@@ -1,0 +1,44 @@
+（1）
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a,b;
+	cin >> a;
+	for (int i = 31; i>=0; --i) {
+		b = (a >> i) & 1;
+		cout << b;
+	}
+	cout << endl;
+	system("pause");
+	return 0;
+}
+
+（6）
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a, b, c;
+	cin >> a >> b >> c;
+	double d = b * b - 4 * a * c;
+	double x1, x2;
+	if (d > 0) 
+	{
+		x1 = (-b + sqrt(d)) / (2.0 * a);
+		x2 = (-b - sqrt(d)) / (2.0 * a);
+		cout << "有两根:x1=" << x1 << " x2=" << x2 << endl;
+	}
+	else if (d < 0)
+	{
+		cout << "方程无实根";
+	}
+	else
+	{
+		x1 = -b / (2.0 * a);
+		cout << "有一个根 x=" << x1 << endl;
+	}
+	system("pause");
+	return 0;
+}
+

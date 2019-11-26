@@ -1,0 +1,139 @@
+（1）#include <iostream>
+using namespace std;
+int main()
+{
+	int i, j, s = 0, m;
+	cin >> i >> j;
+	for (int k = i; k <= j; k++)
+	{
+		m = k;
+		if (m > 99)
+		{
+			for (; m != 0;)
+			{
+				s += (m % 10)*(m % 10)*(m % 10);
+				m = m / 10;
+
+			}
+			if (s == k)
+			{
+				cout << s << endl;
+
+			}
+			s = 0;
+		}
+	}
+}
+
+（2）#include <iostream>
+using namespace std;
+int main()
+{
+
+	int x,m,s=0;
+	cin >> x;
+	m = x;
+	for (; m != 0;)
+	{
+		m = m/ 10;
+		s++;
+	}
+	if (s % 2 == 0)
+	{
+		for (int i =1;i<=s/2; i++)
+		{
+			int n=1,c=1;
+			for (int j=1;j<=s-i;j++)
+			{
+				n *= 10;
+
+			}
+			for (int j = 1; j <= i-1; j++)
+			{
+				c *= 10;
+
+			}
+			if ((x/c)%10!= (x / n) % 10)
+			{
+				cout << x << "不是回文数" << endl;
+				break;
+
+			}
+			if (i == s / 2)
+			{
+				cout << x<<"是回文数"<<endl;
+
+			}
+
+
+
+		}
+
+
+	}
+	else
+	{
+		for (int i = 1; i <= (s-1) / 2; i++)
+		{
+			int n = 1, c = 1;
+			for (int j = 1; j <= s - i; j++)
+			{
+				n *= 10;
+
+			}
+			for (int j = 1; j <= i - 1; j++)
+			{
+				c *= 10;
+
+			}
+			if ((x / c) % 10 != (x / n) % 10)
+			{
+				cout << x << "不是回文数" << endl;
+				break;
+
+			}
+
+			if (i == s / 2)
+			{
+				cout << x << "是回文数"<<endl;
+
+			}
+
+
+
+		}
+
+
+	}
+}
+（3）
+#include <iostream>
+using namespace std;
+int main()
+{
+	int i, j,s=0;
+	cin >> i >> j;
+	for (int k = i; k <= j; k++)
+	{
+		int m = k;
+		for (int n=1;n<=m/2;n++)
+		{
+			if(m%n==0)
+			{ 
+				s += n;
+			}
+		
+
+
+		}
+
+		if (s == k)
+		{
+
+			cout << s << endl;
+
+		}
+
+		s = 0;
+	}
+}
