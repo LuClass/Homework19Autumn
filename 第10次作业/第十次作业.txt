@@ -1,0 +1,139 @@
+﻿2
+#include<iostream>
+using namespace std;
+void getRandom(int a[],int n)
+{
+	srand(a[0]);
+	for(int i=0;i<n;i++)
+	a[i]=rand()%101;
+}
+int getMax(const int a[],int n)
+{
+	int max=a[0];
+	for(int i=1;i<n;i++)
+	if(max<a[i])
+	max=a[i];
+	return max;
+}
+void print(int a[],int n)
+{
+	for(int i=0;i<n;i++)
+	cout<<a[i]<<endl;
+}
+int main()
+{
+	int a[8];
+	getRandom(a,8);
+	print(a,8);
+	cout<<getMax(a,8);
+}
+
+5
+#include<iostream>
+using namespace std;
+bool isSu(int n)
+{
+	if(n==2|| (n==3) ||(n==5)||(n==7))
+	return true;
+	if(n%2==0)
+	return false;
+	for(int i=3;i*i<=n;i+=2)
+	if(n%i==0)
+	return false;
+	return true;
+}
+int sumWei(int n)
+{
+	int sum = 0;
+	while(n!=0)
+	{
+		sum+=n%10;
+		n/=10;
+	}
+	return sum;
+}
+int sumSu(int n)
+{
+	int sum=0,tem=n;
+	while(tem%2==0)
+	{
+		tem/=2;
+		sum+=2;
+	}
+	for(int i = 3;i<=n;i+=2)
+		while(tem%i==0)
+		{
+			tem/=i;
+			sum+=sumWei(i);
+		}
+	return sum;
+}
+bool isSmith(int n)
+{
+	if(isSu(n)||sumSu(n)!=sumWei(n))
+	return false;
+	return true;
+}
+int main()
+{
+	int a;
+	cin>>a;
+	if(a<0)
+	a=4;
+	while(!isSmith(a))
+	a++;
+	cout<<a;
+}
+
+10
+#include<iostream>
+#define PEOPLE 21
+using namespace std;
+void out(int a[],int n)
+{
+	a[n]-=1;
+}
+int survived(int a[],int n)
+{
+	int count=0;
+	for(int i = 0;i<n;i++)
+	if(a[i])
+	count++;
+	return count;
+}
+void start(int a[],int n)
+{
+	for(int i=0;i<n;i++)
+	a[i]=1;
+}
+int chiji(int a[],int n)
+{
+	int i = 0;
+	for(;i<n;i++)
+	if(a[i])
+	break;
+	return i;
+}
+int process(int a[],int n)
+{
+	int m=0;
+	for(int i = 0;survived(a,PEOPLE)!=1;i++)
+	{
+		if(a[i])
+		{
+			m++;
+			if(m%5==0)
+			out(a,i);
+		}
+		if(i==PEOPLE-1)
+		i=-1;
+	}
+	return chiji(a,PEOPLE);
+}
+int main()
+{
+	int a[PEOPLE]={0};
+	start(a,PEOPLE);
+	cout<<process(a,PEOPLE)+1;
+	
+}

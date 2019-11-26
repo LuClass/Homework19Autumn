@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+ 	int a;
+ 	char k;
+ 	for(a=0;(k=getchar())!='\n';){
+ 		if(k<='9'&&k>='0'){
+ 			a++;
+		}
+	 }
+	 cout<<a;
+return 0;
+}
+
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a=5,b=3,i=3,c;
+	cout<<"1/2 3/2 ";
+	for(i=3;i<=20;i++){
+		cout<<a<<" / "<<b<<" ";
+		c=a;a=a+b;b=c;
+	}
+return 0;
+}
+
+
+#include <iostream>
+using namespace std;
+int main(void){
+	int x,i,sum=0;
+	cin>>x;
+	cout<<"1 ";
+	for(i=2;i<=x/2;i++){
+		if(x%i==0){
+			cout<<i<<" ";
+			sum+=i;
+		}
+	}
+	cout<<x<<endl;
+	sum+=1;
+	if(sum==x)
+	cout<<x<<"是一个完全数";
+return 0;
+}

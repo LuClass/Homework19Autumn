@@ -1,0 +1,98 @@
+（2）#include<iostream>
+using namespace std;
+int main(void)
+{int i,b1,b2,b4,b6,b10,b,k;
+ k=i/100000;
+  b1=100000*0.1;
+  b2=b1+100000*0.075;
+  b4=b2+200000*0.05;
+  b6=b4+200000+0.03;
+  b10=b6+400000+0.015;
+  cin>>i;
+  switch(k)
+  {case 0: b=i*0.1;  
+      break;
+   case 1: b=b1+(i-100000)*0.075;  break;
+   case 2:
+   case 3: b=b2+(i-200000)*0.05;   break;
+   case 4: 
+   case 5: b=b4+(i-400000)*0.03;  break;
+   case 6:
+   case 7:
+   case 8:
+   case 9: b=b6+(i-600000)*0.015;  break;
+   default:b=b10+(i-1000000)*0.01;
+  }
+  cout<<b<<endl;
+  return 0;
+ } 
+ 
+ 
+ （13）#include<iostream>
+using namespace std;
+int main (void)
+{ int a,b,n,m,k,i;
+  for(a=100;a<=999;a++)
+  {i=a;
+   b=i%10;
+   i/=10;
+   n=i%10;
+   m=i/10;
+  if(a==m*m*m+b*b*b+n*n*n)
+    {cout<<a<<" ";
+	}
+  }
+  
+}
+
+
+（16）#include<iostream>
+using namespace std;
+factor(int m,int n)
+ {  int i,k;
+ if(m<n)
+  { k=m;
+    m=n;
+    n=k;
+  }
+   while(n!=0)
+   { i=m%n;
+     m=n;
+     n=i;
+   }
+   return m;
+ }
+ multiple(int m,int n)
+ {int a;
+   a=m*n/factor(m,n);
+   return a;
+ }
+ int main(void)
+{  int m,n;
+   cin>>m>>n;
+   cout<<"最大公约数="<<factor(m,n);
+   cout<<"最小公倍数="<<multiple(m,n);
+}
+
+
+（23）#include<iostream>
+using namespace std;
+int main(void)
+{ int i,j,l,h;
+   cout<<"输入长";
+  cin>>l;
+  cout<<"输入高";
+  cin>>h; 
+  for(j=1;j<=h;j++)
+    {
+	  l++;
+   for(i=1;i<=l;i++)
+    {
+	 if(i<=j)
+    cout<<" ";
+    else 
+    cout<<"*";} 
+    cout<<endl;
+    }
+    
+}
