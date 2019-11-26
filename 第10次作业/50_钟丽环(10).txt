@@ -1,0 +1,108 @@
+(2)
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+void getRandom(int a[],int n){
+	int i;
+	srand(time(NULL));
+	for(i=0;i<=n;i++){
+		cout<<rand()%101<<endl;
+		a[i]=rand()%101;
+	}
+}
+int getMax(const int a[],int n){
+	int i,j,minValue,minIndex,temp; 
+	for(i=0;i<n-1;i++){			
+		minValue=a[i];				
+		minIndex=i;					
+		for(j=i+1;j<n;j++){	
+			if(minValue>a[j]){	
+				minValue=a[j]; 
+				minIndex=j;
+			}
+		}
+		if(i!=minIndex){		
+			temp=a[i]; 
+			a[i]=a[minIndex]; 
+			a[minIndex]=temp;
+		}
+	}
+
+}
+int main(){
+	int a[]={0};
+	int n;
+	cin>>n;
+	cout<<getRandom(a,n)<<endl;
+	cout<<getMax(a,n)<<endl;
+}
+
+
+
+
+
+(5)
+#include <iostream>
+using namespace std;
+int Z(int a){
+	int i;
+    do{
+    	if(a%i!=0)
+    	break;
+    	i++;
+	}while(i<=a);
+	if(i==a)
+	return 1;
+	else
+	return 0;
+}
+bool isSmith(int a){
+	int c,k,j=0;
+	if(a<=2)
+	for(int i=2;i<=a;i++){
+		while(a!=1){
+			if(a%i==0){
+			c=c+i;
+			a=a/i;
+			}
+			else
+			break;
+		}
+	}
+	else
+	return 0;
+	do{
+		k=(a-a%10)%10;
+		j=j+k;
+		a=(a-a%10)/10;
+	}while(a/10!=0);
+	if(c==j)
+	cout<<a<<endl;
+}
+int main(){
+	int a;
+	cin>>a;
+	if(Z(a)==1)
+	cout<<isSmith(a)<<endl;
+}
+
+
+
+
+
+
+(10)
+#include <iostream>
+using namespace std;
+int main(){
+	int a[21]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
+	int n=0;
+	for(int i=1;;i++){
+		if(i%5==0){
+			for(int j=i-21+n;j<=i+5;j++){
+				a[j]=a[j+1];
+			}n++;
+		}
+	}
+	}

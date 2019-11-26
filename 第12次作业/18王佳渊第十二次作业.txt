@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+int getSet(int rs[], const int a[], int n) {
+	int counter = 0;
+	bool f;
+	for (int i = 0; i < n; i++) {
+		f = true;
+		for (int j = 0; j < counter; j++) {
+			if (a[i] == rs[j])
+				f = false;
+		}
+		if (f == true)
+			rs[counter++] = a[i];
+	}
+	return counter;
+}
+void getSet_2(int rs[], const int a[], int n) {
+	int counter = 0, total[30],m;
+	bool f;
+	for (int i = 0; i < n; i++)
+		total[i] = 0;
+	for (int i = 0; i < n; i++){
+		f = true;
+		for (int j = 0; j < counter; j++) {
+			if (a[i] == rs[j]){
+				f = false;
+				total[j]++;
+			}
+		}
+        if (f == true){
+			rs[counter] = a[i];
+			total[counter]++;
+			counter += 1;
+		}
+	}
+	for (int i = 0; i < counter; i++){
+		for (int j = 0; j < counter - 1 - i; j++){
+			if (total[j] < total[j + 1]){
+				m = total[j];
+				total[j] = total[j + 1];
+				total[j + 1] = m;
+                m = rs[j];
+				rs[j] = rs[j + 1];
+				rs[j + 1] = m;
+			}
+		}
+	}
+	for (int i = 0; i < counter; i++)
+		cout << rs[i] << ":" << total[i] << endl;
+}
+int main() {
+	const int n = 8;
+	int rs[n];
+	const int a[n] = { 3,1,2,3,1,5,2,1 };
+	cout << getSet(rs, a, n) << endl;
+	getSet(rs, a, n);
+	cout << endl;
+	getSet_2(rs, a, n);
+	return 0;
+}

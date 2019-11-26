@@ -1,0 +1,78 @@
+//  P110  21.(2)
+#include <iostream>
+using namespace std;
+double zuheshu ( int n, int k )
+{
+	int fenzi=1,fenmu=1;
+	for (int a=1;a<=n;a++)
+	  fenzi=fenzi*a;
+	for (int b=1;b<=k;b++)
+	  fenmu=fenmu*b;
+	for (int d=1;d<=n-k;d++)
+	  fenmu=fenmu*d;
+	return double (fenzi/fenmu);
+}	
+int main (void)
+{
+	cout<<"组合数"<<endl;
+	cout<<'\n';
+	cout<<"C(4,2)="<<zuheshu(4,2)<<endl;
+	cout<<"C(6,4)="<<zuheshu(6,4)<<endl;
+	cout<<"C(8,7)="<<zuheshu(8,7)<<endl;
+	return 0;
+}
+
+
+
+//  P110.21(4)
+#include <iostream>
+using namespace std;
+int pdsushu (int t)
+{
+	int j;
+	for (j=2;j*j<=t;j++)
+	{
+		if (t%j==0)
+			return 0;
+		else
+		    return 1;
+	}	
+}
+
+int main (void)
+{
+	int a=3;
+	cout<<"500之内所有孪生素数"<<endl;
+	cout<<'\n';
+	for ( ;pdsushu(a)!=0&&pdsushu(a+2)!=0&&a<=500&&(a+2)<=500;a+=2)
+	cout<<a<<"和"<<a+2<<endl;
+return 0;
+}
+
+
+
+//  P110.21(5)
+#include<iostream>
+using namespace std;
+int main(void)
+{
+	int i,j;
+	cout<<"请输入一个正整数"<<endl;
+	cin>>i;
+	cout<<i<<"=";
+	for (j=2;j<=i;j++)
+	{
+		while (j!=i)
+		{
+			if (i%j==0)
+			{
+				cout<<j<<"*";
+				i=i/j;
+			}
+			else
+			break;
+		}
+	}
+	cout<<i;
+	return 0;
+}

@@ -1,0 +1,95 @@
+#include <iostream>
+using namespace std;
+int main (){
+	//23
+	int i,j;
+	cin>>i>>j;
+	for (int s=1;s<=i;s++){
+	for (int k=1;k<=j+s+i;k++)
+	if ((k+s>=i+1)&&(k+s<=j+i)) 
+	cout<<"*";
+	else
+	cout<<" ";
+	cout<<endl;}
+	cout<<endl;
+	for (int s=1;s<=i;s++){
+	for (int k=1;k<=j+s;k++)
+	if  (s<k) 
+	cout<<"*";
+	else
+	cout<<" ";
+	cout<<endl;}
+	return 0;}
+	using namespace std;
+#include <iostream>
+int main (){
+	//16
+    int m,n,k,s,t;
+    cin>>m; cin>>n;s=m*n;
+if(m>=n) {
+for (;m%n!=0;m%n) 
+{
+k=m%n;m=n;n=k;}
+cout<<"最大公约数="<<n;cout<<endl;t=s/n;
+cout<<"最小公倍数="<<t;
+}
+else if (m<n){
+	for (;n%m!=0;n%m) 
+{
+k=n%m;n=m;m=k;}
+cout<<"最大公约数="<<m;cout<<endl;t=s/m;
+cout<<"最小公倍数="<<t;
+}
+return 0;
+}
+using namespace std;
+#include <iostream>
+int main()
+{
+	//13
+	int n, t, s, k;
+
+	for (int n = 100; n < 1000; n++)
+	{
+		t = n / 100;
+
+		s = (n % 100) / 10;
+		k = n % 10;
+
+		if (t * t * t + s * s * s + k * k * k == n)
+
+			cout <  < "the narcissus is" << n << endl;
+	}
+	return 0;
+}
+using namespace std;
+#include <iostream>
+int main()
+{//2
+	long int i,b1,b2,b4,b6,b10,b;
+b1=100000*0.1;
+b2=b1+100000*0.075;
+b4=b2+200000*0.05;
+b6=b4+200000*0.03;
+b10=b6+400000*0.01;
+cin>>i;
+switch (i/100000) {
+	case 0:{b=i*0.1;cout<<b;break;}
+	case  1: {b=b1+(i-100000)*0.075;cout<<b;break;}
+	case 2:
+	case  3:{
+b=b2+(-200000)*0.05;cout<<b;break;}
+case 4:
+case 5:{
+b=b4+(i-400000)*0.03;cout<<b;break;}
+case 6:
+case 7:
+case 8:
+case 9:{
+b=b6+(i-600000)*0.015;cout<<b;break;}
+default:{
+b=b10+(i-1000000)*0.01;cout<<b;}
+}
+	return 0;
+}
+	
