@@ -1,0 +1,60 @@
+P110.（6）
+#include <iostream>
+using namespace std;
+int main()
+{
+   int a,b,c,num1,num2;
+   cin>>num1>>num2;
+   if(num1<num2)
+   {c=num1;
+   num1=num2;
+   num2=c;
+   }
+   a=num1,b=num2;
+   while(b!=0)
+   {
+   c=a%b;
+   a=b;
+   b=c;
+   }
+   cout<<"最大公约数："<<a;
+   cout<<"最大公倍数："<<num1*num2/a;
+}
+
+
+
+
+（7）
+递归
+#include <iostream>
+using namespace std;
+int C(int a)
+{
+  cout<<a%10;
+  if(a/10)
+  return C(a/10);
+}
+ 
+ int main()
+{
+ int a;
+ cin>>a;
+ C(a);
+ return 0;
+}
+
+
+递推
+#include <iostream>
+using namespace std;
+int main()
+{
+ int a,b;
+ cin>>a;
+ for(;a%10;)
+  {
+  b=a%10;
+  a=a/10;
+  cout<<b;
+  }
+}

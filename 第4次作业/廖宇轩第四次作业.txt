@@ -1,0 +1,86 @@
+（4）#include <iostream>
+
+using namespace std;
+int main()
+{
+	int a=0;
+		char b;
+	b=cin.get();
+	while (b>='0'&&b<='9')
+	{
+
+		a++;
+		b = cin.get();
+
+
+	}
+cout<<a<<endl;
+}
+（7）#include <iostream>
+
+using namespace std;
+int main()
+{
+	int x, y, s;
+
+	x = 1;
+	y = 2;
+	cout << x << "/" << y << "\t";
+	x = x + y;
+	for (int i = 1; i <= 20; i++)
+	{
+		s = x;
+		x = x + y;
+		y = s;
+		cout << x << "/" << y << "\t";
+		if (i % 5 == 0)
+		{
+			cout << endl;
+
+
+		}
+
+
+	}
+}
+(8)
+#include <iostream>
+
+using namespace std;
+int main()
+{
+	int sum;
+	cout << "1到100之间的完全数为" << endl;
+	for (int j = 1; j <= 100; j++)
+	{
+		sum = 0;
+		for (int i = 1; i < j; i++)
+
+		{
+			
+			if (j%i == 0)
+			{
+				sum += i;
+
+			}
+		}
+		if (sum == j)
+		{
+			cout << j<<endl;
+		}
+
+	}
+	cout << endl << "请输入x";
+	int x;
+	cin >> x;
+	for (int i = 1; i <= x; i++)
+	{
+		if (x%i == 0)
+			cout << i << "\t";
+
+
+	}
+
+	
+	
+}

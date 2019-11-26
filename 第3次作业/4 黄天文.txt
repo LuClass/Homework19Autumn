@@ -1,0 +1,34 @@
+1.
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int i;
+	cin>>i;
+	cout << bitset<32>(i) << endl;
+}
+2
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	double a,b,c,f,d;
+	cin>>a>>b>>c;
+	
+	if((b*b-4*a*c)<0)
+	{
+		cout<<"无根"; 
+	}
+	if((b*b-4*a*c)==0)
+	{
+		f=(-b/(2*a));
+		cout<<"一个根"<<" 解为x="<<f; 
+	}
+	if((b*b-4*a*c)>0)
+	{
+		f=((-b+sqrt(b*b-4*a*c))/(2*a));
+		d=((-b-sqrt(b*b-4*a*c))/(2*a));
+		cout<<"两个根"<<" 解为x1="<<f<<"x2="<<d; 
+	}
+	return 0;
+}
