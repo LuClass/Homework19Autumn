@@ -1,0 +1,26 @@
+using namespace std;
+#include <iostream>
+#include <stdlib.h>
+void getRandom(int a[],int n){
+srand(a[0]);
+for(int i=0;i<n;i++)
+a[i]=rand()%100;
+}
+
+int getMax(const int a[],int n){
+int b,c,j;
+b=a[0];
+for(j=1;j<n;j++){
+if(b<a[j]){
+b=a[j];
+c=j;
+}
+ }	
+ cout<<b<<" "<<c; 
+}
+
+int main (){
+int a[100];
+getRandom(a,100);	
+getMax(a,100);
+}

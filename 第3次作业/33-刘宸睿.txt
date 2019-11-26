@@ -1,0 +1,54 @@
+11.（1）.
+#include<iostream>
+using namespace std;
+	char a[32];
+int main(){
+    int i=0,n;
+	cout<<"请输入整数n:";
+	cin>>n;
+	do
+	{
+		a[i]=(n&1)+48;
+		n=n>>1;
+		i++;
+	}while(n>0);
+for(int b=31;b>=0;b--)
+{
+	if(a[b]=='\0')
+	cout<<"0";
+	else 
+	cout<<a[b];
+	
+	}	
+	return 0;
+} 
+（6）.
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main(){
+	double a,b,c,x1,x2,m;	
+	cout<<"请输入a:"; 
+	cin>>a;
+	cout<<"请输入b:";
+	cin>>b;
+	cout<<"请输入c:";
+	cin>>c;
+	m=b*b-4*a*c;
+	if(m>0)
+	{
+		x1=(-b+sqrt(m))/(2*a);
+		x2=(-b-sqrt(m))/(2*a);
+		cout<<"x1="<<x1<<"x2="<<x2<<'\n';
+	}
+	 else if(m==0)
+	 {
+	 	x1=-b/(2*a);
+	 	x2=x1;
+	 	cout<<"x1=x2="<<x1<<'\n';
+	 }
+	 else 
+	  cout<<"无实数根！"<<endl;
+
+ 	return 0;
+}

@@ -1,0 +1,59 @@
+6
+#include<iostream>
+ #include<string.h>
+ #define MAX 4
+ using namespace std;
+ int getRev(char a[]){
+ 	int len=strlen(a);
+ 	int num=0;
+ 	for(int i=0;i<len-1;i++){
+ 		for(int j=i+1;j<len;j++){
+ 			if(a[i]>a[j]){
+ 				num++;
+ 			}
+ 		}
+ 	}
+ 	return num;
+ }
+ int main(){
+ 	char a[MAX][20]={"DAABEC","ABBBCDDD","BDCBDCCA","BCCDEEA"};
+ 	int b[MAX];
+ 	for(int i=0;i<MAX;i++){
+ 		b[i]=getRev(a[i]);
+ 	}
+ 	for(int i=0;i<MAX-1;i++){
+ 		for(int j=i;j<MAX;j++){
+ 			if(b[i]>b[j]){
+ 				int temp=b[i];
+ 				b[i]=b[j];
+ 				b[j]=temp;
+ 				char s[20];
+ 				strcpy(s,a[i]);
+ 				strcpy(a[i],a[j]);
+ 				strcpy(a[j],s);
+ 			}
+ 		}
+ 	}
+ 	for(int i=0;i<MAX;i++){
+ 		cout<<<<b[i]<<endl<<a[i]<<endl;
+ 	}
+ } 
+8
+#include<iostream>
+ #include<string.h>
+ using namespace std;
+ int getWordCount(char a[]){
+ 	int num=0;
+ 	int len=strlen(a);
+ 	for(int i=0;i<len;i++){
+ 		if(((a[i]>='a'&&a[i]<='z')||(a[i]>='A'&&a[i]<='Z'))&&(a[i+1]==' '||a[i+1]=='\0')){
+ 			num++;
+ 		}
+ 	}
+ 	return num;
+ }
+ int main(){
+ 	char a[1010]={"\tEveryone has that period in which they  find those who are close to them start to seem annoying"};
+ 	cout<<a<<endl;
+ 	cout<<endl<<getWordCount(a)<<endl;
+ }

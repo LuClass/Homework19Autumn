@@ -1,0 +1,66 @@
+#include<iostream>
+using namespace std;
+水仙花数
+int main(){
+	int i,j;
+	cin>>i>>j;
+	if(i>j){
+		int t = i;
+		i = j;
+		j = t;
+	}
+	for(int z = i;z<=j;z++){
+		int k = z;
+		int sum=0;
+		while(k!=0){			
+			int a = k%10;
+			sum += a*a*a;
+			k/=10;
+		}
+		if(sum==z){
+			cout<<z<<" ";
+		}
+	}
+	return 0;
+} 
+回文数
+#include <iostream>
+using namespace std;
+int main()
+{
+
+  cout<<endl<<"请输入一个整数:"<<endl;
+    long ge,shi,qian,wan,x;
+   cin>>x;
+  wan=x/10000;
+  qian=x%10000/1000;
+  shi=x%100/10;
+  ge=x%10;
+  if(ge==wan&&shi==qian)
+    cout<<x<<"属于回文数"<<endl;
+  else
+    cout<<x<<"不属于回文数"<<endl;
+   return 0;
+}
+完全数
+#include<iostream>
+using namespace std;
+int main()
+{
+	int i,j,s;
+	cout<<"input i and j (i<j):";
+	cin>>i>>j;
+	cout<<"perfect numbers between i and j are:" <<endl;
+	for(int a=i;a<=j;a++)
+	{
+		s=a;
+		for(int b=1;b<a;b++)
+			if(a%b==0)
+				s-=b;
+		if(s==0)
+		{
+			cout<<a<<'\t';
+		}
+	}
+	return 0;
+ } 
