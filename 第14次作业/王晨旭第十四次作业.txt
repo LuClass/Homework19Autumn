@@ -1,0 +1,117 @@
+﻿1.
+#include <iostream>
+ #include <math.h>
+ using namespace std;
+
+ struct Solution
+ {
+   int count;    
+   double x, x1, x2;
+ };
+
+ Solution f(int a, int b, int c)
+ {
+ 	Solution sol;
+ 	sol.x=(-b/2*a);
+ 	sol.x1=((-b+sqrt(b*b-4*a*c))/(2*a));
+ 	sol.x2=((-b-sqrt(b*b-4*a*c))/(2*a));
+ 	return sol;
+ }
+
+ int main()
+ {
+ 	int a,b,c;
+ 	cin>>a>>b>>c;
+ 	Solution sol;
+ 	sol=f(a,b,c);
+ 	int delta=(b*b-4*a*c);
+ 	if(delta<0)
+ 	    {
+ 	    	sol.count=0;
+ 	    	cout<<"ÎÞÊµ¸ù"<<endl; 
+ 		}
+ 	else if(delta==0)
+ 	   	{
+ 	   		sol.count=1;
+ 	   	    cout<<sol.count<<endl;
+ 	   	    cout<<sol.x<<endl;
+ 		}
+ 	else	
+ 		{
+ 			sol.count=2;
+ 		    cout<<sol.count<<endl;
+ 		    cout<<sol.x1<<" "<<sol.x2<<endl;
+ 		}
+ 	return 0;
+ }
+
+
+
+2.
+#include<iostream>
+ #include<cmath>
+ using namespace std;
+ struct Point{
+ 	int x;
+ 	int y;
+ };
+ double distance (struct Point A,struct Point B){
+ 	double a;
+ 	a=sqrt((A.x-B.x)*(A.x-B.x)+(A.y-B.y)*(A.y-B.y));
+ 	return a;
+ }
+ struct triangle{
+ 	struct Point A;
+ 	struct Point B;
+ 	struct Point C;
+ };
+ bool abc(struct triangle X){
+ 	double distance (struct Point A,struct Point B);
+ 	if(distance(X.A,X.B)+distance(X.A,X.C)>distance(X.B,X.C)&&distance(X.A,X.B)+distance(X.B,X.C)>distance(X.A,X.C)&&distance(X.A,X.C)+distance(X.B,X.C)>distance(X.A,X.B))
+ 		return true;
+ 	else 
+ 		return false;
+ }
+ double area(struct triangle X){
+ 	double distance (struct Point A,struct Point B);
+ 	double s=1.0/2*(distance(X.A,X.B)+distance(X.B,X.C)+distance(X.A,X.C));
+ 	return sqrt(s*(s-distance(X.A,X.B))*(s-distance(X.B,X.C))*(s-distance(X.A,X.C)));
+ }
+ int main(){
+ 	cout<<"输入三个点的坐标"<<endl;
+ 	triangle X;
+ 	cin>>X.A.x>>X.A.y;
+ 	cin>>X.B.x>>X.B.y;
+ 	cin>>X.C.x>>X.C.y;
+ 	double distance (struct Point A,struct Point B);
+ 	if(abc(X)){
+ 		cout<<"perimeter = "<<distance(X.A,X.B)+distance(X.A,X.C)+distance(X.B,X.C)<<endl;
+ 		cout<<"area = "<<area(X);
+ 	}
+ 	else
+ 		cout<<"不构成三角形";
+
+ }
+
+
+
+3.
+#include <iostream>
+ using namespace std;
+ int main()
+ {
+ 	char a[50];
+ 	cin.getline(a,50);
+     int i;  
+  	for(i=0;a[i];i++)
+  	{
+  		if(a[i]>='A'&&a[i]<='Z')
+  		{
+  			a[i]+=32;
+  			cout<<a[i];
+  		}
+  		else cout<<a[i];
+  	 } 
+  	 return 0;
+   }
+

@@ -1,0 +1,44 @@
+赵寒月第三次作业
+  #include<iostream>
+#include<cmath>
+using namespace std;
+int main(){
+	float a,b,c,d,x;
+	cout<<"请输入系数 :"<<endl;
+	cin>>a>>b>>c;
+	d=b*b-4*a*c;
+	if(d<0){
+		cout<<"方程无根"<<endl; 
+	}
+	else if(d==0){
+		cout<<"方程有一个根：";
+		x=-b/(2*a);
+		cout<<x<<endl; 
+	}
+	else{
+		cout<<"方程有两个根：";
+		x=(-b+sqrt(d))/(2*a);
+		cout<<x<<'\t';
+		x=(-b-sqrt(d))/(2*a);
+		cout<<x<<endl;		 
+	}
+	return 0;
+}
+#include<iostream>
+using namespace std;
+int main (void)
+{
+	int a;
+	int j=31;
+	unsigned int  k;
+    unsigned int i=0x80000000;
+	cin>>a;
+	while(j>=0)
+	{
+		k=a&i;
+		cout<<(k>>j--)<<" ";
+		i>>=1;
+	}
+	cout<<endl<<a;
+} 
+ 

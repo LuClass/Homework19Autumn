@@ -1,0 +1,50 @@
+6.
+#include<iostream> 
+using namespace std;
+
+int max(int a,int b){
+	return a>b?a:b;
+}
+
+int min(int a,int b){
+	return a<b?a:b;
+}
+
+int zdgys(int a,int b){
+	while(a){
+	int h=b;
+	b=min(a,b);
+   a=max(a,h)%min(a,h);
+	}	
+	return b;
+}
+
+int main(){
+	int a,b;
+	cout<<"putin two int:";
+	cin>>a>>b;
+	cout<<"Greatest Common Divisor:"<<zdgys(a,b)<<endl;
+	cout<<"Least Common Multiple:"<<a*b/zdgys(a,b);
+	return 0;
+}
+
+7.
+#include<iostream> 
+using namespace std;
+
+void one(unsigned int a){
+	cout<<a%10;
+	a=a/10;
+	if(a<10)
+	cout<<a;
+	else one(a);
+}
+
+int main(){
+	unsigned int a;
+	cout<<"putin one int:";
+	cin>>a;
+	cout<<"fanxu:";
+	one(a);
+	return 0;
+}

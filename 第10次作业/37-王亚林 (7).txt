@@ -1,0 +1,138 @@
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+void getRandom(int a[],int n){
+	srand(a[0]);
+	for(int i=0;i<n;i++)
+	a[i]=rand() % 100;
+}
+int getMax(int a[],int n){
+	int max=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]>a[max])
+        {
+            max=i;
+        }
+    }
+        return max ;
+}
+int main() {
+	int a[10];
+	getRandom(a,10);
+	for(int i=0;i<10;i++)
+	cout<<a[i]<<" ";
+	cout<<endl;
+	int num;
+	num=getMax(a,10);
+	cout<<num;
+	return 0;
+}
+
+
+
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+int getSum(int n){
+	int sum = 0;
+	while(n != 0)
+	{
+		sum += (n%10);
+		n /= 10;
+	}
+	return sum;
+}
+bool isPrime(int n){
+	if(n<2)
+	  return 0;
+	else
+	for(int i=2;i*i<=n;i++)
+	  if(n%i==0)
+	     return 0;
+	return 1;
+	
+}
+int getPrime(int n){
+	int sum = 0;
+	int i;
+	while(n > 1)
+	{
+		for(int j = 2; j <= n; j++)
+		{
+        	if(n%j==0&&isPrime(j)==1)
+			{   
+				sum += getSum(j);  
+				i=j;
+				break;
+			}
+			
+		}
+		n=n/i;     
+	}
+	return sum;
+}
+
+bool isSmith(int n){ 
+	if((isPrime(n)==0)&&(getPrime(n)==getSum(n)))
+	return true;
+	else
+	return false;
+}
+int main(){
+	int num;
+	cin>>num;
+	int t=num+1;
+	while(isSmith(t)==false)
+	  t++;
+	cout<<t<<endl;
+	return 0;
+	
+}
+
+#include<iostream>
+#define MAXNUM 10000
+using namespace std;
+int main()
+{
+    int a[MAXNUM];
+    int n=0;			
+    int m=0;			
+    int i=1;			
+    int k=0;
+	int j=0;						
+    cout<<"请输入总人数:";
+    cin>>n;
+    for(j=1;j<=n;j++)
+    {
+        a[j]=j;		
+    }
+    while(m < n-1)
+     {
+        if(a[i]!=0)	        
+       {				
+            k++;		
+        }
+        if(k == 5)
+        {
+            a[i]=0;	         
+            k=0;		
+            m++;		
+         }
+        i++;		        
+        if(i == n+1)	         
+	{
+            i=1;		 
+        } 
+    } 
+    for(j=1;j<=n;j++)
+	{
+        if(a[j]!=0)
+	{
+            cout<<"\n最后剩下的人原来的编号为："<<a[j]<<" 的人\n"<<endl;
+        }
+    }
+    return 0;
+}

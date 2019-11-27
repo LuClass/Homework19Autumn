@@ -1,0 +1,58 @@
+8.
+//main.cpp
+#include<iostream>
+using namespace std;
+int x;
+int a, b;
+int max(int x1, int x2);
+void toHex();
+int main() {
+	cout << "please input two integers" << endl;
+	cin >> a >> b;
+	x = max(a, b);
+	cout << "两个数中的最大值为：" << x<< endl;
+	cout << "其十六进制为: " << endl;
+	toHex();
+	return 0;
+}
+//toHex.cpp
+#include<iostream>
+using namespace std;
+void toHex() {
+	extern int x;
+	cout << hex << x;
+}
+//max.cpp
+#include<iostream>;
+using namespace std;
+int max(int x1, int x2) {
+	extern int a, b;
+	return (a > b ? a : b);
+9./函数求解
+#include<iostream>
+using namespace std;
+int main() {
+	double a, b, c;
+	//input length of each side of triangle
+	cout<< "please input a,b,c in turn" << endl;
+	cin >> a >> b >> c;
+	double s = (a + b + c) / 2;
+	cout << "该三角形面积为： " << sqrt(s*(s - a)*(s - b)*(s - c)) << endl;
+	return 0;
+}
+9./宏定义
+#include<iostream>
+using namespace std;
+#define PROMPT "该三角形面积为"
+#define GETAREA(p,a,b,c) sqrt(p*(p-a)*(p-b)*(p-c))
+int main() {
+	double a, b, c;
+	//input length of each side of the triangle
+	cout << "please input a,b,c in turn" << endl;
+	cin >> a >> b >> c;
+	double p = (a + b + c) / 2;
+	cout << PROMPT << endl;
+	double s = GETAREA(p, a, b, c);
+	cout<<GETAREA(p, a, b, c) << endl;
+	return 0;
+}

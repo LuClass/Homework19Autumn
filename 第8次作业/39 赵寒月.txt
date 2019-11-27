@@ -1,0 +1,57 @@
+第八次作业
+  （6）
+#include <iostream>
+using namespace std;
+int gys(int a,int b){
+	int m;
+	if(a>b){
+		m=a;
+		a=b;
+		b=m;
+	}
+	for(int i=a;i>1;i--){
+		if(a%i==0&&b%i==0)
+		cout<<i<<endl;
+		else
+		             break; 
+	}
+}
+int gbs(int a,int b){
+	int c,d;
+	d=A(a,b);
+	c=a*b/d;
+	cout<<c<<endl;
+}
+int main(){
+	int a,b;
+	cin>>a>>b;
+	cout<<"最大公因数为"<<gys(a,b)<<endl;
+	cout<<"最小公倍数为"<<gbs(a,b)<<endl;
+}
+(7)
+递归：
+int Dg(int n){
+	if(n=0)
+	    return 0;
+	else
+	    cout<<n%10<<Dg((n-n%10)/10)<<endl;
+}
+int main(){
+	int a;
+                cout<<"请输入一个整数：";
+	cin>>a;
+	Dg(a);
+}
+递推：
+int Dt(int m){
+	do{
+		cout<<m%10<<endl;
+		m=(m-m%10)/10;
+	}while(m!=0);
+}
+int main(){
+	int a;
+                cout<<"请输入一个整数：";
+	cin>>a;
+	Dt(a);
+}

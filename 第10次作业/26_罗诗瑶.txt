@@ -1,0 +1,108 @@
+(2)
+#include<iostream>
+#include<stdlib.h>
+#include<time.h>
+using namespace std;
+void getRandom(int a[],int n){
+	srand(time(NULL));
+	for(int i=0;i<n;i++){
+		a[i]=rand()%100;
+	}		
+} 
+int getMax(const int a[],int n){
+	int j=0;
+	int max=a[0];
+	for(int i=0;i<n-1;i++){
+		if(a[i]>max){
+			max=a[i];
+			j=i;
+		}
+		cout<<a[i]<<"  ";		
+	}
+	cout<<endl;
+	cout<<"最大值:"<<max<<"  "<<"下标:"<<j<<endl;	
+}
+int main(){
+	int a[20];
+	getRandom(a,20);
+	getMax(a,20);	
+	return 0;
+}
+
+
+(5)
+#include<iostream>
+#include<math.h>
+using namespace std;
+bool isPrime(int n){
+	if(n==2)	return true;
+	for(int i=2;i<=sqrt(n);i++){
+		if(n%i==0)
+			return false;
+	}
+	return true;
+}
+bool isSmith(int n){
+	int sum1=0;    //质因数各位之和 
+	int sum2=0;    //各位数之和 
+	int n1=n;
+	int n2=n;
+	int m,m1;
+	int j=2;
+	while(n2==0){
+		m=n2%10;
+		n2=n2/10;
+		sum2+=m;
+	}
+	while(n1!=1){
+		if(n1%j==0){
+			while(j==0){
+				m1=j%10;
+				j=j/10;
+				sum2+=m1;
+			}
+			n1/=j;
+		}
+		else	j++;
+	}
+	if(sum1==sum2)	return true;
+	else	return false;
+}
+int main(){
+	int n;
+	cout<<"请输入一个正整数：";
+	cin>>n;
+	if(isPrime(n)==true)
+		cout<<"不是Smith数."<<endl;
+	else{
+		if(isSmith(n)==true)
+			cout<<"是Smith数."<<endl;
+		else cout<<"不是Smith数."<<endl;
+	}
+	cout<<"大于等于493774的下一个Smith数是：";
+	int x=493774;
+	if(isSmith(493774)==true)
+		cout<<493774<<endl;
+	else{
+		while(isSmith(x)==true)
+			x++;
+		cout<<x<<endl;
+	}
+	return 0;
+}
+
+
+(10)
+#include<iostream>
+using namespace std;
+int main(){
+	int x=1;
+	int y=1;
+	while(y<21){
+		y++;
+		x=(x+5%y-1)%y+1;
+	}
+	x=(x-1)%21+1;
+	cout<<x<<endl;
+	return 0;
+}

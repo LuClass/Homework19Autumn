@@ -1,0 +1,89 @@
+174.
+£¨1£©
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct result
+{
+    float x1;
+    float x2;
+};
+
+result * f(int a,int b,int c)
+{
+    result * r = new result;
+    r->x1 = (-b + sqrt((float(b * b - 4 * a * c)))) / 2.0 * a;
+    r->x2 = (-b - sqrt((float(b * b - 4 * a * c)))) / 2.0 * a;
+    return r;
+}
+
+int main()
+{
+    int a, b, c;
+    cin >> a;
+    cin >> b;
+    cin >> c;
+    result * r = f(a, b, c);
+    cout << r->x1 << endl;
+    cout << r->x2 << endl;
+    delete r;
+    return 0;
+}
+
+£¨2£©
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct result
+{
+	float d1;
+	float d2;
+	float d3;
+	float c;
+	float s;
+};
+result*Point(int x1,int y1,int x2,int y2,int x3,int y3)
+{
+	result*r=new result;
+	r->d1=sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+	r->d2=sqrt((x1-x3)*(x1-x3)+(y1-y3)*(y1-y3));
+	r->d3=sqrt((x3-x2)*(x3-x2)+(y3-y2)*(y3-y2));
+	r->c=r->d1+r->d2+r->d3;
+	if((r->d1)+(r->d2)>(r->d3)&&(r->d1)+(r->d3)>(r->d2)&&(r->d2)+(r->d3)>(r->d1))
+	{
+		r->s=sqrt((r->d1+r->d2+r->d3)/2.0*(((r->d1+r->d2+r->d3)/2.0)-r->d1)*(((r->d1+r->d2+r->d3)/2.0)-r->d2)*(((r->d1+r->d2+r->d3)/2.0)-r->d3));
+	}
+	return r;
+}
+int main()
+{
+	int x1,x2,y1,y2,x3,y3;
+	cin>>x1>>y1>>x2>>y2>>x3>>y3;
+	result*r=Point(x1,y1,x2,y2,x3,y3);
+    cout<<r->d1<<endl;
+    cout<<r->d2<<endl;
+    cout<<r->d3<<endl;
+    cout<<r->c<<endl;
+    cout<<r->s;
+    delete r;
+    return 0;
+}
+
+3.
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i;char s[50];
+    cin>>s;
+    s[50]=getchar();
+    cout<<s<<endl;
+	for(i=0;s[i]!='\0';i++)
+    {
+    	if(s[i]>='a'&&s[i]<='z')
+	    s[i]=s[i]-32;
+	    else if(s[i]>='A'&&s[i]<='Z')
+	    s[i]=s[i]+32;
+	}
+   cout<<s;
+}

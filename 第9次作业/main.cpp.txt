@@ -1,0 +1,12 @@
+using namespace std;
+#include <iostream>
+#include "max.cpp"
+#include "hex.cpp"
+int q(int ,int );
+void w(int );
+int main()
+{
+	int x,y;
+	cin>>x>>y;
+	w(q(x,y));
+}

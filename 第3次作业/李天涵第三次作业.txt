@@ -1,0 +1,51 @@
+11 （1）
+using namespace std;
+#include<iostream>
+#include<cmath>
+int main(void)
+{
+    int num,n;     
+    int i,a[50];
+    cout<<"请输入一个整数："; 
+    cin>>num;
+	if(num>0) a[0]=0;
+	if(num<0) a[0]=1;
+    n=abs(num);
+    for(i=1;n!=0;i++)   
+    {
+        a[i]=n%2;     
+        n=n/2;
+    }
+    if(num!=0) cout<<a[0];
+    for(;i>=2;i--)   
+    {
+        cout<<a[i-1];   
+    }
+    if(num==0) cout<<0;
+    return 0;
+ } 
+
+11（6）
+using namespace std;
+#include<iostream>
+#include<cmath>
+int main(void)
+{
+    double a,b,c;
+	cin>>a>>b>>c;
+	double d,i,j;
+	d=b*b-4*a*c;
+	if(d<0) cout<<"该方程无实根。";
+	else if(d==0)
+	{
+		i=-b/(2*a);
+		cout<<"该方程有两个相等的实根"<<i; 
+		 }
+		 else
+		 {
+		 	i=(-b+sqrt(d))/(2*a);
+		 	j=(-b-sqrt(d))/(2*a);
+		 	cout<<"该方程有两个不等的实根"<<i<<" "<<j;
+			  }     
+    return 0;
+ } 
