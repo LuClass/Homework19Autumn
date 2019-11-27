@@ -1,0 +1,108 @@
+1.#include <iostream>
+#include <cmath>
+using namespace std;
+struct Formulation
+{
+double a;
+double b;
+double c;
+double x1;
+double x2;
+int flag;
+};
+    int Solver(Formulation &form)//函数返回方程类型标志值
+   {
+      double d;
+	d=form.b*form.b-4*form.a*form.c;//判断方程是否存在实根的依据
+	if(d<0)
+	{
+	form.flag=0;//无实根
+	return 0;
+   }
+   d=sqrt(d);//开方处理
+	if(form.a>0)//让x2尽量大于x1
+	{
+	form.x1=(-form.b-d)/(2*form.a);
+	form.x2=(-form.b+d)/(2*form.a);
+	}
+	else
+	{
+	form.x1=(-form.b+d)/(2*form.a);
+	form.x2=(-form.b-d)/(2*form.a);
+	}
+if(d>0)
+form.flag=2;
+else
+form.flag=1;
+return form.flag;
+}
+   void Display(Formulation &form)
+   {
+		switch(form.flag)
+	{
+	case 1: cout<<"该方程两实根相等:x1=x2="<<form.x1; break;
+	case 2: cout<<"该方程有两个不同实根：x1="<<form.x1
+	<<",x2="<<form.x2; break;
+		case 3: cout<<"该方程无实根"; break;
+	}
+	}
+	int main()
+	{
+	void Solver(Formulation &);
+	Formulation form;
+	while(cin>>form.a>>form.b>>form.c);
+	Solver(form);
+	Display(form);
+	return 0;
+	}
+2.using namespace std;
+#include<iostream>
+#include<cstring>
+#include<cmath>       //结构体初始化输入如何进行 
+struct point{
+	int x,y;
+};
+struct triangle{
+	point p1,p2,p3;
+};
+double calculate(point p1,point p2)
+{
+	int distance=sqrt((p1.x-p2.x)*(p1.x-p2.x) +(p1.y-p2.y)*(p1.y-p2.y));
+	return distance;
+}
+int main()
+{
+	triangle t1; 		//t1.p1.x
+	int d1,d2,d3;
+	d1=calculate(t1.p1,t1.p2);
+	d2=calculate(t1.p1,t1.p3);
+	d3=calculate(t1.p2,t1.p3);
+	if((d1+d2>d3)||(d1+d3>d2)||(d2+d3)>1)  //三角形判定条件        //海伦公式求面积p=(a+b+c )
+		 cout<<"是一个三角形."; 
+
+	return 0;
+}
+3.
+#include<iostream>
+using namespace std;
+int main()
+{
+	char a[50];
+	cin.getline(a,50);   //大写ASCII65到90   小写字母97到122   相差32
+	for(int i=0;a[i];i++)
+	{
+		cout<<a[i];
+	}
+	cout<<endl;
+	for(int i=0;a[i];i++)
+	{
+		if((a[i]>=65)&&(a[i]<=90))
+			a[i]=a[i]+32;
+	 } 
+	for(int i=0;a[i];i++)
+	{
+		cout<<a[i];
+	}
+	
+	return 0;
+}

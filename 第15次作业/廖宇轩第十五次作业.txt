@@ -1,0 +1,114 @@
+（3）#include <iostream>
+#include <math.h>
+using namespace std;
+
+typedef struct Fraction {
+	int a, b;
+
+}fra;
+
+void compare(fra x,fra y)
+{
+	
+	if (x.a*y.b == x.b*y.a)
+	{
+		cout << "分数相等" << endl;
+	}
+	else if (x.a*y.b > x.b*y.a)
+	{
+		cout << "分数1大于分数2" << endl;
+
+
+	}
+	else if (x.a*y.b < x.b*y.a)
+	{
+		cout << "分数1小于分数2" << endl;
+	
+
+	}
+
+}
+int measure(int x, int y)
+{
+	int z = y;
+	while (x%y != 0)
+	{
+		z = x % y;
+		x = y;
+		y = z;
+	}
+	return z;
+}
+void pure(fra x)
+{
+
+	if (x.a != 0)
+	{
+		int z = measure(x.a, x.b);
+		if ( z!= 1)
+		{
+				x.a = x.a / z;
+				x.b = x.b /z;
+
+			
+		}
+	}
+	cout << x.a << "/" << x.b << endl;
+}
+void jjcc(fra x, fra y)
+{
+
+	fra m = { x.a*y.b + x.b*y.a ,x.b*y.b };
+	cout << "和" << endl;
+	pure(m);
+	m.a = x.a*y.b - x.b*y.a;
+	cout << "差" << endl;
+	pure(m);
+	m.a = x.a*y.a;
+	cout << "积" << endl;
+	pure(m);
+	m.a = x.a*y.b;
+	m.b = x.b*y.a;
+	cout << "商" << endl;
+	pure(m);
+}
+
+int main()
+{
+	int x, y, e, f;
+	cin >> x >> y >> e >> f;
+	fra p = { x,y};
+	fra q = { e,f };
+	compare(p, q);
+	jjcc(p, q);
+}
+（4）#include <iostream>
+#include <math.h>
+using namespace std;
+
+enum kh { per, gra };
+
+typedef struct Couse {
+	int a;
+	char b[25];
+	kh c;
+
+}co;
+
+union khfs 
+{
+	double bfz;
+	char  djz;
+
+
+};
+struct grades {
+	int xh;
+	char name[5];
+	int kb;
+	khfs cj;
+};
+int main()
+{
+
+}

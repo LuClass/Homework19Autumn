@@ -1,0 +1,59 @@
+using namespace std;
+#include <iostream>
+#define M 10
+void getSet(int a[],int ra[])
+{
+	int i,j,t,m=1,y=0;
+	int c[M];
+	for (i=0;i<M;i++)
+	for (j=0;j<M-1-i;j++)
+{
+	if (a[j]>a[j+1])
+{
+	t=a[j+1];
+	a[j+1]=a[j];
+	a[j]=t;		
+}
+} 
+	for (i=0;i<M-1;i++)
+{
+	if (a[i]==a[i+1])
+	m++;
+    else 
+    {
+    	c[y]=m;
+    	m=1;
+    	ra[y]=a[i];
+		y++;
+	}		
+}
+    c[y]=m;
+    ra[y]=a[i];
+    for (i=0;i<=y;i++)
+	for (j=0;j<y-i;j++)
+{
+	if (c[j]>c[j+1])
+{
+	t=c[j+1];
+	c[j+1]=c[j];
+	c[j]=t;
+	
+	t=ra[j+1];
+	ra[j+1]=ra[j];
+	ra[j]=t;
+}
+}
+    
+    for (i=y;i>=0;i--)
+{
+	cout<<ra[i]<<':'<<c[i]<<endl;
+}       
+}
+int main()
+{
+	int a[M],ra[M];
+	for (int i=0;i<M;i++)
+	cin>>a[i];
+	getSet(a,ra);
+	return 0;
+}

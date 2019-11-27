@@ -1,0 +1,145 @@
+一个集合set中的各个元素相互之间不相等。先编写一个函数：int getSet(int rs[], const int a[], int n)，从数组a中取出相互不等的元素，放入数组rs中，并返回rs中元素的个数。此时数组rs中各元素都不相等，就构成一个集合set。例如：a={3, 1, 2, 3, 1, 5, 2, 1}，那么结果rs={3, 1, 2, 5}，返回4。先测试验证该函数的正确性。
+
+int getset(int rs[],const int a[],int n)
+{
+	int sum=0;
+	bool flag=true;
+	rs[0]=a[0]
+	for(i=0;i<=n-1;i++)
+	{
+		for(j=0;j<=sum;j++)
+		{
+			if(rs[j]==a[i])
+			{
+				flag=false;
+			}
+			if(flag==true)
+			{
+				sum=sum+1;
+				rs[sum]=a[i];
+			}
+		}
+	}
+	return sum;
+	
+ }
+
+然后再尝试设计一个函数，不仅能得到集合数组，而且得到集合中各元素出现的次数。例如上面例子中集合rs={3, 1, 2, 5}，其中各元素出现次数分别为{2, 3, 2, 1}。
+
+int getset(int rs[],const int a[],int n)
+{
+	int sum=0,k;
+	bool flag=true;
+	rs[0]=a[0]
+	for(i=0;i<=n-1;i++)
+	{
+		for(j=0;j<=sum;j++)
+		{
+			if(rs[j]==a[i])
+			{
+				flag=false;
+			}
+			if(flag==true)
+			{
+				sum=sum+1;
+				rs[sum]=a[i];
+			}
+		}
+	}
+	
+	
+	for(k=0;k<=sum;k++)
+	{
+		for(j=0;j<=sum;j++)
+		{
+			for(i=0;i<=n-1;i++)
+			{
+				if(rs[j]==r[i])
+				{
+					num+=1;
+				}
+			}
+			cs[k]=num;
+		}
+	}
+	
+	return sum;
+	
+ }
+
+再设计一个函数，将集合中的各元素按出现次数降序排序，最后输出各个元素及其出现次数。例如，上面例子输出结果如下：显示格式为“元素值：出现次数”。
+1:3
+3:2
+2:2
+5:1
+
+int getset(int rs[],const int a[],int n)
+{
+	int sum=0,k;
+	bool flag=true;
+	rs[0]=a[0]
+	for(i=0;i<=n-1;i++)
+	{
+		for(j=0;j<=sum;j++)
+		{
+			if(rs[j]==a[i])
+			{
+				flag=false;
+			}
+			if(flag==true)
+			{
+				sum=sum+1;
+				rs[sum]=a[i];
+			}
+		}
+	}
+	
+	
+	for(k=0;k<=sum;k++)
+	{
+		for(j=0;j<=sum;j++)
+		{
+			for(i=0;i<=n-1;i++)
+			{
+				if(rs[j]==r[i])
+				{
+					num+=1;
+				}
+			}
+			cs[k]=num;
+		}
+	}
+	
+	
+	for(i=0;i<=sum-2;i++)
+	{
+		maxValue=rs[i];
+		maxIndex=i;
+		for(j=i+1;j<=sum-1;j++)
+		{
+			if(maxValue<rs[j])
+			{
+				maxValue=a[j];
+				maxIndex=j;
+			}
+		}
+		if(i!=maxIndex)
+		{
+			temp=cs[i];
+			cs[i]=cs[maxIndex];
+			cs[maxIndex]=temp;
+			temp=rs[i];
+			rs[i]=rs[maxIndex];
+			cs[maxIndex]=temp;
+		}
+	}
+	for(i=0;i<=num-1;i++)
+	{
+		cout<<rs[i]<<":"<<cs[i]<<endl;
+	}
+	
+	
+	
+	return sum;
+	
+ }
