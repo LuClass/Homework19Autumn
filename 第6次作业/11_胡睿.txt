@@ -1,0 +1,123 @@
+2.求组合数
+#include<iostream>
+using namespace std;
+ 
+long factorial(long number)
+{	if(number<=1)
+		return 1;
+	else 
+		return number*factorial(number-1);
+}
+ 
+int combinator(int n,int m)
+{	int temp;
+	if(n<m)
+	{	temp=n;
+		n=m;
+		m=temp;}
+	return factorial(n)/(factorial(m)*factorial(n-m));
+}
+		
+int main()
+{	int a,b,result;
+	cout<<"please enter two positive integer separated by spaces:";
+	cin>>a>>b;
+	result=combinator(a,b);
+	cout<<result<<endl;
+	cout<<"c(4,6)="<<combinator(4,6);
+	cout<<"c(6,4)="<<combinator(6,4);
+	cout<<"c(8,7)="<<combinator(8,7);
+	return 0;
+}
+
+
+4.
+输出500以内孪生素数
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+bool isPrime(int num)
+{
+  if ((num == 1) || (num == 2))
+  {
+    return true;
+  }
+
+  for (int i = 2; i <= num / 2; i++)
+  {
+    if (num % i == 0)
+      return false;
+  }
+
+  return true;
+}
+
+int main()
+{
+  int p1 = 2;
+  for (int p = 2; p <= 500; p++)
+  {
+    if (isPrime(p))
+    {
+      if (p - p1 == 2)
+        cout << "(" << p1 << ", " << p << ")" << endl;
+
+      p1 = p;
+    }
+  }
+
+  return 0;
+}
+
+
+
+
+5.分解质因数
+using namespace std;
+#include<iostream>
+bool IsPrime(int n)
+{
+	int i;
+	if(n==2||n==3)
+	    return true;
+	else
+	{
+		for(i=2;i<=n;i++)
+		{
+			if(n%i==0)
+			    return false;
+			else
+			    return true;
+		}
+	}
+}
+
+
+void FacPrimely(int n,int t)
+{
+	int i;
+	for(i=2;i<=n;i++)
+	    if(n%i==0&&IsPrime(i)==true)
+	        {
+	        	if(t>=1)
+	        	cout<<"*";
+	        	cout<<i;
+	        	t++;
+	        	FacPrimely(n/i,t);
+	        	break;
+			}
+	return;
+}
+
+int main()
+{
+	int n,t;
+	t=0;
+	cin>>n;
+	cout<<n<<"=";
+	FacPrimely(n,t); 
+	
+	return 0;
+}

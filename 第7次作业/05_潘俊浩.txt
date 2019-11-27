@@ -1,0 +1,117 @@
+2.
+#include <iostream>
+using namespace std;
+int main()
+{
+  long int i;
+  int bonus1,bonus2,bonus4,bonus6,bonus10,bonus;
+  cin >> i;
+  bonus1=100000*0.1;
+  bonus2=bonus1+100000*0.75;
+  bonus4=bonus2+200000*0.5;
+  bonus6=bonus4+200000*0.3;
+  bonus10=bonus6+400000*0.15;
+  switch(i){
+  	case 1:i<=1000000;
+	       bonus=i*0.1;
+	       break;
+    case 2:i<=200000;
+	       bonus=bonus1+(i-100000)*0.075;  
+		   break;
+    case 3:i<=400000;
+	       bonus=bonus2+(i-200000)*0.05;
+		   break;
+    case 4:i<=600000;
+	       bonus=bonus4+(i-400000)*0.03;
+		   break;
+    case 5:i<=1000000;
+	       bonus=bonus6+(i-600000)*0.015;
+		   break;
+    default:bonus=bonus10+(i-1000000)*0.01;
+	        break;
+  } 
+  cout << "bonus=" << bonus<< endl;
+  system("pause"); 
+}
+13.
+#include<iostream>
+using namespace std;
+int main()
+{
+	int i,j,k,n;
+    cout << "'water flower'number is:"<<endl;
+    for(n=100;n<1000;n++)
+    {
+      i=n/100;
+      j=n/10%10;
+      k=n%10;
+      if(i*100+j*10+k==i*i*i+j*j*j+k*k*k){
+	  
+        cout.width(-5);
+		cout<<n<<endl;
+	  }
+    }
+
+
+    return 0;
+ }
+16.
+#include<iostream>
+using namespace std;
+void findmax(int num1,int num2){
+	int temp=0;
+	if(num1<num2)
+   {
+     temp=num1;
+     num1=num2;
+     num2=temp;
+   }
+	
+}
+int findgongyue(int a,int b){
+	int temp=0; 
+	while(b!=0)
+   {
+     temp=a%b;
+     a=b;
+     b=temp;
+   }
+	return a;
+}
+int main()
+{
+   int a,b,num1,num2,temp,n;
+   cout<<"please input two numbers:"<<endl;
+   cin>>num1>>num2;
+   findmax(num1,num2);
+   a=num1;b=num2;
+   n=findgongyue(a,b);
+   cout<<"gongyueshu:"<<n<<endl;
+   cout<<"gongbeishu:"<<num1*num2/n<<endl;
+   return 0;
+ }
+23.
+#include<iostream>
+using namespace std;
+int main()
+{
+	int w,h,i,j;
+	cin>>w>>h;
+	for(i=0;i<h;i++){
+		for(j=0;j<i;j++)
+		cout<<" ";
+		for(j=0;j<w;j++)
+		cout<<"*";
+		cout<<endl;
+	}
+	for(i=h-1;i>=0;i--){
+		for(j=0;j<i;j++)
+		cout<<" ";
+		for(j=0;j<w;j++)
+		cout<<"*";
+		cout<<endl;
+	}	
+
+
+    return 0;
+ }

@@ -1,0 +1,88 @@
+#include<iostream>
+using namespace std;
+int getSet(int rs[],const int a[],int n){
+	for(int i=0;i<n;i++){
+		rs[i]=a[i];
+	}
+	for(int i=0;i<n;i++){
+		for(int j=i+1;j<n;j++){		
+			if(rs[j]==rs[i]){
+				for(int k=j+1;k<n;k++){
+					rs[k-1]=rs[k];
+				}
+				n--;
+				j--;
+			}
+		}
+	}
+	cout<<"数组中元素的集合为：";
+	for(int j=0;j<n;j++){
+		cout<<rs[j]<<"  ";
+	}
+	cout<<endl;
+	cout<<"集合中元素个数为：";
+	cout<<n<<endl; 
+	return n;
+}
+void countSet(int rs[],const int a[],int n){
+	cout<<"各元素出现的次数为："<<endl; 
+	for(int i=0;i<n;i++){
+		int m=1;
+		for(int k=0;k<i;k++){
+			while(a[i]==a[k]){
+				i++;
+				k=0;
+			}
+		}
+		for(int j=i+1;j<n;j++){
+			if(a[i]==a[j])
+				m++;
+		}
+
+		if(i<=n){
+			cout<<a[i]<<':'<<m<<endl;
+		}
+	}	
+}
+void sortSet(int rs[],const int a[],int n){
+	int m,t1,t2;
+	int count[100];
+	for(int i=0;i<n;i++){
+		m=1;
+		for(int k=0;k<i;k++){
+			while(a[i]==a[k]){
+				i++;
+				k=0;
+			}
+		}
+		for(int j=i+1;j<n;j++){
+			if(a[i]==a[j])
+				m++;
+		}
+		count[i]=m;
+	}
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n-1-i;j++){
+			if(count[j]>count[j+1]){
+				t1=count[j];
+				count[j]=count[j+1];
+				count[j+1]=count[j];
+				t2=rs[j];
+				rs[j]=rs[j+1];
+				rs[j+1]=rs[j];
+			}
+		}
+		if(count[i]!=0){	
+			cout<<rs[i]<<':';
+			cout<<count[i]<<endl;
+		}
+	}
+}
+int main(){
+	int aa[]={3,1,2,3,1,5,2,1};
+	int rs[8];
+	getSet(rs,aa,8);	
+	countSet(rs,aa,8);	
+	sortSet(rs,aa,8);
+	return 0;
+} 

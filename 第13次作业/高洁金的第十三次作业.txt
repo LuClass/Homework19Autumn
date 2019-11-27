@@ -1,0 +1,124 @@
+144.6
+
+using namespace std;
+#include <iostream>
+#include <string.h>
+#define MAX 3
+#define M 20
+int min(int a,int b)
+{
+	if (a<=b)
+	return a;
+	return b;
+}
+
+int getRev(char a[],char b[],char c[])
+{
+	int i,j,t1=0,t2=0,t3=0;
+	int la=strlen(a),lb=strlen(b),lc=strlen(c);
+	for (i=0;i<la-1;i++)
+	{
+		for (j=i+1;j<la;j++)
+		{
+			if (a[i]>a[j])
+			t1++;
+		}
+	}
+	for (i=0;i<lb-1;i++)
+	{
+		for (j=i+1;j<lb;j++)
+		{
+			if (b[i]>b[j])
+			t2++;
+		}
+	}
+	for (i=0;i<lc-1;i++)
+	{
+		for (j=i+1;j<lc;j++)
+		{
+			if (c[i]>c[j])
+			t3++;
+		}
+	}
+	if (t1==min(t1,(t2,t3)))
+	{
+		cout<<'a'<<" "<<t1<<endl;
+		if (t2==min(t2,t3))
+		{
+			cout<<'b'<<" "<<t2<<endl;
+			cout<<'c'<<" "<<t3<<endl;
+		}
+		else
+		{
+			cout<<'c'<<" "<<t3<<endl;
+			cout<<'b'<<" "<<t2<<endl;
+		}
+	}
+    else if (t2==min(t1,(t2,t3)))
+	{
+		cout<<'b'<<" "<<t2<<endl;
+		if (t1==min(t1,t3))
+		{
+			cout<<'a'<<" "<<t1<<endl;
+			cout<<'c'<<" "<<t3<<endl;
+		}
+		else
+		{
+			cout<<'c'<<" "<<t3<<endl;
+			cout<<'a'<<" "<<t1<<endl;
+		}
+	}
+	else if (t3==min(t1,(t2,t3)))
+	{
+		cout<<'c'<<" "<<t3<<endl;
+		if (t1==min(t1,t2))
+		{
+			cout<<'a'<<" "<<t1<<endl;
+			cout<<'b'<<" "<<t2<<endl;
+		}
+		else
+		{
+			cout<<'b'<<" "<<t2<<endl;
+			cout<<'a'<<" "<<t1<<endl;
+		}
+	}
+}
+int main()
+{
+	char a[M],b[M],c[M];
+	cout<<"a  ";
+	cin.getline(a,M);
+	cout<<"b  ";
+	cin.getline(b,M);
+	cout<<"c  ";
+	cin.getline(c,M);
+	getRev(a,b,c);
+	return 0;
+}
+
+
+
+144.8
+using namespace std;
+#include <iostream>
+#include <string.h>
+int getWordCount(char a[])
+{
+	int m=strlen(a);
+	int count=1,i;
+	for (i=0;i<m-1;i++)
+	{
+		if ((a[i]!=' '&&a[i]!='\t')&&(a[i+1]==' '||a[i+1]=='\t'))
+		count++;
+	}
+	cout<<m<<endl;
+	cout<<count;
+	return count;
+}
+int main()
+{
+	char a[200];
+	cin.getline(a,200);
+	getWordCount(a);
+	return 0;
+}

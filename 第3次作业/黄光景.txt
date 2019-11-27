@@ -1,0 +1,54 @@
+#include <iostream>
+#include<math.h>
+#include<iomanip>
+using namespace std;
+int main (void) 
+{
+	//黄光景第三次作业
+	cout<<"T1"<<endl<<"输入一个十进制数：" ; 
+	int x;
+      int j=7,k;
+      unsigned int i=128;
+      cin>>x;
+ 
+       while(j>=0)
+         {
+       	k=x&i;
+       	cout<<(k>>j--)<<" ";
+        	i>>=1;
+       }
+       cout<<endl;
+       
+/*	int num, i=0,a[50];
+	cout<<"输入一个十进制数：";cin>>num;
+	while(num!=0) 
+	{   a[i]=num%2；
+	     num=num/2;
+	     i++;
+	}
+	for(i=i-1;i>=0;i--) 
+	{cout<<a[i];}
+	cout<<endl;*/
+	
+	cout<<"T2"<<endl;
+     float a, b, c, d, x1, x2;
+	cout <<"输入：a=";cin>>a;
+	cout<<"     b=";cin>>b;
+	cout<<"     c=";cin>>c;
+	d=b*b-4*a*c;
+	
+   	if (d==0) 
+	    { x1=-b/(2*a);
+	     cout<<"一个实根，X1=X2="<<x1<<endl;
+	    }
+	   else if (d<0) 
+	        cout<<"无实数根"<<endl;
+	        else{ 
+	             x1=(-b+sqrt (d)) /(2*a) ;
+	             x2=(-b+sqrt (d)) /(2*a) ;
+	              cout<<"两实根：X1="<<x1<<"X2="<<x2<<endl;
+	          }
+	return 0;
+	
+	
+}

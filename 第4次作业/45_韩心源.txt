@@ -1,0 +1,54 @@
+﻿11.⑷
+#include <iostream>
+using namespace std;
+int main()
+{
+	int count=0;
+  char x=0;
+  do{
+    x = cin.get();
+    if(x >='0'&&x<='9')
+	 count++;
+    }
+  while(x != '\n');
+  cout<<"count="<<count<<endl;
+  return 0;
+}
+⑺
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+    cout<<"    "<<1<<"/"<<2<<endl;
+	int a=2,b=1,c,n=2;
+	while (n<=20){
+		c=a,a=a+b,b=c;
+		n++;
+		cout<<setw(5)<<a<<"/"<<b<<endl;
+          }
+		return 0;
+}
+⑻
+
+#include <iostream>
+using namespace std;
+int main(){
+          int x;
+	cout<<"输入正整数";
+	cin>>x;
+	for (int a=1;a<=x;a++){
+		if (x%a==0)
+		cout<<"它的分子有"<<a<<endl; 
+	} 
+		for (int y=2;y<=100;y++){
+          int s=0;
+			for (int b=1;b<y;b++){
+		    if (y%b==0)
+		    s+=b;
+	        }
+		if (s==y)
+		cout<<"完全数有"<<s<<endl; 
+		}
+	return 0;
+}
