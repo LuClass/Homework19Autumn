@@ -1,0 +1,19 @@
+23.  x>2&&x%2==0
+24.  abs(x)>8 
+25.  (A)0   (B)0.333333  (C)1  (D)7
+26.  (A)4   (B)27  (C)8  (D)162
+27.  (A)true   (B)true  (C)31  (D)false
+28.  (1)
+#include<iostream>
+using namespace std;
+int main(){
+	float c;
+	cout<<"请输入摄氏温度C=";
+	cin>>c;
+	float f,k;
+	f = c*9/5+32;
+	k = c+273.15;
+	cout<<"对应的华氏温度为F="<<f<<endl;
+	cout<<"对应的绝对温度为K="<<k<<endl;
+	return 0;
+} 

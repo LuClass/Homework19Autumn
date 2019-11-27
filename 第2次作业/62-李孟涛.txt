@@ -1,0 +1,17 @@
+23.   x>2&&x%2==0
+24.   fabs(x)>8
+25.   (a)0  (b)0.333333...... (c)1 (d)7
+26.4  27  8  162
+27.1  1  31   0
+28.
+#include<iostream>
+using namespace std;
+int main ()
+{
+ float C,F;
+ cout<<"ÇëÊäÈëÉãÊÏÎÂ¶È=";
+ cin>>C;
+ F=C*(9.0/5)+32;
+ cout<<"»ªÊÏÎÂ¶È="<<F;
+ return 0;	
+}

@@ -1,0 +1,103 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+struct Fraction{
+	int a;
+	int b;	
+	double va; 
+}f[2];
+Fraction *p2=NULL;
+int gcd(int x,int y){
+	if(x<y){
+		int temp=x;
+		x=y;
+		y=temp;
+	}
+	int g=0;
+	int t=0;
+	while(y!=0){
+		t=x%y;
+		x=y;
+		y=t;
+	}
+	g=x;
+	return g;
+}
+
+double Value(int x,int y){
+	double va;
+	va = 1.0*x/y;
+	return va;
+}
+
+Fraction reduction(Fraction *p){
+	if(p->b<0){
+		p->a=-p->a;
+		p->b=-p->b;
+	}
+	else{
+		int d=gcd(abs(p->a),abs(p->b));
+		p->a/=d;
+		p->b/=d;
+	}
+	return *p;
+} 
+
+void add(Fraction *p){
+
+	(p+2)->a = p->a*(p+1)->b + (p+1)->a*p->b;
+	(p+2)->b = (p)->b * (p+1)->b;
+	reduction((p+2));
+	cout<<"和:"<<(p+2)->a<<'/'<<(p+2)->b<<endl;
+}
+void minu(Fraction *p){
+
+	(p+2)->a = p->a * (p+1)->b - (p+1)->a * p->b;
+	(p+2)->b = p->b * (p+1)->b;
+	reduction((p+2));
+	cout<<"差:"<<(p+2)->a<<'/'<<(p+2)->b<<endl;
+}
+void multi(Fraction *p){
+
+	(p+2)->a=p->a*(p+1)->a;
+	(p+2)->b=p->b*(p+1)->b;
+	reduction((p+2));
+	cout<<"积:"<<(p+2)->a<<'/'<<(p+2)->b<<endl;
+}
+void divide(Fraction *p){
+
+	(p+2)->a=p->a*(p+1)->b;
+	(p+2)->b=p->b*(p+1)->a;
+	reduction((p+2));
+	cout<<"商:"<<(p+2)->a<<'/'<<(p+2)->b<<endl;
+}
+
+void cmp(Fraction *p){
+	if((p)->va==((p+1)->va)){
+		cout<<"两数相等"<<endl; 
+	}
+	else if((p)->va>=(p+1)->va) {
+		cout<<(p)->a<<'/'<<(p)->b<<" > "<<(p+1)->a<<'/'<<(p+1)->b<<endl;
+	}
+	else if((p)->va<(p+1)->va){
+		cout<<(p)->a<<'/'<<(p)->b<<" < "<<(p+1)->a<<'/'<<(p+1)->b<<endl;
+	};
+}
+
+int main(){	 
+	for(int i=0;i<2;i++){
+		cin>>f[i].a>>f[i].b;
+		f[i].va=Value(f[i].a,f[i].b);
+	}
+	Fraction *p=f;
+	for(int i=0;i<2;i++){
+		reduction(p+i);	
+	}
+	add(p);
+	minu(p);
+	multi(p);
+	divide(p);
+	cmp(p);	
+	return 0;
+}
