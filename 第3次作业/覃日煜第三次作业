@@ -1,0 +1,44 @@
+using namespace std;
+#include<iostream>
+#include<cmath>
+int main (void) 
+{   int a,b,c;
+	float x1,x2;
+	float d;
+  cout<<"输入一元二次方程的对应常量"<<endl; 
+	cin>>a>>b>>c;
+	d=b*b-4*a*c;
+	if(a==0)
+	{cout<<"该方程非二元一次方程"<<endl;}
+	   else{if(d==0)
+	          {x1=(-b+sqrt(d))/2*a;
+			  cout<<"方程有一个实数根"<<"x1="<<x1<<endl;}
+			      else if(d>0)
+            {x1=(-b+sqrt(d))/2*a;
+				     x2=(-b-sqrt(d))/2*a;
+			        cout<<"方程有两个实数根"<<" "<<"x1="<<x1<<" "<<"x2="<<x2;	}
+				   else {cout<<"方程无实数根"<<endl; }
+		}
+	return 0;		   
+}
+
+
+
+
+
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main (void)
+ {
+ 	int a;
+ 	int j=31,k;
+ 	unsigned long i=2147483648;
+ 	cin>>a;
+ 	while(j>=0)
+ 	{
+ 		k=a&i;
+ 		cout<<(k>>j--)<<" ";
+ 		i>>=1;
+	 }
+  }

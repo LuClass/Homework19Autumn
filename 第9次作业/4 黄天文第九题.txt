@@ -1,0 +1,28 @@
+9.
+#include <iostream>
+using namespace std;
+#include <math.h>
+#define s(a,b,c)((a+b+c)/2)
+double area(double a,double b,double c)
+{
+	if(a+b>c&&a+c>b&&b+c>a)
+	{
+		double area,s;
+		
+		area=sqrt(s(a,b,c)*(s(a,b,c)-a)*(s(a,b,c)-b)*(s(a,b,c)-c));
+		return area;
+	} 
+	else
+	{
+		cout<<"无法组成三角形！";
+		return 0;
+	}
+}
+int main()
+{
+	double a,b,c;
+	cout<<"三边长为：";
+	cin>>a>>b>>c; 
+	cout<<area(a,b,c);
+	return 0;
+} 

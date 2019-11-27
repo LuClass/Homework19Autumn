@@ -1,0 +1,57 @@
+﻿11(1)
+#include <iostream>
+#include <iomanip>
+
+using  namespace std;
+
+int main()
+{
+int a;
+int j=7,k;
+unsigned int i=128;
+ cin>>a;
+ 
+ while(j>=0)
+ {
+ 	k=a&i;
+ 	cout<<(k>>j--)<<" ";
+ 	i>>=1;
+  }
+ 
+}
+（2）using namespace std;
+
+#include <iostream>
+
+#include <math.h>
+
+int main(void)
+
+{ double a,b,c,m;
+
+  double t1,t2;
+
+  cout<<"按顺序输入a,b,c的值";
+ 
+  cin>>a>>b>>c;
+
+  m=b*b-4*a*c,t1=a*(-b+sqrt(m))/2,t2=a*(-b-sqrt(m))/2;
+ 
+  if(m<0)
+	
+     cout<<"方程的根不存在";
+
+  else if(m==0)
+       
+        {cout<<"方程有一根为";
+ 
+         cout<<t1; }
+	  
+       else{cout<<"方程有两解为";
+	     
+          cout<<t1<<endl;
+	
+          cout<<t2; }
+  return 0;	
+
+}

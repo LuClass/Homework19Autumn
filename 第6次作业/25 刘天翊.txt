@@ -1,0 +1,106 @@
+第二题
+#include<iostream>
+using namespace std;
+ 
+long factorial(long number)
+{	if(number<=1)
+		return 1;
+	else 
+		return number*factorial(number-1);
+}
+ 
+int combinator(int n,int m)
+{	int temp;
+	if(n<m)
+	{	temp=n;
+		n=m;
+		m=temp;}
+	return factorial(n)/(factorial(m)*factorial(n-m));
+}
+		
+int main()
+{	int a,b,c;
+	a=combinator(4,2);
+	b=combinator(6,4);
+	c=combinator(8,7);
+	cout<<"C(4,2)="<<a<<endl;
+	cout<<"C(6,4)="<<b<<endl;
+	cout<<"C(8,7)="<<c<<endl;
+	return 0;
+}
+
+第四题
+#include<iostream>
+using namespace std;
+bool isPrime(unsigned n)
+{
+	if(n<2)
+	 return false;
+	if(n==2||n==3||n==5||n==7)
+	 return true;
+	for(unsigned i=2;i*i<=n;i++)
+	 if(n%i==0)
+	   return false;
+	 return true;
+}
+int main()
+{
+	int n;cin>>n;
+	while(!isPrime(n)||!isPrime(n+2))
+	  n++;
+    cout<<n<<' '<<n+2<<endl;
+    return 0;
+}
+
+第五题
+#include<iostream>
+#include<cmath>
+using namespace std;
+int isPrime(int a)
+{
+	int i;
+	if (a == 1)
+		return false;
+		
+	for (i = 2; i <= sqrt(a); ++i)
+		if (a % i == 0)
+			return false;
+	return true;
+}
+
+int main ()
+{
+	int a;
+	int sum;
+	int isPrime(int a);
+	
+	while(cin>>a)
+	{
+		cout << a << "=";
+		
+		// 是素数 
+		if (isPrime(a))
+			cout << a;
+ 
+		// 不是素数
+		else {
+			int temp = a;
+			sum = 1;
+			int x = 2; 
+			while (sum != a)
+				for (int j = x; sum != a && j <= a / 2; ++j)
+					if (isPrime(j) && temp % j == 0)
+					{
+						sum *= j;
+						temp /= j;
+						cout << j;
+						if (sum != a)
+							cout << "*";
+						x = j;
+						break;
+					}
+		}
+		cout << endl;
+	}
+	return 0;
+}

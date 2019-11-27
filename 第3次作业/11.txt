@@ -1,0 +1,31 @@
+11.1
+#include <iostream>
+using namespace std;
+int main( )
+{
+  int I,a=1,b,n;
+　for(;if(i>1)
+　　i/=2,a+=1;
+　　for(a=2;a<3;a%=2,b+=10^n)
+  {cout<<”i=”<<”a=”<<endl;})
+  return 0;
+}
+  
+11.6
+#include <iostream>
+using namespace std; 
+int main(void)
+{
+   int a,b,c,x1,x2;
+   if(b*b-4ac<0)
+　　{cout<<”无根”<<endl;}
+   if(b*b-4ac=0)
+　　x1=x2=(-b+(4ac-b*b)^(1/2))/2a
+　　{cout<<”有一根”<<”x1=”<<endl}
+   If(b*b-4ac>0)
+　　x1=(-b+(4ac-b*b)^(1/2))/2a, x2=(-b-(4ac-b*b)^(1/2))/2a
+　　{cout<<”有两根”<<”x1=”<<”x2=”<<endl;}
+　　return 0;
+}
+　　
+

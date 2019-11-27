@@ -1,0 +1,74 @@
+(6)
+#include <iostream>
+using namespace std;
+int F1(int num1,int num2){
+	int a,b,c;
+	if (num1<num2){
+		c=num1;
+		num1=num2;
+		num2=c;
+	}
+	a=num1;b=num2;
+	while (b!=0){
+	c=a%b;
+	a=b;
+	b=c;
+	}
+	return a;
+}
+int F2(int num1,int num2){
+	int d;
+	d=num1*num2/F1(num1,num2);
+	return d;
+}
+int main(){
+	int num1,num2,a,b,c,d;
+	cout<<"Please input two numbers"<<endl;
+	cin>>num1>>num2;
+	cout<<"zuidagongyueshu is"<<F1(num1,num2)<<endl;
+	cout<<"zuixiaogongbeishu is"<<F2(num1,num2)<<endl;
+	return 0;
+}
+(7)
+1.递推
+#include <iostream>
+using namespace std;
+int main(void){
+    int m, n; 
+    while(1){
+	    cout<<"input an int(0 to exit):";
+	    cin>>m;			//输入正整数m 
+	    if (m == 0)
+		break;			
+	    if (m < 0){
+		cout<<"input m error"<<endl;
+		continue;
+	    }
+	    while(m>0){		
+		n = m % 10;	//取m的最后一位数
+		cout << n;	//输出m的最后一位数
+		m /= 10; 	//去掉当前m的最后一位数
+	    }
+	}
+    return 0;
+}
+2.递归
+#include <iostream>
+using namespace std;
+int F(int n){
+	int a,b;
+	a=n%10;
+	cout<<a;
+	b=n/10;
+	if (b==0)
+	return 0;
+	else
+	F(b);
+}
+int main(){
+	int n;
+	cout<<"qingshuruyigezhengzhengshu"<<endl;
+	cin>>n;
+	F(n);
+	return 0;
+}
