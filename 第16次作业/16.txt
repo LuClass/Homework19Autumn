@@ -3,13 +3,15 @@
 #include<string.h>
 using namespace std;
 void order(char (*k)[20],int n){
-	char *a;
+	char *a=new char[20];
 	for(int i=0;i<n-1;i++){
 		for(int j=0;j<n-1-i;j++){
 			if(strcmp(k[j],k[j+1])>0)
-			strcpy(a,k[j]);
-		    strcpy(k[j],k[j+1]);
-			strcpy(k[j+1],a);
+			{
+				strcpy(a,k[j]);
+		    	strcpy(k[j],k[j+1]);
+				strcpy(k[j+1],a);
+			}
 		}
 }
 for(int i=0;i<n;++i){
@@ -27,6 +29,7 @@ int main(){
 	order(k,n);
 	return 0;
 }
+
 
 5
 #include<string.h>
