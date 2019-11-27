@@ -1,0 +1,54 @@
+11.(4)
+#include <iostream>
+using namespace std;
+int main(void){
+	int count=0;
+  char x = 0; 
+  do{
+    x = cin.get();		//输入单个字符，任意字符
+    if(x >= '0' && x <='9' )
+	 count++;
+  }while(x != '\n');		//用回车键作为循环终止条件
+  cout<<"count="<<count<<endl;
+  return 0;
+}
+
+  (7)
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(void){
+	int a=2,b=1,k=1,c;
+	cout<<a<<"/"<<b<<' '<<setw(8);
+   for(int a=2,b=1,k=1,c;k<=20;k++)
+    {
+	c=a;a=a+b;b=c;
+	cout<<a<<"/"<<b<<' '<<setw(8);
+	}	
+}
+
+（8）
+#include <iostream>
+using namespace std;
+int main(void){
+	int i=1,x,sum,b;
+	cin>>x;
+	for (i=1;i<=x;i++){
+  if (x%i)  
+     continue; 
+     cout<<i<<' ';
+    }
+   cout<<endl;
+   for(b=1;b<=100;b++){
+      for(i=1,sum=0;i<b;i++){
+   	      if(b%i)
+   	      continue;
+   	      sum +=i;
+          }
+          if(sum==b)
+   	      cout<<sum<<' ';
+      
+  }
+   
+}
+

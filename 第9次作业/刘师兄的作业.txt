@@ -1,0 +1,47 @@
+21.（8）文件1：
+  main.cpp
+#include <iostream>
+#include "max.cpp"
+#include "hex.cpp"
+using namespace std;
+static int y,x;
+main(){
+	cin>>x>>y;
+	int max(x,y);
+	int toHex(x);
+	return 0;
+	
+}
+文件2：
+ max.cpp
+using namespace std;
+#include <iostream>
+int max(int a,int b){
+	if(a>=b)
+	  a=a;
+	else 
+	  a=b;
+}
+文件2：
+ hex.cpp
+#include<iostream>
+using namespace std;
+
+int toHex(int x)
+{
+	cout<<hex<<x;
+	return 0;
+}
+（9）宏：
+#define s(a,b,c) (a+b+c)/2
+#define area(a,b,c,s) ((s)*(s-a)*(s-b)*(s-c))
+函数：
+using namespace std;
+#include <iostream>
+#include <math.h>
+int area(int a,int b,int c){
+  int s;
+   s=(a+b+c)/2;
+  cout<<sqrt((s)*(s-a)*(s-b)*(s-c));
+   }
+  

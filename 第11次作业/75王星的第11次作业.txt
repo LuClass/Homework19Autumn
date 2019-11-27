@@ -1,0 +1,66 @@
+(1).
+#include <iostream>
+using namespace std;
+bool flower(int n)
+{
+	int z,x,y;
+	z=n/100;
+	x=(n-z*100)/10;
+	y=n-z*100-x*10;
+	if (n==z*z*z+x*x*x+y*y*y)
+	return true;
+	else 
+	return false;
+}
+int main()
+{
+	int i,j,a;
+	cin>>i>>j;
+	for (a=i;a<=j;a++)
+	{
+		if (flower(a)==1)
+		cout<<a<<endl;
+	}
+}
+(2).
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n;
+	cin >> n;
+	int a,b;
+	a=n;b=0;
+	while (a!=0)
+	{
+		b=b*10+a%10;
+		a=a/10;
+	}
+	if (n==b)
+	cout << "yes";
+	else
+	cout << "no";
+}
+(3).
+#include <iostream>
+using namespace std;
+int wanshu(int n)
+{
+	int sum=1;
+	for (int i=2;i<=n/2;i++)
+	{
+		if (n%i==0)
+			sum=sum+i;
+	}
+	return sum;
+}
+int main ()
+{
+	int i,j;
+	cin >> i >> j;
+	for (int a=i;a<=j;a++)
+	{
+		if (a==wanshu(a))
+			cout << a <<endl;
+	}
+}
