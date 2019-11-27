@@ -1,0 +1,92 @@
+（1）
+#include <iostream>
+#include <cmath>
+using namespace std;
+struct gen{
+	double x1,x2;
+	};
+gen f(int a,int b,int c)
+{
+	gen so;
+	so.x1=((-b+sqrt(b*b-a*c*4))/(2*a));
+	so.x2=((-b-sqrt(b*b-a*c*4))/(2*a));
+	return so;
+	}
+int main()
+{
+	gen s1;
+	int a,b,c;
+	cout<<"输入方程系数a,b,c"<<'\n';
+	cin>>a>>b>>c;
+	s1=f(a,b,c);
+	cout<<"输入0，输出x1与x2;输入1，输出x1;输入2，输出x2。"<<'\n';
+	int n;
+	cin>>n;
+	switch (n)
+	{case 0:cout<<s1.x1<<' '<<s1.x2;break;
+	 case 1:cout<<s1.x1;break;
+	 case 2:cout<<s1.x2;break;
+	 }
+	return 0;
+	}
+
+（2）
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+struct point{
+	int x,y;
+	};
+struct san{
+	point a,b,c;};
+double dist(point a,point b)
+{
+	double dis;
+	dis=sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+	return dis;
+	}
+bool issan(san s)
+{
+	if (((dist(s.a,s.b)+dist(s.a,s.c))>dist(s.b,s.c))&&((dist(s.a,s.b)+dist(s.b,s.c))>dist(s.a,s.c))&&((dist(s.c,s.b)+dist(s.a,s.c))>dist(s.b,s.a)))
+	return true;
+	else
+	return false;
+	}
+double C(san s)
+{double t;
+t=dist(s.a,s.b)+dist(s.a,s.c)+dist(s.b,s.c);
+return t;}
+double S(san s)
+{
+	double p=C(s)/2;
+	return sqrt(p*(p-dist(s.a,s.b))*(p-dist(s.c,s.b))*(p-dist(s.a,s.c)));
+	}
+int main()
+{
+	san j;	cin>>j.a.x>>j.a.y>>j.b.x>>j.b.y>>j.c.x>>j.c.y;
+	if (!issan(j))
+	cout<<"三点不构成三角形"<<'\n';
+	else
+	cout<<"三角形周长为:"<<C(j)<<'\n'<<"三角形面积为:"<<S(j);
+	return 0;
+	}
+	
+
+新增：
+#include <iostream>
+using namespace std;
+int main()
+{
+	int i=0;
+	char a0[50],a[51];
+	cin.getline(a0,50);
+	for (;a0[i];i++)
+	{
+		if (a0[i]>='A'&&a0[i]<='Z')
+		a[i]=a0[i]+32;
+		else a[i]=a0[i];
+		}
+		cout<<a0<<endl<<a;
+	return 0;
+	}

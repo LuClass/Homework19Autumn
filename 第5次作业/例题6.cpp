@@ -1,13 +1,12 @@
-//ÀıÌâ6 
-#include <stdio.h>
-#include <conio.h>
-  int main()
+using namespace std;
+#include <iostream>
+int main()
 {
-  printf("Hello C-world!\n");
-  printf(" ****\n");
-  printf(" *\n");
-  printf(" * \n");
-  printf(" ****\n");
-  return 0;
+  cout<<"Hello C-world!"<<endl;
+  cout<<" ****"<<endl;
+  cout<<" *"<<endl;
+  cout<<" * "<<endl;
+  cout<<" ****"<<endl;
+  return 0; 
 }
 

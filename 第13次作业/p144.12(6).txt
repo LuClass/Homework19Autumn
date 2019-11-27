@@ -1,0 +1,32 @@
+using namespace std;
+#include <iostream>
+#include <string.h>
+#define MAX 5
+int main(){
+	int n=MAX,n1=0;
+	char s1[n][21];
+	for(n1;n1<n;n1++){
+		cin.getline(s1[n1],21);
+	}int a,b,c,m,e[MAX]={};
+	char f[21];
+	for(m=0;m<MAX;m++){
+	a=strlen(s1[m]);strcpy(f,s1[m]);
+	for(b=0;b<(a-1);b++){
+	for(c=b+1;c<a;c++){
+	if(f[b]>f[c])
+	e[m]++;
+	  }
+	  }
+   }
+    for(a=0;a<m;a++){
+    for(b=a+1;b<m;b++){
+	if(e[a]<e[b])
+	{c=e[a];e[a]=e[b];e[b]=c;
+	strcpy(f,s1[a]);strcpy(s1[a],s1[b]);strcpy(s1[b],f);
+	}
+	   }	
+    }
+	for(a=0;a<m;a++){
+	cout<<s1[a]<<" "<<e[a]<<"   ";	
+	}   
+}

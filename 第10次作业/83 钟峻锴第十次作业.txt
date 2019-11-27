@@ -1,0 +1,122 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+int getRedom(int a[],int n)
+{
+	srand(a[0]);
+	for(int i=0;i<n;i++)
+	a[i]=rand()%100;
+}
+
+int getMax(int a[], int n)
+{
+	int i, j, temp,step;
+	for(i = 0; i <= n-1; i++) 
+{
+    step=0;
+		for(j = i + 1; j < n; j++)	
+			if(a[i] > a[j])
+				step++;
+			if(step+i+1==n)
+			{
+			return i;
+		    }
+}  }
+
+int main ()
+{
+	int n;
+    cin>>n;
+	int a[n];  //={6120,369,6,10021,60015,41};
+	getRedom(a,n);
+	cout<<getMax(a,n);
+	return 0;
+}
+
+
+
+(5)
+#include <iostream>
+using namespace std;
+int xsum(int n)
+{
+	int sum=0,i;
+	for(;n!=0;n/=10)
+	{
+		i=n%10;
+		sum+=i;
+		if(n/10==0)
+		return sum;
+	}
+}
+int xfen(int n)
+{
+	int f,i=2,sum=0;
+	for(;n!=1;i++)
+	{
+		if(n%i==0)
+		{
+			sum+=xsum(i);
+			n/=i;
+			i=1;
+		}
+		
+	}
+	return sum;
+}
+bool isSmith(int n)
+{
+	return xsum(n)==xfen(n)?true:false;
+}
+
+int main ()
+{
+	int n=4937774;
+    for (;!isSmith(n);n++);
+	cout<<n;
+	return 0;
+}
+
+
+
+
+(10)
+
+#include <iostream>
+#define N 21
+using namespace std;
+int f(int a[],int x)
+{
+	int n=0,i,j;
+	for(a,n;n<x-1;n++)
+	a[n]=n+1;
+	for (a,n=0,i=0,j;i<x-1;)
+	{if(a[n])
+		{j=n;
+		if(a[n]%5==0)
+		{do n>x-2?n=0:n++;
+	while (!a[n]);
+	if (n==j)break;
+    a[n]=a[j]+1;
+	a[j]=0;
+	}
+	    else
+	  {do n>x-2?n=0:n++;
+	while (!a[n]);
+	if (n==j)break;
+    a[n]=a[j]+1;}
+	i=0;
+     }
+	else {i++;/*计0的个数*/
+	n>x-2?n=0:n++;}}
+	cout<<n+1;
+	  
+}
+int main ()
+{
+     int a[N];
+    f(a,N);
+	return 0;
+}
+
+

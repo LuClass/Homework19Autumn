@@ -1,0 +1,121 @@
+(2).
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+void getRandom(int a[], int n){
+	  srand(a[0]);	
+    for(int i = 0; i < n; i++)
+		a[i] = rand() % 100;	
+}
+
+int getMax(const int a[],int n)
+{
+	int i,j,max,index;
+	for(i=0;i<n-1;i++) 
+	for (j=i+1;j<n;j++)
+	{
+		if (a[j]>a[i])
+		{
+			max=a[j];
+		    index=j;
+		}			
+	}
+	return index;
+}
+
+int main(void)
+{
+	int n,index;
+	cout<<"请输入随机整数的个数"<<endl;
+	cin>>n;
+	int a[n];
+	getRandom(a,n);
+	index=getMax(a,n);
+	cout<<"最大值："<<a[index]<<endl;
+	cout<<"下标："<<index<<endl;
+	return 0;
+}
+
+
+
+
+(5).
+#include<iostream>
+#include<math.h>
+using namespace std;
+int isSmith(int n) 
+{
+	for (int i = 2; i < n; i++)
+		if (n%i == 0)
+			return 0;
+	return 1;
+}
+int sum(int n)    
+{
+	int r = 0;
+	while (n)
+	{
+		r += n%10;
+		n = n / 10;
+	}
+	return r;
+}
+
+int main()
+{   bool isSmith(int n);
+    int sum(int n);
+    int n,index,t;
+	int count;
+	while (1)
+	{
+		int n;
+		cin>>n;
+		if (n == 0)
+			return 0;
+		count = 0;
+		index = 0;
+		t = n;
+		while (t > 1)
+		{
+			for (int i = 2; i <= t;i++)
+				if (t%i == 0 && isSmith(i) == 1)
+				{
+					index += sum(i);
+					t = t / i;
+					break;
+				}
+		}
+		
+		if (index ==sum(n))
+			cout<<"该数是smith数"<<"\n";
+		else
+			cout<<"该数不是smith数"<<"\n";	
+			return 0;
+    }
+}
+
+
+(10).
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{ 
+  int i,num,a[21],x;
+  for(i=0;i<20;i++)
+   a[i]=i+1;
+   a[20]=0;
+   num=0;
+  while(num!=a[num])
+  { 
+     for(i=1;i<5;i++)
+    {
+      x=num;
+      num=a[num];
+      }
+     a[x]=a[num];
+     num=a[x];
+    }
+    cout<<num+1; 
+}
+
