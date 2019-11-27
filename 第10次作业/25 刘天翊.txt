@@ -1,0 +1,113 @@
+(2)
+#include <iostream>
+using namespace std;
+int a[10001];
+
+int getMax(int n){
+    int pos=0,max=0;
+    for(int i=0;i<n;i++){
+        if(a[i]>=max){
+            max=a[i];
+            pos=i;
+        }
+    }
+return pos;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        srand((unsigned)time(NULL));
+        a[i]= rand();
+    }
+    cout<<getMax( n);
+    return 0;
+}
+
+(5)
+#include<iostream> 
+using namespace std;
+int sum(int n)
+{
+	int s=0;
+	while(n>0)
+	{
+		s+=n%10;
+		n/=10;
+	}
+	return s;
+}
+bool isSmith(int n)
+{
+    int pos=0,sum1=0,sum2=0;
+    sum1=sum(n);
+    for(int i=2;i<=n;i++)
+    while(n!=i)
+	{
+      if(n%i==0)
+	  {
+        sum2+=sum(i);
+        n=n/i;
+      }
+      else break;
+    }
+    sum2+=sum(n);
+    //cout<<sum1<<" "<<sum2<<endl;
+    if(sum1==sum2)return true;
+    else    return false;
+}
+int main(){
+    int n;
+    cin>>n;
+    if(isSmith(n)){cout<<"是史密斯数"<<endl;}
+    else cout<<"不是史密斯数"<<endl; 
+    for(int i=439974;;i++){
+        if(isSmith(i)){
+            cout<<i<<endl;
+            return 0;
+        }
+
+    }
+
+    return 0;
+}
+
+
+(10)
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+int getNum(int a[]) {
+	int k = 0;
+	for (int i = 1; i < 22; i++) {
+		if (a[i] == 0) {
+			k++;
+		}
+	}
+	return k;
+}
+
+int main() {
+	int a[22];
+	memset(a, 0 , sizeof(a));
+	int k = 0;
+	while (getNum(a) != 1) {
+		for (int i = 1; i < 22; i++) {
+			if (a[i] == 0) {
+				k++;
+			}
+			if (k == 5) {
+				a[i] = 1;
+				k = 0;
+			}
+		}
+	}
+	for (int i = 1; i < 22; i++) {
+		if (a[i] == 0) {
+			cout << i;
+		}
+	}
+	return 0;
+}

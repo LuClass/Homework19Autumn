@@ -1,0 +1,62 @@
+(4)
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	int count=0;
+	char ch=0;
+	do{
+		ch=cin.get();
+		if(ch>='1'&&ch<='9')
+		count++;
+	}
+	while (ch!='\n');
+	cout<<"count="<<count<<endl;
+	return 0;
+}
+(7)
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	int n,a=1,b=2,c,d=1;
+	cout<<"输入一个正整数：";
+	cin>>n;
+	cout<<"1/2"<<" ";
+	while(d<n)
+	{
+		c=b;
+		b=a+b;
+		a=c;
+		cout<<b<<"/"<<a<<" ";
+		d++;
+	}
+}
+
+(8)
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	int x,a=1,b;
+	cout<<"输入一个正整数：";
+	cin>>x;
+	while (a<=x)
+	{
+		if(x%a==0)
+		cout<<a<<" "<<endl;
+		a++;
+	}
+for(int n=2; n<=100; n++)
+    {
+        int sum=0;
+        for(int i=1;i<=n/2;i++)
+        {
+            if(n/i*i==n)
+			sum+=i;
+        }
+        if(sum==n)
+		cout<<n<<endl;
+    }
+    return 0;
+}

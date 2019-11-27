@@ -1,0 +1,70 @@
+（2）
+#include<iostream>
+using namespace std;
+int main(){
+	int n,k,i,t1,t2,t3;
+	cin>>n>>k>>i;
+	while(n>1){
+	t1=n;
+	n--;
+	t1=t1*n;
+	}
+	while(k>1){
+		t2=k;
+		k--;
+		t2=t2*k;
+	}
+	i=n-k;
+	while(i>1){
+	t3=i;
+	i--;
+	t3=t3*i;
+    }int m;
+    m=t1/(t2*t3);
+    cout<<m;
+    return 0;
+}
+
+
+
+（4）
+#include<iostream>
+using namespace std;
+int main(){
+	int i=3,m=2,n=2,k;
+	while(i<500){
+	for(;m<i;m++);
+	if(i%m==0){
+		i++;
+		m=1;
+		break;
+	}
+	k=i+2;
+	for(;n<k;n++)
+	if(k%n==0){
+		i++;
+		break;
+		cout<<i<<endl;
+	}
+	}
+	return 0;
+}
+
+
+
+（5）
+#include<iostream>
+using namespace std;
+int main(){
+	int x,n=2;
+	cin>>x;
+	for(n=2;n<x;n++){
+		if(x%n==0){
+			x=x/n;
+			cout<<n<<"*";
+			n=1;
+		}
+	}
+	cout<<x;
+	return 0;
+}
