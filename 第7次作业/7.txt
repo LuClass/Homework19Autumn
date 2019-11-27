@@ -1,0 +1,105 @@
+2.
+#include <iostream>
+using namespace std;
+int main()
+{
+	long int T;
+	cin>>T;
+	int a[5]={100000*0.1,100000*0.075,200000*0.05,200000*0.03,400000*0.015};
+	int b[5]={100000,200000,400000,600000,1000000};
+	for(int i=1;i<5;++i)
+	a[i]+=a[i-1];
+	int ans;
+	switch(T/100000){
+		case 0:
+			ans=T*0.1;
+			break;
+		case 1:
+			ans=a[0]+(T-b[0])*0.075;
+			break;
+		case 2:
+		case 3:
+			ans=a[1]+(T-b[1])*0.05;
+			break;
+		case 4:
+		case 5:
+			ans=a[2]+(T-b[2])*0.03;
+			break;
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+			ans=a[3]+(T-b[3])*0.015;
+			break;
+		case 10:
+			ans=a[4]+(T-b[4])*0.01;
+			break;
+	}
+	cout<<ans<<endl;
+	return 0;
+}
+
+13.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+  int i,j,k,n;
+  cout<<"'water flower'number is:";
+  for(n=100;n<1000;n++)
+  {
+    i=n/100;/*分解出百位*/
+    j=n/10%10;/*分解出十位*/
+    k=n%10;/*分解出个位*/
+    if(i*100+j*10+k==i*i*i+j*j*j+k*k*k)
+      cout<<setw(5)<<n;
+  }
+  return 0;
+}
+
+16.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	int score;
+    char grade;
+    cout<<"please input a score\n";
+    cin>>score;
+    grade=score>=90?'A':(score>=60?'B':'C');
+    cout<<score<<" belongs to "<<grade;
+    return 0;
+}
+
+23.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	int w,h;
+	cout<<"请输入平行四边形的底边长度和高\n";
+	cin>>w>>h;
+	for(int i=0;i<h;++i){
+		for(int j=0;j<w+i;++j){
+			if(j<i)
+			cout<<' ';
+			else
+			cout<<'*';
+		}
+		cout<<endl;
+	}
+	cout<<endl;
+	for(int i=0;i<h;++i){
+		for(int j=0;j<w+h-i;++j){
+			if(j<h-i-1)
+			cout<<' ';
+			else
+			cout<<'*';
+		}
+		cout<<endl;
+	}
+    return 0;
+}

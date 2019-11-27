@@ -1,0 +1,44 @@
+(1)
+#include<iostream>
+using namespace std;
+int main(){
+	int n,i,j;
+	j=31;
+	cin>>n;
+	unsigned int k=2147483648;
+	while(j>=0){
+		i=n&k;
+		cout<<(i>>j--)<<" ";
+		k>>=1;
+	}
+	return 0;
+} 
+
+
+
+(6)
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main(){
+	double a,b,c,pi,x1,x2;
+	cin>>a>>b>>c;
+	pi=b*b-4*a*c;
+	if(a==0){
+		cout<<"The input coefficient a is wrong. This is not a quadratic equation"<<endl; 
+	}
+	else{
+		if(pi<0){
+			cout<<"No real roots"<<endl;
+		}
+		if(pi==0){
+			cout<<"x1=x2="<<((-b)/2*a)<<endl;
+		}
+		if(pi>0){
+			x1=((-b)+sqrt(pi))/2*a;
+			x2=((-b)-sqrt(pi))/2*a;
+			cout<<"x1="<<x1<<' '<<"x2="<<x2<<endl;
+		}
+	}
+	return 0;
+}
