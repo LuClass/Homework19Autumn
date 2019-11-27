@@ -1,0 +1,70 @@
+1.
+using namespace std;
+#include <iostream>
+main(){
+  int i,j,n,x,y,z;
+  cin>>i>>j;
+  if(i>=j){
+  	cout<<"错误"<<endl;
+  	return 0;
+  }
+  if(i>=1000||j<=100){
+  	cout<<"无水仙数";
+  	 return 0;
+  }
+  cout<<"i，j之间的水仙数有："<<endl;
+  while(i<=100)
+     i++;
+     for(;i<1000&&i<=j;i++)
+  {
+    x=i/100;
+    y=i/10%10;
+    z=i%10;
+    if(i==x*x*x+y*y*y+z*z*z)
+      cout<<i<<"\n";
+  }
+}
+2.
+using namespace std;
+#include <iostream>
+main(){
+	int i,j,x,y,z,n;
+	cin>>i>>j;
+	if(i>=j){
+		cout<<"错误";
+		return 0;
+	}
+	if(i>=100000||j<=10000){
+		cout<<"无回文数";
+		return 0;
+	}
+	cout<<"回文数有"<<endl;
+	if(i<=10000) i=10000;
+	for(;i<100000&&i<=j;i++){
+		x=i/10000;
+		y=i%10000/1000;
+		z=i%100/10;
+		n=i%10;
+		if(x==n&&y==z)
+		  cout<<i<<"\n";
+	}
+	return 0;
+}
+3.
+using namespace std;
+#include <iostream>
+main(){
+	int i,j,x,y;
+	cin>>i>>j;
+	if(i>=j){
+		cout<<"错误";
+		return 0;
+	}
+	cout<<"完全数有:"<<endl;
+	for(;i<=j;i++){
+		int z=0;
+        for(x=1,y=i;x<y;x++)
+           if(y%x==0) z+=x;
+        if(i==z) cout<<i<<endl;
+	}
+}

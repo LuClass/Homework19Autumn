@@ -1,0 +1,76 @@
+2.
+#include <iostream>
+using namespace std;
+unsigned factorial1(unsigned n1)
+{
+int c=1;
+for(n1,c;n1>=1;n1--)
+	c*=n1;
+	return c;
+}
+unsigned factorial2(unsigned n,unsigned k)
+{int c1,c2,c3,C;
+c1=factorial1(n);
+c2=factorial1(k);
+c3=factorial1(n-k);
+C=c1/(c2*c3);
+return C;
+}
+int main (void)
+{cout<<"C(4,2)="<<factorial2(4,2)<<endl;
+cout<<"C(6,4)="<<factorial2(6,4)<<endl;
+cout<<"C(8,7)="<<factorial2(8,7);
+}
+4.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+bool isPrime(unsigned n)
+{if (n == 2 || n == 3 )	
+return true;
+for (int i = 2; i*i <= n; i++)
+if (n % i == 0)
+return false;
+return true;
+}
+int main ()
+{cout<<"500之内的孪生素数："<<endl; 
+int count=0;
+	for(int n=3,m;n<=498;n+=2){
+	m=n+2;
+	if(isPrime(n) && isPrime(m)){
+	cout<<setw(3)<<n<<"&"<<setw(3)<<m<<" ";
+	count++;
+	if(count%5==0)
+	cout<<endl;}
+	}
+}
+5.
+#include <iostream>
+using namespace std;
+int main()
+{int n,i=2;	
+cout<<"输入正整数n:";
+cin>>n;
+cout<<n<<"=";
+do{while(n%i==0)
+{
+cout<<i;
+n/=i;
+if(n!=1)
+cout<<"*";
+}
+i++;
+}while(n!=1);
+return 0;
+}
+
+
+
+
+
+
+
+
+
+

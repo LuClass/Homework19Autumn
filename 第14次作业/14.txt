@@ -1,0 +1,122 @@
+//P174 14.（1）
+#include <iostream>
+#include <cstring>
+#include <cmath>
+#define ll long long
+using namespace std;
+struct jie{
+	double x1;
+	double x2;
+	int xx;//解的个数 
+}; 
+jie f(int a,int b,int c){
+	jie j;
+	if(!a){
+		j.xx=-1;
+		return j;
+	}
+	double delta=b*b-4*a*c;
+	if(delta<0)
+	j.xx=0;
+	else if(delta==0){
+		j.xx=1;
+		j.x1=j.x2=-b*1.0/(2*a);
+	}
+	else{
+		j.xx=2;
+		j.x1=-(b+sqrt(delta))/(2*a);
+		j.x2=-(b-sqrt(delta))/(2*a);
+	}
+	return j;
+}
+void show(jie j){
+	if(j.xx<0)
+	cout<<"a=0，不是一元二次方程"<<endl;
+	else if(j.xx==0)
+	cout<<"该方程无实根"<<endl;
+	else if(j.xx==1)
+	cout<<"x1=x2="<<j.x1<<endl;
+	else
+	cout<<"x1="<<j.x1<<" x2="<<j.x2<<endl; 
+}
+int main()
+{
+	int a,b,c;
+	while(cin>>a>>b>>c){
+		jie jj=f(a,b,c);
+		show(jj);
+	}
+	return 0;
+ } 
+
+//(2)
+#include <iostream>
+#include <cstring>
+#include <cmath>
+#define ll long long
+using namespace std;
+struct Point{
+	int x;
+	int y;
+};
+struct Triangle{
+	Point a;
+	Point b;
+	Point c;
+	bool f;
+	double area;
+	double cc;
+};
+double dis(Point a,Point b){
+	return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+}
+Triangle isTri(Point a,Point b,Point c){
+	Triangle tri;
+	tri.a=a;
+	tri.b=b;
+	tri.c=c;
+	double x1,x2,x3;
+	x1=dis(a,b);
+	x2=dis(a,c);
+	x3=dis(b,c);
+	if(x1+x2>x3&&x2+x3>x1&&x3+x1>x2)
+	tri.f= true;
+	else
+	tri.f=false;
+	if(tri.f){
+		tri.cc=x1+x2+x3;
+		double p=tri.cc/2;
+		tri.area=sqrt(p*(p-x1)*(p-x2)*(p-x3));
+	}
+	return tri;
+}
+int main()
+{
+	Point a,b,c;
+	while(cin>>a.x>>a.y>>b.x>>b.y>>c.x>>c.y){
+		Triangle tr=isTri(a,b,c);
+		if(tr.f)
+		cout<<"周长："<<tr.cc<<" 面积："<<tr.area<<endl;
+		else
+		cout<<"不能构成三角形\n"; 
+	}
+	return 0;
+ } 
+
+//补充题
+#include <iostream>
+using namespace std;
+int main()
+{
+	char str[60],sstr[60];
+	cin.getline(str,50);
+	for(int i=0;str[i];++i){
+		if(str[i]>'A'&&str[i]<'Z')
+		sstr[i]=str[i]-'A'+'a';
+		else
+		sstr[i]=str[i];
+	}
+	cout<<"修改前："<<str<<endl;
+	cout<<"修改后："<<sstr<<endl;
+	return 0;
+ } 

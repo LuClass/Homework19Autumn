@@ -1,0 +1,45 @@
+(7)
+#include<iostream>
+#include <iomanip>
+using namespace std;
+int main(){
+    int a=1,b=1,c=1,i=0,count=0;
+	
+	do{ 
+	  c=a+b;
+	  i++;
+	  cout<<"  "<<a<<"\\"<<c;
+	  count++;
+	  b=a;
+	  a=c;
+	  if(count%5==0)
+	    cout<<endl;
+    }while(i<20);
+	return 0;
+}
+
+
+(8)
+#include<iostream>
+using namespace std;
+int main(){
+	int x;
+	cin >> x;
+	cout << x << "的因子为:" << 1 << " ";
+	for (int i = 2; i <= x ; i++){
+	       if (x % i == 0)
+	       cout << i << " ";
+	}
+	  cout << endl << "1~100的完全数为:";
+	for (int y = 2; y <= 100; y++)
+	{
+	        int sum = 1;
+	        for (int i = 2; i <= y / 2; i++){
+		if (y % i == 0)
+		sum += i;
+	        }
+	if (sum == y)
+	cout << y << " ";
+	}
+	return 0;
+}
