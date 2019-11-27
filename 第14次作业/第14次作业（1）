@@ -1,0 +1,40 @@
+（1）
+#include<iostream>
+using namespace std;
+#include<math.h>
+typedef struct Solution{
+double s1;
+double s2;
+int num;
+float dt;   
+}Solution;
+Solution f(int a,int b,int c){
+	Solution emp;
+	
+    emp.dt=b*b-4*a*c;
+	if(emp.dt<0){
+		emp.num=0;
+	} 
+	else if(emp.dt==0){
+	emp.num=1;
+	emp.s1=emp.s2=-b/(2*a); 
+	}
+	else{
+		emp.num=2;
+		double n=-b+sqrt(b*b-4*a*c);
+		double m=-b-sqrt(b*b-4*a*c);
+	emp.s1=n/(2*a);
+	emp.s2=m/(2*a);
+	}
+	return emp;
+}
+int main(){
+int a,b,c;
+cin>>a>>b>>c;
+Solution emp=f(a,b,c);
+cout<<emp.dt<<endl;
+cout<<emp.num;
+cout<<emp.s1;
+cout<<emp.s2;
+return 0;}
+ 

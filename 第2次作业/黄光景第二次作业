@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	cout<<"T23"<<endl;
+	  cout<<"x%2==0&&x>2"<<endl;
+			
+	cout<<"T24"<<endl;
+	 cout<<"x>8||x<-8"<<endl;
+		
+	cout <<"T25"<<endl;
+	 cout<<"A:0 "<<" B:0.33333 "<<" C:1 "<<" D:7"<<endl;
+
+	cout<<"T26"<<endl<<"A:4 "<<" B:27 "<<" C:8 "<<" D:162 "<<endl;
+	cout<<"T27"<<endl<<"A:1 "<<" B:1 "<<" C:31 "<<" D:1 "<<endl;
+	{cout<<"T28"<<endl<<"摄氏温度=";
+	 double c;
+	 cin>>c;
+	 cout<<"华氏温度："<<c*9.0/5+32<<endl;
+	 cout<<"绝对温度："<<c+273.15<<endl;
+			
+	}
+	return 0;	
+}

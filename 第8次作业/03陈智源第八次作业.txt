@@ -1,0 +1,61 @@
+（6）
+#include<iostream>
+using namespace std;
+int yinshu(int m,int n)
+{
+	if(m%n==0)
+    return n;
+    else
+     return yinshu(n,m%n);	 
+}
+
+int beishu(int n,int m)
+{
+                int a=yinshu(n,m);
+	return m*n/a;
+}
+int main(){	
+	int m,n;
+	cin>>m>>n;
+	cout<<"最大公约数为："<<yinshu(m,n)<<" 最小公倍数为："<<beishu(m,n); 
+	return 0;
+}
+(7).
+//递推法
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout<<"输入一个数";
+	int a,b,count=1,sum=0;
+	cin>>a;
+	b=a;
+	while(b/10) 
+	{count*=10;
+	b/=10;
+	}
+	while(count)
+	{sum+=(a%10)*count;
+	count/=10;
+	a/=10;
+	}
+	cout<<sum;
+}
+//递归法
+#include <iostream> 
+using namespace std;
+void fun(int n)
+{
+    if(n/10!=0)
+    {cout<<n%10;
+     fun(n/10);
+    } 
+   else cout<<n;
+}
+
+int main()
+{
+	int n;
+	cin>>n;
+	fun(n);
+}
