@@ -1,0 +1,57 @@
+﻿#include <iostream>
+#include <math.h>
+using namespace std;
+#define AREA sqrt(s*(s－a)*(s－b)*(s－c))
+#define s (a+b+c)/2
+
+int main()
+{
+int a,b,c;
+cin>>a>>b>>c;
+cout<<AREA<<endl;
+return 0；
+}
+
+【main44.cpp】
+#include <iostream>
+#include "max.cpp"
+#include "hex.cpp"
+using namespace std;
+int main()
+{
+int a,b,c;
+cout<<toHex(c)<<endl;
+}
+【max44.cpp】
+#include <iostream>
+using namespace std;
+max(int)
+{
+cout<<"请输入两个整数:"<<endl;
+int a,b,c;
+cin>>a>>b;
+if(a>b)
+c=a;
+else
+c=b;
+cout<<c<<endl;
+return 0;
+}
+
+【hex44.cpp】
+#include <iostream>
+using namespace std;
+toHex(int)
+{
+int c;
+cin>>c;
+int j=15,k;
+long int i=32768;
+while(j>=0)
+{
+k=c&i;
+cout<<(k>>j－－)<<" ";
+i>>=1;
+}
+return 0;
+}

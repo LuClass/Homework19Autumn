@@ -1,0 +1,52 @@
+11.1
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using  namespace std;
+
+int main()
+{
+int a;
+int j=31,k;
+unsigned int i=pow(2,31);
+ cin>>a;
+ 
+ while(j>=0)
+ {
+ 	k=a&i;
+ 	cout<<(k>>j--)<<" ";
+ 	i>>=1;
+  }
+ 
+}
+
+
+
+11.6
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main(){
+	double a,b,c,d,x,x1,x2;
+	cin>>a>>b>>c;
+	if(a==0)
+	{
+		cout<<"x="<<-c/b<<endl;
+    }
+	d=b*b-4*a*c;
+	if(d<0)
+	  cout<<"该方程没有实数根"<<endl;
+	  else
+	  if(d==0) 
+	  {
+	      x=((-b)+sqrt(d))/(2*a);
+	      cout<<"x1=x1="<<x<<endl;
+	  }
+	  else
+	  {
+	  	x1=((-b)+sqrt(d))/(2*a);
+	  	x2=((-b)-sqrt(d))/(2*a);
+	  	cout<<"x1="<<x1<<"   "<<"x2="<<x2<<endl; 
+	  }
+	  
+}

@@ -1,0 +1,62 @@
+#include<iostream>
+using namespace std;
+int jiechen(int m){
+	if(m==1){
+		return 1;
+	}
+	return m*jiechen(m-1);
+} 
+int main(){
+
+	cout<<"C(4，2)= "<<jiechen(4)/(jiechen(2)*jiechen(2))<<endl;
+	cout<<"C(6，4)= "<<jiechen(6)/(jiechen(4)*jiechen(2))<<endl;
+	cout<<"C(8，7)= "<<jiechen(8)/(jiechen(7)*jiechen(1))<<endl;
+	return 0;
+}
+(4)
+#include<iostream>
+using namespace std;
+int PrimeNub(int n)
+{
+	for(int i=2;i<n/2;i++)
+	{
+		if(n%i==0)
+		return 0;
+	}
+	return 1;
+}
+int main(){
+	int a,b;
+	for(a=3;a<500;a++){
+	b=a+2;
+	if(PrimeNub(a)==1&&PrimeNub(b)==1)
+	cout<<"500以内的孪生素数有"<<a<<"and"<<b<<'\n'<<endl;
+}
+	return 0;
+}
+(5)
+#include<iostream>
+using namespace std;
+int main(){
+	void part(int n);
+	int x;
+	cin>>x;
+	cout<<x<<" = ";
+	part(x);
+}
+void part(int n){
+	int i;
+	for(i=2;i<=n;i++)
+    while(n!=i)
+    {
+      if(n%i==0)
+      {
+        cout<<i<<"*";
+        n=n/i;
+      }
+      else
+        break;
+    }
+    cout<<n;
+    
+}

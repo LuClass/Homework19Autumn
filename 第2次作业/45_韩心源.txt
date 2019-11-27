@@ -1,0 +1,30 @@
+﻿23.x＞2&&x％2＝＝0
+24.x＜-8‖x＞8
+25.⑴0
+   ⑵0.333333
+   ⑶1
+   ⑷7
+26.⑴4
+   ⑵27
+   ⑶8
+   ⑷162
+27.⑴1
+   ⑵1
+   ⑶31
+   ⑷0
+28.⑴
+＃include<iostream>
+using namespace std;
+int main(void)
+{
+ float c,f,k;
+ cout<<"请输入摄氏温度C＝";
+ cin>>c;
+ f＝5/9*c＋32;
+ k＝c+273.15;
+ cout<<"对应的华氏温度F＝"<<f<<endl;
+ cout<<"对应的绝对温度K＝"<<k<<endl;
+ return 0;
+}
+
+

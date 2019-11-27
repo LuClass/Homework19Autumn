@@ -1,0 +1,69 @@
+11.
+#include<iostream>
+using namespace std;
+bool isShuixian(int i)
+{
+	int sum=0,temp=i;
+	for(;i!=0;i/=10)
+	sum+=(i%10)*(i%10)*(i%10);
+	
+	if(sum==temp)
+	return true;
+	return false;
+}
+main()
+{
+	int i,j;
+	cin>>i>>j;
+	for(;i<=j;i++)
+	if(isShuixian(i))
+	cout<<i;
+}
+12.
+#include<iostream>
+using namespace std;
+bool isHuiwen(int a[],int n)
+{
+	for(int i=0;i<n;i++)
+	if(a[i]!=a[n-i-1])
+	return false;
+	return true;
+}
+int main()
+{
+	int a[1000],n=0;
+	long long int shu;
+	cin>>shu;
+	for(;shu!=0;shu/=10,n++)
+	a[n]=shu%10;
+	if(isHuiwen(a,n))
+	cout<<"yes";
+	else
+	cout<<"no";
+}
+14.
+#include<iostream>
+using namespace std;
+bool isWanquan(int a)
+{
+	int sum=0;
+	for(int i=1;i<a/2+1;i++)
+	if(a%i==0)
+	sum+=i;
+	if(sum==a)
+	return true;
+	return false;
+}
+int main()
+{
+	int a,b;
+	cin>>a>>b;
+	if(a<=0||b<=0||a>b)
+	{
+		cout<<"error";
+		return 0;
+	}
+	for(;a<=b;a++)
+	if(isWanquan(a))
+	cout<<a<<' ';
+}

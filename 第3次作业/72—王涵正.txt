@@ -1,0 +1,46 @@
+P68
+11（1）
+#include<iostream>
+using namespace std;
+int main()
+{int x,i=1,a[32];
+cin>>x;
+while(x>0)
+{a[i]=x%2;
+i=i+1;
+x=x/2;
+}
+while(i>1)
+{cout<<a[i-1];
+i=i-1;
+	}		
+ } 
+11（6）
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{float a,b,c,x,x1,x2,x3;
+cout<<"ax^2+bx+c=0"<<endl;
+cout<<"a="<<endl;
+cin>>a;
+cout<<"b="<<endl;
+cin>>b;
+cout<<"c="<<endl;
+cin>>c;
+x=b*b-4*a*c;
+if(x>0)
+{x1=(-b+sqrt(x))/2/a;
+x2=(-b-sqrt(x))/2/a;
+cout<<"有两根"<<endl;
+cout<<x1<<endl;
+cout<<x2<<endl; 
+}
+else if(x==0)
+{x3=-b/2/a;
+cout<<"有一根" <<endl;
+cout<<x3<<endl;
+}
+else
+cout<<"没有根"<<endl; 	
+ } 

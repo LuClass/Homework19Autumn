@@ -1,0 +1,70 @@
+#include <iostream>
+
+using namespace std;
+
+int maxGYS(int a,int b)
+{
+	int temp;
+	if (a>b)
+	{
+		while (b>0)
+		{
+			temp=a%b;
+			a=b;
+			b=temp;
+		}
+		return a;
+	}
+	else
+	{
+		temp=a;a=b;b=temp;
+		while (b>0)
+		{
+			temp=a%b;
+			a=b;
+			b=temp;
+		}
+		return a;
+	}
+}
+
+int minGBS(int c,int d)
+{
+	int m;
+	m=c*d/maxGYS(c,d);
+	return m;
+}
+
+int main (void)
+{
+	int j,k;
+	cout<<"请输入两个正整数"<<endl;
+	cin>>j>>k;
+	cout<<'\n';
+	cout<<"最大公约数为："<<' '<<maxGYS(j,k)<<endl;
+	cout<<"最小公倍数为："<<' '<<minGBS(j,k)<<endl;
+	system("pause");
+	return 0;
+}
+
+
+
+#include<iostream>
+using namespace std;
+
+int f(long i)
+{
+	cout<<i%10;
+	if (i>9)
+	f(i/10);
+}	
+int main (void)
+
+
+{
+	unsigned i;
+	cout<<"请输入一个正整数"<<endl;
+	cin>>i;
+	f(i);
+	return 0;
+}
