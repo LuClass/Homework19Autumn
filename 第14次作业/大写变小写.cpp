@@ -1,19 +1,12 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main(){
-	char a[51];
-	cin.getline(a,51);
-	for(int i=0;i<51;i++){
-		cout<<a[i];
-		}
-	for(int i=0;i<51;i++)
-	{
-	    if(a[i]>='A'&&a[i]<='Z'){
-			int n=a[i];
-		    cout<<char(n+32);
-		}	
-		else
-		cout<<a[i];
+int main (){
+	char s[50];
+	cin.getline(s,50);
+	for(int i=0;s[i];i++){
+		if(s[i]>='A'&&s[i]<='Z')
+		 s[i]+=32;
+		 cout<<s[i];
 	}
 	return 0;
-}
+} 

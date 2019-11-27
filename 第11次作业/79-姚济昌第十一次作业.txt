@@ -1,0 +1,80 @@
+
+//水仙花数
+#include<iostream>
+using namespace std;
+bool waterflower(int n){
+	int a,b,c;
+	a=n%10;
+	n=n/10;
+	b=n%10;
+	c=n/10;
+	if(a*a*a+b*b*b+c*c*c==a+10*b+100*c)
+	return 1;
+	else
+	return 0; 	
+}
+
+int main(){
+	int i,j,m,temp;
+	cin>>i>>j;
+	if(i>j)
+	{temp=i;
+	i=j;
+	j=temp;}
+	for(m=i;m<=j;m++)
+	{
+	if (waterflower(m)==1)
+	cout<<m<<' ';}
+}
+
+
+//回文数
+#include<iostream>
+using namespace std;
+int main(){
+	int n,j=0,m;
+	cin>>n;
+	m=n;
+	for(m;m!=0;m/=10)
+	{
+		j*=10;
+		j+=(m%10);		
+	}
+	if(j==n)
+	cout<<"This is a Huiwen number"<<endl;
+	else
+	cout<<"This is not a Huiwen number"<<endl;
+} 
+
+
+
+//完全数
+#include<iostream>
+using namespace std;
+main()
+{
+  
+  int i,j,s,k,m,temp;
+   cin>>k>>m;
+  if(k>m)
+  {temp=k;
+  k=m;
+  m=temp; }
+ 
+  for(j=k;j<=m;j++)
+  {
+    
+    s=j;
+    for(i=1;i<j;i++)
+    {
+      if((j%i)==0)
+      {
+        
+        s=s-i;
+        }
+    }
+    if(s==0)
+    
+      cout<<j<<"is a wanshu"<<endl;
+  }}
+

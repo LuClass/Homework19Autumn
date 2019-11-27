@@ -1,0 +1,50 @@
+(6)
+int yinshu (int p,int q){
+	while(p!=0){
+		if(p>=q)
+		p=p-q;
+		else
+		q=q-p;	
+	}
+	return q;}
+int beishu (int p,int q){
+	int b,c;
+	c=p*q;
+    b=yinshu(p,q);
+	return c/b;
+    }
+
+
+(7)
+递归：
+#include <iostream>
+using namespace std;
+int fan (int p,int q){
+	if(p==0)
+	   return q;
+	else
+	return fan(p/10,p%10+q*10);
+	
+}
+
+int main(){
+	int m,n;
+	cin>>n;
+	m=fan(n,0);
+	cout<<m<<endl;
+} 
+
+
+递推:
+#include <iostream>
+using namespace std;
+
+int main(){
+	int m,n;
+	cin>>n;
+	for(m=0;n!=0;){
+	   m=m*10+n%10;
+	   n=n/10;
+	}
+    cout<<m<<endl;
+} 

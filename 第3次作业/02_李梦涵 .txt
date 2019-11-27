@@ -1,0 +1,48 @@
+//11-(1)
+#include <iostream>
+#include <iomanip>
+using  namespace std;
+int main()
+{
+	int a;
+	int j=31,k;
+	unsigned int i=2147483648UL;
+	cin>>a;
+	while(j>=0)
+	{
+		k=a&i;
+		cout<<(k>>j--)<<" ";
+		i>>=1;
+	}
+}
+//11-(6)
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+{
+	float a,b,c;
+	float d;
+	float x,x1,x2;
+	while(cin>>a>>b>>c)
+	{
+		d=b*b-4*a*c;
+		if(d<0)
+		{
+			cout<<"方程无根"<<endl; 
+		}
+		else if(d==0)
+		{
+			x=(-b/(2*a));
+			cout<<"方程有一个根"<<endl;
+			cout<<"x = "<<x<<endl;
+		} 
+		else
+		{
+			x1=(-b+sqrt(d))/(2*a);
+			x2=(-b-sqrt(d))/(2*a);
+			cout<<"方程有两个根"<<endl;
+			cout<<"x1 = "<<x1<<"  "<<"x2 = "<<x2<<endl;
+		} 
+	}
+}

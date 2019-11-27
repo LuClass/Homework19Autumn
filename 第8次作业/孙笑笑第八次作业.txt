@@ -1,0 +1,78 @@
+6.
+#include<iostream>
+using namespace std;
+int divisor(int a,int b)
+{int t,r;
+ if(a<b)
+    {t=b;b=a;a=t;}
+    r=a%b;
+ while(r!=0)
+    {
+        a=b;
+        b=r;
+        r=a%b;
+    }
+	return b;	
+}
+int multiple(int a,int b)
+{int n=a*b,m;
+m=divisor(a,b);
+return n/m;
+}
+int main()
+{
+    int a,b;
+    cout<<"请输入两个数字a,b："<<endl;
+    cin>>a>>b;
+    cout<<"这两个数的最大公约数为"<<divisor(a,b)<<",最小公倍数为"<<multiple(a,b);
+
+}
+7.
+(1)#include<iostream>
+using namespace std;
+int main()
+{
+    int m,n;
+    while(1){
+    	cout<<"Input an int(0 to exit):";
+    	cin>>m;
+    if(m==0)
+    break;
+    if(m<0)
+    {cout<<"Input m error"<<endl;
+    continue;
+	}
+	while(m!=0)
+	{n=m%10;
+	cout<<n;
+	m/=10;
+	}
+	cout<<'\n';
+	}
+	return 0;
+}
+(2)#include<iostream>
+using namespace std;
+int antitone(int m)
+{if(m<10)
+return m;
+else
+cout<<m%10;
+return antitone(m/10);
+}
+int main()
+{
+    int m,n;
+    while(1){
+    	cout<<"Input an int(0 to exit):";
+    	cin>>m;
+    if(m==0)
+    break;
+    if(m<0)
+    {cout<<"Input m error"<<endl;
+    continue;
+	}
+	if(m!=0)
+	cout<<antitone(m);
+	cout<<'\n';}
+}

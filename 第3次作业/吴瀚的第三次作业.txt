@@ -1,0 +1,45 @@
+11.（1）
+       #include <iostream> 
+       using namespace std;
+       int main(void)
+       {
+	string x; 
+	int n;
+	while(cin>>n)
+	{
+		x=""; 
+	for(int a=n;a;a=a/2)
+	{
+	x=(a%2?"1":"0")+x;
+	}
+	cout<<x<<endl; 
+	}
+	return 0;
+        }
+
+（4）
+            #include <iostream>
+            #include <math.h>
+            using namespace std;
+            int main(void)
+     {
+	float a,b,c,n,x1,x2;
+	cin>>a>>b>>c;
+	n=b*b-4*a*c;
+	if(n>0)
+	  {
+	  x1=(-1*b-sqrt(n))/(2*a);
+	  x2=(-1*b+sqrt(n))/(2*a);
+	  cout<<"方程解为：x1="<<x1<<" "<<"x2="<<x2<<endl;
+                  }
+	else if(n==0) 
+	      {
+		  x1=(-b)/(2*a);
+		   cout<<"方程解为：x1=x2="<<x1<<endl;
+	      }
+		  
+		   else 
+		      {
+			  cout<<"方程无解"<<endl;
+		  }			       
+      }
