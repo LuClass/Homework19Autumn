@@ -1,0 +1,132 @@
+（3）
+#include<iostream>
+using namespace std;
+struct Fraction
+{
+	int a,b;
+};
+int f(int a,int b)
+{
+	int t;
+  	t=a%b;
+  	while(t!=0)
+  	{
+  		a=b;
+		b=t;
+		t=a%b;
+	}
+	return b;
+}
+void yuefen(Fraction *p) 
+{
+ 	int t=f(p->a,p->b);
+   	if(p->a!=0)
+    {
+    	if((p->b/t)==1) cout<<p->a/t;
+    	else if((p->b/t==-1)) cout<<-(p->a/t);
+    	else if((p->b/t)<0) cout<<-(p->a/t)<<"/"<<-(p->b/t);
+		else cout<<p->a/t<<"/"<<p->b/t;
+    }
+    else
+       cout<<"0";
+    cout<<endl;
+}
+void jia(Fraction *n,Fraction *m)
+{
+ 	int c=(n->b)*(m->b);
+ 	int d=(n->a)*(m->b)+(m->a)*(n->b);
+ 	cout<<"n+m=";
+	int t=f(c,d);
+	if(c/t==1) cout<<d/t;
+	else if(c/t==-1) cout<<-(d/t);
+	else if((c/t)<0) cout<<-(d/t)<<"/"<<-(c/t);
+	else cout<<d/t<<"/"<<c/t;
+	cout<<endl;
+}
+void jian(Fraction *n,Fraction *m) 
+{
+ 	int c=(n->b)*(m->b);
+ 	int d=(n->a)*(m->b)-(m->a)*(n->b);
+ 	cout<<"n-m=";
+    if(!d) cout<<"0"<<'\n'<<"两数相等";
+    int t=f(c,d);
+    if(c/t==1) cout<<d/t<<'\n'<<"n>m";
+    else if(c/t==-1) cout<<-(d/t)<<'\n'<<"n<m";
+	else if((c/t)<0) cout<<-(d/t)<<"/"<<-(c/t)<<'\n'<<"n<m";
+    else cout<<d/t<<"/"<<c/t<<'\n'<<"n<m";
+	cout<<endl;
+}
+void cheng(Fraction *n,Fraction *m) 
+{
+ 	int c=(n->b)*(m->b);
+ 	int d=(n->a)*(m->a);
+ 	cout<<"n*m=";
+	int t=f(c,d);
+	if(c/t==1) cout<<d/t;
+	else if(c/t==-1) cout<<-(d/t);
+	else if((c/t)<0) cout<<-(d/t)<<"/"<<-(c/t);
+	else cout<<d/t<<"/"<<c/t;
+	cout<<endl; 
+}
+void chu(Fraction *n,Fraction *m) 
+{
+ 	if(m->a!=0)
+ 	{
+ 		int c=(n->b)*(m->a);
+        int d=(n->a)*(m->b);
+        cout<<"n/m=";
+        int t=f(c,d);
+        if(c/t==1) cout<<d/t;
+        else if(c/t==-1) cout<<-(d/t);
+		else if((c/t)<0) cout<<-(d/t)<<"/"<<-(c/t);
+		else  cout<<d/t<<"/"<<c/t;
+    }
+ 	else
+     	cout<<"计算错误！分母不能为零";
+    cout<<endl;
+}
+int main()
+{
+	Fraction n,m;
+	cout<<"请依次输入两个分数n,m的分子分母：";
+ 	cin>>n.a>>n. b>>m. a>>m. b;
+ 	cout<<"第一个分数：";
+	yuefen(&n);
+ 	cout<<"第二个分数：";
+	yuefen(&m);
+	cheng(&n,&m);
+ 	chu(&n, &m);
+	jia(&n,&m);
+	jian(&n,&m);
+}
+
+（4）
+#include<iostream>
+using namespace std;
+enum W
+{
+	w_hundred=0,
+	w_grade=0,
+};
+struct Course
+{
+	char id[20];
+	char name[40];
+	W way;
+};
+union S
+{
+	int h;
+	char g;
+};
+struct score
+{
+	char num[20];
+	char name[40];
+	char courseid[20];
+	S score;
+};
+int main()
+{
+	return 0;
+} 

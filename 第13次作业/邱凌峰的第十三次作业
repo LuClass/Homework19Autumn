@@ -1,0 +1,54 @@
+（6）
+#include<iostream>
+#include<string.h>
+using namespace std;
+#define MAX 6
+int getRev(char a[]){
+	int k,m;
+k=strlen(a);
+int j=0;
+for(m=0;m<k;m++){
+for(int i=m+1;i<k;i++){
+if(a[m]>a[i]){
+j++;
+
+}
+}
+
+cout<<j<<endl;
+}
+return j;
+}
+int main(){
+	char a[20];
+	for(int n=0;n<MAX;n++){
+	for(int h=0;h<20;h++){
+		cin.getline(a,n);
+		cout<< getRev(a);
+	}
+	}
+	return 0;	
+ }
+ 
+ 
+ 
+ 
+ (8)
+ #include<iostream>
+using namespace std;
+#include<string.h>
+int getWordcount(char a[]){
+int k=strlen(a),m=0;
+for(int i=0;i<k;i++){
+if(a[i]==' '){
+m++;
+int s=i+1;
+while(a[s]==' '){
+s++;}
+i=s-1;
+}
+}
+cout<<m;
+return 0;
+}
+

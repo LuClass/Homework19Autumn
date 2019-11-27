@@ -1,0 +1,127 @@
+（2）#include <iostream>
+
+using namespace std;
+int jc(int a)
+{
+	if (a == 0)
+		return 1;
+	else
+		return a * jc(a - 1);
+}
+double c(int n, int k)
+{   
+	return jc(n) / (jc(k)*jc(n - k));
+    
+
+}
+int main()
+{
+	cout << c(4, 2) << endl << c(6, 4) << endl << c(8, 7) << endl;
+
+
+}
+（4）#include <iostream>
+
+using namespace std;
+
+int ss(int n)
+{
+	
+	for (int i = 2; i <= n / 2; i++)
+	{
+
+		if (n%i == 0)
+		{
+			return 0;
+			break;
+		}
+		else if (i == n / 2)
+			return 1;
+	}
+
+
+
+}
+
+int main()
+{
+	for (int i = 1; i <= 500; i++)
+	{
+		if (ss(i) && ss(i + 2))
+		{
+			cout << i << '\t' << i + 2 << '\t';
+			cout << endl;
+		}
+
+	}
+
+
+}
+（5）
+#include <iostream>
+
+using namespace std;
+ 
+int judge(int n)
+{
+
+
+	for (int i = 2; i <= n / 2; i++)
+	{
+
+		if (n%i == 0)
+		{
+			return 0;
+			break;
+		}
+		else if (i == n / 2)
+			return 1;
+	}
+
+}
+void ss(int x)
+{
+	int f=0;
+	for (int i = 2; i <= x / 2; i++)
+	{
+
+		if (x%i == 0)
+		{   
+		
+
+			cout << i;
+			if (judge(x / i) == 0)
+			{
+				cout << "*";
+				f++;
+				ss(x / i);
+			}
+			else
+			{
+				cout << "*"<<x/i;
+				break;
+			}
+				
+		}
+		else if (i == x / 2)
+		{
+			cout << "该数为质数，无法分解质因数" << endl;
+
+
+		}
+		if (f)
+		{
+
+			break;
+
+		}
+	}
+
+}
+int main()
+{
+	int x;
+	cin >> x;
+	ss(x);	
+
+}

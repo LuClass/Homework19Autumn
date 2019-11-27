@@ -1,0 +1,53 @@
+P68：11（1）
+#include<iostream>
+using namespace std;
+int main(){
+	int n;
+	cin>>n;	
+	for(int i=31;i>=0;i--){
+		cout<<((n>>i)&1);
+	}
+	cout<<endl;
+	return 0;
+} 
+
+
+11（6）
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main(){
+	double a,b,c,x1,x2,d;
+	cin>>a>>b>>c;
+	if(a==0){
+		if(b==0&&c!=0){
+			cout<<"方程无实根"<<endl; 
+		}
+		else if(b==0&&c==0){
+			cout<<"方程根为任意实数"<<endl;
+		}
+		else if(b!=0&&c==0){
+			cout<<"方程只有一根：0"<<endl; 
+		}
+		else if(b!=0&&c!=0){
+			x1=-c/b;
+			cout<<"方程只有一根："<<x1<<endl; 
+		}	
+	}
+	else{
+		d=b*b-4*a*c;
+		if(d<0){
+			cout<<"方程无实根"<<endl;
+		}
+		else if(d==0){
+			x1=(-b+sqrt(d))/(2*a);
+			cout<<"方程只有一根："<<x1<<endl; 
+		}
+		else if(d>0){
+			x1=(-b+sqrt(d))/(2*a);
+			x2=(-b-sqrt(d))/(2*a);
+			cout<<"方程有两根："<<x1<<" , "<<x2<<endl;
+		}	
+	}
+	return 0;
+} 

@@ -1,0 +1,82 @@
+（2）
+#include<iostream>
+using namespace std;
+double zuhe(double n,double k){
+	double temp=1;
+	while(k>0){
+		temp=temp*n/k;
+		k--;n--;
+	}
+	return temp;
+}
+int main(){
+	double n,k;
+	while(1){
+		cin>>n>>k;
+		if(n<=k){
+			cout<<"input data error!";
+		}
+		else break;
+	}
+	cout<<"C"<<"("<<n<<","<<k<<")"<<"="<<zuhe(n,k)<<endl<<endl;
+	n=4;k=2;
+	cout<<"C"<<"("<<n<<","<<k<<")"<<"="<<zuhe(n,k)<<endl;
+	n=6;k=4;
+	cout<<"C"<<"("<<n<<","<<k<<")"<<"="<<zuhe(n,k)<<endl;
+	n=8;k=7;
+	cout<<"C"<<"("<<n<<","<<k<<")"<<"="<<zuhe(n,k)<<endl;
+}
+
+
+（4）
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int sushu(int x)
+{
+    int flag=0;
+    for(int i=2; i<=x/2; ++i)
+    {
+        if(x%i==0)
+        {
+            flag=1;
+            break;
+        }
+    }
+    if (flag==0)
+      return 1;
+    else
+      return 0;
+}
+int main(){
+	cout<<"500以内孪生素数有:"<<endl;
+	for(int i=3;i<=500;i++){
+		if(sushu(i)&&sushu(i+2))
+		cout<<setw(3)<<i<<"  "<<setw(3)<<i+2<<endl;
+	}
+	return 0;
+}
+
+
+（5）
+#include<iostream>
+using namespace std;
+int main(){
+	int x;
+	cin>>x;
+	cout<<x<<"=";
+	while(x!=1){
+		for(int i=2;i<=x;i++){
+			if(x==i){
+				cout<<i;
+				x/=i;
+				break;
+			}
+			if(x%i==0){
+				cout<<i<<"*";
+				x/=i;
+				break;
+			}
+		}
+	}
+} 
