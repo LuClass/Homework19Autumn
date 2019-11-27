@@ -1,0 +1,107 @@
+（2）
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
+using namespace std;
+void getRandom(int a[],int n){
+	srand((int)time(NULL));
+	for(int i=0;i<n;++i)
+	a[i]=rand()%100;
+} 
+int getMax(const int a[],int n){
+	int t=a[0],ti=0;
+	for(int i=1;i<n;++i){
+		if(a[i]>t){
+			t=a[i];
+			ti=i;
+		}
+	}
+	return ti;
+}
+int main()
+{
+	int a[20];
+	getRandom(a,20);
+	for(int i=0;i<20;++i)
+	cout<<a[i]<<' ';
+	cout<<endl;
+	cout<<getMax(a,20);
+	return 0;
+}
+
+（5）
+#include <iostream>
+#include <cstring>
+#define N 1000020
+using namespace std;
+bool isSmith(int n){
+	char p[N];
+	memset(p,1,sizeof(p));
+	for(int i=2;i<N;++i){
+		if(p[i])
+		for(int j=i*2;j<N;j+=i)
+		p[j]=0;
+	}
+	int sum=0;
+	int nn=n;
+		for(int i=2;i<N;++i){
+			if(p[i]){
+				while(nn%i==0){
+					nn/=i;
+					//cout<<i<<' ';
+					int f=i;
+					while(f){
+						sum+=f%10;
+						f/=10;
+					}
+				}
+			}
+			if(nn==1)
+			break;
+		}
+	nn=0;
+	while(n){
+		nn+=n%10;
+		n/=10;
+	}
+	//cout<<sum<<' '<<nn;
+	if(sum==nn)
+	return true;
+	return false;
+}
+int main()
+{
+	for(int i=4937774;i<10*N;++i)
+	if(isSmith(i)){
+		cout<<i<<endl;
+		break;
+	}
+	return 0;
+}
+
+（10）
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+	int a[22];
+	memset(a,1,sizeof(a));
+	int s=1;
+	while(s<101){
+		for(int j=1;j<=21;++j){
+			if(a[j]){
+				if(s%5==0){
+					a[j]=0;
+				}
+				s++;
+			}
+			if(s>=101)
+			break;
+		}
+	}
+	for(int i=1;i<22;++i)
+	if(a[i])
+	cout<<i;
+	return 0;
+}

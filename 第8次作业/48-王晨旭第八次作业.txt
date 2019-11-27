@@ -1,0 +1,60 @@
+6
+#include<iostream>
+using namespace std;
+int GCD(int m, int n)
+{
+	if (n > m)
+		swap(m, n);
+	int temp = n;
+	while (m % n != 0)
+	{
+		temp = m % n;
+		m = n;
+		n = temp;
+	}
+	return temp;
+}
+int LCM(int m, int n)
+{
+	return m * n / GCD(m, n);
+}
+int main()	//测试
+{
+	int m, n;
+	while (cin >> m >> n)
+	{
+		cout << "最大公约数:" << GCD(m, n) << endl;
+		cout << "最小公倍数:" << LCM(m, n) << endl << endl;
+	}
+	return 0;
+}
+
+
+7
+#include<iostream>
+using namespace std;
+void dt(int a){
+	if(a==0){
+		return;
+	}
+	cout<<a%10;
+	dt(a/10);
+} 
+int m=0;
+int dt(int a){
+	if(a==0){
+		return m;
+	}
+	m=m*10+(a%10);
+	a/=10;
+	dt(a);
+}
+int main(){
+	cout<<"请输入一个整数"<<endl;
+	int x;
+	cin>>x;
+	cout<<"递推算法的反序输出为：" <<endl;
+	dt(x);cout<<endl; 
+	cout<<"递归算法的反序输出为：" <<endl;
+	cout<<dt(x)<<endl;	
+}

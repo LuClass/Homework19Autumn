@@ -1,0 +1,27 @@
+using namespace std;
+#include <iostream>
+#include <math.h>  
+struct A{float x,y,z;};
+A p;A q;float v1,p1,s;
+A n;A m;A v;
+float c,d,e;
+A f(A a,A b){
+   d=(a.x-b.x)*(a.x-b.x); 
+   e=(a.y-b.y)*(a.y-b.y);
+   c=sqrt(d+e);
+   a.z=c;
+   return a; 
+}
+A k(A n1,A m1,A v1){  
+   p1=(n1.z+m1.z+v1.z)/2;
+   s=sqrt(p1*(p1-n1.z)*(p1-m1.z)*(p1-v1.z));
+   cout<<s; 	
+}
+int main (){
+	cin>>p.x>>p.y>>q.x>>q.y;
+	p=f(p,q);cout<<p.z<<endl;
+	cin>>n.x>>n.y>>m.x>>m.y>>v.x>>v.y;
+	n=f(n,m);  m=f(m,v);  v=f(v,n);
+	if((n.z+m.z>v.z)&&(m.z+v.z>n.z)&&(v.z+n.z>m.z))
+	k(n,m,v);
+}
