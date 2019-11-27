@@ -1,0 +1,70 @@
+1.
+#include<iostream>
+using namespace std;
+int main(){
+	int i,j; 
+	cout<<"请输入两个三位数i,j（i<j）：";
+	cin>>i>>j;
+	if(i>=j)
+		cout<<"input error!"<<endl;
+	else{
+		cout<<"两数之间的水仙花数是：";
+		int n,x,y,z;
+		for(n=i+1;n<j;n++){
+			x=n/100;
+			y=n/10%10;
+			z=n%10;
+			if(n==x*x*x+y*y*y+z*z*z){
+				cout<<n<<"  ";
+			}	
+		}
+	} 
+	return 0;
+} 
+
+
+2.
+#include<iostream>
+using namespace std;
+int main(){
+	int n;
+	cout<<"请输入一个整数：";
+	cin>>n;
+	int m,r,s;
+	m=n;
+	s=0;
+	while(m!=0){
+		r=m%10;
+		s=10*s+r;
+		m=m/10;
+	}
+	if(s==n)	cout<<"该数是回文数."<<endl;
+	else	cout<<"该数不是回文数."<<endl;
+	return 0;
+}
+
+
+3.
+#include<iostream>
+using namespace std;
+int main(){
+	int i,j;
+	cout<<"请输入两个整数i,j(i<j)：";
+	cin>>i>>j;
+	if(i>=j)	cout<<"input error!"<<endl;
+	else{
+		int m,n,sum;
+		cout<<"这两个数之间的完全数是：";
+		for(m=i+1;m<j;m++){
+			sum=0;
+			for(n=1;n<=m/2;n++){
+				if(m%n==0)
+					sum+=n;
+			}
+			if(sum==m){
+				cout<<m<<"  ";
+			}
+		}
+	}	
+	return 0;
+}

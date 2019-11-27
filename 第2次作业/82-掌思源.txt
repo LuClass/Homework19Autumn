@@ -1,0 +1,19 @@
+23.	x>2&&x%2==0
+24.	x<-8||x>8
+25.	0	0.333333   1   7
+26.	4	27	8   162   
+27.	1	1	31	0
+28.(1)
+
+#include<iostream>
+using namespace std;
+int main(void)
+{
+	float c,f,k;
+	cout<<"摄氏温度C="<<endl;
+	cin>>c;
+	f=c*(9/5)+32;
+	k=c+273.15
+	cout<<"华氏温度F="<<f<<'\t'<<"绝对温度K="<<k<<endl;
+	return 0;
+}
