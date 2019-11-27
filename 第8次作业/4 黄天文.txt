@@ -1,0 +1,92 @@
+#include<bits/stdc++.h>
+1（递归）.
+using namespace std;
+int gys(int a,int b)
+{
+
+    return b==0?a:gys(b,a%b);
+ }
+ int gbs(int a,int b)
+ {
+ 	return a*b/gys(a,b);
+ }
+int main()
+{
+	int a,b;
+	cin>>a>>b;
+	cout<<"最大公约数为："<<gys(a,b)<<endl;
+	cout<<"最小公倍数为："<<gbs(a,b)<<endl;
+	return 0; 
+	
+}
+1（递推）.
+#include<bits/stdc++.h>
+using namespace std;
+int gys(int x,int y)
+{
+	int z;
+while (y != 0)
+	{
+		z = x%y;
+		x = y;
+		y = z;
+	}
+	return x;
+	}
+	
+int gbs(int a,int b)
+ {
+ 	return a*b/gys(a,b);
+ }
+int main()
+{
+	int a,b;
+	cin>>a>>b;
+	cout<<"最大公约数为："<<gys(a,b)<<endl;
+	cout<<"最小公倍数为："<<gbs(a,b)<<endl;
+	return 0; 
+	
+}
+2.（递推）
+#include <string>
+#include<bits/stdc++.h>
+using namespace std;
+void dx(string c)
+{
+	for(int i=(c.length()-1);i>=0;i--)
+	{
+		cout<<c[i];
+	}
+}
+int main()
+{
+	string c;
+	cin>>c;
+	dx(c);
+	return 0;
+}
+2.（递归）
+#include <string>
+#include<bits/stdc++.h>
+using namespace std;
+void dx(string a,int b)
+{
+	if(b>0)
+	{
+		cout<<a[b-1];
+		dx(a,b-1);
+	}
+	
+	
+}
+
+int main()
+{
+	string c;
+	int b,d;
+	b=10;
+	cin>>c;
+	d=c.length();
+	dx(c,d);
+	return 0;
+}

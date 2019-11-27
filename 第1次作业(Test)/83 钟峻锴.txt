@@ -1,0 +1,48 @@
+(1)#include <iostream>
+#include <iomanip>
+using  namespace std;
+int main()
+{
+int a;
+int j=31,k;
+unsigned int i=2147483648;
+ cin>>a;
+ 
+ while(j>=0)
+ {
+ 	k=a&i;
+ 	cout<<(k>>j--)<<" ";
+ 	i>>=1;
+  }
+ 
+}
+
+
+
+
+
+(6)
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+float a,b,c,n,x1,x2;
+cout<<"方程系数a="; 
+cin>>a;
+cout<<"方程系数b=";
+cin>>b;
+cout<<"方程系数c=";
+cin>>c;
+n=b*b-a*c*4;
+if(n<0)
+  cout<<"方程无解";
+else if(n==0)
+    cout<<"x1=x2="<<(-b)/(2*a);
+    else
+    {
+       x1=((-b)+sqrt(n))/(2*a);x2==((-b)-sqrt(n))/(2*a);
+       cout<<"x1="<<x1<<" "<<"x2="<<x2;
+    }
+return 0;
+}

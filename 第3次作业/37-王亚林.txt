@@ -1,0 +1,43 @@
+#include <iostream>
+#include <iomanip>
+using  namespace std;
+int main()
+{
+int a;
+int j=7,k;
+unsigned int i=128;
+ cin>>a;
+ 
+ while(j>=0)
+ {
+ 	k=a&i;
+ 	cout<<(k>>j--)<<" ";
+ 	i>>=1;
+  }
+ }
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main(){
+	double a,b,c,m;
+	cin>>a>>b>>c;
+	m=b*b-4*a*c;
+	if(m<0)
+	  cout<<"方程无根"<<endl;
+	else if(m==00){
+	  double x=-b/2/a;
+	  cout<<"方程仅有一根"<<x<<endl;
+	}
+	else{
+	  double x1=(-b+sqrt(m))/2/a;
+	  double x2=(-b-sqrt(m))/2/a; 
+	  cout<<"方程有两根"<<x1<<","<<x2<<endl;
+	}
+	return 0;
+}
+
+
+
+
+

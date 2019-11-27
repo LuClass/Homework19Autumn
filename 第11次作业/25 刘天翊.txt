@@ -1,0 +1,70 @@
+1.水仙花数
+#include<iostream>
+using namespace std;
+int sum(int n)
+{
+	int t=0,s=0;
+	while(n>0)
+	{
+		t=n%10;
+		s+=t*t*t;
+		n/=10;
+	}
+	return s;
+}
+bool isSXH(int n)
+{
+	if (n==sum(n)){return true;}
+	else    return false;
+}
+ int main()
+ {
+ 	int i,j;
+ 	cin>>i>>j;
+ 	for(int t=i;t<=j;t++)
+	 {
+	 	if(isSXH(t)){cout<<t<<endl;}
+	 }
+ 	
+ } 
+2.回文串
+#include<iostream>
+using namespace std;
+int main()
+{
+    int i,j,s,n;
+    cin>>i>>j;
+    for(int t=i;t<=j;t++)
+    {
+        s=0;
+        for(int y=1;y<t;y++)
+        {
+            if(t%y== 0)
+                s+=y;
+        }
+        if(s==t)
+            cout<<t<<endl;
+    }
+    return 0;
+}
+3.完全数
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main()
+{
+	int n;
+	cin>>n;
+	char a[100];int l,m=0,t=0;
+	while(n--)
+	{
+		cin>>a;
+		l=strlen(a);
+		for(int i=0;i<=l/2-1;i++)
+		{
+			if(a[i]==a[l-i-1]) t++;
+		}
+		if(t==l/2) m++;
+	}
+	cout<<m;
+} 

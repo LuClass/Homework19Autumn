@@ -1,0 +1,101 @@
+第十次作业
+   (2)
+#include <iostream>
+using namespace std;
+void A(int a[],int n){
+	for(int i=0;i<n;++i)
+	a[i]=a[i]%100;
+} 
+int max(const int a[],int n){
+	int t=a[0],m=0;
+	for(int i=1;i<n;++i){
+		if(a[i]>t){
+			t=a[i];
+			m=i;
+		}
+	}
+	return ti;
+}
+int main()
+{
+	int a[20];
+	A(a,20);
+	for(int i=0;i<20;++i)
+	 {
+	 cout<<a[i]<<' ';
+     }
+	cout<<endl;
+	cout<<max(a,20);
+	return 0;
+}
+
+（5）
+#include <iostream>
+using namespace std;
+int check(int n){
+	char p[1000020];
+	for(int i=2;i<1000020;++i){
+		if(p[i])
+		for(int j=i*2;j<1000020;j+=i)
+		p[j]=0;
+	}
+	int sum=0;
+	int t=n;
+		for(int i=2;i<1000020;++i){
+			if(p[i]){
+				while(t%i==0){
+					t/=i;
+					int f=i;
+					while(f){
+						sum+=f%10;
+						f/=10;
+					}
+				}
+			}
+			if(t==1)
+			break;
+		}
+	t=0;
+	while(n){
+		t+=n%10;
+		n/=10;
+	}
+	if(sum==t)
+	   return 1;
+    else
+       return 0;
+}
+int main()
+{
+	for(int i=4937774;i<10000200;++i)
+	if(check(i)){
+		cout<<i<<endl;
+		break;
+	}
+	return 0;
+}
+
+（10）
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a[22];
+	int m;
+	while(m<=100){
+		for(int j=1;j<=21;j++){
+			if(a[j]){
+				if(m%5==0){
+					a[j]=0;
+				}
+				m++;
+			}
+			if(m>=101)
+			   break;
+		}
+	}
+	for(int i=1;i<22;i++)
+	if(a[i])
+	cout<<i;
+	return 0;
+}

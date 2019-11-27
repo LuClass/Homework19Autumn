@@ -1,0 +1,80 @@
+第四题
+#include <iostream>;
+using namespace std;
+int main(void){
+int count=0;
+char ch=0;
+do {
+ch=cin.get();
+if(ch>='0'&&ch<='9')
+count ++;
+}
+while (ch!='\n');
+cout<<"count="<<count<<endl;
+return 0;
+}
+
+
+
+第七题
+
+#include <iostream>
+using namespace std;
+int main(void)
+{
+int a=2,b=1,c=1,d;
+cout<<a<<'/'<<b;
+cout<<" "; 
+while(c<20)
+{
+d=a;
+a=a+b;
+b=d;
+c++;
+cout<<a<<'/'<<b;
+cout<<" ";
+}
+} 
+
+
+
+
+
+
+
+
+
+8题 第一部分  #include <iostream>
+using namespace std;
+int main(void)
+{
+int a,b=1,c=1;
+cin>>a;
+for (b=1;b<a;b++)//为什么这里加；就会输出原值？
+{
+if (a%b==0)
+cout<<b<<endl;
+}
+return 0;
+}
+
+
+
+第二部分  #include <iostream>
+using namespace std;
+int main ()
+{
+	int a=1,b=1,c;
+	while (a<=100)
+     {
+     	c=0;
+         for (b=1;b<a;b++)
+         {
+         	if(a%b==0)
+         	c=c+b;
+         }   	
+     	if (a==c)
+     	cout<<a<<endl;
+         a++;
+     }	
+}

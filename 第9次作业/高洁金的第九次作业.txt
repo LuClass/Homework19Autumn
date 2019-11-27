@@ -1,0 +1,57 @@
+9.
+using namespace std;
+#include <iostream>
+#include <math.h>
+int C(int a,int b,int c)
+{
+	int area，s;
+	s=(a+b+c)/2;
+	area=sqrt(s*(s-a)*(s-b)*(s-c));
+	cout<<"area="<<area;
+	return area;
+}
+int main()
+{
+	int a,b,c,area;
+	cin>>a>>b>>c;
+	C(a,b,c);
+	return 0;
+}
+
+using namespace std;
+#include <iostream>
+#include <math.h>
+#define  s   (a+b+c)/2
+#define area   sqrt(s*(s-a)*(s-b)*(s-c))
+int main()
+{
+	int a,b,c;
+	cin>>a>>b>>c;
+	s;
+	area;
+	cout<<"area="<<area;
+	return 0;
+}
+
+8.
+using namespace std;
+#include <iostream>
+#include "hex.cpp"
+#include "max.cpp"
+main()
+{
+	int x,y;
+	cin>>x>>y;
+	x=max(x,y);
+	hex(x);
+}
+
+
+int max(int a,int b)
+{
+	return a>b? a:b;
+}
+void hex(int a)
+{
+	cout<<hex<<a;
+}

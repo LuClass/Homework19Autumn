@@ -1,0 +1,74 @@
+(6)
+#include<iostream>
+#include<string.h>
+#define MAX 6		//宏 
+using namespace std;
+int getRev(char a[])
+{
+	int nixu = 0;
+	int n = strlen(a);		//获得字符串长度 
+	for(int i = 0;i<n;i++)		//逆序 
+	{
+		for(int j = i+1;j<n;j++)
+		{
+			if(a[i]>a[j])
+			nixu++;
+		}
+	}
+	return nixu;
+}
+main()
+{
+	int temp=0;
+	int nixu[MAX];
+	char a[MAX][21] = { "DAABEC",
+						"jsgijgha",
+						"gawgbdfg",
+						"gfsd",
+						"sddgcxbqaag",
+						"ssdwxvtqafd"};
+	char tem[MAX][21];
+	
+	for(int i = 0;i<MAX;i++)    	//获得逆序数 
+	nixu[i] = getRev(a[i]);
+	
+	for(int i = 0;i<MAX-1;i++)		//冒泡排序
+		for(int j = 0;j< MAX - 1 - i;j++)
+			if(nixu[j+1]<nixu[j])		 
+			{
+				temp = nixu[j];
+				nixu[j]=nixu[j+1];
+				nixu[j+1]=temp;
+				strcpy(tem[0],a[j]);
+				strcpy(a[j],a[j+1]);
+				strcpy(a[j+1],tem[0]);	
+			}
+	for(int i = 0;i<MAX;i++)		//输出 
+	cout<<a[i]<<" "<<nixu[i]<<endl;
+}
+#include<iostream>
+#include<string.h>
+using namespace std;
+int getWordCount(char a[])
+{
+	int n = strlen(a),count = 0;
+	bool word = false;//判断是否单词 
+	for(int i = 0;i < n;i++)//外层遍历每个元素 
+	{
+		if((a[i]>='a'&&a[i]<='z')||(a[i]>='A'&&a[i]<='Z'))//判断字母 
+		{
+			if(word==false)					//在头字母里判定 
+			{
+				word = true;
+				count++;
+			}
+		}
+		else if(word)
+		word = false;
+	}
+	return count;
+}
+int main(){
+	char a[1000] = {"we		ARE THe chanpion!! !yes"};
+	cout << getWordCount(a);
+}
