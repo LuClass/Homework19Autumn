@@ -1,17 +1,28 @@
-#include <iostream>
-
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
-
-
+<<<<<<< HEAD
 using namespace std;
-#include"max.h"
-#include"hex.h" 
-int main(){
-	int a,b,c;
-	cout<<"输入两个整数"<<endl;
-	cin>>a>>b;
-	c=max(a,b);
-	toHex(c);
-	return 0;
+#include <iostream>
+#include "max.cpp"
+#include "hex.cpp"
+int max(int ,int );
+void toHex(int );
+int main()
+{
+	int x,y;
+	cin>>x>>y;
+	toHex(max(x,y));
 }
 
+=======
+#include <iostream>
+#include "max.cpp"
+#include "hex.cpp"
+using namespace std;
+int main()
+ {
+	int a,b,x;
+	cin >> a >> b;
+	x = max(a,b);
+	toHex(x);	
+	return 0;
+}
+>>>>>>> ff801329c1e2834d9f9ec5e466b8ec36463d9bad

@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+int f(int n){
+	if(n==0) return 1;
+	return(n*f(n-1));
+};
+int main(){
+	int a=4,b=2,c=6,d=4,e=8,l=7;
+	
+	cout<<"C(4,2)="<<f(a)/(f(b)*f(a-b))<<endl;
+	 cout<<"C(6,4)="<<f(c)/(f(d)*f(c-d))<<endl;
+	 cout<<"C(8,7)="<<f(e)/(f(l)*f(e-l))<<endl;
+}
+
+
+#include<iostream>
+using namespace std;
+bool isPrime(unsigned n){
+	if(n<2)
+	return false;
+	if(n==2|n==3|n==5|n==7)
+	return true;
+	for(unsigned i=2;i*i<=n;i++)
+	if(n%i==0)
+	return false;
+	return true;
+}
+int main(){for (int n=2;n<=500;n++)
+if(isPrime(n)&&isPrime(n-2))
+cout<<n-2<<"and"<<n<<endl; 
+}
+
+#include<iostream>
+using namespace std;
+main()
+{
+  int n,i;
+  cout<<"please input a number"<<endl;
+  cin>>n;
+  cout<<n<<"=";
+  for(i=2;i<=n;i++)
+    while(n!=i)
+    {
+      if(n%i==0)
+      {
+	  
+        cout<<i<<"*";
+        n=n/i;
+      }
+     else
+        break;
+    }
+  cout<<n;
+  
+}
