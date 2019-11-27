@@ -1,0 +1,78 @@
+P237.
+(4).
+#include <iostream>
+#include <string.h>
+using namespace std;
+char Num(char k[5][20]){
+	int f[5];
+	for(int s=0;s<5;s++)
+	{
+		f[s]=0;
+		for(int e=0;e<s;e++)
+		{
+			if(strcmp(k[e],k[s])==0)
+			{
+				s++;
+			}
+		}
+		for(int d=s+1;d<5;d++)
+	 {
+		if(strcmp(k[s],k[d])==0)
+		{
+			f[s]++;
+ 		}
+     }	
+   cout<<k[s]<<" "<<f[s]<<endl;
+    }
+    return 0;
+}
+
+ int main()
+{
+	char a[5][20];
+for(int m=0;m<5;m++)
+    {
+	cin.getline(a[m],20);
+	}
+	Num(a);
+	return 0;	
+}
+
+
+
+(5).
+#include <iostream>
+#include <string>
+#include <math.h>
+using namespace std;
+int main()
+{
+	string s;	
+	char num[100];	
+	int Numindex = 0;	
+	int b[100], sum = 0;	
+	int Bindex = 0;	
+	getline(cin, s);
+	for (int i = 0; i < s.length(); i++)
+	{
+		Numindex = 0;
+		while (s[i] >= '0' && s[i] <= '9')
+		{
+			num[Numindex] = s[i];
+			i++;
+			Numindex++;
+		}
+		if (Numindex!= 0)
+		{
+			for (int k = 0; k < Numindex; k++)
+				sum += (num[k] - '0') * (int)pow(10, Numindex - k - 1);
+			b[Bindex] = sum;
+			Bindex++;
+		}
+		sum = 0;
+	}
+	cout << "共有 " << Bindex << " 个整数" <<endl;
+	for (int k = 0; k < Bindex; k++)
+		cout << b[k] << endl;
+	return 0;
+}
