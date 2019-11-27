@@ -1,0 +1,52 @@
+（4）
+using namespace std;
+int main() {
+	int sum = 0;
+	char ch = 0 ;
+	while (ch != '\n') {
+		ch=cin.get();
+		if (ch >= '0'&&ch <= '9')
+			sum++;
+	}
+	cout << "共输入" << sum << "个数字" << endl;
+	return 0;
+}
+
+（7）
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main() {
+	int a = 1, b = 2;
+	cout <<setw(4)<< a <<"/"<< setw(4)<< b <<";"<< " 分子为" << setw(4)<< a << ";" << " 分母为" << setw(4)<< b << endl;
+	for (int i = 0; i < 19; i++) {
+		a += b;
+		b = b + i;
+		cout<< setw(4)<<a <<"/"<< setw(4)<<b << ";" << " 分子为" << setw(4)<< a << ";" << " 分母为" << setw(4)<< b << endl;
+	}
+	return 0;
+}
+（8）
+#include<iostream>
+#include<iomanip>
+using namespace std;
+void iswanquanshu(int i) {
+	int sum = 0;
+	cout <<setw(3)<< i << "的因子有:";
+	for (int j = 1; j < i; j++) {
+		if (i%j == 0) {
+			cout <<setw(2)<< j << " ";
+			sum += j;
+		}
+	}
+	if (sum == i)
+		cout << "该数为完全数";
+}
+int main() {
+	for (int i = 1; i <= 100; i++) {
+		iswanquanshu(i);
+		cout << endl;
+	}
+	return 0;
+}
+          

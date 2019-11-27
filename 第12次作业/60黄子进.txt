@@ -1,0 +1,60 @@
+14.(7)
+#include<iostream>
+#include<string.h>
+using namespace std;
+int getSet(int rs[],int cishu[],const int a[],int n)
+{
+	int sum = 0,j = 0;
+	for(int i = 0;i<n;i++)
+	if(a[i]==0)
+	{
+		sum++;
+		rs[0] = 0;
+		cishu[0] = 1;
+		break;
+	} 			//判断0 
+	for(int i = 0;i<n;i++)
+	{
+		if(a[i]==0)
+		continue;
+		for(j = 0;j<sum;j++)
+		{
+			if(a[i]==rs[j])
+			goto next;			//判断有无重复 
+		}
+		rs[sum] = a[i];			//如果没有重复 
+		cishu[sum] = 1;
+		sum++;
+		continue;
+		next:cishu[j]++;
+	}
+	return sum;
+}
+void paixu(int rs[],int cishu[],int n)   //排序 
+{
+	int i,j,temp;
+	for(i = 0;i < n-1;i++)
+		for(j = 0;j < n - 1 -i;j++)
+			if(cishu[j] < cishu[j+1])
+			{
+				temp = cishu[j];
+				cishu[j]=cishu[j+1];
+				cishu[j+1]=temp;		//注意要一起换 
+				temp = rs[j];
+				rs[j]=rs[j+1];
+				rs[j+1]=temp;
+			}
+}
+main()
+{
+	int rs[50]={0};
+	int cishu[50]={0};
+	int a[50] = {1,0,2,4,1,2,3,5,7,7,4,5,6,5};	
+	int sum = getSet(rs,cishu,a,50);
+	cout << sum <<endl;
+	paixu(rs,cishu,sum);
+	for(int i = 0;i<sum;i++)
+	{
+		cout<<rs[i]<<':'<<cishu[i]<<endl;
+	}
+}

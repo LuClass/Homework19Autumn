@@ -1,0 +1,95 @@
+﻿（3）
+#include <iostream>
+#include <cmath>
+using namespace std;
+int gcd(int a,int b){
+	if(b==0)
+	return a;
+	return gcd(b,a%b);
+}
+struct Fraction{
+	int a,b;
+}; 
+void huajian(Fraction * f){
+	if(f->a==0)
+	return;
+	int t=gcd(f->a,f->b);
+	f->b=f->b/t;
+	if(f->a<0)
+	f->b=-f->b;
+	f->a=abs(f->a/t);
+}
+void print(Fraction f){
+	if(f.a==0){
+		cout<<'0'<<endl;
+		return;
+	}
+	huajian(&f);
+	cout<<f.a<<'/'<<f.b<<endl;
+}
+bool ifequal(Fraction x,Fraction y){
+	huajian(&x);
+	huajian(&y);
+	if(x.a==y.a&&x.b==y.b)
+	return true;
+	return false;
+}
+Fraction add(Fraction x,Fraction y){
+	Fraction p;
+	p.a=x.a*y.b+y.a*x.b;
+	p.b=x.b*y.b;
+	huajian(&p);
+	return p;
+}
+Fraction cheng(Fraction x,Fraction y){
+	Fraction p;
+	p.a=x.a*y.a;
+	p.b=x.b*y.b;
+	huajian(&p);
+	return p;
+}
+Fraction jian(Fraction x,Fraction y){
+	Fraction p;
+	p.a=x.a*y.b-y.a*x.b;
+	p.b=x.b*y.b;
+	huajian(&p);
+	return p;
+}
+Fraction chu(Fraction x,Fraction y){
+	Fraction p;
+	p.a=x.a*y.b;
+	p.b=x.b*y.a;
+	huajian(&p);
+	return p;
+}
+int main()
+{
+	Fraction f,t;
+	f.a=8;
+	f.b=24;
+	t.a=9;
+	t.b=6;
+	print(f);
+	print(t);
+	print(add(f,t));
+	print(jian(f,t));
+	print(cheng(f,t));
+	print(chu(f,t));
+	return 0;
+ } 
+
+（4）
+struct Course{
+	char Cid[20];
+	string Cname;
+	enum kaohe{b,d} e;
+};
+struct Chengji{
+	char Sid[20];
+	String Sname;
+	char Cid[20];
+	union{
+		int b;
+		char d;
+	};
+};
