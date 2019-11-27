@@ -1,0 +1,92 @@
+(2).
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	int l;
+	cout<<"输入利润：";
+	cin>>l;
+	switch (int (l/100000))
+		{
+		case 0: cout<<"奖金为："<<l*0.1<<endl;break;
+		case 1: cout<<"奖金为："<<10000+(l-100000)*0.075<<endl;break;
+		case 2: cout<<"奖金为："<<17500+(l-200000)*0.005<<endl;break;
+		case 3: cout<<"奖金为："<<17500+(l-200000)*0.005<<endl;break;
+		case 4: cout<<"奖金为："<<27500+(l-400000)*0.003<<endl;break;
+		case 5: cout<<"奖金为："<<27500+(l-400000)*0.003<<endl;break;
+		case 6: cout<<"奖金为："<<33500+(l-600000)*0.0015<<endl;break;
+		case 7: cout<<"奖金为："<<33500+(l-600000)*0.0015<<endl;break;
+		case 8: cout<<"奖金为："<<33500+(l-600000)*0.0015<<endl;break;
+		case 9: cout<<"奖金为："<<33500+(l-600000)*0.0015<<endl;break;
+		default: cout<<"奖金为："<<39500+(l-1000000)*0.001<<endl;
+	}
+		return 0;
+}
+(13).
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	int a,b,c;
+	for (int i=100;i<=999;i++)
+	{
+		a=i/100;
+		b=(i-100*a)/10;
+		c=i-a*100-b*10;
+		if (i==a*a*a+b*b*b+c*c*c)
+		cout<<i<<"　"; 
+		else
+		continue;
+	}
+}
+(16).
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	int m,n,a,num1,num2;
+	cout<<"输入m：";
+	cin>>m;
+	cout<<"输入n：";
+	cin>>n;
+	num1=m;num2=n;
+	if (m<n)
+	{
+		a=m;m=n;n=a;
+	}
+	while (n!=0)
+	{
+		a=m%n;
+		m=n;
+		n=a;
+	}
+	cout<<"他们的最大公因数为："<<m<<endl;
+	cout<<"他们的最小公约数为："<<num1*num2/m;
+}
+(23).
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	int i,j;
+	cout<<"输入i：";
+	cin>>i;
+	cout<<"输入j：";
+	cin>>j;
+	for (int a=1;a<=j;a++)
+	{
+		for (int c=1;c<=a;c++)
+			cout<<" ";
+		for (int b=1;b<=i;b++)
+			cout<<"*";
+		cout<<endl;
+	}
+	for (int a=1;a<=j;a++)
+	{		
+		for (int c=1;c<=j-a+1;c++)
+			cout<<" ";
+		for (int b=1;b<=i;b++)
+			cout<<"*";
+		cout<<endl;
+	}
+}

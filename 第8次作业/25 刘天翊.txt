@@ -1,0 +1,59 @@
+（6）
+#include<iostream>
+using namespace std;
+int gcd(int a,int b){
+	if(b==0)
+		return a;
+	else{
+		return(gcd(b,a%b));
+	      }		
+}
+
+int lcm(int a,int b){
+	return a*b/gcd(a,b);
+	
+}
+int main(){
+	int x,y;
+	cin>>x>>y;
+	cout<<"最大公约数："<<gcd(x,y)<<endl;
+	cout<<"最小公倍数："<<lcm(x,y)<<endl;
+	return 0;
+}
+
+（7）递推 
+#include<iostream>
+using namespace std;
+int f(int a){
+	int t=0;
+	while(a){
+		t*=10;
+		t+=a%10;
+		a/=10;
+	}
+	return temp;
+}
+int main(){
+	int x;
+	cin>>x;
+	cout<<f(x)<<endl;
+	return 0; 
+}
+
+递归 
+#include<iostream>
+using namespace std;
+int f(int a){
+	if(a/10==0)
+		cout<<a<<endl;
+	else{
+		cout<<a-(a/10)*10;
+		return f(a/10);
+	}	 
+}
+int main(){
+	int x;
+	cin>>x;
+	cout<<f(x);	
+	return 0;
+}

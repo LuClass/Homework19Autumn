@@ -1,0 +1,62 @@
+#include <iostream>
+Using namespace std;
+Int main( )
+{
+Int I,j,n,a,x;
+Cin>>i>>j;
+N=I;
+While(n<=j)
+{for(a=1,x=0;a<n;a++)
+{
+If(n%a==0)
+X+=a;
+}
+If(n==x)
+Cout<<n<<¡¯ ¡®;
+N++;
+}
+Return 0;
+}
+
+#include <iostream>
+Using namespace std;
+Int main( )
+{
+Int n,a,b,c,t;
+Cin>>n;
+A=n,b=0,c=1,t=0;
+While(a>0)
+{a/=10;
+B++;
+C*=10;
+}
+While(t<b/2)
+{
+c/=10;
+if(n/c!=c%10)
+{
+Cout<<¡±bushihuiwenshu¡±;
+Return 0;
+}
+N=n%(c*10)/10;
+T++;
+}
+Cout<<¡±shihuiwenshu¡±;
+Return 0;
+}
+
+#include <iostream>
+Using namespace std;
+Int main( )
+{
+Int I,j,k,a,b,x;
+Cin>>a>>b;
+For(x=a;x<=b;x++)
+{i=x%10;
+J=x/10%10;
+K=x/100;
+If(x==(i*i*i+j*j*j+k*k*k))
+Cout<<x<<endl;
+}
+Return 0;
+}

@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+extern int max(int a,int b);
+extern void toHex(int x);
+int main() {
+	int p,q;
+	cin>>p>>q;
+	int maxinum=max(p,q);
+	toHex(maxinum);
+	return 0;
+}
+

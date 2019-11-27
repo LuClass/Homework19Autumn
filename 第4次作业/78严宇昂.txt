@@ -1,0 +1,72 @@
+11.£¨4£©
+using namespace std;
+#include<iostream>
+int main(void)
+{
+	int count=0;
+	char ch=0;
+	do{
+	ch=cin.get();
+	if(ch>='0'&&ch<='9')
+		count++;
+	}while(ch!='\n');
+	cout<<"count="<<count;
+	return 0;
+}
+
+
+
+11.£¨7£©
+using namespace std;
+#include<iostream>
+int main(void)
+{
+	cout<<"1/2"<<" "<<"3/2"<<" ";
+	int a=3,b=2,c=0,i=0,count=2;
+	do{
+		c=a+b;
+		b=a;
+		a=c;
+		i++;
+		cout<<c<<"/"<<b<<" ";
+		count++;
+		if(count>=5)
+		{cout<<endl; 
+		count=0;
+	}
+	
+	}while(i<=17);
+	return 0;
+	}
+
+
+11.£¨8£©
+using namespace std;
+#include<iostream>
+int main(void)
+{
+	int x;
+	cin>>x;
+	cout<<"factor as following"<<endl;
+	for(int i=1;i<x;i++)
+	{
+		if(x%i==0)
+		cout<<i<<" ";
+	
+	}
+		cout<<endl<<endl;
+	int sum=0;
+	cout<<"compl within 100 as following"<<endl;
+	for(int i=1;i<=100;i++)
+	{
+		for(int t=1;t<i;t++)
+		{if (i%t==0)
+		sum+=t;
+		}
+		if(sum==i)
+		cout<<i<<" ";
+		sum=0;
+	}
+	return 0;
+}
+

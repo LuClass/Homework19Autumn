@@ -1,0 +1,161 @@
+3
+#include<iostream>
+ #include<math.h> 
+ using namespace std;
+ struct Fraction{
+ 	int a,b;
+ };
+ int gcd(int a,int b){
+ 	if(b==0)return a;
+ 	else return gcd(b,a%b);
+ }
+ void yuefen(Fraction* re){
+ 	if(re->b<0){
+ 		re->a=-re->a;
+ 		re->b=-re->b;
+ 	}
+ 	if(re->a==0){
+ 		re->b=1;
+ 	}
+ 	else{
+ 		int c=gcd(abs(re->a),abs(re->b));
+ 		re->a/=c;
+ 		re->b/=c;
+ 	}
+ }
+ Fraction add(Fraction* f1,Fraction* f2){
+ 	Fraction re;
+ 	re.a=f1->a*f2->b+f1->b*f2->a;
+ 	re.b=f1->b*f2->b;
+ 	yuefen(&re);
+ 	return re;
+ }
+ Fraction minu(Fraction* f1,Fraction* f2){
+ 	Fraction re;
+ 	re.a=f1->a*f2->b-f1->b*f2->a;
+ 	re.b=f1->b*f2->b;
+ 	yuefen(&re);
+ 	return re;
+ }
+ Fraction multy(Fraction* f1,Fraction* f2){
+ 	Fraction re;
+ 	re.a=f1->a*f2->a;
+ 	re.b=f1->b*f2->b;
+ 	yuefen(&re);
+ 	return re;
+ }
+ Fraction div(Fraction* f1,Fraction* f2){
+ 	Fraction re;
+ 	re.a=f1->a*f2->b;
+ 	re.b=f1->b*f2->a;
+ 	yuefen(&re);
+ 	return re;
+ }
+ bool equal(Fraction* f1,Fraction* f2){
+ 	Fraction ans=minu(f1,f2);
+ 	if(ans.a==0){
+ 		return true;
+ 	}
+ 	return false;
+ }
+ bool big(Fraction* f1,Fraction* f2){
+ 	Fraction ans=minu(f1,f2);
+ 	if(ans.a>0){
+ 		return true;
+ 	}
+ 	return false;
+ }
+ void show(Fraction* r){
+ 	yuefen(r);
+ 	if(r->b==1){
+ 		cout<<r->a<<endl;
+ 	}
+ 	else if(abs(r->a)>r->b){
+ 		cout<<r->a/r->b<<" "<<abs(r->a)/r->b<<"/"<<r->b<<endl;
+ 	}
+ 	else{
+ 		cout<<r->a<<"/"<<r->b<<endl;
+ 	}
+ }
+ int main(){
+ 	Fraction t1={3,2};
+ 	Fraction*tt1=&t1;
+ 	Fraction t2={5,7};
+ 	Fraction*tt2=&t2;
+ 	show(tt1);
+ 	if(equal(tt1,tt2)){
+ 		cout<<"两数相等"<<endl;
+ 	}
+ 	else if(big(tt1,tt2)){
+ 		show(tt1);cout<<"更大"<<endl;
+ 	}
+ 	else{
+ 		show(tt2);cout<<"更大"<<endl;
+ 	}
+ 	//////////和、 差、 积、 商//////////////	
+ 	Fraction ans=multy(tt1,tt2);
+ 	cout<<"两数乘积:"<<endl;
+ 	show(&ans);
+ } 
+
+4
+#include<iostream>
+ #include<iomanip>
+ using namespace std;
+ struct Course{
+ 	char id[10];
+ 	char coursename[20];
+ 	char tool;
+ };
+ enum kinds{baifenzhi,dengjizhi};
+ enum dengji{A=1,B,C,D,E};
+ union Grade{
+ 	float sd;
+ 	dengji sg;
+ };
+ struct student{
+ 	char id[10];
+ 	char name[10];
+ 	char coursename[20];
+ 	kinds kind;
+ 	Grade level;
+ };
+ void printlevel(kinds kind,Grade level){
+ 	if(kind==baifenzhi){
+ 		cout<<setw(5)<<level.sd;
+ 	}
+ 	else{
+ 		cout<<setw(5);
+ 		switch(level.sg){
+ 			case 1:cout<<"A";break;
+ 			case 2:cout<<"B";break;
+ 			case 3:cout<<"C";break;
+ 			case 4:cout<<"D";break;
+ 			case 5:cout<<"E";break;			
+ 		};
+ 	}
+ }
+ void printstudent(student st[],int n){
+ 	cout<<setw(5)<<"学号"<<setw(10)<<"学生姓名"<<setw(20)<<"课程编号"<<setw(5)<<"考核成绩"<<endl;
+ 	for(int i=0;i<n;i++){
+ 		cout<<setw(5)<<st[i].id<<setw(10)<<st[i].name<<setw(20)<<st[i].coursename;
+ 		printlevel(st[i].kind,st[i].level);
+ 		cout<<endl;		
+ 	}
+ }
+ int main(){
+
+ 	Course cos[10]={{"001","aaa",'1'},
+ 				  	{"002","bbb",'1'},			
+ 				  	{"003","ccc",'0'},		
+ 				  	{"004","ddd",'1'}};	  
+ 	student st[]={{"001","amy","001",dengjizhi},
+ 				  {"002","bob","001",dengjizhi},			
+ 				  {"003","candy","003",baifenzhi},		
+ 				  {"004","david","003",baifenzhi}};
+ 	st[0].level.sg=A;
+ 	st[1].level.sg=B;
+ 	st[2].level.sd=98;
+ 	st[3].level.sd=92;
+ 	printstudent(st,4);
+ } 

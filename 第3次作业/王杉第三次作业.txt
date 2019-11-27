@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+int main()
+{int x,i=1,a[32];
+cout<<"请输入任意一个十进制数字";
+cin>>x;
+while(x>0)
+{a[i]=x%2;
+i=i+1;
+x=x/2;
+}
+cout<<"该数字的二进制形式为：";
+while(i>1)
+{cout<<a[i-1];
+i=i-1;
+	}		
+ } 
+
+
+
+#include <iostream>;
+#include <cmath>;
+using namespace std;
+int main()
+{
+	float a,b,c,d,x,x1,x2;
+	cout<<"请按顺序依次输入方程各系数a ，b，c";
+	cin>>a>>b>>c;
+    d=b*b-4*a*c;
+    if(a==0)
+	{
+	 x=-c/b;
+	 cout<<" 该方程不是标准的一元二次方程！"<<endl;
+	 cout<<"该方程有唯一解x="<<x<<endl; 
+	  
+	} else if(d<0)
+      {
+       cout<<"此方程无解"<<endl; 
+ 	  } else if(d==0)
+	     {
+	   	  x1=(-1*b+sqrt(d))/(2*a);
+	   	  cout<<"此方程有唯一解为："<<x1<<endl;
+			  
+	     } else
+	         {
+	       	x1=(-1*b+sqrt(d))/(2*a);
+	       	x2=(-1*b-sqrt(d))/(2*a);
+	       	cout<<"此方程两个实数解为x1="<<x1<<"  x2="<<x2<<endl;
+			    
+	   	   
+	   	
+	   	
+	   	
+	         }
+	  return 0;
+}

@@ -1,0 +1,243 @@
+﻿//174页14题（3） 
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+struct Fraction
+{
+	int a,b;
+};
+
+struct Results
+{
+	int isEqual;
+	Fraction larger,smaller;
+	Fraction he,cha,ji,shang;
+};      
+	
+//Simplify
+Fraction f1(int x,int y)
+{
+	Fraction F;
+	Fraction *pF=&F;
+	int temp,x0=x,y0=y;
+	if (x==0)
+	{
+		F.a=0;
+		F.b=y;
+	}
+	else
+	{
+		while (y!=0)
+		{
+			temp=x%y;
+			x=y;
+			y=temp;
+		}
+		(*pF).a=x0/(abs(x));
+		(*pF).b=y0/(abs(x));
+	}	
+	return *pF;
+}
+
+//通分1 
+Fraction tongfen1(int x1,int y1,int x2,int y2)
+{
+	int xx1,p,max,beishu1;
+	Fraction T;
+	if (y1>=y2)
+	max=y1;
+	else
+	max=y2;
+	for (p=max; ;p++)
+	{
+		if (p%y1==0&&p%y2==0)
+			break;
+	}
+	beishu1=p/y1;
+	xx1=x1*beishu1;
+	T.a=xx1;
+	T.b=p;
+	return T;
+}
+
+//通分2
+Fraction tongfen2(int x1,int y1,int x2,int y2)
+{
+	int xx2,p,max,beishu2;
+	Fraction T;
+	if (y1>=y2)
+	max=y1;
+	else
+	max=y2;
+	for (p=max; ;p++)
+	{
+		if (p%y1==0&&p%y2==0)
+		{
+			break;
+		}
+	}
+	beishu2=p/y2;xx2=x2*beishu2;
+	T.a=xx2;T.b=p;
+	return T;
+}       
+
+//Calculate
+Results f2(int x1,int y1,int x2,int y2)
+{
+	int xhe,xcha,xji,yji;
+	Fraction fenshu1=f1(x1,y1);
+	Fraction fenshu2=f1(x2,y2);
+	Fraction fen1=tongfen1(fenshu1.a,fenshu1.b,fenshu2.a,fenshu2.b);
+	Fraction fen2=tongfen2(fenshu1.a,fenshu1.b,fenshu2.a,fenshu2.b);
+	Results results;
+	if (fenshu1.a==fenshu2.a&&fenshu1.b==fenshu2.b)
+	results.isEqual=1;
+	else
+	{
+		results.isEqual=0;
+		if (fen1.a>fen2.a)
+		{
+			results.larger=fenshu1;
+			results.smaller=fenshu2;
+		}
+		else
+		{
+			results.larger=fenshu2;
+			results.smaller=fenshu1;
+		}
+	}
+	xhe=fen1.a+fen2.a;
+	xcha=fen1.a-fen2.a;
+	xji=fen1.a*fen2.a;
+	yji=fen1.b*fen2.b;
+	results.he=f1(xhe,fen1.b);
+	results.cha=f1(xcha,fen1.b);
+	results.ji=f1(xji,yji);
+	if (x2!=0)
+	{
+		xji=fen1.a*fen2.b;
+		yji=fen1.b*fen2.a;
+		results.shang=f1(xji,yji);
+	}
+	return results;
+}    
+
+int main()
+{
+	int x1,y1,x2,y2;
+	int *px1=&x1,*py1=&y1,*px2=&x2,*py2=&y2;
+	cout<<"分母为正整数，分子为整数"<<endl;
+	cout<<"请输入第一个分数的分子分母"<<endl;
+	cin>>*px1>>*py1;
+	cout<<"请输入第二个分数的分子分母"<<endl;
+	cin>>*px2>>*py2;
+	cout<<'\n';
+	if (*py1>0&&*py2>0)
+	{
+		Fraction fenshu1=f1(x1,y1),fenshu2=f1(x2,y2);
+		Fraction *pfenshu1=&fenshu1,*pfenshu2=&fenshu2;
+		Fraction fen1=tongfen1(fenshu1.a,fenshu1.b,fenshu2.a,fenshu2.b);
+		Fraction fen2=tongfen2(fenshu1.a,fenshu1.b,fenshu2.a,fenshu2.b);
+		Fraction *pfen1=&fen1,*pfen2=&fen2;
+		cout<<"分数化简为"<<endl;
+		cout<<(*pfenshu1).a<<"/"<<(*pfenshu1).b<<endl;
+		cout<<(*pfenshu2).a<<"/"<<(*pfenshu2).b<<endl;
+		Results results=f2(x1,y1,x2,y2);
+		Results *presults=&results;
+		if ((*presults).isEqual==1)
+		cout<<"分数相等"<<endl;
+		else
+		{
+			cout<<"分数不相等"<<endl;
+			cout<<"通分为"<<endl;
+			cout<<(*pfen1).a<<"/"<<(*pfen1).b<<endl;
+			cout<<(*pfen2).a<<"/"<<(*pfen2).b<<endl;
+			cout<<"较大值"<<endl;
+			cout<<(*presults).larger.a<<"/"<<(*presults).larger.b<<endl;
+			cout<<"较小值"<<endl;
+			cout<<(*presults).smaller.a<<"/"<<(*presults).smaller.b<<endl;
+		}
+		cout<<"和"<<endl;
+		cout<<(*presults).he.a<<"/"<<(*presults).he.b<<endl;
+		cout<<"差"<<endl;
+		if ((*presults).cha.a==0)
+		cout<<"0"<<endl;
+		else 
+		cout<<(*presults).cha.a<<"/"<<(*presults).cha.b<<endl;
+		cout<<"积"<<endl;
+		cout<<(*presults).ji.a<<"/"<<(*presults).ji.b<<endl;
+		if (*px2=0)
+		cout<<"无商"<<endl;
+		else
+		{
+			cout<<"商"<<endl; 
+			cout<<(*presults).shang.a<<"/"<<(*presults).shang.b<<endl;   
+		} 
+	}
+	else
+	cout<<"Seriously?"<<endl;
+	return 0;
+}
+
+
+
+//174页14题（4） 
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+enum fangshi
+{
+	percent,level
+};
+
+union mark
+{
+	int m1;
+	char m2;
+};
+
+struct Course
+{
+	char num[21];
+	char course_name[11];
+	fangshi fs;
+};
+
+struct grade
+{
+	char xuehao[21];
+	char name[11];
+	Course c;
+	mark m;
+	grade (char Cc[],char Nn[],char bianhao[],fangshi f,char x)
+	{
+		strcpy(xuehao,Cc);
+		strcpy(name,Nn);
+		strcpy(c.num,bianhao);
+		c.fs=f;
+		if (f==0)
+		m.m1=(int)x;
+		else
+		m.m2=x;
+	}
+};
+
+void printgrade (grade student)
+{
+	cout<<student.xuehao<<' '<<student.name<<' '<<student.c.num<<' '<<student.c.fs<<' ';
+	if (student.c.fs==0)
+	cout<<student.m.m1<<endl;
+	else
+	cout<<student.m.m2<<endl;
+}
+
+int main ()
+{
+	grade g1("919106840523","李孟涛","101",level,'B');
+	grade g2("919106840523","李孟涛","102",percent,70);
+	printgrade(g1);
+	printgrade(g2);
+	return 0;
+}
