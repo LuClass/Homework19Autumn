@@ -1,0 +1,29 @@
+using namespace std;
+#include <iostream>
+int main()
+{
+	int h,l;
+	cin>>h>>l;
+	for(int t=1;t<=h;t++)
+	{  
+	   for(int a=1;a<=t;a++)
+	   cout<<' ';
+	   for(int i=1;i<=l;i++)
+	   {
+		  cout<<"*";
+	   }
+	   cout<<endl;
+    }
+    cout<<endl;
+    for(int t=1;t<=h;t++)
+	{  
+	    for(int a=1;a<=h-t;a++)
+	   cout<<' ';
+	   for(int i=1;i<=l;i++)
+	   {
+		  cout<<"*";
+	   }
+	   cout<<endl;
+	    
+    }
+}

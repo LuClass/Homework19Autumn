@@ -1,0 +1,66 @@
+（2）#include<iostream>
+using namespace std;
+ float c(float n)
+  {int a;
+  float resu=1;
+    for(a=1;a<=n;a++)
+   resu*=a;
+   return resu;
+ } 
+ int main (void)
+  { int n,k,m;
+  cout<<"please input n&k"<<endl;
+  cin>>n>>k;
+  if(n<=k)
+  {cout<<"error"<<endl;}
+  else 
+  cout<<c(n)/(c(k)*c(n-k))<<endl;
+   }
+
+
+
+（4）#include<iostream>
+using namespace std;
+int prime(int n)
+{int i;
+if(n<2)
+return 0;
+if(n==2||n==3||n==7||n==5)
+return 1;
+for(int i=2;i*i<=n;i++)
+if(n%i==0)
+return 0;
+return 1;
+}
+  int main(void)
+{
+  int i,n=500;
+  for(i=2;i<=500;i++)
+   
+  if(prime(i)&&prime(i+2)==1)
+  {cout<<i<<" "<<i+2<<" ";}
+}
+
+
+（5）#include<iostream>
+using namespace std;
+int prime(int n)
+{if(n<2)
+return 0;
+if(n==2||n==3||n==7||n==5)
+return 1;
+for(int i=2;i*i<=n;i++)
+if(n%i==0)
+return 0;
+return 1;
+ }
+  int main(void)
+  {
+  int x,i=2;
+  cin>>x;
+  while(prime(i)==1)
+   {if(x%i==0)
+   cout<<i<<" ";
+   i++;
+   }
+  }

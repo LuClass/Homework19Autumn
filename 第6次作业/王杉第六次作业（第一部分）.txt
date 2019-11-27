@@ -1,0 +1,115 @@
+21.(2)
+#include<iostream>
+using namespace std;
+ 
+long factorial(long number)
+{	if(number<=1)
+		return 1;
+	else 
+		return number*factorial(number-1);
+}
+ 
+int combinator(int n,int m)
+{	int temp;
+	if(n<m)
+	{	temp=n;
+		n=m;
+		m=temp;}
+	return factorial(n)/(factorial(m)*factorial(n-m));
+}
+		
+int main()
+{	int a,b,result;
+    cout<<"C62="<<combinator(4,2)<<endl;
+	cout<<"C64="<<combinator(6,4)<<endl;
+	cout<<"c87="<<combinator(8,7)<<endl;
+	cin>>a>>b;
+	result=combinator(a,b);
+	cout<<result<<endl;
+	return 0;
+}
+
+
+
+
+
+
+
+
+21.(4)
+#include <iostream>
+using namespace std;
+int is_prime(int x)
+{
+    int i;
+    for(i=2;i*i<=x;i++)
+    {
+        if(x%i==0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+int main()
+{
+    int i,m=500;
+    for(i=m-2;i>=3;i--)
+    {
+        if(is_prime(i)&&is_prime(i+2))
+        {
+            cout<<i<<' '<<i+2<<endl;
+        }
+    }
+    return 0;
+}
+
+
+
+
+
+
+24.(5)
+#include <iostream>
+using namespace std;
+bool isprime(unsigned n){
+	if(n<2)
+	return false;
+	if(n==2||n==3||n==5||n==7)
+	return true;
+	for (unsigned i=2;i*i<=n;i++)
+	  if (n%i==0)
+	     return false;
+	  return true;
+}
+int main()
+{
+	int x,a[20],b=2,c=1,d=1;
+	for(;;){
+	cout<<"please input a number:\n";
+	cin>>x;
+	if(x<=0)
+	cout<<"error!";
+	if(x>0)
+	cout<<x<<"=";
+	if(isprime(x))
+	cout<<x;
+	while (isprime(x)==0){
+	 while (b<x){
+	 if(x%b==0&&isprime(b)==1){
+	     a[c]=b;c++;break;}
+		 else b++;
+		 
+        } 
+		x=x/b;
+		b=2; 
+	 }
+	while (d<c){
+		cout<<a[d]<<"*";
+		d++;
+	}
+	cout<<x;
+	cout<<'\n';
+}
+    return 0;
+}
