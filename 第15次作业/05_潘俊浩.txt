@@ -1,0 +1,113 @@
+﻿14.3
+#include<iostream>
+using namespace std;
+struct Fraction{
+	int a;
+	int b;
+};
+int gongyue(Fraction x){
+	int temp=1;
+	if(x.a<x.b){
+		temp=x.a;
+		x.a=x.b;
+		x.b=temp;
+	}
+	while(x.b){
+		temp=x.a%x.b;
+		x.a=x.b;
+		x.b=temp;
+	}
+	return x.a;
+}
+Fraction easy(Fraction x){
+	Fraction t;
+	if(x.a==0){
+		t.a=0;
+		t.b=1;
+		return t;
+	}	
+	t.a=x.a/gongyue(x);
+	t.b=x.b/gongyue(x);
+	return t;
+}
+void isequal(Fraction *x,Fraction *y){
+	if((x->a==y->a)&&(x->b==y->b)){
+		cout << "yes"<<endl; 
+	}
+	else cout << "no" <<endl;
+}
+void add(Fraction *x,Fraction *y){
+	Fraction z;
+	z.a=x->a*y->b+y->a*x->b;
+	z.b=x->b*y->b;
+	z=easy(z);
+	cout << z.a <<"/"<< z.b <<endl; 
+}
+void minus(Fraction *x,Fraction *y){
+	Fraction z;
+	z.a=x->a*y->b-y->a*x->b;
+	z.b=x->b*y->b;
+	z=easy(z);
+	cout << z.a <<"/"<< z.b <<endl; 
+}
+void cheng(Fraction *x,Fraction *y){
+	Fraction z;
+	z.a=x->a*y->a;
+	z.b=x->b*y->b;
+	z=easy(z);
+	cout << z.a <<"/"<< z.b <<endl; 
+}
+void chu(Fraction *x,Fraction *y){
+	Fraction z;
+	if(y->a==0){
+		cout << "error"<<endl;
+	}
+	else{
+		z.a=x->a*y->b;
+		z.b=x->b*y->a;
+		z=easy(z);
+		cout << z.a <<"/"<< z.b <<endl; 		
+	}
+}
+int main(){
+	Fraction x={2,4},y={2,6};
+	x=easy(x);
+	y=easy(y);
+	Fraction *x1=&x,*x2=&y;
+    return 0;
+}
+14.4
+#include <iostream>
+#include <string>
+#include <math.h>
+using namespace std;
+enum Method
+{
+	hundred_point=0,
+	grade_point=0,	
+};
+struct Course
+{
+	char Serial_number[20];
+	string name;
+	Method way;
+
+};
+
+union myscore
+{
+	int p_score;
+	char g_score;
+};
+struct grade
+{
+	char number[11];
+	string name;
+	char course_number[20];
+	myscore score;
+};
+int main()
+{
+	system("pause");
+	return 0;
+}

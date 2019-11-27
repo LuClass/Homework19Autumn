@@ -1,0 +1,9 @@
+using namespace std ;
+#include <iostream>
+int main (void) 
+{
+	int a;
+	a=6>3+2-('0'-8);
+	cout<<a;
+	return 0;
+	}

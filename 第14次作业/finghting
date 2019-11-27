@@ -1,0 +1,60 @@
+174.14
+(1)
+using namespace std;
+#include <iostream>
+#include <math.h>
+typedef struct mmm{
+	float x1;
+	float x2;
+	bool t;
+}M;
+M f(int a,int b,int c){
+	M mmm;
+	if(a==0) mmm.t=false;
+	float m=b*b-4*a*c;
+	if(m==0) {
+		mmm.t=true;
+	   mmm.x1=-b/(2*a);
+	   mmm.x2=mmm.x1;
+	}
+	if(m<0)  mmm.t=false;
+	if(m>0) {
+		mmm.t=true;
+		mmm.x1=(-b+sqrt(m))/(2*a);
+		mmm.x2=(-b-sqrt(m))/(2*a);
+	}
+	return mmm;
+}
+main(){
+	int a,b,c;
+	cin>>a>>b>>c;
+	M mmm=f(a,b,c);
+	if(mmm.t) {
+		cout<<mmm.x1<<endl;
+		cout<<mmm.x2<<endl;
+	}
+	else cout<<"error";
+	return 0;
+}
+(2)
+using namespace std;
+#include <iostream>
+#include <math.h>
+struct Point{int x;
+             int y;
+			};
+float long1(int x,int y){
+	float m=sqrt(x*x+y*y);
+}
+struct sanjiaoxing{
+	int a,b,c;
+	cin>>a>>b>>c;
+	float j=long1(a,b),k=long1(b,c),l=long1(a,c);
+	if(j+k>l&&j+l>k&&k+l>j){
+		cout<<"可以构成三角形";
+		int C=j+k+k+l,P=c/2,S=sqrt(P(p-j)(P-k)(P-l));
+		cout<<"周长："<<C<<endl;
+		cout<<"面积："<<S<<endl;
+   	}
+   	   else cout<<"无法构成三角形";
+}

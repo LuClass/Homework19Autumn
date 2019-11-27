@@ -1,0 +1,70 @@
+第四次作业
+第四章 11（4）
+#include<iostream>
+using namespace std;
+int main(){
+	int count=0;
+	char ch=0;
+	while(ch!='\n'){
+		ch=cin.get();
+		if(ch>='0'&&ch<='9'){
+			count++;
+		}		
+	}
+	cout<<"there are "<<count<<" numbers.";
+	return 0;
+} 
+
+（7）
+#include<iostream>
+using namespace std;
+int main(){
+	cout<<1<<"/"<<2<<", ";
+	int z=3,m=2;
+	int c=0;
+	for(int count=0;count<19;count++){
+		cout<<z<<"/"<<m<<", ";
+		c=z;
+		z=z+m;
+		m=c;
+	}
+	return 0;
+}
+
+（8）
+#include<iostream>
+using namespace std;
+int main(){
+	int x;
+	int fac=1;	
+	cin>>x;
+	if(x<=0){
+		cout<<"error"<<endl;
+	}
+	if(x==1){
+		cout<<"The factor of x is: 1"<<endl;
+	}
+	if(x>1){
+		cout<<"The factors of x are:";
+		while(fac<=x/2){
+			if(x%fac==0){
+				cout<<fac<<", ";
+			}
+			fac++;
+		}
+		cout<<x<<endl;	
+	}
+	cout<<"The perfect numbers from 1 to 100 : ";
+	int y,f,sum;
+	for(y=2;y<=100;y++){
+		sum=1;
+		for(f=2;f<=y/2;f++){
+			if(y%f==0)
+				sum+=f;
+		}
+		if(y==sum){
+			cout<<y<<", ";
+		}
+	}	
+	return 0;
+}

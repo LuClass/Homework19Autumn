@@ -1,0 +1,58 @@
+（8）
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int toHex(int x ){
+	cout<<hex<<x;
+} 
+#include<iostream>
+using namespace std;
+int max(int a,int b){
+	if(a>=b)
+		return a;
+	else
+	    return b;
+}
+#include<iostream> 
+#include"hex.cpp"
+#include"max.cpp"
+using namespace std;
+int main(){
+	int a,b,n;
+	cout<<"请输入两个整数：";
+	cin>>a>>b;
+	n=max(a,b);
+	toHex(n);
+	return 0;
+	 
+}
+（9）
+宏定义：
+#include<iostream> 
+#include<math.h>
+#define S(a,b,c) (a+b+c)/2
+#define Area(s,a,b,c)  sqrt(s*(s-a)*(s-b)*(s-c))
+using namespace std;
+int main(){
+	double a,b,c,s;
+	cout<<"请输入三角形三边长：";
+	cin>>a>>b>>c;
+	s=S(a,b,c);
+	cout<<"三角形的面积为："<<Area(s,a,b,c)<<endl;
+    return 0;
+}
+函数：
+#include<iostream> 
+#include<math.h>
+using namespace std;
+double area(int a,int b,int c,int s){
+	return sqrt(s*(s-a)*(s-b)*(s-c));
+}
+int main(){
+	double a,b,c,s;
+	cout<<"请输入三角形三边长：";
+	cin>>a>>b>>c;
+	s=(a+b+c)/2;
+	cout<<"三角形的面积为："<<area(a,b,c,s)<<endl;
+    return 0;
+}
