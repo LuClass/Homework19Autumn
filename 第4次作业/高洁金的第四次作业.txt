@@ -1,0 +1,59 @@
+11.4using namespace std;
+#include <iostream>
+int main()
+{
+	int count=0;
+	char ch=0;
+	do	{
+	ch=cin.get();
+	if (ch>='1'&&ch<='9')
+	count ++;
+	}while(ch!='\n');
+	cout<<"count="<<count<<endl;
+	return 0;
+}
+
+
+11.7
+using namespace std;
+#include <iostream>
+int main()
+{
+	int i=1,x,y;
+	for (x=1,y=2; i<=20; x=x+y,y=x+y,i++)
+	cout<<x<<'/'<<y<<endl;
+	return 0;
+}
+11.8
+using namespace std;
+#include <iostream>
+int main()
+{
+    int n=1,i,y=0;
+	int x;
+	cout<<"ÊäÈëÕûÊýx=";
+	cin>>x;
+	for (i=1;i<=x;i++){
+	if (x%i)
+	continue;
+	y=y+i;
+	cout<<i<<' ';} 
+	cout<<endl;
+	
+	
+	while (n<=100)
+	{
+		for (i=1;i<=n;i++)
+		{
+		if (n%i==0)
+		{
+		y=y+i;
+		}
+	    }
+		if (n==y-n)
+		cout<<y-n<<endl;
+		y=0;
+		n++;
+    }
+	return 0;
+}

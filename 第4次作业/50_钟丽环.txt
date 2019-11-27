@@ -1,0 +1,49 @@
+11.(4)
+     #include <iostream>
+     using namespace std;
+     int main (void){
+         int a=0;
+         char ch=0;
+         do{
+	    ch=cin.get();
+	    if(ch>=0&&ch<=9)
+	    a++;
+	}while(ch!='\n');
+	cout<<"a="<<a<<endl;
+	return 0;
+      }
+
+(7)#include <iostream>
+   using namespace std;
+   int main(void){
+	float a,b,c;
+	cout<<1.0/2.0<<" "<<3.0/2.0<<endl;
+	for(int n=2;n<=20;n++){
+		a=a+b;
+		b=a;
+		c=a/b;
+	}
+	cout<<"c="<<c<<endl;
+   }
+
+
+(9)#include <iostream>
+   using namespace std;
+   int main(void){
+	int x,n,c;
+	cout<<"input x="<<endl;
+	cin>>x;
+	if(x<=0)
+	 cout<<"wrong"<<endl;
+	else
+	 for(n=1,c=0;n<x;n++){
+	 	if(x%n==0)
+	 	 c=c+n;
+	 	else
+	 	 c=c;
+	 }
+	 if(c==x)
+	  cout<<"完整数"<<endl;
+	 else
+	  cout<<"不完整数"<<endl;6
+   }

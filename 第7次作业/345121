@@ -1,0 +1,14 @@
+using namespace std;
+#include <iostream>
+int main()
+{   int a,b,c;
+	for(int x=100;x<1000;x++)
+	{
+		a=x/100;
+		b=(x-100*a)/10;
+		c=(x-100*a-10*b)/1;
+		if((a*a*a+b*b*b+c*c*c)==x)
+		cout<<x<<endl;
+	}
+	return 0;
+}

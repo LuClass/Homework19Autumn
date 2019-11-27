@@ -1,0 +1,64 @@
+144.6
+#include<iostream>
+#include<cstring>
+#define MAX 5
+using namespace std;
+int getRev(char a[])
+{
+	int n=0;
+	int l=strlen(a);
+	for(int i=0;i<l;i++)
+	{
+		for(int j=i+1;j<l;j++)
+		{
+			if(a[i]>a[j])
+			n++;
+		}
+	}
+	return n;
+}
+int main()
+{
+	int temp=0;
+	int n[MAX];
+	char a[MAX][21];
+	
+	for(int i=0;i<MAX;i++)
+	{
+		cin.getline(a[i],21);
+	}
+	
+	char tem[MAX][21];
+	
+	for(int i = 0;i<MAX;i++) //逆序数 
+	n[i] = getRev(a[i]);
+	
+	for(int i = 0;i<MAX-1;i++)//排序
+		for(int j = 0;j< MAX - 1 - i;j++)
+			if(n[j+1]<n[j])		 
+			{
+				temp = n[j];
+				n[j]=n[j+1];
+				n[j+1]=temp;
+				strcpy(tem[0],a[j]);
+				strcpy(a[j],a[j+1]);
+				strcpy(a[j+1],tem[0]);	
+			}
+	for(int i = 0;i<MAX;i++)
+	cout<<a[i]<<" "<<n[i]<<endl;
+}
+144.8
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main(){
+    char str[100];
+    cin.getline(str,100);
+    int l=strlen(str);
+    int sum=1;
+    for(int i=0;i<l;i++){
+        if(str[i]==' ')sum++;
+    }
+    cout<<sum<<endl;
+    return 0;
+}

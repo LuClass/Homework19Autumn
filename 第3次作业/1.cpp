@@ -1,14 +1,19 @@
+#include<iostream>
 using namespace std;
-#include <iostream>
-#include <math.h>
-int main()
-{
-	int a,b,c;
-	cin>>a>>b>>c;
-	if(b*b-4*a*c>0)
-	cout<<(sqrt(b*b-4*a*c)-b)/(2*a)<<' '<<(-b-sqrt(b*b-4*a*c))/(2*a)<<endl;
-	else  if(b*b-4*a*c==0)
-	      cout<<-b/2*a<<endl;
-	      else cout<<"no root"<<endl;
-	return 0;
+int  main()
+{    int n,i,k,a[100];
+     cin>>n;
+     if(n<0)
+	 {  cout<<'-';
+	    n=-n;
+	 }
+	 i=0;
+	 while(n>0)
+	 {    a[i]=n%2;
+	      n=n/2;
+          i++;		  
+	 }
+	 for(--i;i>=0;i--)
+	     cout<<a[i];
+	 return 0;
 }

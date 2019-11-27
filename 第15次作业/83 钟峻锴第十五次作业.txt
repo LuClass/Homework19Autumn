@@ -1,0 +1,120 @@
+(3)
+#include <iostream>
+using namespace std;
+struct Fraction{int a,b;};
+void yue(Fraction *s)
+{
+	if (s!=NULL)
+	{if (s->a==0)
+	{s->b=1;return;}
+		int c=(s->a)>0?s->a:-(s->a);
+		for (;(s->a)%c||(s->b)%c;c--);
+	s->a/=c;s->b/=c;
+		}
+		return;}
+void pan(Fraction *s,Fraction *t)
+{
+	if (s!=NULL&&t!=NULL)
+	{
+		if((s->a==t->a)&&(s->b==t->b))
+		cout<<"equal";
+		else
+		{if ((s->a*t->b)>(s->b*t->a))
+		cout<<"bigger";
+		else cout<<"smaller";
+			}cout<<endl;
+		}
+	}
+void xplus(Fraction *s,Fraction *t)
+{
+	if (s!=NULL&&t!=NULL)
+	{Fraction c,*d=&c;
+	c.a=(s->a*t->b)+(s->b*t->a);
+	c.b=(s->b*t->b);
+	yue(d);
+	cout<<c.a<<'/'<<c.b<<endl;		
+		}
+	}
+void jian(Fraction *s,Fraction *t)
+{
+	if (s!=NULL&&t!=NULL)
+	{Fraction c,*d=&c;
+	c.a=(s->a*t->b)-(s->b*t->a);
+	c.b=(s->b*t->b);
+	yue(d);
+	cout<<c.a<<'/'<<c.b<<endl;		
+		}
+	}
+void cheng(Fraction *s,Fraction *t)
+{if (s!=NULL&&t!=NULL)
+	{Fraction c,*d=&c;
+	c.a=s->a*t->a;
+	c.b=s->b*t->b;
+	yue(d);
+	cout<<c.a<<'/'<<c.b<<endl;		
+		}
+	}
+void chu(Fraction *s,Fraction *t)
+{if (s!=NULL&&t!=NULL)
+	{Fraction c,*d=&c;
+	c.a=s->a*t->b;
+	c.b=s->b*t->a;
+	yue(d);
+	cout<<c.a<<'/'<<c.b<<endl;		
+		}
+	}
+int main()
+{
+	Fraction x,y;
+	Fraction *s=&x,*t=&y;
+	cin>>x.a>>x.b>>y.a>>y.b;
+	yue(s),yue(t);
+    pan(s,t);
+    xplus(s,t);
+    jian(s,t);
+    cheng(s,t);
+    chu(s,t);
+	return 0;
+	}
+
+
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+enum type{percent,level};
+struct Course{
+    char num[20];
+	char course_name[10];
+	type t;		
+};
+union mark{
+	int a;
+	char ch;
+};
+struct grade{
+	char stnum[20];
+	char name[10];
+	Course c1;
+	mark m;
+    grade(char cc[],char n[],char serialnum[],type t,char x){
+        strcpy(stnum,cc);
+		strcpy(name,n);
+     	strcpy(c1.num,serialnum);
+		c1.t=t;
+		if(t==0)
+			m.a=(int)x;
+		else
+			m.ch=x;
+	}	
+};
+void print_grade(grade stu){
+	cout<<stu.stnum<<" "<<stu.name<<" "<<stu.c1.num<<" "<<stu.c1.t<<" ";
+	if(stu.c1.t==0)
+		cout<<stu.m.a<<endl;
+	else
+		cout<<stu.m.ch<<endl;
+}
+int main()
+{
+}
