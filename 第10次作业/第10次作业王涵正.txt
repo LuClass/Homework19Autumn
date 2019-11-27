@@ -1,0 +1,138 @@
+1
+
+#include<iostream>
+#include<stdlib.h>
+#include<time.h>
+using namespace std;
+void getrandom(int a[],int n){
+    srand(time(NULL));
+    for(int i=0;i<n;i++)
+    a[i]=rand()%101;}
+    
+    int getmax(int a[],int n){int i;
+        int max=a[0];
+        for(i=0;i<n;i++){
+        if(a[i]>max)
+        max=a[i];}
+         for(i=0;i<n;i++){
+             if(a[i]==max)
+             cout<<"最大值下标为"<<i;
+         }
+    }
+    int main()
+    {int a[500],n;
+    cout<<"输入数组里数的个数" ; 
+    cin>>n;
+    getrandom(a,n);
+    for(int i=0;i<n;i++)
+    cout<<a[i]<<endl;
+        
+       getmax(a,n);    
+    }
+    
+2
+#include<iostream>
+using namespace std;
+bool prime(int x,int i=2){
+while(i<x)
+{if(x%i!=0)
+i++;
+else
+break;
+	}	
+if(i==x)
+return 1;
+else
+return 0;	
+} 
+int trans(int x){int sum=0;
+while(x/10!=0){
+sum=sum+x%10;
+x=x/10;	
+}	
+sum=sum+x;
+return sum;	
+}
+
+
+
+
+
+bool issmith(int x)
+{int a[20],i=2,s=0,sum=0,p,q=0;
+p=x;
+while(i<x)
+{
+if(prime(i)==1&&x%i==0)
+{
+a[s]=i;
+x=x/i;
+s=s+1;
+i=2;	
+}
+else
+i++;
+}
+a[s]=x;	
+while(q<=s)
+{sum=sum+trans(a[q]);
+q=q+1;	
+}
+if(sum==trans(p))
+return 1;
+else
+return 0;
+
+
+}
+
+int main(){
+int n;
+cin>>n;
+if(issmith(n)==1)
+cout<<"是smith数";
+else
+cout<<"不是smith数";	
+}
+
+
+
+
+
+3
+#include<iostream>
+using namespace std;
+int skip(int a[],int i){
+while(a[i%21]==0)    
+    {i++;}
+    return i;
+}
+
+
+
+int main()
+{int a[21],i=0,s=1,sum=0,x;
+for(x=0;x<21;x++)
+a[x] =1;
+while(sum<=19){
+       if(a[i%21]==0)
+    i=skip(a,i);
+    if(s%5==0)
+    {a[i%21]=0;sum++;++i;s++;}
+    else
+    {a[i%21]=s;++i;s++;}
+    
+}
+    
+    for(x=0;x<21;x++)
+    if(a[x]!=0)
+    cout<<x+1;
+    
+}
+
+    
+    
+
+
+
+

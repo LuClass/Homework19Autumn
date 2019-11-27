@@ -1,0 +1,31 @@
+（4）using namespace std; 
+#include <iostream>
+int  main(void )
+{
+int count=0;
+char ch=0;
+do{
+	ch=cin.get();
+	if(ch>='0'&&ch<='9') 
+	count++;
+}while(ch!='\n');
+cout<<"count="<<count<<endl;
+ return 0;
+}
+
+（7）using namespace std;
+#include <iostream> 
+int main(void)
+{
+ cout<<"1/2"<<endl;
+ int x=3, y=2,i=1,k=0;
+ for(int i=2;i<=20;i++)
+ {
+ 	cout<<x<<"/"<<y<<endl;
+ 	k=x;
+ 	x=x+y;
+ 	y=k;
+ }
+ 
+}
+

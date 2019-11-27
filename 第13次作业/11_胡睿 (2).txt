@@ -1,0 +1,58 @@
+6.using namespace std;
+#include<iostream>
+#include<cstring>
+#include <algorithm>
+#define max 3  //输入三个字符串 
+int getrev(char a[]) //计算并返回字符串a的逆序 
+{
+	int num=0; 
+	for(int i=0,j=0;a[i];i++)   //a[i]转成逻辑判断  因为字符串结束符的ASCII=0   i<strlen(a)-1
+	{
+		for(j=i;a[j+1];j++)   
+		{
+			if(a[i]>a[j+1])  
+				num++;
+		}
+	}
+	return num;
+}
+int main()
+{
+	int count=3;
+	char a[30];
+	while(count--)    //count--
+	{
+		cin.getline(a,21);
+		cout<<getrev(a)<<endl; 
+		sort(a,a+strlen(a));   //字符串顺序排序 
+		for(int i=0;a[i];i++)
+		{
+			cout<<a[i];
+		 } 
+		 cout<<endl;
+	}
+	return 0;
+}
+8.using namespace std;
+#include<iostream>
+#include<cstring>
+int main()
+{
+	char a[20];
+	cin.getline(a,10);
+	int count=0;
+	for(int i=0;a[i];i++)
+	{
+		if((a[i]==9)||(a[i]==32))
+		{
+		}
+		else
+		{
+			a[count]=a[i];
+			count++;
+		}
+		
+	}
+	cout<<count;
+	return 0;
+}

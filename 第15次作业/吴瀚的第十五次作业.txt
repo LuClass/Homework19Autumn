@@ -1,0 +1,117 @@
+p174
+(3£©
+#include <iostream>
+using namespace std;
+struct Fraction{
+	int a,b;
+};
+
+int simplify(int a,int b){
+	if(a==0&&b==1)
+	 cout<<"0"<<endl;
+	 else
+	 {
+	 	for(int i=2;i<=a&&i<=b;i++)
+	 	{
+	 	if(a%i==0&&b%i==0)
+		 {
+		 a/=i;
+		 b/=i;
+		 i=1;
+		 }
+		}
+	  cout<<a<<"/"<<b<<endl;	
+	 }
+}
+float equality(float a,float b,float c,float d){
+	float m,n;
+	m=a/b,n=c/d;
+	if(m>n)
+	cout<<a<<"/"<<b<<">"<<c<<"/"<<d<<endl;
+	if(m<n)
+	cout<<a<<"/"<<b<<"<"<<c<<"/"<<d<<endl;
+}
+
+float addition(float a,float b,float c,float d){
+	float m,n,k;
+	m=a/b,n=c/d;
+	k=m+n;
+	cout<<"addition "<<k<<endl;
+}
+
+float subtraction(float a,float b,float c,float d){
+	float m,n,k;
+	m=a/b,n=c/d;
+	k=m-n;
+	cout<<"subtraction "<<k<<endl;
+}
+
+float multiplication(float a,float b,float c,float d){
+	float m,n,k;
+	m=a/b,n=c/d;
+	k=m*n;
+	cout<<"multiplication "<<k<<endl;
+}
+
+float division(float a,float b,float c,float d){
+	float m,n,k;
+	m=a/b,n=c/d;
+	k=m/n;
+	cout<<"division "<<k<<endl;
+}
+	
+
+int main(){
+	Fraction fs1={2,4};
+	Fraction fs2={2,3};
+	simplify(fs1.a,fs1.b);
+	equality(fs1.a,fs1.b,fs2.a,fs2.b);
+	addition(fs1.a,fs1.b,fs2.a,fs2.b);
+	subtraction(fs1.a,fs1.b,fs2.a,fs2.b);
+	multiplication(fs1.a,fs1.b,fs2.a,fs2.b);
+	division(fs1.a,fs1.b,fs2.a,fs2.b);	
+} 
+
+£¨4£©
+#include <iostream>
+#include <string.h>
+using namespace std;
+enum type{percent,level};
+struct Course{
+    char num[20];
+	char course_name[10];
+	type t;		
+};
+union mark{
+	int a;
+	char ch;
+};
+struct grade{
+	char stnum[20];
+	char name[10];
+	Course c1;
+	mark m;
+    grade(char cc[],char n[],char serialnum[],type t,char x){
+        strcpy(stnum,cc);
+		strcpy(name,n);
+     	strcpy(c1.num,serialnum);
+		c1.t=t;
+		if(t==0)
+			m.a=(int)x;
+		else
+			m.ch=x;
+	}	
+};
+void print_grade(grade stu){
+	cout<<stu.stnum<<" "<<stu.name<<" "<<stu.c1.num<<" "<<stu.c1.t<<" ";
+	if(stu.c1.t==0)
+		cout<<stu.m.a<<endl;
+	else
+		cout<<stu.m.ch<<endl;
+}
+int main(){
+    grade a("919106840538","WuHan","111",level,'A');
+    grade b("919106840538","WuHan","222",percent,99);
+	print_grade(a);
+	print_grade(b);
+} 

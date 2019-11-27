@@ -1,0 +1,101 @@
+2.
+#include <iostream>
+using namespace std;
+int main()
+{
+	long int T;
+	cin>>T;
+	int a[5]={100000*0.1,100000*0.075,200000*0.05,200000*0.03,400000*0.015};
+	int b[5]={100000,200000,400000,600000,1000000};
+	for(int i=1;i<5;++i)
+	a[i]+=a[i-1];
+	int ans;
+	switch(T/100000){
+		case 0:
+			ans=T*0.1;
+			break;
+		case 1:
+			ans=a[0]+(T-b[0])*0.075;
+			break;
+		case 2:
+		case 3:
+			ans=a[1]+(T-b[1])*0.05;
+			break;
+		case 4:
+		case 5:
+			ans=a[2]+(T-b[2])*0.03;
+			break;
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+			ans=a[3]+(T-b[3])*0.015;
+			break;
+		case 10:
+			ans=a[4]+(T-b[4])*0.01;
+			break;
+	}
+	cout<<ans<<endl;
+	return 0;
+}
+
+
+4.
+#include <iostream>
+using namespace std;
+int main()
+{
+	int mon[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+	int y,m,d;
+	cin>>y>>m>>d;
+	int ans=d;
+	for(int i=0;i<m;++i)
+	ans+=mon[i];
+	if((y%4==0&&y%100!=0)||y%400==0){
+		if(m>2)
+		ans++;
+	}
+	cout<<ans;
+	return 0;
+}
+
+
+6.
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout<<" ****\n*\n*\n ****\n";
+	return 0;
+}
+
+
+8.
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	for(int i=1;i<10;++i){
+		for(int j=1;j<=i;++j){
+			cout<<i<<'*'<<j<<'='<<setw(2)<<i*j<<' ';
+		}
+		cout<<endl;
+	}
+	return 0;
+}
+
+
+10.
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout<<"\1\1\n";
+	for(int i=0;i<10;++i){
+		for(int j=0;j<i;++j)
+		cout<<(char)45<<(char)45;
+		cout<<endl;
+	}
+	return 0;
+}
