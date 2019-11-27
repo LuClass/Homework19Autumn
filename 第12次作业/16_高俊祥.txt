@@ -1,0 +1,100 @@
+#include<iostream>
+using namespace std;
+//第一种情况 
+int getSet(int rs[], const int a[], int n) {
+	int k = 1;
+	rs[0] = a[0];
+	for (int i = 1; i < n; i++) {
+		bool is = 0;
+		for (int j = 0; j < k; j++) {
+			if (a[i] == rs[j]) {
+				is = 0;
+				break;
+			}
+			if (a[i] != rs[j]) {
+				is = 1;
+			}
+		}
+		if (is) {
+			rs[k] = a[i];
+			k++;
+		}
+	}
+	return k;
+}
+//第二种情况 
+void getSet11(int rs[], const int a[], int n) {
+	int k = 1;
+	int b[8]={1,0};
+	rs[0] = a[0];
+	for (int i = 1; i < n; i++) {
+		bool is = 0;
+		for (int j = 0; j < k; j++) {
+			if (a[i] == rs[j]) {
+				is = 0;
+				b[j]++;
+				break;
+			}
+			if (a[i] != rs[j]) {
+				is = 1;
+			}
+		}
+		if (is) {
+			rs[k] = a[i];
+			b[k]=1;
+			k++;
+		}
+	}
+	for(int i=0;i<k;i++){
+		cout<<rs[i]<<":"<<b[i]<<endl;
+	}
+}
+//第三种情况 
+void getSet22(int rs[], const int a[], int n) {
+	int k = 1;
+	int b[8]={1,0};
+	rs[0] = a[0];
+	for (int i = 1; i < n; i++) {
+		bool is = 0;
+		for (int j = 0; j < k; j++) {
+			if (a[i] == rs[j]) {
+				is = 0;
+				b[j]++;
+				break;
+			}
+			if (a[i] != rs[j]) {
+				is = 1;
+			}
+		}
+		if (is) {
+			rs[k] = a[i];
+			b[k]=1;
+			k++;
+		}
+	}
+	for(int i=0;i<k-1;i++){
+		for(int j=0;j<k-1-i;j++){
+			if(b[j]<b[j+1]){
+				int temp=b[j];
+				b[j]=b[j+1];
+				b[j+1]=temp;
+				int tem=rs[j];
+				rs[j]=a[j+1];
+				rs[j+1]=tem;
+			}
+		}
+	}
+	for(int i=0;i<k;i++){
+		cout<<rs[i]<<":"<<b[i]<<endl;
+	}
+}
+int main() {
+	int a[8] = { 3,1,2,3,1,5,2,1 };
+	int rs[8] = { 0 };
+	int k = getSet(rs, a, 8);
+	cout << "第一种情况输出rs数组的元素个数：" << k << endl;
+	cout<<"第二种情况输出："<<endl; 
+	getSet11(rs,a,8);
+	cout<<"第三种情况输出："<<endl; 
+	getSet22(rs,a,8);
+}

@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+int getSet(int rs[],const int a[],int n){
+	int counter = 0; 
+	bool flag;
+	for(int i=0;i<n;i++){
+		flag=true;
+		for(int j=0;j<counter;j++){
+			if(a[i]==rs[j])
+			flag=false;
+		}
+		if(flag==true)
+		rs[counter++]=a[i];
+		}
+		return counter;
+	}
+void getSet_improved(int rs[],const int a[],int n){
+	int counter=0,total[30];
+	bool flag;
+	for(int i=0;i<n;i++)
+	total[i]=0;
+	for(int i = 0;i < n;i++)
+	{ flag = true;
+	  for(int j = 0;j < counter;j++){
+	  	if(a[i] == rs[j]) 
+	  	{ flag = false; 
+	  	  total[j]++; }
+	  }
+	   if(flag == true)
+	   { rs[counter] = a[i];
+	     total[counter]++; 
+		 counter+=1;}
+}
+int t;
+for(int i = 0; i < counter; i++)
+{  for(int j = 0; j < counter-1-i; j++)
+
+{     if(total[j] < total[j+1])
+   {     t = total[j];
+         total[j] = total[j+1]; 
+         total[j+1] = t;
+         t = rs[j];
+         rs[j] = rs[j+1];
+         rs[j+1] = t;
+     }
+ }
+}
+for(int i=0;i<counter;i++)
+cout<<rs[i]<<":"<<total[i]<<endl;
+}
+int main() {
+	int n;
+	cin>>n;
+	int rs[n],a[n];
+	for(int i=0;i<n;i++)
+	cin>>a[i];
+	getSet(rs,a,n);
+	getSet_improved(rs,a,n);
+	return 0;
+}

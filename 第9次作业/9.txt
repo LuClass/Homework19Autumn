@@ -1,0 +1,69 @@
+（8）
+//hex.cpp
+#include <iostream>
+using namespace std;
+void toHex(int x) {
+	char a[20];
+	char b[] = { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
+	int i = 0;
+	while (x > 16) {
+		a[i++] = b[x % 16];
+		x /= 16;
+	}
+	a[i] = b[x];
+	for (int j = i; j >= 0; --j)
+		cout << a[j];
+}
+
+//max.cpp
+#include <iostream>
+using namespace std;
+int max(int x, int y) {
+	return x > y ? x : y;
+}
+
+//main.cpp
+#include <iostream>
+using namespace std;
+void toHex(int x);
+int max(int x, int y);
+int main()
+{
+	int x, y;
+	cin >> x >> y;
+	toHex(max(x, y));
+	system("pause");
+	return 0;
+}
+将max.cpp和hex.cpp改为.h并在main.cpp中include
+
+（9）
+//函数
+#include <iostream>
+#include <cmath>
+using namespace std;
+double area(int a,int b,int c){
+	double s=(a+b+c)/2.0;
+	return sqrt(s*(s-a)*(s-b)*(s-c));
+}
+int main()
+{
+	int a,b,c;
+	cin>>a>>b>>c;
+	cout<<area(a,b,c);
+	return 0;
+}
+
+
+//宏
+#include <iostream>
+#include <cmath>
+#define area(a,b,c,s) sqrt(s*(s-a)*(s-b)*(s-c))
+using namespace std;
+int main()
+{
+	int a,b,c;
+	cin>>a>>b>>c;
+	cout<<area(a,b,c,(a+b+c)/2.0);
+	return 0;
+}

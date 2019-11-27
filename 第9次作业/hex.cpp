@@ -1,20 +1,16 @@
-
-#include "hex.h"
-
+<<<<<<< HEAD
 using namespace std;
-
-void toHex(int x){
-	int i;
-	char ch;
-	if(x<0){
-		x=-x;
-		cout<<"-";
-	}
-	for(i=28;i>=0;i-=4){
-		ch=(x>>i)&0x0000000f;
-		if(ch>=0&&ch<=9)
-		    cout<<char(ch+48);
-		else
-		    cout<<char(ch+87);
-	}
+#include <iostream>
+void toHex(int x)
+{
+	cout<<hex<<x;
 }
+=======
+#include <iostream>
+#include <iomanip>
+using namespace std; 
+void Hex(int x){
+	cout << hex << x;
+	
+}
+>>>>>>> ff801329c1e2834d9f9ec5e466b8ec36463d9bad
