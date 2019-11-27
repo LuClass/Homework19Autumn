@@ -1,0 +1,74 @@
+(6).
+#include<iostream>
+using namespace std;
+int funct1(int m,int n){
+	int temp;
+	if(m<n)
+	{
+		temp=m;
+		m=n;
+		n=temp;
+	}
+	while(n!=0)
+	{
+		temp=m%n;
+		m=n;
+		n=temp;
+	}
+	return m;
+} 
+int funct2(int m,int n){
+	int a,b,temp;
+	if(m<n)
+	{
+		temp=m;
+		m=n;
+		n=temp;
+	}
+	a=m,b=n;
+	while(b!=0)
+	{
+		temp=a%b;
+		a=b;
+		b=temp;
+	}
+	return m*n/a;
+}
+int main(){
+	int m,n;
+	cin>>m>>n;
+	cout<<"最大公约数为："<<funct1(m,n)<<endl;
+	cout<<"最小公倍数："<<funct2(m,n)<<endl;
+	return 0;
+}
+
+(7).
+  递归法
+#include<iostream>
+using namespace std;
+void funct(int m){
+	if(m/10==0)
+	    cout<<m;
+	else{
+		cout<<m%10;
+		funct(m/10);
+	}
+}
+int main(){
+	int m;
+	cin>>m;
+	funct(m);
+	return 0;
+}
+  递推法
+#include<iostream>
+using namespace std;
+int main(){
+	int m;
+	cin>>m;
+	while(m!=0){
+		cout<<m%10;
+		m=m/10;
+	}
+	return 0;
+}

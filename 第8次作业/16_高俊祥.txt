@@ -1,0 +1,64 @@
+21.（6)
+#include<iostream>
+#include<iomanip>
+using namespace std; 
+int yueshu(int a,int b){
+   while (a%b != 0) 
+     {
+        int temp = a;
+        a = b;
+        b = temp % a;
+     }
+    return b;
+}
+int beishu(int a,int b){
+	int x=yueshu(a,b);
+	return a*b/x;
+}
+int main(){
+	int a,b;
+	cout<<"please input two number:"<<endl;
+	cin>>a>>b;
+	cout<<"最大公约数为:"<<yueshu(a,b)<<endl;
+	cout<<"最小公倍数为:"<<beishu(a,b)<<endl; 
+                return 0;
+}
+
+
+
+21.(7)递归
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int daoxu(int x){
+	if(x==0)
+	return 0;
+	cout<<x%10;
+	daoxu(x/10);
+}
+int main(){
+	int x;
+	cout<<"请输入一个整数: ";
+	cin>>x;
+	daoxu(x);
+	return 0;
+}
+
+
+21.(7)递推
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int daoxu(int x){
+	while(x!=0){
+		cout<<x%10;
+		x/=10;
+	}
+}
+int main(){
+	int x;
+	cout<<"请输入一个整数: ";
+	cin>>x;
+	daoxu(x);
+	return 0;
+}

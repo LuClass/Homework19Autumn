@@ -1,0 +1,31 @@
+using namespace std;
+#include<iostream>
+int gys(int a,int b)
+{
+	for(int i=a>b?b:a;i>=1;i--)
+	{
+		if(a%i==0&&b%i==0)
+		{cout<<a<<","<<b<<"的最大公约数是"<<i<<endl;
+		 break;}
+	}
+	return 0;
+	
+}
+int gbs(int a,int b)
+{
+	for(int i=a>b?a:b;i<=a*b;i++)
+	{
+		if(i%a==0&&i%b==0)
+		{cout<<a<<","<<b<<"的最大公倍数是"<<i<<endl;
+		 break;}
+	}
+	return 0;
+}
+int main()
+{
+	int a,b;
+	cin>>a>>b;
+	gys(a,b);
+	gbs(a,b);
+	return 0;
+}

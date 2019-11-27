@@ -1,0 +1,32 @@
+﻿
+  
+11.1
+#include <iostream>
+使用名称空间std;
+int main（）
+{
+  int I，a = 1，b，n;
+　for（;如果（i> 1）
+　　i / = 2，a + = 1;
+　　for（a = 2; a <3; a％= 2，b + = 10 ^ n）
+  {cout <<“ i =” <<“ a =” << endl;}）
+  返回0;
+}
+  
+11.6
+#include <iostream>
+使用名称空间std; 
+int main（无效）
+{
+   整数a，b，c，x1，x2;
+   如果（b * b-4ac <0）
+　　{cout <<“无根” << endl;}
+   如果（b * b-4ac = 0）
+　　x1 = x2 =（-b +（4ac-b * b）^（1/2））/ 2a
+　　{cout <<”有一根” <<” x1 =” << endl}
+   如果（b * b-4ac> 0）
+　　x1 =（-b +（4ac-b * b）^（1/2））/ 2a，x2 =（-b-（4ac-b * b）^（1/2））/ 2a
+　　{cout <<“有两根” <<“ x1 =” <<“ x2 =” << endl;}
+　　返回0;
+}
+　　
