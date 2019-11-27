@@ -1,0 +1,118 @@
+﻿
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+struct Point
+{
+	int x,y;
+};
+
+struct s
+{
+	float zc,area;
+};
+
+float f1(Point p1,Point p2)
+{
+	float d;
+	d=sqrt((p1.x-p2.x)*(p1.x-p2.x)+(p1.y-p2.y)*(p1.y-p2.y));
+	return d;
+}
+
+s f2(Point p1,Point p2,Point p3)
+{
+	s S;
+	float p,a,b,c;
+	a=f1(p1,p2);
+	b=f1(p2,p3);
+	c=f1(p1,p3);
+	S.zc=a+b+c;
+	p=S.zc/2.0;
+	PA.area=sqrt(p*(p-a)*(p-b)*(p-c));
+	return S;
+}
+
+struct triangle
+{
+	Point p1,p2,p3; s S=f2(p1,p2,p3);
+	triangle(Point P1,Point P2,Point P3):p1(P1),p2(P2),p3(P3)
+	{
+		if (f1(p1,p2)+f1(p2,p3)>f1(p1,p3))
+		{
+			cout<<"triangle yes"<<endl;
+			cout<<"peri="<<S.zc<<endl;
+			cout<<"area="<<S.area<<endl;
+		}	
+		else
+		cout<<"triangle no"<<endl;
+	}
+};
+
+
+int main ()
+{
+	Point p1,p2,p3;float d;
+	cout<<"Calculate distance between two points"<<endl; 
+	cout<<"Please input the coordinates of two points"<<endl;
+	cin>>p1.x>>p1.y>>p2.x>>p2.y;
+	cout<<"distance="<<f1(p1,p2)<<endl;
+	cout<<"Please input the coordinates of three points"<<endl;
+	cin>>p1.x>>p1.y>>p2.x>>p2.y>>p3.x>>p3.y;
+	triangle tri=triangle(p1,p2,p3);
+	return 0;
+} 
+
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+struct solution
+{
+	float x1,x2;
+};
+
+solution f(int a,int b,int c)
+{
+	solution s;
+	float d;
+	d=b*b-4*a*c;
+	if (d==0)
+	s.x1=(-b+sqrt(d))/2;
+	else
+	{
+		s.x1=(-b+sqrt(d))/2;
+		s.x2=(-b-sqrt(d))/2;
+	}
+	return s;
+}
+
+
+int main()
+{
+	int a,b,c;float d;
+	cout<<"请依次输入二元一次方程的三个系数"<<endl;
+	cin>>a>>b>>c;
+	der=b*b-4*a*c;
+	solutions s=f(a,b,c);
+	if ( a!=0 )
+	{
+		if (d<0)
+	        cout<<"方程无根";
+   		else 
+   		{
+   			if (d==0)
+	        	{cout<<"方程有一个根:"<<endl;
+	        		cout<<s.x1<<endl;
+            	}
+	        else 
+	        	{cout<<"方程有两个根:"<<endl;
+	        	cout<<s.x1<<' '<<s.x2<<endl;
+    	    	}
+   		}
+	}
+   return 0;
+}	
+

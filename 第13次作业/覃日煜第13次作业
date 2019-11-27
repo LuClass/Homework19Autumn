@@ -1,0 +1,64 @@
+(6)#include<iostream>
+#include<string.h>
+using namespace std;
+#define MAX  4
+int getrev(char a[])
+{     
+	  int  n=strlen(a),i,j,k=0,c[1],b[1];
+   for(i=0;i<n;i++)
+   for(j=0;j<=n;j++)
+    {    
+    	if(i<j)
+    	{  b[0]=a[i];
+    	   c[0]=b[j];
+    		if(strcmp(b[0],c[0])==1)
+    		k++;
+		}
+
+     }
+    return k;
+}
+
+int main()
+{   int i,j,k,d[MAX];
+	char a[MAX][20];
+	for(i=0;i<=MAX-1;i++)
+	cin.getline(a[i],20)
+	for(j=0;j<=MAX-1;j++)
+	{   int temp;
+	   	d[J]=getrev(a);
+	}
+	 for(k=0;k<=MAX-1;k++)
+	 for(i=k+1;k<MAX;i++)
+	 {if(d[k]<d[j])
+	     {  temp=d[k];
+	         d[k]=d[i];
+	         d[i]=temp;
+		 }
+		 
+	 }
+	cout<<d<<endl;	 
+ } 
+
+
+(8)#include<iostream>
+#include<string.h>
+using namespace std;
+int getwordcount(a[])
+{  
+   bool k;
+   int n=strlen(a[]),count,i;
+   char c;
+   for(i=0;i<=n-1;i++)
+   {
+   	 c=a[i];
+   	 if(c==' '||c=='\t')
+   	   k=1;
+   	  if(k)
+   	  {count++;
+   	     k=0;
+		 }
+   }
+   return count;
+   
+}

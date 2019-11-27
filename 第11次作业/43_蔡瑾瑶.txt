@@ -1,0 +1,78 @@
+1
+#include<iostream>
+using namespace std;
+
+int lf(int a){
+	return a*a*a;
+}
+
+bool sxhs(int a){
+	if(lf(a%10)+lf((a/10)%10)+lf(a/100)==a)
+	return 1;
+	else return 0;
+}
+
+int main(){
+	int i,j;
+	cin>>i>>j;
+	for(int n=i;n<=j;n++){
+		if(sxhs(n))
+		cout<<n<<" ";
+	}
+	return 0;
+}
+
+
+2
+#include<iostream>
+using namespace std;
+int ncf(int n){
+	if(n==0)
+	return 1;
+	else return 10*ncf(n-1);
+}
+int z(int n){
+	int z;
+	for(z=1;;z++)
+	if(n/ncf(z)==0)
+	break;
+	return z;
+}
+int fanxu(int n){
+	int f=0;
+		for(int i=z(n);i>0;i--){
+			int s=(n/ncf(i-1))%10;
+			f=f+s*ncf(z(n)-i);
+		}
+	return f;
+}
+int main(){
+	int n;
+	cin>>n;
+	if(n==fanxu(n))
+	cout<<"yes";
+	else cout<<"no";
+	return 0;
+}
+
+
+3
+#include<iostream>
+using namespace std;
+int yszh(int n){
+	int h=0;
+	for(int j=2;j<n;j++){
+		if(n%j==0)
+		h+=j;
+	}
+	return h+1;
+}
+int main(){
+int i,j;
+	cin>>i>>j;
+	for(int n=i;n<=j;n++){
+		if(yszh(n)==n)
+		cout<<n<<" ";
+	}
+	return 0;
+}
