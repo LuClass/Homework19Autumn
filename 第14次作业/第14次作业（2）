@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+#include<math.h>
+typedef struct Point{
+float a;
+float b;
+}Point;
+Point fir;
+double f(float x,float y,float i,float j){
+	double t=x-i;
+	double k=y-j;
+	double len=t*t+k*k;	
+	return len;
+}
+int main(){
+	char a[4],b[4],c[3];
+	cin.getline(a,4);
+	cin.getline(b,4);
+	a[3]=a[0];b[3]=b[0];
+	for(int i=0;i<3;i++){
+		c[i]=f(a[i],b[i],a[i+1],b[i+1]);
+	} 
+		for(int n=0;n<2;n++){
+			if(c[n]<c[n+1]){
+				int s=c[n+1];
+				c[n+1]=c[n];
+				c[n]=s; 
+			}
+			if(c[1]>c[0]){
+				int h=c[1];
+				c[1]=c[0];
+				c[0]=h;
+			} 
+			if(c[0]-c[2]<c[1]&&c[1]+c[2]>c[0]){
+				cout<<"可以组成三角形"<<endl;
+				cout<<"周长等于"<<c[0]+c[1]+c[2]<<endl;
+				float e=(c[0]+c[1]+c[2])/2;}
+			 
+			
+				
+			}
+		}
+		return 0;
+	}

@@ -1,0 +1,77 @@
+21.
+(2).
+#include<iostream>
+using namespace std;
+int jie(int n)
+{
+	int sum=1;
+	for(int i=1;i<n;sum*=++i);
+	return sum;
+}
+int cloud(int n,int k)
+{
+	return (n>k? jie(n)/(jie(k)*jie(n-k)):0);
+}
+main()
+{
+	int n,k;
+	cin>>n>>k;
+	cout<<cloud(n,k);
+}
+(4).
+#include<iostream>
+using namespace std;
+bool sushu(int n)
+{
+	if(n%2==0||n==2)
+	return false;
+	for(int i=3;i*i<=n;i+=2)
+	if(n%i==0)
+	return false;
+	return true;
+	
+}
+main()
+{
+	int n=3;
+	for(int i=3;i<500;i+=2)
+	if(sushu(i))
+	{
+		if(n+2==i)
+		cout<<n<<'|'<<i<<' ';
+		n=i;
+	}
+}
+(5).
+#include<iostream>
+using namespace std;
+bool sushu(int n)
+{
+	if(n%2==0&&n!=2)
+	return false;
+	for(int i=3;i*i<=n;i+=2)
+	if(n%i==0)
+	return false;
+	return true;
+}
+int main()
+{
+	int n;
+	bool fir=true;    //方便输出第一个数据 
+	for(int i=1;i<=1000;i++)
+	{
+		n=i;
+		cout<<i<<'=';
+		if(sushu(i))
+		{cout<<i;goto stop;}
+		for(int j=2;j<i;j++)
+		{
+			if(fir&&n%j==0)
+			{cout<<j;n/=j;fir=false;}
+			while(n%j==0)
+			{cout<<'*'<<j;n/=j;}
+		}
+		fir=true;
+		stop:cout<<endl;
+	}
+}

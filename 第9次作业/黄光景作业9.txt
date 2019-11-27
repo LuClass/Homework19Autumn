@@ -1,0 +1,71 @@
+// 
+#include <iostream>
+#include<math.h>
+
+using namespace std;
+double area(double a,double b,double c)
+{
+    double s;
+	double n;
+	s=(a+b+c)/2;
+	n=s*(s-a)*(s-b)*(s-c);
+	return sqrt(n);
+}
+
+int main()
+{  int a,b,c;
+	cout<<"?????????a,b,c:   ";
+	cin>>a,b,c;
+	cout<<area(a,b,c);
+	return 0;
+}
+
+//main
+#include <iostream>
+#include "max.cpp"
+#include "hex.cpp"
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) 
+{
+
+
+  cout<<"Please input a,b :";
+    int a,b,n;
+    cin>>a,b;
+	cout<<max(a,b)<<endl;
+	cout<<hex<<n<<endl;
+	return 0;
+}
+
+// max
+#include<iostream>
+using namespace std;
+int max(int x,int y)
+{
+    if (x>y)
+   return x;
+    else return y;
+}
+
+
+// hex
+#include<iostream>
+#include "max.cpp"
+using namespace std;
+
+int hex(int n)
+{
+	int a,b;char c;
+	n= max(a,b);
+	c=hex(n);
+    return c;
+	}
+
+
+
+
+
+
+

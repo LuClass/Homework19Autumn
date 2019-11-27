@@ -1,0 +1,109 @@
+（1）
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct Solution{
+	double x, x1, x2;
+};
+Solution f(int a, int b, int c){
+ 	Solution s;
+ 	s.x=(-b/(2*a));
+ 	s.x1=((-b+sqrt(b*b-4*a*c))/(2*a));
+ 	s.x2=((-b-sqrt(b*b-4*a*c))/(2*a));
+ 	return s;
+}
+int main(){
+ 	int a,b,c;
+ 	cin>>a>>b>>c;
+ 	if(a!=0){
+ 		Solution s;
+ 	s=f(a,b,c);
+ 	int delta=(b*b-4*a*c);
+ 	if(delta<0)
+    cout<<"error";    	 
+ 	else if(delta==0)
+ 	cout<<"x="<<s.x;
+ 	else
+ 	cout<<"x1="<<s.x1<<" "<<"x2="<<s.x2;
+	}
+ 	return 0;
+}
+
+（2）
+#include <iostream>
+#include <math.h>
+using namespace std;
+ struct Point{
+ 	int x,y;
+ };
+double d(Point P1,Point P2)
+ {
+ 	double n;
+ 	n=sqrt((P1.x-P2.x)*(P1.x-P2.x)+(P1.y-P2.y)*(P1.y-P2.y));
+ 	return n;
+ }
+ struct length{
+ 	double g;
+ 	double h;
+ 	double i;
+ };
+ bool Triangle(double g,double h,double i)
+ {
+ 	if((g+h)>i&&(g+i)>h&&(h+i)>g)
+ 	{
+ 		return true;
+ 	}
+ 	else
+ 	{
+ 		return false;
+ 	}
+ }	
+ double C(double g,double h,double i)
+ {
+ 	double c;
+ 	c=g+h+i;
+ 	return c;
+ }
+ double area(double g,double h,double i)
+ {
+ 	double s,a;
+ 	a=(g+h+i)/2;
+ 	s=sqrt(a*(a-g)*(a-h)*(a-i));
+ 	return s;
+ }
+ int main()
+ {
+ 	Point P1={3,5};
+ 	Point P2={1,6};
+ 	Point P3={2,1};
+ 	length e={d(P1,P2),d(P2,P3),d(P1,P3)};
+ 	if(Triangle(e.g,e.h,e.i))
+ 	{
+ 		cout<<C(e.g,e.h,e.i)<<endl;
+ 		cout<<area(e.g,e.h,e.i)<<endl;
+ 	}
+ 	else
+ 	{
+ 		cout<<"不是三角形"<<endl; 
+ 	}
+ 	return 0;
+ }
+
+大写变小写
+#include <iostream>
+using namespace std;
+int main(){
+	char a[50];
+	cin.getline(a,50);
+	for(int i=0;a[i];i++){
+		cout<<a[i];
+	}
+	cout<<endl;
+	for(int j=0;a[j];j++){
+		if(a[j]>='A'&&a[j]<='Z'){
+			a[j]+=32;
+		    cout<<a[j];
+		}
+	}
+	return 0;
+}

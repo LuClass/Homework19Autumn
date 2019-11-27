@@ -1,0 +1,25 @@
+using namespace std;
+#include <iostream>
+int hh(int q,int w);
+int sb(int n);
+int q,w;
+int main (){
+cin>>q>>w;
+hh(q,w);
+int e=q+1;
+for(e;e<w;e++){
+sb(e);	
+    }
+}
+int hh(int q,int w){
+int d;	
+if(q>w)
+{d=q;q=w;w=d;
+	}
+}
+int sb(int n){
+int c,a=0,b=n;
+for(b;b>0;b/=10){
+c=b%10;a+=c*c*c;
+}if(a==n)cout<<n<<"  ";
+}

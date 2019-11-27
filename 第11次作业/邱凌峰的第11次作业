@@ -1,0 +1,88 @@
+（1）
+#include<iostream>
+using namespace std;
+int main(){
+	int i,j,k,p,n=0;
+	cin>>i>>j;
+	for(int m=i;m<=j;m++){
+		p=m;
+		for(;m>=10;m=m/10){
+			k=m%10;
+			n=n+k*k*k;
+		}
+		n=n+m*m*m;
+		if(n==p){
+			cout<<n<<endl;
+		}
+		m=p;
+	}
+	return 0;
+}
+
+
+
+
+(2)#include<iostream>
+using namespace std;
+int f(int n){
+	int m,k,b=0,s=1;
+	m=n%10;
+	k=n;
+	for(;k>=10;k=k/10){
+		b++;
+		}
+		for(;b>0;b--){
+			s=s*10;
+		}
+		if(k==m){
+			n=(n%s)/10;
+		}
+		n=(n%s)/10;
+	return n;
+}
+int main(){
+	int n;
+	cin>>n;
+for(;n>=10;){
+	f(n);
+}
+cout<<n<<"是回文数";
+return 0;
+}
+
+
+
+
+
+(3)#include<iostream>
+using namespace std;
+int f(int n){
+	int k,m=0;
+	k=n;
+	for(int k=2;k<n;k++){
+		if(n%k==0){
+			m=m+k;
+			n=n/k;
+			k=2; 
+		}	
+	}
+	m=m+n;
+	if(m==k){
+		cout<<k<<endl;
+	n=k;
+	}
+	return n;	
+}
+int main(){
+    int n,i,j;
+    cin>>i>>j;
+    cout<<"i到j范围内的完全数"<<endl; 
+	for(n=i;n<=j;n++){
+	f(n); 
+	} 
+	return 0;
+
+
+
+}
+ 
