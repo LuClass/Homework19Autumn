@@ -1,0 +1,50 @@
+£¨8£© 
+¢Ùmain.cpp
+ #include <iostream> 
+#include "max.cpp" 
+#include "hex.cpp" 
+using namespace std; 
+int main(){ 
+int a,b,c; 
+c=max(a,b); 
+cout<<toHex(c)<<endl;} 
+	
+¢Úmax.cpp 
+#include <iostream> 
+using namespace std; 
+int max(int a,int b){ 
+return (a>b?x:y);} 
+	
+¢Ûhex.cpp 
+#include <iostream> 
+using namespace std; 
+int toHex(int x){ 
+cout<<hex<<x<<endl;}
+
+£¨9£©
+¢Ùº¯Êý£º
+#include <iostream>
+#include <math.h>
+using namespace std;
+int area(int a,int b,int c){
+   s=(a+b+c)/2;
+   cout<<sqrt(s*(s-a)*(s-b)*(s-c))<<endl;}
+int main(){
+   int a,b,c,s;
+   cin>>a>>b>>c;
+   cout<<"area="<<area(a,b,c)<<endl;}
+
+
+
+¢Úºê£º
+#include <iostream>
+#include <math.h>
+using namespace std;
+#define area(a,b,c,s)  sqrt(s*(s-a)*(s-b)*(s-c));
+int main(){
+   int a,b,c,s;
+   cin>>a>>b>>c;
+   s=(a+b+c)/2
+   cout<<"area="<<area(a,b,c,s)<<endl;}
+
+¡¡¡¡

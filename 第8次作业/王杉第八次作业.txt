@@ -1,0 +1,93 @@
+NO.6
+#include <iostream>
+using namespace std;
+ int gongyueshu(int,int);
+main()
+{
+	int num1,num2;
+	for(;;)
+	{
+	cout<<"please input two  numbers\n";
+	cin>>num1>>num2;
+	gongyueshu(num1,num2);
+    }
+}
+  
+int gongyueshu(int num1,int num2){
+ 	int a,b,temp;
+ 	if (num1<num2){
+ 		temp=num1;
+ 	    num1=num2;
+ 	    num2=temp;
+	    }
+	    a=num1;b=num2;
+	while (b!=0){
+		temp=a%b;
+		a=b;
+		b=temp;
+		}
+    cout<<"gongyueshu :"<<a<<endl;
+    cout<<"gongbeishu :"<<(num1*num2)/a<<endl;
+    return 0;
+}
+
+
+
+
+
+
+NO.7 
+PART 1.
+#include <iostream>
+using namespace std;
+int main(){
+	for(;;){
+	int input,count=0,time1=1,time2=0,asinput,ten1=1,ten2=1,num1,sum=0;
+	cout<<"please input a number :\n";
+	cin>>input;
+	asinput=input;
+	while(asinput!=0){
+		asinput=asinput/10;
+		count++;
+		}
+	while(time1!=count){
+		ten1=ten1*10;
+		time1++;
+		}
+    for(time2=0;time2!=count;time2++,ten1=ten1/10,ten2=ten2*10){
+		num1=input/ten1;
+		input=input-num1*ten1;
+		sum=sum+num1*ten2;
+		}
+	cout<<sum<<endl;
+	}
+	return 0;
+} 
+
+
+PART 2.
+
+
+
+#include <iostream>
+using namespace std;
+int num; 
+ 
+void back(int num)
+{
+    if(num/10=='\0')
+    cout<<num;
+    else {
+	cout<<num%10;
+    return back(num/10);}
+}
+ 
+int main()
+{
+    cout<<"please input a number: \n";
+	cin>>num;
+	back(num);  
+    cout<<"\n";
+    return 0;
+}
+

@@ -1,0 +1,48 @@
+using namespace std;
+#include <iostream>
+#include <cmath>
+int main(void)
+{
+	double a,b,c;
+	cin>>a;
+	cin>>b;
+	cin>>c;
+	double det=b*b-4*a*c;
+	if(det<0)
+		cout<<"no root";
+	else if(det==0) 
+		{
+		double x=-1*b/(2*a);
+		cout<<"x1=x2="<<x;
+		} 
+		else
+		{
+		 double x1=(-b+sqrt(det))/(2*a);
+		 double x2=(-b-sqrt(det))/(2*a);
+		 cout<<"x1="<<x1<<endl;
+		 cout<<"x2="<<x2<<endl;
+		}
+			return 0;
+}
+
+
+#include <iostream>
+#include <iomanip>
+
+using  namespace std;
+
+int main()
+{
+int a;
+int j=31,k;
+unsigned int i=2147483648;
+ cin>>a;
+ 
+ while(j>=0)
+ {
+ 	k=a&i;
+ 	cout<<(k>>j--);
+ 	i>>=1;
+  }
+ 
+}
