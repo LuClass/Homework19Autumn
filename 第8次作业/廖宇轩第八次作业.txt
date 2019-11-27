@@ -1,0 +1,91 @@
+（6）
+#include <iostream>
+
+using namespace std;
+
+int gy(int a, int b)
+{
+	int c;
+	while (a!=0)
+	{
+		if (a < b)
+		{
+			c = a;
+			a = b;
+			b = c;
+
+		}
+		a= a % b;
+	}
+	return b;
+}
+
+int gb(int a, int b)
+{
+	int c = a > b ? a : b;
+	while (1)
+	{
+
+		if (c%a + c % b == 0)
+			break;
+		c++;
+	}
+	
+	return c;
+}
+
+int main()
+{
+	int a, b;
+	cin >> a >> b;
+	cout << gy(a, b) <<endl<< gb(a, b);
+
+}
+（7）
+
+递归：
+#include <iostream>
+
+using namespace std;
+
+
+
+
+void dg(int a)
+{
+	cout<<a % 10;
+	if (a / 10)
+	{   
+		
+		dg(a/10);
+	}
+
+}
+int main()
+{
+	int a;
+	cin >> a;
+	dg(a);
+
+	
+}
+递推：
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	int a;
+	cin >> a;
+	
+	for (cout << a % 10;a/10;)
+	{
+		a = a / 10;
+		cout << a % 10;
+	}
+	
+}
+

@@ -1,0 +1,176 @@
+14.（7）#include <iostream>
+using namespace std;
+
+
+int getSet(int rs[],const int a[],int n)
+{
+
+	int num = 1;
+	rs[0] = a[0];
+	for (int i=1;i<n;i++)
+	{
+
+		for (int j = 0;j<num;)
+		{
+			if (rs[j] == a[i])
+			{
+				break;
+
+			}
+			j++;
+			if (j == num)
+			{
+
+				rs[j] = a[i];
+				num++;
+			}
+	   }
+
+
+		
+    }
+
+
+	return num;
+
+}
+int times(int rs[], const int a[], int n)
+{
+	int num = 1;
+	int b[8] = { 0 };
+	rs[0] = a[0];
+	for (int i = 1; i < n; i++)
+	{
+
+		for (int j = 0; j < num;)
+		{
+			if (rs[j] == a[i])
+			{
+				break;
+
+			}
+			j++;
+			if (j == num)
+			{
+
+				rs[j] = a[i];
+				num++;
+			}
+		}
+
+
+
+	}
+
+	for (int i = 0; i < num; i++)
+	{
+		for (int j=0;j<n;j++)
+		{
+			if (rs[i] == a[j])
+			{
+				b[i]++;
+			}
+
+		}
+
+	}
+
+	for (int i = 0; i < num; i++)
+	{
+
+		cout << b[i] << '\t';
+
+	}
+
+	return num;
+
+}
+int px(int rs[], const int a[], int n)
+{
+	int num = 1;
+	int b[8] = { 0 };
+	int s;
+	rs[0] = a[0];
+	for (int i = 1; i < n; i++)
+	{
+
+		for (int j = 0; j < num;)
+		{
+			if (rs[j] == a[i])
+			{
+				break;
+
+			}
+			j++;
+			if (j == num)
+			{
+
+				rs[j] = a[i];
+				num++;
+			}
+		}
+
+
+
+	}
+
+	for (int i = 0; i < num; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (rs[i] == a[j])
+			{
+				b[i]++;
+			}
+
+		}
+
+	}
+
+
+	for (int i=0;i<num;i++)
+	{
+		for (int j=i;j<num-1;j++)
+		{
+
+			if (b[j] < b[j + 1])
+			{
+				s = b[j];
+				b[j] = b[j + 1];
+				b[j + 1] = s;
+
+				s = rs[j];
+				rs[j] = rs[j + 1];
+				rs[j + 1] = s;
+			}
+
+		}
+
+
+	}
+	for (int i = 0; i < num; i++)
+	{
+
+		cout << rs[i]<<":"<<b[i] << endl;
+
+	}
+	return num;
+
+}
+int main()
+{
+	int a[] = { 3,1,2,3,1,5,2,1 }, rs[8];
+	int num = getSet(rs, a, 8);
+	cout<<num<<endl;
+	
+	for (int i = 0; i < num; i++)
+	{
+
+		cout << rs[i] << '\t';
+
+	}
+	cout << endl;
+	times(rs, a, 8);
+	cout << endl;
+	px(rs, a, 8);
+}
