@@ -1,0 +1,158 @@
+（2）
+
+#include <iostream>
+#include<time.h>
+using namespace std;
+
+
+void getRandom(int a[], int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		srand((unsigned)time(NULL));
+		a[i] = rand() % 101;
+
+	}
+
+}
+int getMax(const int a[], int n)
+{
+	int max=0;
+	for (int i=1;i<n;i++)
+	{
+		max = a[max] > a[i] ? max : i;
+
+	}
+	return max;
+}
+	
+
+
+int main()
+{
+	int a[100] = { 0 }, b[100];
+	for (int i = 0; i < 100; i++)
+	{
+
+		b[i] = i;
+
+	}
+	getRandom(a,100);
+	for (int i = 0; i < 100; i++)
+	{
+		cout << a[i]<<endl;
+
+
+	}
+	int j=getMax(b,100);
+	cout << j;
+
+}
+
+
+(5)#include <iostream>
+using namespace std;
+
+bool isSmith(int n)
+{
+	int sum = 0, s = 0, xsum = 0, m;
+	m = n;
+	for (;m!=0;)
+	{
+	
+		s += m % 10;
+		m = m / 10;
+
+
+	}
+	xsum = s;
+	for (int i = 2; i < n/2; i++)
+	{
+		if (n%i == 0)
+		{ 
+			m = i;
+			s = 0;
+			for (; m != 0;)
+			{
+
+				s += m % 10;
+				m = m / 10;
+
+
+			}
+			sum += s;
+
+
+		}
+	
+
+	}
+	if (xsum == sum)
+	{
+
+		return true;
+
+	}
+
+}
+int main()
+{
+	int i = 4937774;
+	for (;  isSmith(i)!=true; i++)
+	{
+		
+
+	}
+	
+	cout << i;
+}
+(10)
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a[21],count=0;
+	for (int i = 0; i < 21; i++)
+	{
+
+		a[i] = 1;
+
+    }
+	for (int i = 0,j=0;i<21; i++)
+	{
+
+		if (a[i] == 1)
+		{
+			j++;
+
+
+		}
+		if (j==5)
+		{
+
+			a[i] = 0;
+			count++;
+			j = 0;
+
+		}
+		if (count == 21)
+		{
+			cout << i + 1;
+
+			break;
+		}
+
+
+		if (i == 20)
+		{
+			i = -1;
+			
+
+		}
+	}
+
+
+}
+
+
+

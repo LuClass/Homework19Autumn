@@ -1,0 +1,107 @@
+（1）
+#include <iostream>
+#include <math.h>
+using namespace std;
+#define q(a,b,c) b*b-4*a*c
+struct ans{
+	int count;//0,1,2
+	double x1;
+	double x2;
+};
+ans f(int a,int b,int c)
+{
+	ans result;
+	if(a==0)
+	{
+		result.count=1;
+		result.x1=-(double)c/b;
+		result.x2=result.x1;
+		
+	}
+	else  {if(q(a,b,c)<0)
+	       result.count=0;
+		   else if(q(a,b,c)==0)
+		   {
+		   	result.count=1;
+		   	result.x1=-(double)b/2/a;
+		   	result.x2=result.x1;
+		   }
+	       else {result.count=2;
+	       result.x1=(-(double)b+sqrt(q(a,b,c)))/2/a;
+	       result.x2=(-(double)b-sqrt(q(a,b,c)))/2/a;
+		   }
+		  }
+		   return result;
+}
+int main()
+{
+	int a,b,c;
+	cin>>a>>b>>c;
+    ans d=f(a,b,c);
+	cout<<d.count<<endl<<d.x1<<endl<<d.x2;
+	
+}
+（2）
+#include <iostream>
+#include <math.h>
+#define dis(x1,y1,x2,y2) sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))
+#define area(p,a,b,c) sqrt(p*(p-a)*(p-b)*(p-c))
+using namespace std;
+struct point{
+	int a,b;
+};
+struct tran{
+	point x,y,z;
+};
+struct ans{
+	bool flag;
+	double s;
+	double c;
+};
+double f(point x,point y){
+	double distance;
+	distance=dis(x.a,x.b,y.a,y.b);
+	return distance;
+}
+ans fun(tran x)
+{
+	ans result;
+	double i,j,k;
+	double p=(i+j+k)/2;
+	i=dis(x.x.a,x.x.b,x.y.a,x.y.b);
+	j=dis(x.x.a,x.x.b,x.z.a,x.z.b);
+	k=dis(x.y.a,x.y.b,x.z.a,x.z.b);
+	if((i+j>k)&&(i+k>j)&&(k+j>i))
+	result.flag=true;
+	else result.flag=false;
+	if(result.flag)
+	{
+	result.c=i+k+j;
+	result.s=area(p,i,j,k);
+    }
+    return result;
+}
+int main()
+{
+	tran x;
+	ans A;
+	cin>>x.x.a>>x.x.b>>x.y.a>>x.y.b>>x.z.a>>x.z.b;
+	A=fun(x);
+	cout<<A.flag<<' '<<A.s<<' '<<A.c;
+	
+}
+补充题：
+#include <iostream>
+using namespace std;
+int main()
+{
+	char s[100];
+	int i;
+	cin.getline(s,100);
+	cout<<s<<'\n';
+	for(i=0;s[i];i++)
+	  if(s[i]>=65&&s[i]<=90)
+	  s[i]+=32;
+	cout<<s;
+	
+}

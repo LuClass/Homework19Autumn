@@ -1,0 +1,52 @@
+(4)#include<iostream>
+using namespace std;
+int main(){
+int n=0;
+char a;
+do{
+	a=cin.get();
+	if(a>='0'&&a<='9')
+	n++;
+}while(a!='\n');
+cout<<"n="<<n<<endl;
+return 0;
+}
+(7)#include<iostream>
+using namespace std;
+int main(){
+	int a=1,b=2,c=3,d=2,t;
+	cout<<a<<"/"<<b<<'\n';
+	for(int i=1;i<=19;i++)
+	{
+		cout<<c<<"/"<<d<<'\n';
+		t=d;
+		d=c;
+		c=c+t;
+		
+	}
+	return 0;
+} 
+(8)int main()
+{
+	int x;
+	cin >> x;
+	cout << x << "的因子为:" << 1 << " ";
+	for (int i = 2; i <= x / 2; i++)
+	{
+		if (x % i == 0)
+			cout << i << " ";
+	}
+	cout << endl << "1~100的完全数为:";
+	for (int y = 2; y <= 100; y++)
+	{
+		int sum = 1;
+		for (int i = 2; i <= y / 2; i++)
+		{
+			if (y % i == 0)
+				sum += i;
+		}
+		if (sum == y)
+			cout << y << " ";
+	}
+	return 0;
+}

@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+void toHex(int x){
+	char c;
+	if(x<=16){
+		if(x<10)  c=x+'0';
+		else c=x-10+'A';
+		cout<<c;
+	}
+	else{
+		toHex(x/16);
+		int n=x%16;
+		if(n<10) c=n+'0';
+		else c=n-10+'A';
+		cout<<c;
+		x=x/16;
+	}
+}

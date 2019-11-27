@@ -1,0 +1,46 @@
+（6）
+#include<iostream>
+using namespace std;
+int main(){
+int m,n,k,i,p,q;
+cin>>m>>n;
+p=m;
+q=n;
+if(m<n){
+	k=n;
+	n=m;
+	m=k;	
+}
+if(m==n){
+	cout<<m<<" "<<m;
+}
+else{
+for(;n<m;m=i){
+	if(m%n==0){
+		n=m%n;
+		break;
+	}
+	else{
+		i=n;
+		n=m%n;
+	}
+}
+cout<<"最大公约数"<<n<<endl;
+k=p*q/n;
+cout<<"最小公倍数"<<k<<endl; 
+}
+return 0;
+}
+
+（7）#include<iostream>
+using namespace std;
+int main(){
+	int m,k;
+	cin>>m;
+	for(;m>=10;m=m/10){
+		k=m%10;
+		cout<<k;
+	}
+	cout<<m;
+	return 0;
+}
