@@ -1,0 +1,127 @@
+//（1）
+#include<iostream>
+#include<iomanip>
+#include<math.h>
+using namespace std;
+struct Solution{
+	int count;    //解的个数 ,0,1,2
+	double x1,x2;
+};
+struct Solution f(int a,int b,int c){
+	struct Solution fun;
+	int delta;
+	delta=b*b-4*a*c;
+	if(delta<0)
+		fun.count=0;
+	if(delta==0){
+		fun.count=1;
+		fun.x1=(-b+sqrt(delta))/(2.0*a);
+	}		
+	if(delta>0){
+		fun.count=2;
+		fun.x1=(-b+sqrt(delta))/(2.0*a);
+		fun.x2=(-b-sqrt(delta))/(2.0*a);
+	}	
+	return fun;
+}
+int main(){
+	int a1,b1,c1;
+	struct Solution fun;
+	cout<<"请依次输入一元二次方程的系数a,b,c(a!=0)："<<endl;
+	cin>>a1>>b1>>c1;
+	if(a1==0){
+		cout<<"input error!"<<endl;		 
+	}
+	else{
+		fun=f(a1,b1,c1);		
+		cout<<"方程解的个数："<<fun.count<<endl;
+		if(fun.count==1){
+			cout<<"方程解为：x1=x2=";
+			cout<<setiosflags(ios::fixed)<<setprecision(2)<<fun.x1<<endl;
+		}	
+		if(fun.count==2){
+			cout<<"方程解为:x1=";
+			cout<<setiosflags(ios::fixed)<<setprecision(2)<<fun.x1;
+			cout<<setw(8)<<"x2=";
+			cout<<setiosflags(ios::fixed)<<setprecision(2)<<fun.x2<<endl;
+		}			
+	}	
+	system("pause");
+	return 0;
+}
+
+
+//（2）
+#include<iostream>
+#include<iomanip>
+#include<math.h>
+using namespace std;
+struct Point{
+	int x,y;
+};
+double diStance(Point p11,Point p22){
+	double dis;
+	dis=sqrt((p11.x-p22.x)*(p11.x-p22.x)+(p11.y-p22.y)*(p11.y-p22.y));
+	return dis;
+}
+struct Triangle{
+	bool flag;
+	double c,s,area;		
+};
+struct Triangle carea(double d1,double d2,double d3){
+	struct Triangle t;
+	if((d1+d2>d3) && (d1+d3>d2) && (d2+d3>d1)){
+		t.flag=1;
+		t.c=d1+d2+d3;
+		t.s=t.c/2.0;
+		t.area=sqrt(t.s*(t.s-d1)*(t.s-d2)*(t.s-d3));
+	}
+	else 
+		t.flag=0;	
+	return t;
+}
+int main(){
+	struct Point p1,p2;
+	struct Point p3,p4,p5;
+	double dis1,dis2,dis3;
+	struct Triangle t;
+	cout<<"(计算两点间的距离)请依次输入两点的坐标："<<endl;
+	cin>>p1.x>>p1.y>>p2.x>>p2.y;
+	cout<<"两点间的距离为"<<setiosflags(ios::fixed)<<setprecision(2)<<diStance(p1,p2)<<endl;
+
+	cout<<"(三角形)请依次输入三点坐标："<<endl;
+	cin>>p3.x>>p3.y>>p4.x>>p4.y>>p5.x>>p5.y;	
+	dis1=diStance(p3,p4);
+	dis2=diStance(p4,p5);
+	dis3=diStance(p3,p5);
+	t=carea(dis1,dis2,dis3);
+	if(t.flag==0)
+		cout<<"不能构成三角形."<<endl;
+	else{
+		cout<<"能构成三角形."<<endl;
+		cout<<"周长："<<setiosflags(ios::fixed)<<setprecision(2)<<t.c<<endl;
+		cout<<"面积："<<setiosflags(ios::fixed)<<setprecision(2)<<t.area<<endl; 
+	}	
+	system("pause");
+	return 0;
+}
+
+
+//补充
+#include<iostream>
+using namespace std;
+int main(){
+	char c[50];
+	cin.getline(c,50);
+	cout<<c<<endl;
+	int n=0;
+	for(int j=0;c[j]!='\0';j++){
+		n++;
+	}
+	for(int i=0;i<n;i++){
+		if(c[i]>='A' && c[i]<='Z')
+			c[i]+=32;
+	}
+	cout<<c<<endl;	
+	return 0;
+} 

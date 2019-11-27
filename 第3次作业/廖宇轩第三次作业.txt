@@ -1,0 +1,48 @@
+（1）
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a;
+	int j = 31, k;
+	unsigned int i = 2147483648;
+	cin >> a;
+
+	while (j >= 0)
+	{
+		k = a & i;
+		cout << (k >> j--) << " ";
+		i >>= 1;
+
+		
+	}
+}
+
+(6)
+#include <iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+	double  a, b, c;
+	cout << "请依次输入a,b,c" << endl;
+	cin >> a >> b >> c;
+	double  deta = b * b - 4 * a*c;
+	if (deta < 0)
+	{
+		cout << "函数无实数根！" << endl;
+
+	}
+	else if (deta == 0)
+	{
+		cout <<"函数只有一个根为"<< -b / (2 * a) << endl;
+
+	}
+	else
+	{
+		cout << "函数有两个根分别为" << (-b + sqrt(deta)) / (2 * a) << (-b - sqrt(deta)) / (2 * a)<< endl;
+	}
+
+
+}
+

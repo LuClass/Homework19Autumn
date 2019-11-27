@@ -1,0 +1,105 @@
+﻿＃include < iostream>
+＃include< stdlib.h>
+using namespace std ;
+void  getRandom（int a []，int n）
+{ int i;
+srand（time（NULL））;
+for（i = 0 ; i < 100 ; i ++）
+a [i] = rand（）％101；
+}
+int  getMax（const  int a []，int n）
+{ int y = 0 ;
+for（int i = 1 ; i < 100 ; i ++）{
+if（a [y] <a [i]）
+    y = i;
+                      }
+return y；
+}
+
+int  main（）
+{ int a [ 100 ]，n = 100 ;
+getRandom（a，n）;
+cout << getMax（a，n）;
+return 0 ;
+}
+＃include < iostream>
+using namespace std ;
+int  main（）
+{ int a [ 20 ];
+ int x = 21，y= 0，m = 21 ;
+ for（int y = 0 ; y <= 20 ; y ++）
+  a [y] = y + 1 ;
+ {
+ for（int z = 0 ; z <= 20 ; z ++）{
+ if（a [z]！= 999）
+  {  z+ = 1 ;
+ if（m％5 == 0）
+   {a [z] = 999 ;
+m- = 1 ;
+   }
+  }
+ if（m == 1）
+break;
+                      }
+ if（m == 1）
+ break ;
+}
+
+for（int n = 0 ; n <= 20 ; n ++）{
+if（a [n]！= 999）
+cout << “获胜者为” << n + 1 ;
+
+}
+
+返回 0 ;
+}
+
+＃include< iostream>
+using namespace std ;
+bool  isPrime（unsigned n）{	
+	if（n < 2）
+		return false ;
+	if（n == 2 || n == 3 || n == 5 || n == 7）	
+		return true ;
+	for（int i = 2 ; i * i <= n; i ++）
+		if（n％i == 0）
+			return false ;
+	return true ;
+}
+bool isSmith（int x）
+{ int i，y，sum1 = 0，sum2 = 0 ;
+y = x;
+for（; y！= 0 ; y / = 10）
+{i = y％10 ;
+sum1 + = i;
+}
+int j = 2 ;
+对于（; j <x; j ++）
+{ if（x％j == 0 && isPrime（j）== 1）
+     {sum2 + = j;
+      x / = j;
+     }
+}
+if（sum1 == sum2）
+return true ;
+else return false ;
+}
+int  main（）
+{ int n;
+cout << “请输入一个整数n：”；
+cin >> n;
+if（isPrime（n）== 1）{
+	cout << “输入的数有误” ;
+	return 0 ;
+}
+if（isSmith（n）== 1）
+cout << “该数是Smith数” << endl;
+else cout << “该数不是Smith数” << endl;
+for（int a = 4937775 ; a ++;）
+{ if（isSmith（a）== 1）
+{cout << “ 4937774的下一个史密斯数是” << a;
+break ;
+}
+}
+return 0 ;
+}

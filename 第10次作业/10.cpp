@@ -1,20 +1,25 @@
-#include<iostream.h>
-void main()
-{       int i,j,n,a[22];
-        for(i=1;i<22;i++)
-              a[i]=1;
-        for(i=1,j=1;i<=100;i++,j++)
-        {      if(j==22)
-                    j=1;
-               if(a[j]==0)
-               {    i--;
-                    continue;
-               }                  
-               if(i%5==0)
-                   a[j]=0;            
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n=21;
+    int a[21];
+    int i,j;
+    for(i = 0; i < n; i++)
+      a[i] = i+1;
+    while (n > =2)
+    {
+        i = (i + 4) % n;
+        for(j = i+1; j < n; j++)
+        {
+           a[j-1] = a[j];
         }
-        for(i=1;i<=21;i++)
-             if(a[i]==1)
-                 cout<<i;
+        n--;
+        if(i == n)
+          i = 0;  
+    }
+    cout<<a[i];
+    return 0;
 }
 
+ 

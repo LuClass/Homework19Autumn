@@ -1,24 +1,34 @@
-#include<iostream.h>
-#include<time.h>
-#include<stdlib.h>
-void getrandom(int a[],int n)
-{    srand(time(NULL));
-	 for(int i=0;i<n;i++)
-     {   a[i]=rand()%100;
-	     //cout<<a[i]<<'\t';
-	 }
+using namespace std;
+#include <iostream>
+#include <time.h>
+#include <stdlib.h>
+void getRandom(int a[],int n)
+{
+	srand(time(NULL));
+	for(int i=0;i<n;i++)
+	  a[i]=rand()%100;
 }
-void getmax(const int a[],int n)
-{    int sum=a[0],j=0;
-     for(int i=0;i<n;i++)
-         if(a[i]>sum)
-		 {   sum=a[i];
-		     j=i;
-		 }
-	 cout<<j<<'\t'<<sum;
+int getMax(int a[],int n)
+{
+	int max=a[0];
+	int k=0;
+	for(int i=1;i<n;i++)
+	  if(a[i]>max)
+	  {
+	    max=a[i];
+	    k=i;
+      }
+	cout<<max<<'\t'<<k;
 }
-void main()
-{    int a[100];
-     getrandom(a,100);
-	 getmax(a,100);
+int main()
+{
+	int n;
+	cin>>n;
+	int a[n];
+	getRandom(a,n);
+	for(int i=0;i<n;i++)
+	  cout<<a[i]<<'\t';
+	cout<<endl;
+	getMax(a,n);
+	return 0;
 }

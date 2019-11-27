@@ -1,0 +1,19 @@
+using namespace std;
+#include<iostrem>
+#include<cmath>
+struct sol
+{
+	int x1=0;
+	int x2=0;
+};
+f(int a,int b,int c)
+{
+	double del=sqrt(b*b-4a*c);
+	if(del>=0)
+	{
+		sol.x1=(-b+del)/(4*a*c);
+		sol.x2=(-b+del)/(4*a*c);
+		return sol;
+	}
+	return 0;
+}

@@ -1,19 +1,26 @@
-#include<iostream.h>
-void main()
-{    int a[20],i=0,j,x,n;
-     cin>>x;
-	 n=x;
-	 if(n<0)
-		 n=-n;
-	 while(n)
-	 {   a[i++]=n%10;
-	     n/=10;
-	 }
-	 for(j=0;j<i/2;j++)
-		 if(a[j]!=a[i-j-1])
-		 {	 cout<<x<<"不是回文数";
-			 break;
-		 }	 
-     if(j>=i/2)
-		 cout<<x<<"是回文数";
-}
+#include <iostream>
+using namespace std;
+#include <math.h>
+int main()
+{
+	int n;
+	cin>>n;
+	int num=0,sum=0;
+	int m1=n,m2=n;
+	while(m1!=0)
+	{
+		num++;
+		m1/=10;
+	}
+	while(m2!=0)
+	{
+		num--;
+		sum+=m2%10*pow(10,num);
+		m2/=10;
+	}
+	if(sum==n)
+	cout<<sum<<"是一个回文数";
+	else
+	cout<<sum<<"不是一个回文数";
+	return 0;
+} 
