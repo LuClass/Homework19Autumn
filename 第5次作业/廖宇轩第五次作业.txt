@@ -1,0 +1,100 @@
+(2)#include <iostream>
+using namespace std;
+int main()
+{
+	int i, j, k;
+	cout << "\n";
+	for (i = 1; i < 5; i++) /*以下为三重循环*/
+		for (j = 1; j < 5; j++)
+			for (k = 1; k < 5; k++)
+			{
+				if (i != k && i != j && j != k) /*确保i、j、k三位互不相同*/
+					cout << i, j, k;
+			}
+	cin.get();
+}
+(4)
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int day, month, year, sum, leap;
+	cout<<"\nplease input year,month,day\n";
+	cin>> year>>month>>day;
+	switch (month) /*先计算某月以前月份的总天数*/
+	{
+	case 1:sum = 0; break;
+	case 2:sum = 31; break;
+	case 3:sum = 59; break;
+	case 4:sum = 90; break;
+	case 5:sum = 120; break;
+	case 6:sum = 151; break;
+	case 7:sum = 181; break;
+	case 8:sum = 212; break;
+	case 9:sum = 243; break;
+	case 10:sum = 273; break;
+	case 11:sum = 304; break;
+	case 12:sum = 334; break;
+	default:cout<<"data error"; break;
+	}
+	sum = sum + day; /*再加上某天的天数*/
+	if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) /*判断是不是闰年*/
+		leap = 1;
+	else
+		leap = 0;
+	if (leap == 1 && month > 2) /*如果是闰年且月份大于2,总天数应该加一天*/
+		sum++;
+	cout<<"It is the %dth day."<<sum;
+	cin.get();
+}
+(6)
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout<<"Hello C-world!\n";
+	cout << " ****\n";
+	cout << " *\n";
+	cout << " * \n";
+	cout << " ****\n";
+	cin.get();
+}
+(8)
+#include <iostream>
+
+using namespace std;
+
+
+
+int main()
+{
+	int i, j, result;
+	cout<<"\n";
+	for (i = 1; i < 10; i++)
+	{
+		for (j = 1; j < 10; j++)
+		{
+			result = i * j;
+			cout<< i<<j<<result; /*-3d表示左对齐，占3位*/
+		}
+		cout<<"\n"; /*每一行后换行*/
+	}
+	cin.get();
+}
+(10)
+#include <iostream>
+using namespace std;
+int main()
+{
+	int i, j;
+	cout<<"\1\1\n"; /*输出两个笑脸*/
+	for (i = 1; i < 11; i++)
+	{
+		for (j = 1; j <= i; j++)
+			cout<<219<<219;
+		cout<<"\n";
+	}
+	cin.get();
+}

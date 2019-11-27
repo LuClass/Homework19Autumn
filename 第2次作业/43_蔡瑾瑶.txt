@@ -1,0 +1,18 @@
+23. (x>2)&&(x%2==0)
+24. x>8||x<-8
+25. (a)0  (b)0.333333  (c)1  (d)7
+26. (a)4  (b)27  (c)8  (d)162
+27. (a)1  (b)0  (c)31  (d)0
+28. (1)
+#include<iostream>
+using namespace std;
+int main(){
+	float C,F=0,K=0;
+	cout<<"C=";
+	cin>>C;
+	F=C*9/5+32,K=C+273.15;
+	cout<<"F="<<F<<'\n';
+	cout<<"K="<<K<<'\n';
+	return 1;
+}
+
