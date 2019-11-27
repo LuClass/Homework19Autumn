@@ -1,0 +1,59 @@
+(2).
+#include <iostream>
+using namespace std;
+int C(int n,int k)
+{int a,b;
+a=n-k;
+if (n>k)
+   {
+	for(n,b=n;b>1;--b)
+	n=n*(b-1);
+	for(k,b=k;b>1;--b)
+	k=k*(b-1);
+	for(a,b=a;b>1;--b)
+	a=a*(b-1);
+	return n/(k*a);
+   }
+}
+int main()
+{int n,k;
+cout<<C(4,2)<<" "<<C(6,4)<<" "<<C(8,7);
+return 0;
+}
+
+(4).
+#include <iostream>
+using namespace std;
+int main()
+{
+for(int i=3,m=5;i<500,m<500;i+=2,m+=2)
+ {
+	int j,n;
+	for(j=3,n=3;j*j<i,n*n<m;j+=2,n+=2)
+	   if(i%j==0||m%n==0)
+ 	     break;
+	if(j*j>i,n*n>m)
+	   cout<<i<<","<<m<<" ";
+ }
+}
+
+(5)
+#include <iostream>
+using namespace std;
+int main(){
+    int n;  
+    int i; 
+    cin>>n;
+    cout<<n<<"=";
+    for(i=2; i<=n; i++){
+        while(n!=i){
+            if(n%i==0){
+                cout<<i<<"*";
+                n=n/i;
+            }else
+                break;
+        }
+    }
+    cout<<n<<"\n";
+    return 0;
+}
