@@ -1,0 +1,93 @@
+（1）
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+struct abc{
+  float x1,x2;
+char x[5];
+};
+abc f(int a,int b,int c){
+abc A;
+float D;
+D=b*b-4*a*c;
+if(D<0){A.x1=0;A.x2=0;
+strcpy(A.x,"无解");
+}
+if(D>=0){
+strcpy(A.x,"有解");
+A.x1=(-b+sqrt(D))/2*a;
+A.x2=(-b-sqrt(D))/2*a;}
+return  A;
+}
+int main(){
+int a,b,c;
+cout << "ax^2+bx+c" << endl;
+cout<<"输入a，b，c的值"<<endl;
+cin >> a>>b>>c;
+abc A=f(a,b,c);
+cout << A.x<< endl;
+cout <<"x1="<<A.x1<<" "<<"x2="<<A.x2;    
+}
+
+
+
+
+（2）
+#include <iostream>
+#include <iomanip>
+#include <math.h>
+using namespace std;
+int C( int a, int b , int c, int d){
+float result;
+result=sqrt((a-c)*(a-c)+(b-d)*(b-d));
+return result;
+}
+int main(){
+float result1,result2,result3,c,s,p,k1,k2,k3;
+struct Point {
+int x1,y1,x2,y2,x3,y3;
+};
+Point P;
+cout << "输入第一个点" << endl;
+cin >> P.x1>>P.y1;
+cout << "输入第二个点" << endl;
+cin >> P.x2>>P.y2;
+cout << "输入第三个点" << endl;
+cin >> P.x3>>P.y3;
+k1=(P.y1-P.y2)/(P.x1-P.x2);
+k2=(P.y2-P.y3)/(P.x2-P.x3);
+if(k1==k2){
+cout << "不构成三角形" << endl;
+return 0;}
+cout << "构成三角形" << endl;
+result1=C(P.x1 ,P.y1,P.x2,P.y2);
+result2=C(P.x2 ,P.y2,P.x3,P.y3);
+result3=C(P.x1 ,P.y1,P.x3,P.y3);
+c=result1+result2+result3;
+cout<<"周长为"<<c<<endl;
+p=c/2;
+s=sqrt(p*(p-result1)*(p-result2)*(p-result3));
+cout<<"面积为"<<s<< endl;
+}
+
+
+
+
+
+附加
+#include<iostream>
+using namespace std;
+int main(){
+char a[50];
+cin.getline(a,50);
+cout <<"原字符串为"<<endl<<a<<endl;
+for(int i=0;a[i];i++){
+if(a[i]>=65&&a[i]<=90)
+a[i]=a[i]+32;
+}
+cout <<"大写字母改为小写字母后的字符串为"<<endl<<a<< endl;
+}
+
+
+

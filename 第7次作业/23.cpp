@@ -1,26 +1,20 @@
-using namespace std;
-#include <iostream>
-int main()
-{
-	int j,k,l,m,n;
-	cout<<"输入平行四边形的长和高"<<endl;
-	cin>>m>>n;
-	for(j=0;j<n;j++)
-	{
-		for(k=n;k>j;k--)
-			cout<<" ";
-	    for(l=0;l<m;l++)
-	        cout<<"*";
-	    cout<<endl;	
-	}
-	cout<<endl;
-	for(j=n;j>0;j--)
-	{
-		for(k=n;k>j;k--)
-		    cout<<" ";
-		for(l=0;l<m;l++)
-		    cout<<"*";
-		cout<<endl;
-	}
-	return 0; 
+#include<iostream.h>
+void main()
+{    int l,h,i,j;
+     cin>>l>>h;
+	 for(j=0;j<h;j++)
+	 {   for(i=0;i<j;i++)
+	         cout<<" ";
+		 for(i=0;i<l;i++)
+	         cout<<"*";
+		 cout<<'\n';
+	 } 
+     cout<<'\n';
+	 for(j=0;j<h;j++)
+	 {   for(i=0;i<h-j-1;i++)
+	         cout<<" ";
+		 for(i=0;i<l;i++)
+	         cout<<"*";
+		 cout<<'\n';
+	 } 
 }

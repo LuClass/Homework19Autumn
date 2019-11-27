@@ -1,0 +1,112 @@
+2.
+#include<iostream>
+using namespace std;
+int main(){
+int l;
+float j,j1=10000,j2=7500,j3=0.05*200000,j4=0.03*200000,j5=0.015*400000;
+cout<<"putin l=";
+cin>>l;
+switch(int(l/100000)){
+case 0:j=0.1*l;break;
+case 1:j=j1+(l-100000)*0.075;break;
+case 2:
+case 3:j=j1+j2+0.05*(l-200000);break;
+case 4:
+case 5:j=j1+j2+j3+0.03*(l-400000);break;
+case 6:
+case 7:
+case 8:
+case 9:j=j1+j2+j3+j4+0.015*(l-600000);break;	
+default:j=j1+j2+j3+j4+j5+0.01*(l-1000000);	
+}
+cout<<"bonus="<<j;
+return 0;
+}
+
+
+13.
+#include<iostream>
+using namespace std;
+int main(){
+for(int n=100;n<=999&&n>=100;n++){
+	int a=n%10,b=(n%100)/10,c=n/100;
+	if(n==a*a*a+b*b*b+c*c*c)
+	cout<<n<<endl;
+}
+return 0;
+}
+
+
+16.
+#include<iostream>
+using namespace std;
+
+int max(int a,int b){
+	if(a>b)
+	return a;
+	return b;
+}
+
+int min(int a,int b){
+	if(a<b)
+	return a;
+	return b;
+}
+
+int main(){
+int m,n;
+cout<<"putin two int:";
+cin>>m>>n;
+
+int i=min(m,n);
+for(;i>=1;i--){
+	if(n%i==0&&m%i==0)
+	break;
+}cout<<"Greatest Common Divisor:"<<i<<endl;
+
+int j=max(m,n);
+for(;j<=m*n;j++){
+	if(j%n==0&&j%m==0)
+	break;
+}cout<<"Least Common Multiple:"<<j;
+
+return 0;
+}
+
+
+23.
+#include<iostream>
+using namespace std;
+
+void pr(int n){
+	for(int i=1;i<=n;i++)
+	cout<<"*";
+}
+
+int main(){
+int l,w;
+cout<<"putin lenth and width:";
+cin>>l>>w;
+
+for(int i=1;i<=l;i++){
+	for(int j=1;j<=i;j++){
+		cout<<" ";
+	if(j==i){
+	pr(w);
+	cout<<endl;
+	}
+	}	
+}
+cout<<endl;
+for(int i=1;i<=l;i++){
+	for(int j=l;j>=i;j--){
+		cout<<" ";
+	if(j==i){
+	pr(w);
+	cout<<endl;
+	}
+	}	
+}
+
+return 0;
+}

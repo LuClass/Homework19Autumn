@@ -1,24 +1,15 @@
-using namespace std;
-#include <iostream>
-int main()
-{
-	int a,b,n1,n2,t;
-	cout<<"Please input two numbers"<<endl;
-	cin>>n1>>n2;
-	if(n1<n2)
-	{
-		t=n1;
-		n1=n2;
-		n2=t;
-	}
-	a=n1,b=n2;
-	while(b!=0)
-	{
-		t=a%b;
-		a=b;
-		b=t;
-	}
-	cout<<"最大公约数:"<<a<<endl;
-	cout<<"最大公倍数:"<<n1*n2/a<<endl;
-	return 0;
+#include<iostream.h>
+void main()
+{    int a,b,num1,num2,t;
+     cin>>a>>b;
+	 num1=a>b?a:b;
+	 num2=a>b?b:a;
+	 cout<<num1<<'\t'<<num2<<'\t';
+     while(num2!=0)
+	 {   t=num1%num2;
+	     num1=num2;
+		 num2=t;		 
+	 }
+	 cout<<num1;
+
 }

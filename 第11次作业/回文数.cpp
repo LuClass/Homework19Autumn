@@ -1,19 +1,26 @@
+#include <iostream>
 using namespace std;
-#include<iostream>
+#include <math.h>
 int main()
 {
 	int n;
-	int a=0,m;
 	cin>>n;
-	m=n;
-	while(m>0)
+	int num=0,sum=0;
+	int m1=n,m2=n;
+	while(m1!=0)
 	{
-		a=a*10+m%10;
-		m=m/10;
+		num++;
+		m1/=10;
 	}
-	if(a==n)
-	  cout<<"这是一个回文数";
+	while(m2!=0)
+	{
+		num--;
+		sum+=m2%10*pow(10,num);
+		m2/=10;
+	}
+	if(sum==n)
+	cout<<sum<<"是一个回文数";
 	else
-	  cout<<"这不是一个回文数";
-	return 0; 
-}
+	cout<<sum<<"不是一个回文数";
+	return 0;
+} 
