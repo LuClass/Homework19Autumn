@@ -1,0 +1,50 @@
+(2)#include <iostream>
+   using namespace std;
+   int C(int n,int k,){
+        return n!/(k!*(n-k)!)}
+   int main(){
+      int n,k;
+      cout<<"C(n,k)="<<C(n,k)<<endl;
+      cin>>n>>k;}
+
+
+
+
+
+(4)#include <iostream>
+   using namespace std;
+   int Z(int a){
+      for(int c,i=2;i<a;i++){
+          c=a%i;
+          if(c==0)
+                break;
+          else
+                cout<<a<<endl;}
+   int main(){
+        int a;
+        for(a=2,int i=2;a<=500;a++){
+             if(a-i==2)
+              cout<<"a"<<a<<"ºÍ"<<"i"<<i<<endl;
+             else
+               break;
+             i=a}
+         
+
+
+(5)#include <iostream>
+   using namespace std;
+   int Z(int a){
+ 	int i,c;
+	for(i=2;i<=a;i++){
+		c=a%i;
+		if(c==0){
+		  cout<<a/i<<"*"<<i<<endl;}
+}
+}
+int main(){
+	int a;
+	cin>>a;
+	Z(a);
+}
+
+

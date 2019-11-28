@@ -1,0 +1,88 @@
+(1)
+#include <iostream>
+using namespace std;
+int tri(int n)
+{
+	return n*n*n;
+}
+int flower(int n)
+{
+	if(n>99&&n<1000)
+	{int i,sum=0,j=n;
+		for(;n!=0;)
+		{
+			i=n%10;
+			n/=10;
+			sum+=tri(i);}
+			if(sum==j)
+			return j;
+			else
+		return 0;
+	}
+	else return 0;
+}
+int main()
+{
+	int a,b,c;
+	cin>>a>>b;
+	if (b<a)
+	{c=a;a=b;b=c;}
+	for (c=a;c<=b;c++)
+	{
+		if(flower(c))
+		cout<<c<<" ";
+	}return 0;
+}
+
+
+(2)
+#include <iostream>
+using namespace std;
+long long xhui(long long n)
+{
+	long long i,hui=0;
+	for(;n;n/=10)
+	{
+		i=n%10;
+		hui=10*hui+i;
+	}return hui;
+}
+bool isH(long long n)
+{
+	return xhui(n)==n?true:false;
+}
+int main()
+{
+	long long n;
+	cin>>n;
+	cout<<isH(n);
+}
+
+(3)
+#include <iostream>
+using namespace std;
+long long xyin(long long n)
+{
+	long long i=1,yin=0;
+	for(;i<n;i++)
+	{
+		if (!(n%i))
+		yin+=i;
+	}return yin;
+}
+bool isW(long long n)
+{
+	return xyin(n)==n?true:false;
+}
+int main()
+{
+	long long a,b,c;
+	cin>>a>>b;
+	if (b<a)
+	{c=a;a=b;b=c;}
+	for(c=a;c<=b;c++)
+	{
+		if (isW(c))
+		cout<<c<<' ';
+	}
+}

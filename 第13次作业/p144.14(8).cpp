@@ -1,34 +1,26 @@
-#include <iostream>
-#include <string.h>
-#define MAX 5
+#include<iostream>
+#include<string.h>
 using namespace std;
+int getWordCount(char a[])
+{ 
+	int n = strlen(a),count = 0;
+	bool word = false;
+	for(int i = 0;i < n;i++)
+	{
+		if((a[i]>='a'&&a[i]<='z')||(a[i]>='A'&&a[i]<='Z'))
+		{
+			if(word==false)
+			{
+				word = true;
+				count++;
+			}
+		}
+		else if(word)
+		word = false;
+	}
+	return count;
+} 
 int main(){
-	int getWordCount(char a[]);
-	char x[50];
-	cin.getline(x,50);
-	getWordCount(x);
-}
-int getWordCount(char a[]){
-	int count=0,n,i=0;
-	char ch1[1],ch2[1];
-	n=strlen(a);
-	while(i<=n-1){
-		if(a[i]!=' ')
-			i++;
-		if(a[i]==' '&&i==0){
-			while(a[i+1]==' ')
-				i++;
-			i++;
-		}
-		if((a[i]==' '&&((i)!=n-1))){
-			count++;
-			while(a[i+1]!=' ')
-				i++;
-			i++;
-		}
-	}
-	if(count!=1){
-		count++;
-	}
-	cout<<count;
+	char a[1000] = {"we		ARE THe chanpion!! !yes"};
+	cout << getWordCount(a);
 }

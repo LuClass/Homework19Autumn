@@ -1,0 +1,167 @@
+//第一个函数 
+#include <iostream>
+ using namespace std;
+int getSet1(int rs[],const int a[], int n)
+ {
+ 	int i,j,k=0;
+ 	rs[0]=a[0];
+ 	for(i=1;i<n;i++)
+ 	{
+ 		for(j=0;j<=k;j++)
+ 		{
+ 			if(a[i]==rs[j])
+ 				break;
+ 			if(j==k)
+ 			{
+ 				k++;
+ 				rs[k]=a[i];
+ 			}
+ 		}
+ 	}
+     return k++;
+ }
+
+int main()
+ {
+ 	int n,i;
+ 	int rs[8];
+ 	int num[8]={0};
+ 	n=8;
+ 	const int a[8]={3,1,2,3,1,5,2,1};
+ 	n=getSet1(rs,a,num,8);
+ 	cout<<n<<endl;
+ 	for(i=0;i<n;i++)
+ 	cout<<rs[i]<<" ";
+ 	return 0;
+ }
+
+//第二个函数
+#include <iostream>
+ using namespace std;
+ int getSet2(int rs[],const int a[],int num[], int n)
+ {
+ 	int i,j,k;	
+ 	rs[0]=a[0];
+ 	k=0;
+ 	for(i=1;i<n;i++)
+ 	{
+ 		for(j=0;j<=k;j++)
+ 		{
+ 			if(a[i]==rs[j])
+ 			{
+ 				break;
+ 			}
+ 			if(j==k)
+ 			{
+ 				k++;
+ 				rs[k]=a[i];
+ 			}
+ 		}
+ 	}
+ 	k++;
+ 	for(i=0;i<k;i++)
+ 	{
+ 		for(j=0;j<n;j++)
+ 		{
+ 			if(rs[i]==a[j])
+ 				num[i]++;			
+ 		}
+ 	}
+     return k;
+ }
+
+int main()
+ {
+ 	int n,i;
+ 	int rs[8];
+ 	int num[8]={0};
+ 	n=8;
+ 	const int a[8]={3,1,2,3,1,5,2,1};
+ 	n=getSet2(rs,a,num,8);
+ 	cout<<n<<endl;
+ 	for(i=0;i<n;i++)
+ 	{
+ 		cout<<num[i]<<" ";
+ 	}
+ 	return 0;
+ }
+
+//第三个函数
+#include <iostream>
+ using namespace std;
+ int getSet3(int rs[],const int a[],int num[],int num1[],int n)
+ {
+ 	int i,j,k=0;
+ 	int tempt;
+ 	rs[0]=a[0];
+ 	for(i=1;i<n;i++)
+ 	{
+ 		for(j=0;j<=k;j++)
+ 		{
+ 			if(a[i]==rs[j])
+ 			{
+ 				break;
+ 			}
+ 			if(j==k)
+ 			{
+ 				k++;
+ 				rs[k]=a[i];
+ 			}
+ 		}
+ 	}
+ 	k++;
+ 	for(i=0;i<k;i++)
+ 	{
+ 		for(j=0;j<n;j++)
+ 		{
+ 			if(rs[i]==a[j])
+ 			{
+ 				num[i]++;
+ 			}
+ 		}
+ 	}
+ 	for(i=0;i<k;i++)
+ 	{
+ 		num1[i]=num[i];
+ 	}
+ 	for(i=0;i<k-1;i++)
+ 	{
+ 		for(j=n-1;j>i;j--)
+ 		{
+ 			if(num[j]>=num[j-1])
+ 			{
+ 				tempt=num[j-1];
+ 				num[j-1]=num[j];
+ 				num[j]=tempt;
+ 			}
+ 		}
+ 	}
+     return k;
+ }
+
+ int main()
+ {
+ 	int n,i,j;
+ 	int rs[8];
+ 	int num[8]={0};
+ 	int num1[8]={0};
+ 	n=8;
+ 	const int a[8]={3,1,2,3,1,5,2,1};
+ 	n=getSet3(rs,a,num,num1,8);
+ 	cout<<n<<endl;
+ 	for(i=0;i<n;i++)
+ 	{
+ 		for(j=0;j<n;j++)
+ 		{
+ 			if(num[i]==num1[j])
+ 			{
+ 				    num1[j]=0;
+ 					cout<<rs[j]<<":"<<num[i]<<endl;
+ 					break;
+ 			}
+
+ 		}
+
+ 	}
+ 	return 0;
+ }

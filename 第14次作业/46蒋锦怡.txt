@@ -1,0 +1,127 @@
+（1）
+using namespace std;
+#include <iostream>
+#include <math.h>
+struct com{
+		double d;
+		double e;
+		double g;
+	};
+com f(int a,int b,int c)
+{
+    com data; 
+	data.d=b*b-4*a*c;
+	data.e=-b;
+	data.g=2*a;
+	return data;
+}
+int main()
+{
+	double a,b,c;
+	cin>>a>>b>>c;
+	com data;
+	data=f(a,b,c);
+	if(data.g==0)
+	{
+		cout<<"方程不是一元二次方程"<<endl; 
+	}
+	else
+	{
+		if(data.d<0)
+		{
+			cout<<"方程没有实数根"<<endl; 
+		}
+		else if(data.d==0)
+		{
+			cout<<data.e/data.g<<endl;
+		}
+		else
+		{
+			cout<<(data.e+sqrt(data.d))/data.g<<" "<<(data.e-sqrt(data.d))/data.g<<endl;
+		}
+	}
+	return 0;
+}
+（2）
+
+#include <iostream>
+using namespace std;
+#include <math.h>
+struct Point{
+	int x;
+	int y;
+};
+double d(int a,int b,int e,int f)
+{
+	double n;
+	n=sqrt((a-e)*(a-e)+(b-f)*(b-f));
+	return n;
+}
+struct length{
+	double g;
+	double h;
+	double i;
+};
+bool isjio(double g,double h,double i)
+{
+	if((g+h)>i&&(g+i)>h&&(h+i)>g)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}	
+double C(double g,double h,double i)
+{
+	double a;
+	a=g+h+i;
+	return a;
+}
+double area(double g,double h,double i)
+{
+	double s,b;
+	s=(g+h+i)/2;
+	b=sqrt(s*(s-g)*(s-h)*(s-i));
+	return b;
+}
+int main()
+{
+	Point a={1,2};
+	Point b={3,4};
+	Point c={2,1};
+	cout<<d(a.x,a.y,b.x,b.y)<<endl;
+	length e={d(a.x,a.y,b.x,b.y),d(a.x,a.y,c.x,c.y),d(c.x,c.y,b.x,b.y)};
+	if(isjio(e.g,e.h,e.i))
+	{
+		cout<<C(e.g,e.h,e.i)<<endl;
+		cout<<area(e.g,e.h,e.i)<<endl;
+	}
+	
+	return 0;
+}
+（3）
+#include <iostream>
+using namespace std;
+int main()
+{
+	char s[50];
+	cin.getline(s,50);
+	for(int j=0;j<=50;j++)
+	{
+		cout<<s[j];
+	}
+	cout<<endl;
+	for(int i=0;s[i];i++)
+	{
+		if(s[i]>='A'&&s[i]<='Z')
+		{
+			s[i]=s[i]+32;
+			cout<<s[i];	
+		}
+		else
+		cout<<s[i];
+	}
+	return 0;
+}

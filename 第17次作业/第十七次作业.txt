@@ -1,0 +1,55 @@
+using namespace std;
+#include <iostream>
+#include <string.h>
+void ad(char*a){
+	while(*a!=0){
+		if(*a>='a'&&*a<='z'){
+			*a=*a-32;
+		}
+		else if(*a>='A'&&*a<='Z'){
+			*a=*a+32;
+	}a++;
+}
+}
+int main (){
+	const int n=101;
+	char a[101];
+	cin.getline(a,100);
+	ad(a);
+	cout<<a;
+}
+
+
+
+
+using namespace std;
+#include <iostream>
+#include <string.h>
+void ad(char*pb[],int m){
+	char *temp;
+	for(int f=1;f<m;f++){
+		for(int f1=f+1;f1<=m;f1++){
+		
+	if(strcmp(pb[f],pb[f+1])>0){
+	temp=pb[f];
+	pb[f]=pb[f1];
+	pb[f1]=temp;	
+	   }}
+	}
+	for(int d=1;d<=m;d++){
+		cout<<pb[d]<<endl;
+   }
+}
+int main (){
+	int i=0,n,k=101;
+	cin>>n;
+	char p[n][k];
+	for(i;i<=n;i++){
+		cin.getline(p[i],k);
+	}
+	char *pb[n];
+    for(i=1;i<=n;i++){
+		pb[i]=p[i];
+	}
+    ad(pb,n);
+}
