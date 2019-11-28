@@ -6,13 +6,6 @@
 #include <iostream>
 #include <string.h>
 using namespace std;
-int strlength (const char *pa) {
-	if (pa==NULL) return 0;
-	const char *pa1=pa;
-	while (*pa++!=0);
-	return pa1-pa-1;
-}
-
 int main ( ){
 	char a[100];
 	cin.getline(a,100);
