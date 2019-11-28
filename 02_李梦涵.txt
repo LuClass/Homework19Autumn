@@ -1,0 +1,44 @@
+1.
+#include<iostream>
+#include<string.h>
+using namespace std;
+void f(char* a)
+{
+ 	int l=strlen(a);
+ 	for(int i=0;i<l;i++)
+ 	{
+ 		if(*a>='A'&&*a<='Z') *a+=32;
+ 		a++;
+ 	}
+ 	
+}
+int main()
+{
+ 	char a[50];
+ 	cin.getline(a,50);
+ 	f(a);
+	cout<<a;
+}
+
+2.
+#include <iostream>
+#include <string.h>
+using namespace std;
+int main(int argc,char *argv[])
+{
+ 	char *t;
+ 	for(int i=0;i<argc-1;i++)
+ 	{
+ 		for(int j=0;j<argc-i-1;j++)
+ 		{
+ 			if(strcmp(argv[j],argv[j+1])>0)
+ 			{
+ 				t=argv[j];
+ 				argv[j]=argv[j+1];
+ 				argv[j+1]=t;
+ 			}
+ 		}
+ 	}
+ 	for(int k=0;k<argc;k++)
+ 	    cout<<argv[k]<<endl;
+} 

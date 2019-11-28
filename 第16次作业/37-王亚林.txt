@@ -1,0 +1,100 @@
+#include<iostream>
+#include <time.h>
+#include <stdlib.h>
+#include <iomanip>
+using namespace std;
+void getSet(char *rs[],char *a[],int n)
+{
+	int counter = 0,total[30];
+	bool flag;
+	for(int i = 0;i < n;i++)
+		total[i] = 0;
+	for(int i = 0;i < n;i++)
+	{
+		flag = true;
+	    for(int j = 0;j < counter;j++)
+		{
+			if(a[i] == rs[j])
+			{
+				flag = false;
+				total[j]++;
+			}
+		}
+		if(flag == true)
+		{
+			rs[counter] = a[i];
+			total[counter++]++;
+		}
+	}
+	char *temp;
+	int t;
+	for(int i = 0; i < counter; i++)
+	{
+		for(int j = 0; j < counter-1-i; j++)
+		{
+			if(total[j] < total[j+1])
+			{		
+				t= total[j];                    
+				total[j] = total[j+1]; 
+				total[j+1] = t;
+
+				temp = rs[j];
+			    rs [j]= rs[j+1];
+				rs[j+1] = temp;
+			};
+		}
+	}
+	for(int i = 0;i< counter;i++)
+	cout<<rs+i<<" "<<total[i]<<endl;
+}
+
+int main(){   
+    int n;
+	cin>>n;
+	char *c[n];
+	for(int i=0;i<n;i++)
+	cin>>c[i];
+	char *a[n];
+	getSet(c,a,n);
+	return 0;
+}
+
+
+#include<iostream>
+#include <stdio.h>
+#include <string.h>
+using namespace std;
+void count(char *s)
+{
+	int i,j,b[20],temp,num=0,sum;
+	for(i=0;i<strlen(s);i++)
+	{
+		if(*(s+i)>='0'&&*(s+i)<='9')	//判断当前字符是否为数字字符 
+		{
+			temp=*(s+i)-'0';		
+			for(j=i+1;j<strlen(s);j++)
+			{
+				if(*(s+j)>='0'&&*(s+j)<='9')	//判断数字字符的下一个字符是否为数字字符 
+				{
+					temp=temp*10+*(s+j)-'0';	
+					i++;
+				}
+				else 
+					break;
+			}
+			*(b+num)=temp;	
+			num++;
+		}
+	}
+	cout<<num<<endl;
+	for(i=0;i<num;i++)
+		cout<<*(b+i)<<endl;
+}
+int main()
+{
+	int i;
+	char s[100];
+	cin.getline(s,100);
+	count(s);
+	return 0;
+}

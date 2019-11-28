@@ -1,0 +1,277 @@
+#include<iostream>
+
+
+
+#include<string.h>
+
+
+
+#define MAX 6
+
+
+
+using namespace std;
+
+
+
+char s[MAX][20];
+
+
+
+int a[MAX];
+
+
+
+int getRev(char a[])
+
+
+
+{   int k=0;
+
+
+
+    for(int i=0;i<strlen(a);i++)
+
+
+
+     for(int j=i+1;j<strlen(a);j++)
+
+
+
+{  if(a[i]>a[j])
+
+
+
+      k++;
+
+
+
+}
+
+
+
+return k;
+
+
+
+}
+
+
+
+void char_swap(char a[] ,char b[])
+
+
+
+{   char tmp[20];
+
+
+
+    strcpy(tmp,a);
+
+
+
+	strcpy(a,b);
+
+
+
+    strcpy(b,tmp);
+
+
+
+}
+
+
+
+void int_swap(int a,int b)
+
+
+
+{  int tmp;
+
+
+
+    tmp=a;
+
+
+
+	a=b;
+
+
+
+    b=tmp;
+
+
+
+}
+
+
+
+int main()
+
+
+
+{   int i;
+
+
+
+    for(i=0;i<MAX;i++)
+
+
+
+{   cin>>s[i];
+
+
+
+    a[i]=getRev(s[i]);
+
+
+
+}
+
+
+
+for(i=0;i<=MAX-2;i++)
+
+
+
+for(int j=0;j<=MAX-2-i;j++)
+
+
+
+{   if(a[j]>a[j+1])
+
+
+
+{   char_swap(s[j],s[j+1]);
+
+
+
+    int_swap(a[j],a[j+1]);
+
+
+
+}
+
+
+
+}
+
+
+
+cout<<"???????????????"<<endl;
+
+
+
+for(i=0;i<=MAX-1;i++)
+
+
+
+{cout<<s[i]<<":"<<a[i]<<endl;
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+
+
+
+#include <stdio.h>
+
+
+
+using namespace std;
+
+
+
+int getWordCount(char a[])
+
+
+
+{   int num=0; 
+
+
+
+    bool word=false;
+
+
+
+for (int i=0;a[i]!='\0'; i++)
+
+
+
+{   if (a[i]==' '||a[i]=='\t' )
+
+
+
+      word=false;
+
+
+
+    else
+
+
+
+    if (word==false)
+
+
+
+{    word=true;
+
+
+
+     num++;
+
+
+
+}
+
+
+
+}
+
+
+
+return num;
+
+
+
+}
+
+
+
+int main()
+
+
+
+{   char a[50];
+
+
+
+    cin.getline(a,50);
+
+
+
+    int i=getWordCount(a);
+
+
+
+    cout<<"There are "<<i<<" words in this sentences"<<endl;
+
+
+
+}
