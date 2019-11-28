@@ -1,4 +1,3 @@
-3.
 #include<iostream>
 using namespace std;
 struct Fraction{
@@ -13,6 +12,7 @@ void change(Fraction *x){
 	}
 	cout<<x->a<<"/"<<x->b<<endl;
 }
+
 void judge(Fraction *x,Fraction *y){
 	if(x!=NULL&&y!=NULL){
 		double c,d;
@@ -64,40 +64,43 @@ int main(){
 	}
 	return 0;
 }
-4.
+
+
 #include<iostream>
-#include<iomanip>
 using namespace std;
+	enum type{percent,level};
 struct Course{
-	char ID[10];
-	char name[20];
-	enum ways{
-		percent,
-		rank
-	};
+	char CID[20];
+	char Cname[20];
+     type a1;
+}; 
+union kaohechengji{
+	float x;
+	char y[2];
 };
-union TestGrade{
-	int m;
-	char t[2];
-	};
-struct Grade{
-	char SID[20];
-	char name1[10];
-	char IDc[10];
+struct xueshenggrades{
+	char xuehao[20];
+	char xueshengname[20];
 	Course c1;
-	TestGrade T;
+	kaohechengji m1;
+
 };
-void PrintAnCourse(Course *m){
-	if(m!=NULL)
-	cout<<setw(5)<<m->ID<<setw(5)<<m->name<<endl;
-}
-void PrintAnGrade(Grade *m){
-	if(m==NULL) return ;
-	cout<<setw(5)<<m->IDc<<setw(5)<<m->name1<<setw(5)<<m->SID;
-	PrintAnCourse(&m->c1);
-}
-int main(){
-	Grade l={"123","Tom","1234",{"1","Math"},{1}};
-	PrintAnGrade(&l);
-	return 0;
-}  
+ void PrintAGrade(xueshenggrades *m){
+ 	if(m==NULL) return ;
+ 	cout<<m->xuehao<<"  "<<m->xueshengname<<"  "<<m->c1.CID<<"  "<<m->c1.Cname<<" "<<m->c1.a1<<" ";
+ 	if(m->c1.a1==0)
+ 	cout<<m->m1.x<<endl;
+ 	else
+ 	cout<<m->m1.y[2]<<endl;
+
+
+ }
+
+ int main(){
+ 	xueshenggrades a={"123","Tom",{"0001","Math"},{90.0}};
+ 	xueshenggrades b={"124","Jerry",{"0002","CPP"},{'A'}};
+ 	PrintAGrade(&a);
+ 	PrintAGrade(&b);
+
+ 	return 0;
+ } 
