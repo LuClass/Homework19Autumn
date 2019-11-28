@@ -1,0 +1,45 @@
+1.
+#include <iostream>
+using namespace std;
+void lowe(char * a){
+	for(int i=0;a[i];++i){
+		if(a[i]<='Z'&&a[i]>='A')
+		a[i]=a[i]-'A'+'a';
+	}
+}
+int main()
+{
+	char * p=new char [50];
+	cin.getline(p,50);
+	lowe(p);
+	cout<<p;
+	return 0;
+ } 
+
+2.
+#include <iostream>
+#include <cstring>
+using namespace std;
+void csort(char * c[],int n){
+	char * temp;
+	for(int i=0;i<n-1;++i){
+		for(int j=0;j<n-i-1;++j){
+			if(strcmp(c[j],c[j+1])>0){
+				temp=c[j];
+				c[j]=c[j+1];
+				c[j+1]=temp;
+			}
+		}
+	}
+}
+int main(int argc,char * argv[])
+{
+	char * c1[50];
+	for(int i=1;i<argc;++i){
+		c1[i-1]=argv[i];
+	}
+	csort(c1,argc-1);
+	for(int i=0;i<argc-1;++i)
+	cout<<c1[i]<<endl;
+	return 0;
+ } 
