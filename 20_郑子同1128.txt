@@ -8,12 +8,12 @@ int main(){
     int n;
 	cin>>n;
 	for(;n>10;){
-		cout<<"ÇëÊäÈë²»´óÓÚ10µÄÊý"<<endl;
+		cout<<"è¯·è¾“å…¥ä¸å¤§äºŽ10çš„æ•°"<<endl;
 		cin>>n;
 	}
 	string c1[n];
 	for(int i=0;i<n;i++){
-		cout<<"ÇëÊäÈëµÚ"<<i+1<<"¸ö×Ö·û´®"<<endl;
+		cout<<"è¯·è¾“å…¥ç¬¬"<<i+1<<"ä¸ªå­—ç¬¦ä¸²"<<endl;
 		cin>>c1[i];
 	}
 	sort(c1,c1+n);
