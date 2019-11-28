@@ -1,0 +1,76 @@
+6.
+using namespace std;
+#include <iostream>
+int main()
+{
+	int m,n,a,b,i=1,x,y,z;
+	cin>>m>>n;
+	if (m>n)
+{   
+    a=m;
+    b=n;	
+}
+	else 
+{   
+    a=n;
+	b=m;
+}	
+	if (a%b==0)
+{
+	cout<<"最大公倍数="<<a<<endl;
+	cout<<"最大公约数="<<b<<endl; 
+}	
+    else
+{	
+    x=a;
+    y=b;
+    while (i!=0)
+{
+    i=a%b;
+    a=b;
+    b=i;
+}   cout<<"最大公约数="<<a<<endl;
+    z=a*(x/a)*(y/a);
+    cout<<"最大公倍数="<<z<<endl;
+}
+    
+    return 0;
+}
+7.
+using namespace std;
+#include <iostream>
+int main()
+{
+	int n,a,b,i;
+	cin>>n;
+	a=n;
+	for (i=1;i<=a;i=i*10)
+{
+	b=n%10;
+	cout<<b;
+	n=n/10;
+}
+return 0;
+ } 
+
+
+
+
+
+using namespace std;
+#include <iostream>
+int C(int n)
+{
+	if (n!=0)
+	cout<<n%10;
+	else 
+	return 0;
+	return C(n/10);
+}
+int main()
+{
+	int n;
+	cin>>n;
+	C(n);
+return 0;
+ } 

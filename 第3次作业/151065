@@ -1,0 +1,50 @@
+
+/*    P68作业      */
+
+/*   整数的二进制输出   */
+#include<iostream>
+using namespace std;
+int main (void)
+{
+	int shuzi,cishu=0;
+	cout<<"请输入一个整数"<<endl;
+	cin>>shuzi;
+	cout<<"该数的二进制输出为:"<<endl;
+	while (cishu<32)
+	{
+		if ((shuzi&1<<31)==0)
+		cout<<"0";
+		else
+		cout<<"1";
+ 	shuzi=shuzi<<1;
+	 cishu++;
+	}	
+    return 0;
+}
+
+
+
+/*   方程根的判别与解   */
+#include <iostream>
+#include<math.h>
+using namespace std;
+int main (void)
+{
+	double a,b,c,der;
+	cout<<"请输入方程的系数"<<endl;
+	cin>>a>>b>>c;
+	der=b*b-4*a*c;
+	if (der<0)
+	   cout<<"方程无根";
+	else 
+	      if (der==0)
+	     {cout<<"方程有一个根:"<<endl;
+	      cout<<(-b+sqrt(der))/2;
+	     }
+	     else 
+	     {cout<<"方程有两个根:"<<endl;
+	      cout<<(-b+sqrt(der))/2<<endl;
+	      cout<<(-b-sqrt(der))/2;
+	     }
+     return 0;
+}
