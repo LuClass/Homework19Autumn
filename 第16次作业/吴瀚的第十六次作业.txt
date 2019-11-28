@@ -1,0 +1,109 @@
+p237
+(4)
+#include <iostream>
+#include <string.h>
+#include <iomanip>
+using namespace std;
+char sort(char *data[],char n){
+	int i, j, k;
+	char *t;
+	for(i = 0; i <n-1; i++) 
+	{        
+		for(j = 0; j < n-1-i; j++){
+			if(strcmp(data[j],data[j+1])>0){	
+				t = data[j]; 
+				data[j] = data[j+1]; 
+				data[j+1]= t;
+			}
+		}
+    }		
+}
+
+void count(char* ch[],int n)
+ {
+ 	char s[10][20];
+ 	int times[10],key=1,x=0,a=0;
+ 	for (int i=0;i<n;i++)
+ 	{
+ 		for (int j=0;j<i;j++)
+ 		{
+ 			if (!strcmp(ch[j],ch[i]))
+ 			{
+ 				key=0;
+ 				break;
+ 			}
+ 		}
+ 		if (key==1)
+ 			strcpy(s[x++],ch[i]);
+ 		key=1;
+ 	}
+ 	for (int y=0;y<x;y++)
+ 	{
+ 		int m=0;
+ 		for (int b=0;b<n;b++)
+ 		{
+ 			if (!strcmp(s[y],ch[b]))
+ 				m++;
+ 		}
+ 		times[a++]=m;
+ 	}
+ 	for (int k=0;k<x;k++)
+ 	{
+ 		cout<<setw(20)<<s[k]<<"   "<<times[k]<<endl;
+ 	}
+ }
+
+int main(){
+	int n;
+	cin>>n;
+	char c[10][21];
+	char* ch[]={c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9]};	
+	for(int i=0;i<n;i++)		
+	cin.getline(c[i],21);
+	sort(ch,n);
+	cout<<endl;
+	for (int x=0;x<n;x++)	
+ 		cout<<ch[x]<<endl;
+ 	cout<<endl;
+ 	count(ch,n);	
+}
+
+(5)
+#include <iostream>
+using namespace std;
+char number(char s[100]){
+	int k=0,a,b;
+for(int j=0;s[j];j++)
+{
+  if((s[j]>=48&&s[j]<=57)&&((s[j-1]>=65&&s[j-1]<=122)||s[j-1]==32)){
+				k++;
+	}			
+}
+if(s[0]>=48&&s[0]<=57)
+   k++;
+	cout<<"整数个数为 "<<k<<endl;
+}
+
+char ZShu(char s[100]){
+	char a[100];
+	int k=0;
+		for(int j=0;s[j];j++)
+		{
+			if((s[j]>=48&&s[j]<=57)||s[j]==' ')
+				a[k]=s[j];
+			else
+			    a[k]=' ';
+			    k++;
+		}
+		cout<<"整数为 ";
+		for(int i=0;a[i];i++)		
+	      cout<<a[i];
+}
+
+int main(){
+	int n=0;
+	char s[100],a[100];
+	cin.getline(s,100);
+	number(s);
+	ZShu(s);	
+}
