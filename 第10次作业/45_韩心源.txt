@@ -1,0 +1,71 @@
+(2)
+using namespace std;
+#include <iostream>
+#include <time.h>
+#include <stdlib.h>
+void getRandom(int a[],int n)
+{
+	srand(time(NULL));
+	for(int i=0;i<n;i++)
+	  a[i]=rand()%100;
+}
+int getMax(int a[],int n)
+{
+	int max=a[0];
+	int k=0;
+	for(int i=1;i<n;i++)
+	  if(a[i]>max)
+	  {
+	    max=a[i];
+	    k=i;
+      }
+	cout<<max<<'\t'<<k;
+}
+int main()
+{
+	int n;
+	cin>>n;
+	int a[n];
+	getRandom(a,n);
+	for(int i=0;i<n;i++)
+	  cout<<a[i]<<'\t';
+	cout<<endl;
+	getMax(a,n);
+	return 0;
+}
+(5)
+#include <iostream>
+using namespace std;
+int F1(int n){
+    int a,sum1=0;
+while (n>0){
+    a=n%10;
+     n/=10;
+    sum1+=a;}
+return sum1;
+}
+int F2(int n)
+    {int b,sum2=0;
+    if (n<2) return 0;
+        {for (int i=2;i<=n;i++)       
+          {while (n%i==0)
+            {n=n/i;
+             sum2+=i;
+            }
+          }
+    }
+      return sum2;
+     }
+bool isSmith(int n){
+ if (F1(n)==F2(n))
+cout<<"this is a smith number";
+  else
+  cout<<"this is not a smith number";            
+}   
+int  main()
+{ int n;
+cout<<"Input a number:";
+cin>>n;
+ isSmith(n);
+  return 0;
+} 

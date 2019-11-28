@@ -1,0 +1,46 @@
+using namespace std;
+#include <iostream>
+int main (){
+int a,b,c,d;
+	cout<<"输入两个正整数"<<endl;
+	cin>>a>>b;
+	if(a<b){c=b;b=a;a=c;}d=a;
+	while(b!=0){
+	c=a%b;a=b;b=c;	
+		}cout<<"其最大公约数："<<a<<endl;
+		cout<<"其最小公倍数:"<<d*a;
+	}
+
+
+递推
+using namespace std;
+#include <iostream>
+int main (){
+int a,b;
+cout<<"输入整数"<<endl;
+cin>>a;
+for(a,b;a!=0;a/=10){
+	b=a%10;cout<<b;}
+	}
+
+递归
+using namespace std;
+#include <iostream>
+unsigned f(unsigned n){
+int a=1,b,c;
+if(n<10)
+return n;
+else{
+for(b=n;b>=10;b/=10){
+a*=10;	
+	}
+c=(n%10)*a;
+return (c+f(n/10));	
+}
+}
+int main (){
+unsigned n;
+cin>>n;
+cout<<f(n);	
+	}
+

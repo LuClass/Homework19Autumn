@@ -1,0 +1,63 @@
+p110
+(6)
+#include <iostream>
+using namespace std;
+void f(int num1,int num2,int c,int a,int b)
+{
+if(num1<num2)/*交换两个数，使大数放在num1上*/
+  {
+    c=num1;
+    num1=num2;
+    num2=c;
+  }
+  a=num1;b=num2;
+  while(b!=0)/*利用辗除法，直到b为0为止*/
+  {
+    c=a%b;
+    a=b;
+    b=c;
+  }
+  cout<<"gongyueshu: "<<a<<endl;
+  cout<<"gongbeishu: "<<num1*num2/a<<endl;
+}
+
+int main(void){
+	int a,b,c,num1,num2;
+	cout<<"please input two numbers: ";
+	cin>>num1>>num2;
+	f(num1,num2,c,a,b);
+}
+
+
+(7)
+(递归)
+#include <iostream>
+using namespace std;
+void f(int n){
+	cout<<n%10;
+	n/=10;
+	if(n!=0)
+	return f(n);
+}
+int main(){
+	int n;
+	cin>>n;
+	f(n);
+}
+
+(递推)
+#include <iostream>
+using namespace std;
+void f(int n,int s){
+	for(n,s=0;n!=0;n/=10)
+	{
+	s*=10;
+	s+=n%10;
+    }
+    cout<<s;
+}
+int main(){
+	int a,b;
+	cin>>a;
+	f(a,b);
+}

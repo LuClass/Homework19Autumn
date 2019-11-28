@@ -1,0 +1,29 @@
+using namespace std;
+#include <iostream>
+int main()
+{
+	int x;
+	cin>>x;
+	for(int i=1;i<=x;i++){
+	if(x%i==0)
+    cout<<i<<endl;}
+    cout<<"1～100中的完全数如下"<<endl;
+    int sum=0;
+    for(int a=1;a<=100;a++)
+    {
+    	for(int b=1;b<a;b++)
+    	{
+    		if(a%b==0)
+    		{
+    			sum+=b;
+    		}
+    	}
+    	    if(sum==a)
+    	    {
+    	    	cout<<sum<<endl;
+    	    }
+    	    sum=0;
+    }
+    
+    return 0;
+}

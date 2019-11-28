@@ -1,0 +1,33 @@
+using namespace std;
+#include <iostream>
+int zhs(int n,int k)
+{
+	int C;
+	int sum1=1,sum2=1,sum3=1;
+	if(n>k&&n>0&&k>0)
+  {
+	for(int a=1;a<=n;a++)
+	{
+		sum1*=a;
+	}
+	for(int b=1;b<=k;b++)
+	{
+		sum2*=b;
+	}
+	for(int c=1;c<=(n-k);c++)
+	{
+		sum3*=c;
+	}
+	C=sum1/(sum2*sum3);
+	cout<<"C("<<n<<","<<k<<")="<<C<<endl;
+  }
+  return 0;
+}
+int main()
+{
+	zhs(4,2);
+	zhs(6,4);
+	zhs(8,7);
+	return 0;
+}
+
