@@ -1,0 +1,132 @@
+//14.1
+#include <iostream>
+#include<string>
+using namespace std;
+struct Solve {
+	double m,n;
+	string s;
+};
+Solve equation(int a,int b,int c) {
+	Solve A;
+	int der = b * b - 4 * a*c;
+	if (a == 0) {
+		if ( b == 0) {
+			A.s = "该方程无解";
+		}
+		else if (  b != 0) {
+			A.s = "该方程有一个解";
+			A.m = double(-c) / b;
+		}
+	}
+	else  
+		if(der > 0) {
+		A.m = (-b + sqrt(der))/2/a;
+		A.n = (-b - sqrt(der))/a/2;
+		A.s = "该方程有两个异解";
+	    }
+		else if (der == 0) {
+		A.m = double(-b) / 2 / a;
+		A.n =double( -b) / 2 / a;
+		A.s = "该方程有两个重根";
+	    }
+	    else 
+		  A.s = "该方程无解";
+    return A;
+}
+int main() {
+	int a, b, c;
+	cout << "please input a,b,c in turn" << endl;
+	cin >> a >> b >> c;
+	Solve w = equation(a, b, c);
+	int der = b * b - 4 * a*c;
+	if (a == 0) {
+		if (b == 0) {
+			cout << w.s;
+		}
+		else if (b != 0) {
+			cout << w.s << ":" << w.m;
+		}
+	}
+	else
+		if (der > 0) {
+			cout << w.s << ":" << w.m << '\t' << w.n;
+
+		}
+		else if (der == 0) {
+			cout << w.s << ":" << w.m << '\t' << w.n;
+
+		}
+		else
+			cout << w.s;
+	return 0;
+}
+//14.2
+#include <iostream>
+#include<string>
+using namespace std;
+struct Point {
+	int a;
+	int b;
+};
+double distance(Point m, Point n) {
+	double dis;
+	dis = sqrt((m.a-n.a)*(m.a-n.a) +(m.b - n.b)*(m.b - n.b));
+	return dis;
+}
+bool ifTriangel(Point m, Point n, Point q) {
+	double a = distance(m, n);
+	double b = distance(m, q);
+	double c = distance(n, q);
+	if ((a + b) > c && (a +c) >b&&(b+c)>a)
+		return true;
+	return false;
+}
+void calculate(Point m, Point n, Point q) {
+	double primeter,area;
+	double a = distance(m, n);
+	double b = distance(m, q);
+	double c = distance(n, q);
+	primeter = a + b + c;
+	double s = primeter / 2;
+	area = sqrt(s*(s - a)*(s - b)*(s - c));
+	cout << "周长: " << '\t' << "面积:" << endl;
+	printf("%.2f\t%2.f", primeter, area);
+}
+int main() {
+	int x1, y1, x2, y2,x3,y3;
+	cout << "please input x1,y1,x2,y2 in turn" << endl;
+	cin >> x1 >> y1 >> x2 >> y2>>x3>>y3;
+	Point m = { x1,y1 }, n = { x2,y2 }, q = { x3,y3 };
+	printf( "m,n之间的距离为: %.2f\n" ,distance(m, n)) ;
+	printf( "m,q之间的距离为: %.2f\n" ,distance(m, q)) ;
+	printf( "q,n之间的距离为: %.2f\n" ,distance(n, q)) ;
+	if (ifTriangel(m,n,q)) {
+		cout << "输入三个点能构成一个三角形" << endl;
+		calculate(m, n, q);
+	}
+	else
+		cout << "输入的三个点无法构成一个三角形" << endl;
+	return 0;
+}
+3.
+#include <iostream>
+using namespace std;
+int main() {
+	char a[50] = { '0' };
+	cin.getline(a, 50);
+	cout << "修改前的字符串:" << endl;
+	for (int i = 0; i < strlen(a); i++) {
+		cout << a[i];
+	}
+	for (int i = 0; i < strlen(a); i++) {
+		if (a[i] >= 'a'&&a[i] <= 'z') {
+			a[i] = a[i] + 'A'-'a';
+		}
+	}
+	cout << endl;
+	cout << "修改后的字符串:" << endl;
+	for (int i = 0; i < strlen(a); i++) {
+		cout << a[i];
+	}
+	return 0;
+}

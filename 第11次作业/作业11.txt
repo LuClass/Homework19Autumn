@@ -1,0 +1,91 @@
+1.
+#include<iostream>
+using namespace std;
+ void judge(int i,int j){
+ if(i>=100&&i<=999&&j>=100&&j<=999&&i<j){
+	for(int m=i;m<j+1;m++){
+ 		int s=0,n,l;
+ 		l=m;
+ 		while(l!=0){
+ 			n=l%10;
+ 			s+=n*n*n;
+ 			l/=10;
+ 		}
+ 		if(s==m){
+ 			cout<<m<<"  ";
+		 }
+ 		
+	 }
+}
+	 else{
+	 	cout<<"wrong i j!";
+	 }
+ }
+ int main(){
+ 	int i,j;
+ 	cin>>i;
+ 	cin>>j;
+ 	judge(i,j);
+ 	return 0;
+}
+2.
+#include<iostream>
+using namespace std;
+bool judge(int n){
+	int N=n;
+	int i=0;
+	while(n!=0){
+		n=n/10;
+		i++;
+	}
+	int a[i];
+	int m;
+for(m=0;m<i;m++){
+	a[m]=N%10;
+	N=N/10;
+}
+	for(int j=i-1,u=0;j>=0&&u<i;j--,u++){
+		if(a[j]!=a[u])
+		return false;
+		break;
+	}
+	return true;
+}
+	
+
+int main(){
+	int n,m;
+	cin>>n;
+	if(judge(n)==1)
+	cout<<"true!";
+	else
+	cout<<"false";
+	return 0;
+	
+	
+}
+3.
+#include<iostream>
+using namespace std;
+void judge(int i,int j){
+	if(i<j){
+		for(int m=i;m<j+1;m++){
+			int s=0,n,l;
+			for(int x=1;x<m;x++){
+				if(m%x==0){
+					s+=x;
+				}
+				
+			}
+			if(s==m){
+					cout<<m<<"  ";
+				}
+		}
+	}
+}
+int main(){
+	int i,j;
+	cin>>i>>j;
+	judge(i,j);
+	return 0;
+} 

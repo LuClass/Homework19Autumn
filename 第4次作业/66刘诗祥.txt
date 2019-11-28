@@ -1,0 +1,50 @@
+11.（4）
+using namespace std;
+#include <iostream>
+int main(void){
+	int m=0;
+	char n=0;
+	do{
+		n=cin.get();
+		if (n>='0'&&n<='9')
+		   m++;
+	}while(n!='\n');
+	cout<<"数字字符的个数为："<<m<<endl;
+	return 0;
+}
+（7）
+using namespace std;
+#include <iostream>
+int main(void){
+	cout<<"1/2"<<endl;
+	int a=3,b=2,c=3,n=1;
+	for(;n<=19;n++,a=b+c,b=c,c=a)
+	   cout<<a<<"/"<<b<<endl;
+	   return 0;
+}
+（8）
+using namespace std;
+#include <iostream>
+int main(void){
+	int x,n;
+	cout<<"请输入一个正整数：";
+	cin>>x;
+	cout<<"其因子为："<<endl;
+	for(n=1;n<=x;n++)
+	 {if(x%n==0)
+	    cout<<n<<endl;  
+	 }
+	 cout<<"100以内的完全数有："<<endl;
+
+	int sum=0,a,b;
+	 for(a=1;a<=100;a++)
+          {for(b=1;b<=a;b++)
+            {if(a%b==0)
+		        sum+=b; 
+	     	}
+	     	sum-=a;
+            if(sum==a)
+			  cout<<a<<endl;   		
+ 	      }
+  return 0;	
+}

@@ -1,0 +1,40 @@
+﻿#include<iostream>
+#include<iomanip>
+using namespace std;
+int main(){
+int a,b,i=31;
+unsigned int c=2147483648;
+cin>>a;
+while(i>=0){
+	b=a&c;
+	cout<<(b>>i--);
+	c>>=1;
+}
+return 2; 
+}
+
+
+
+
+#include<iostream>
+#include<iomanip>
+#include<math.h>
+using namespace std;
+int main(){
+int a,b,c;
+cout<<"输入系数";
+cin>>a>>b>>c;
+float x1,x2,i=b*b-4*a*c;
+if(i<0)
+cout<<"方程无实数解";
+else 
+if(i==0) {
+x1=x2=-b/2*a; 
+cout<<"方程有一解" << "x="<<x1;
+} 
+else {
+x1=(-b+sqrt(i))/(2*a),x2=(-b-sqrt(i))/(2*a);
+cout<<"方程有两解"<<"x1="<<x1<<","<<"x2="<<x2;
+}
+return 2; 
+}

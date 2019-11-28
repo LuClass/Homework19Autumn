@@ -1,0 +1,72 @@
+21.(6)
+#include<iostream>
+using namespace std;
+int y(int,int);
+int _b(int,int);
+int main()
+{
+	int a,b;
+	cin>>a>>b;
+	cout<<y(a,b)<<endl;
+	cout<<_b(a,b);
+}
+int y(int a,int b)
+{
+	int cache;
+	if(b>a)
+	{cache=a;a=b;b=cache;}
+	while((cache=a%b)!=0)
+	{a=b;b=cache;}
+	return b;
+}
+int _b(int a,int b)
+{
+	int cache,an,bn;
+	an=a;bn=b;
+	if(b>a)
+	{cache=a;a=b;b=cache;}
+	while((cache=a%b)!=0)
+	{a=b;b=cache;}
+	return an*bn/b;
+}
+(7)
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+	int ai,i,a;
+	cin>>ai;
+	if(ai<0)
+	{cout<<'-';ai*=-1;}
+	a=ai;
+	for(i=0;a>9;i++)a/=10;//
+	for(int b=1;b<=i+1;b++)
+	{
+	cout<<ai%10;
+	ai/=10;
+	}
+}
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+void fx(int ai)
+{
+	if(ai<10&&ai>0)
+	cout<<ai;
+	else
+	{
+		cout<<(ai%10);
+		fx(ai/10);
+	}
+}
+int main()
+{
+	int ai;
+	cin>>ai;
+	if(ai<0)
+	{cout<<'-';ai*=-1;}//
+	fx(ai);
+}

@@ -1,0 +1,62 @@
+using namespace std;
+#include<iostream>
+#include<string.h>
+#define Max 5
+int getRev(char a[])
+{
+	int digit=strlen(a);
+	int count=0;
+	for(int i=0;i<digit-1;i++)
+	{
+		char temp;
+		for(int j=0;j<digit-i-1;j++)
+		{
+			if(a[j]>a[j+1])
+			{
+				temp=a[j];
+				a[j]=a[j+1];
+				a[j+1]=temp;
+				count++;
+			}
+		}
+	}
+		return count;
+}
+
+int main ()
+{
+	int getRev(char a[]);
+	char input[Max][20];
+	int revnum[Max];
+	for(int i=0;i<Max;i++)
+	{
+		cin.getline(input[i],20);
+		revnum[i]=getRev(input[i]);
+	}
+	
+	int tempnum;
+	char temprev[20];
+
+	for(int j=0;j<Max-1;j++)
+	{	
+		for(int i=0;i<Max-1-j;i++)
+		{
+			if (revnum[i]>revnum[i+1])
+			{
+				tempnum=revnum[i];
+				revnum[i]=revnum[i+1];
+				revnum[i+1]=tempnum;
+				
+				strcpy(temprev,input[i]);
+				strcpy(input[i],input[i+1]);
+				strcpy(input[i+1],temprev);			
+			}
+		}	
+	}
+	for(int i=0;i<Max;i++)
+	{
+		cout<<input[i]<<" "<<revnum[i]<<endl;
+	}
+	return 0;
+}
+

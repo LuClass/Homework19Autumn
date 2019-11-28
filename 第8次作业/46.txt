@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+int gcd(int a,int b){
+	return b==0?a:gcd(b,a%b);
+}
+int lcm(int a,int b){
+	return a*b/gcd(a,b);
+}
+int main(){
+	cout<<"请输入两个整数"<<endl;
+	int x,y;
+	cin>>x>>y;
+	cout<<"两个整数的最大公约数是："<<gcd(x,y)<<endl;
+	cout<<"两个整数的最小公倍数是："<<lcm(x,y)<<endl;
+} 
+7
+#include<iostream>
+using namespace std;
+void ditui(int a){
+	if(a==0){
+		return;
+	}
+	cout<<a%10;
+	ditui(a/10);
+} 
+int m=0;
+int digui(int a){
+	if(a==0){
+		return m;
+	}
+	m=m*10+(a%10);
+	a/=10;
+	digui(a);
+}
+int main(){
+	cout<<"请输入一个整数"<<endl;
+	int x;
+	cin>>x;
+	cout<<"递推算法的反序输出为：" <<endl;
+	ditui(x);cout<<endl; 
+	cout<<"递归算法的反序输出为：" <<endl;
+	cout<<digui(x)<<endl;	

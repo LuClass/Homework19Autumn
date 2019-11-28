@@ -1,0 +1,64 @@
+(6)
+#include <iostream>
+using namespace std;
+int A(int a,int b){
+	int t;
+	if(a>b){
+		t=a;
+		a=b;
+		b=t;
+	}
+	for(int i=a;i>1;i--){
+		if(a%i==0&&b%i==0)
+		cout<<i<<endl;
+		else
+		             break; 
+	}
+}
+int B(int a,int b){
+	int c,d;
+	d=A(a,b);
+	c=a*b/d;
+	cout<<c<<endl;
+}
+int main(){
+	int a,b;
+	cin>>a>>b;
+	cout<<"最大公因数="<<A(a,b)<<endl;
+	cout<<"最小公倍数="<<B(a,b)<<endl;
+}
+
+
+
+(7)递推:
+#include <iostream>
+using namespace std;
+int C(int a){
+	do{
+		cout<<a%10<<endl;
+		a=(a-a%10)/10;
+	}while(a!=0);
+}
+int main(){
+	int a;
+	cin>>a;
+	C(a);
+}
+
+
+
+
+递归:
+#include <iostream>
+using namespace std;
+int D(int a){
+	if(a=0)
+	    return 0;
+	else
+	    cout<<a%10<<D((a-a%10)/10)<<endl;
+}
+int main(){
+	int a;
+	cin>>a;
+	D(a);
+}

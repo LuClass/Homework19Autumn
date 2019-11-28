@@ -1,0 +1,57 @@
+P68.11.
+(4)
+#include <iostream>
+using namespace std;
+int main()
+{
+	char c;
+	int a=0,b=0,d=0;
+	cout<<"请输入一行字符：";
+	while((c=getchar())!='\n')
+	{if (c>='a'&&c<='z'||c>='A'&&c<='Z')
+	   a++;
+	else if(c==' ')
+	   b++;
+	else if(c>='0'||c<='9')
+	   d++;
+	}
+	   cout<<"输入的数字字符个数："<<d<<endl; 
+}
+
+
+(7)
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+{
+	cout<<"1/2"<<setw(6);
+	for(int a=2,b=1,k=2,c;k<=20;k++)
+	{c=a,a=a+b,b=c;
+	cout<<a<<"/"<<b<<setw(6);
+	}
+}
+
+
+(8)
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x,k,sum,n;
+	cin>>x;
+	for(x,k=1;k>=1,k<=x;k++)
+	{if(x%k==0)
+	cout<<k<<" ";
+	}
+    cout<<endl;
+	for(n=1;n<=100;n++)
+	{
+	for(k=1,sum=0;k<n;k++)
+	{
+	if(n%k==0)
+	sum +=k;
+	}
+	if(n==sum)
+	cout<<sum<<' ';}
+}
