@@ -1,0 +1,49 @@
+using namespace std;
+#include <iostream>
+int bb(int rs[],const int a[],int n){
+	int q=0,w=0,e=0,r=0,u;
+	for(q;q<n;q++){
+		for(w;w<=e;w++){
+			if(a[q]==rs[w])r++;
+		}if(r==0){rs[(w-1)]=a[q];e++;}
+		w=0;r=0;
+	}cout<<"rs={"<<rs[0];
+	for(int r=1;r<e;r++){
+		cout<<","<<rs[r];
+	}cout<<"}"<<e<<endl;
+	int t[e],y=0;
+	for(w=0;w<e;w++){       //出现次数 
+	for(q=0,r=0,y;q<n;q++){
+	if(a[q]==rs[w])r++;
+		}t[y]=r;r=0;q=0;y++;
+	}
+	cout<<"{"<<t[0];
+	for(w=1;w<e;w++){
+	cout<<","<<t[w];
+		}cout<<"}"<<endl;
+	for(q=0;q<e;q++){                //降次排序 
+	for(w=q+1,r=0,u;w>=q&&w<e;w++){
+	if(rs[w]<rs[q]){
+	r=rs[q];rs[q]=rs[w];rs[w]=r;
+	u=t[q];t[q]=t[w];t[w]=u;	
+	        }				
+		}
+	} cout<<"{"<<rs[0];
+	for(r=1;r<e;r++){
+		cout<<","<<rs[r];}cout<<"}"<<endl;
+	cout<<"{"<<t[0];
+	for(r=1;r<e;r++){
+		cout<<","<<t[r];}cout<<"}";		
+}
+int main(){
+	int c;
+	cout<<"输入数组大小"<<endl;
+	cin>>c;
+    cout<<"输入各元素"<<endl;
+	int b[c];
+	for(int i=0;i<c;i++){
+	cin>>b[i];	
+	}
+	int ra[c];
+	bb(ra,b,c);
+}

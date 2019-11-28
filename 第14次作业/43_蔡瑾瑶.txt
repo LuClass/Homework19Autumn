@@ -1,0 +1,69 @@
+#include<iostream> 
+using namespace std;
+
+int main(){
+	char a[50];
+	cin.getline(a,50);
+	cout<<"befor a:"<<a<<endl;
+	for(int i=0;a[i]!=0;i++){
+		if(a[i]>=65&&a[i]<=90)
+		   a[i]+=32;
+	}
+	cout<<"after a:"<<a;
+	return 0;
+}
+
+1.
+#include<iostream> 
+#include<math.h> 
+using namespace std;
+
+struct jie{
+		float x1;
+		float x2;
+	};
+
+jie f(int a,int b,int c){
+	jie j;
+	float A=a,B=b;
+	j.x1=(-B+sqrt(b*b-4*a*c))/(2*A);
+	j.x2=(-B-sqrt(b*b-4*a*c))/(2*A);
+	return j;
+}
+
+int main(){
+	int a,b,c;
+	cin>>a>>b>>c;
+	jie j=f(a,b,c);
+	if(b*b-4*a*c<0)
+	   cout<<"no jie";
+	else cout<<"jie:"<<j.x1<<" "<<j.x2;
+	return 0;
+}
+
+2.
+#include<iostream> 
+#include<math.h> 
+using namespace std;
+#define s ((l1+l2+l3)/2)
+
+struct point{
+		int x,y;
+	};
+
+float far(point a,point b){
+	return sqrt((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));
+}
+
+int main(){
+	point a,b,c;
+	cin>>a.x>>a.y>>b.x>>b.y>>c.x>>c.y;
+	float l1=far(a,b),l2=far(b,c),l3=far(a,c);
+	bool tri=l1+l2>l3&&l2+l3>l1&&l1+l3>l2;
+	cout<<"can form triangel:"<<boolalpha<<tri<<endl;
+	if(tri){
+		float S=sqrt(s*(s-l1)*(s-l2)*(s-l3)),L=l1+l2+l3;
+		cout<<"S="<<S<<endl<<"L="<<L;
+	} 
+	return 0;
+}

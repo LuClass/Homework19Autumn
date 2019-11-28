@@ -1,0 +1,103 @@
+(1)
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct X{
+	double x1,x2;
+};
+X x={0,0};
+int f(int a,int b,int c){
+	x.x1=(-b+sqrt(b*b-4*a*c)/(2*a));
+	x.x2=(-b-sqrt(b*b-4*a*c)/(2*a));
+	return 0;
+}
+int main(){
+	int a,b,c;
+	cin>>a>>b>>c;
+	f(a,b,c);
+	cout<<"x1="<<x.x1<<endl;
+	cout<<"x2="<<x.x2;
+}
+
+
+(2)
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct Point{
+	int x,y;
+};
+Point point1,point2;
+double distant(Point point1,Point point2){
+	return sqrt((point1.x-point2.x)*(point1.x-point2.x)+(point1.y-point2.y)*(point1.y-point2.y));
+}
+int main(){
+	int x1,x2,y1,y2;
+	double s;
+	cin>>x1>>y1;
+	cin>>x2>>y2;
+	point1.x=x1;
+	point1.y=y1;
+	point2.x=x2;
+	point2.y=y2;
+	s=distant(point1,point2);
+	cout<<"s="<<s<<endl;
+}
+
+
+
+第二小问
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct Point{
+	int x,y;
+};
+struct Triangle{
+	Point point1,point2,point3;
+};
+Triangle triangle;
+double distant(Point point1,Point point2){
+	return sqrt((1.0*point1.x-point2.x)*(point1.x-point2.x)+(point1.y-point2.y)*(point1.y-point2.y));
+}
+int main(){
+	int x1,x2,x3,y1,y2,y3;
+	double bian1,bian2,bian3,q;
+	cin>>x1>>y1;
+	cin>>x2>>y2;
+	cin>>x3>>y3;
+	triangle.point1.x=x1;
+	triangle.point1.y=y1;
+	triangle.point2.x=x2;
+	triangle.point2.y=y2;
+	triangle.point3.x=x3;
+	triangle.point3.y=y3;
+	bian1=distant(triangle.point1,triangle.point2);
+	bian2=distant(triangle.point2,triangle.point3);
+	bian3=distant(triangle.point3,triangle.point1);
+	q=(bian1+bian2+bian3)/2;
+	if((bian1+bian2>bian3)&&(bian1+bian3>bian2)&&(bian2+bian3>bian2)){
+		cout<<"可以构成三角形"<<endl;
+		cout<<"周长为"<<bian1+bian2+bian3<<endl;
+		cout<<"面积为"<<sqrt(q*(q-bian1)*(q-bian2)*(q-bian3));
+	}
+	else{
+		cout<<"无法构成三角形"; 
+	}
+}
+
+
+附加
+#include <iostream>
+using namespace std;
+int main(){
+	char ch[50];
+	cin.getline(ch,50);
+	cout<<ch<<endl;
+	for(int i=0;i<50;i++){
+		if(ch[i]>='a'&&ch[i]<='z'){
+			ch[i]=ch[i]-32;
+		}
+	}
+	cout<<ch<<endl;
+}

@@ -1,0 +1,55 @@
+（8）#include <iostream>
+using namespace std;
+//#include"max.cpp"
+//#include"hex.cpp"
+int max(int a,int b){
+	if(a>b){
+		return a;
+	}
+	else{
+		return 
+	}
+}
+void toHex(int x){
+	while(x!=0){
+		int i=(x%16);
+		if(i>=0&&i<10){
+			cout<<i;
+		}
+		else{
+			cout<<(char)('A'+i-10);
+		}
+		x/=16;
+	}
+}
+int main() {
+	cout<<"请输入两个整数"<<endl;
+	int x,y;
+	cin>>x>>y;
+	cout<<"十六进制形式显示的最大值"<<toHex(max(x,y))<<endl;
+	return 0;
+}
+（9）1
+#include<iostream>
+#include<math.h>
+using namespace std;
+double area(double a,double b,double c){
+	double s=(a+b+c)/2;
+	return sqrt(s*(s-a)*(s-b)*(s-c));
+}
+int main(){
+	double a,b,c;
+	cin>>a>>b>>c;
+	cout<<area(a,b,c);
+} 
+（9）2
+#include<iostream>
+#include<math.h>
+#define s ((a+b+c)/2)
+#define area sqrt(s*(s-a)*(s-b)*(s-c))
+using namespace std;
+int main(){
+	double a,b,c;
+	cin>>a>>b>>c;
+	cout<<area;
+} 
