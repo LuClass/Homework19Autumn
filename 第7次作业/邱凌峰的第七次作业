@@ -1,0 +1,109 @@
+（2）
+#include<iostream> 
+using namespace std;
+int main()
+{
+  long int i;
+  cin>>i;
+  int bonus1,bonus2,bonus4,bonus6,bonus10,bonus; 
+  bonus1=100000*0.1;
+  bonus2=bonus1+100000*0.75;
+  bonus4=bonus2+200000*0.5;
+  bonus6=bonus4+200000*0.3;
+  bonus10=bonus6+400000*0.15;
+  switch(int(i/100000)){
+    case 0:bonus=i*0.1;
+    break;
+    case 1: bonus=bonus1+(i-100000)*0.075;
+    break;
+    case 2:bonus=bonus2+(i-200000)*0.05;
+	case 3:bonus=bonus2+(i-200000)*0.05;
+    break;
+    case 4:bonus=bonus4+(i-400000)*0.03;
+	case 5:bonus=bonus4+(i-400000)*0.03;
+    break;
+    case 6:bonus=bonus6+(i-600000)*0.015;
+    case 7:bonus=bonus6+(i-600000)*0.015;
+    case 8:bonus=bonus6+(i-600000)*0.015;
+	case 9:bonus=bonus6+(i-600000)*0.015;
+    break;
+	default:bonus=bonus10+(i-1000000)*0.01;
+    break;
+	}
+	cout<<bonus<<endl;
+  return 0;
+  } 
+
+
+（13）#include<iostream>
+using namespace std;
+int main(){
+int i,j,k,n;
+cout<<"water flower' number is"<<" ";
+for(n=100;n<1000;n++){
+i=n/100;
+j=(n/10)%10;
+k=n%10;
+if(n==i*i*i+j*j*j+k*k*k){
+	cout<<n<<" ";
+}
+}
+return 0;
+}	
+  
+
+
+（16）
+#include<iostream>
+using namespace std;
+int main(){
+	int a,b,m,k,i,p;
+	cin>>a>>b;
+	i=a;
+	p=b;
+	if(a<b){
+		m=a;
+		a=b;
+		b=m;
+	}
+	for(;a%b!=0;a=k){
+		k=b,b=a%b;
+	}
+	k=i*p/b;
+	cout<<b<<" "<<k;
+}
+
+
+（23）
+#include<iostream>
+using namespace std;
+int main(){
+	int i,j,m,n,k;
+    cin>>i>>j;
+	for(m=0;m<i;m++){
+		for(n=0;n<=m;n++){
+			cout<<" ";
+		}
+		for(k=0;k<=j;k++){
+			cout<<"*";
+		}
+		cout<<endl;
+	}
+	cout<<endl;
+		for(m=0;m<i;m++){
+		for(n=0;n<=i-m;n++){
+			cout<<" ";
+		}
+		for(k=0;k<=j;k++){
+			cout<<"*";
+		}
+		cout<<endl;
+	}
+	
+	return 0;	
+}
+
+
+
+
+

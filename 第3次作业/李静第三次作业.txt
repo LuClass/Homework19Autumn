@@ -1,0 +1,35 @@
+（1）
+#include<iostream>
+using namespace std;
+void print(int a) {
+	for (int i = 1; i <= 32; i++) {
+		cout << (a >> (32 - i) &1);
+	}
+}
+int main() {
+	int x;
+	cout << "please input an integer" << endl;
+	cin >> x;
+	print(x);
+	return 0;
+}
+（6）
+#include<iostream>
+#include<math.h>
+using namespace std;
+void print(int a, int b,int c) {
+	int m =( b * b - 4 * a*c);
+	if (m < 0)
+		cout << "该方程无解" << endl;
+	else if (m == 0)
+		cout << "该方程存在两个相同的实数解X=" << (-b /( 2 * a)) << endl;
+	else
+		cout << "该方程存在两个实数解X1=" << (-b - sqrt(b * b - 4 * a*c))/(2*a) << "\t" << "X2=" << (-b + sqrt(b * b - 4 * a*c))/(2*a) << endl;
+}
+int main() {
+	int a, b, c;
+	cout << "please input a,b,c in turn" << endl;
+	cin >> a >> b >> c;
+	print(a, b, c);
+	return 0;
+}

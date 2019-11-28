@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+bool flower(int n){
+	int i=n/100;
+	int j=n/10%10;
+	int k=n%10;
+	if(n==i*i*i+j*j*j+k*k*k)
+	  return 1;
+	else 
+	  return 0;
+	
+}
+int main(){
+	int i,j;
+	cin>>i>>j;
+	for(int a=i;a<=j;a++)
+	{
+	  if(flower(a)==1)
+	  cout<<a<<" ";
+}
+    return 0;
+}
+
+
+#include <iostream>
+using namespace std;
+int main(){
+	int n;
+	cin>>n;
+	int sum=0;
+	for(int i=n;i>0;i=i/10)
+	{sum=sum*10+i%10;}
+    if(sum==n)
+    cout<<"This is a huiwen\n";
+    else
+    cout<<"This is not a huiwen\n";
+    return 0;
+}
+
+#include <iostream>
+using namespace std;
+bool perfect(int n){
+	int sum=0;
+	for(int k=1;k<n;k++)
+	{  if(n%k==0)
+	    sum+=k;
+}
+    if(sum==n)
+    return 1;
+    else
+    return 0;
+	   
+}
+int main(){
+	int i,j;
+	cin>>i>>j;
+	for(int k=i;k<=j;k++)
+	{
+	    if(perfect(k)==1)
+	    cout<<k<<" ";
+}
+    return 0;
+}

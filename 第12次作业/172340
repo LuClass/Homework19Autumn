@@ -1,0 +1,43 @@
+
+#include <iostream>
+using namespace std;
+int input(int a[], int n){
+	cout<<"请输入元素 ";
+	for(int j=0;j<n;j++)
+		cin>>a[j];
+}
+int getSet(int rs[],const int a[], int n)
+{    int i=0,j=0;
+     for(;j<n;j++)
+     { int s=1;
+	   for(int t=j-1;t!=-1;t--)
+	   { if(a[t]==a[j])
+	     s=0;
+	   }
+	   if(s)
+	   {rs[i]=a[j];
+	    i++;
+	   }	  
+	 }
+  return i;
+}   
+int main()
+{   int sum;
+	cout<<"请输入元素个数 ";
+	cin>>sum;
+	const int n=sum;
+    int a[n];
+	int rs[n];
+	input(a,n);
+	cout<<"集合中不重复元素个数为 "<<getSet(rs,a,n)<<endl;
+	cout<<"去除重复元素后集合为 "<<'\n';
+	int c=getSet(rs,a,n)-1;
+	cout<<'{';
+    for(int m=0;m<c;m++)
+    cout<<rs[m]<<',';  
+	cout<<rs[c]<<'}';
+    return 0;  
+}
+
+
+
