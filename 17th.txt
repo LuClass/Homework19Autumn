@@ -1,0 +1,49 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+char* convert(char *in)
+{	
+	int len=strlen(in);
+	for(int i=0;i<len;i++)
+	{
+		if(in[i]>=65&&in[i]<=90)
+		in[i]+=32;
+	}
+	return in;
+}
+
+int main(int argc, char *argv[])
+{
+	//int num=argc-1;
+	char str[20];
+	for(int i=1;i<argc;i++)
+		strcpy(argv[i],convert(argv[i]));
+	for(int i=1;i<argc;i++)
+	{
+		for (int j=1;j<argc-i;j++)
+		{
+			if (strcmp(argv[j],argv[j+1])>0)
+			{
+				strcpy(str,argv[j+1]);
+				strcpy(argv[j+1],argv[j]);
+				strcpy(argv[j],str);
+			}
+		}
+	}
+	for(int i=1;i<argc;i++)
+		cout<<argv[i]<<endl;
+	return 0;
+}
+
+
+
+/*
+int main()
+{
+	char in[100];
+	char *str=in;
+	cin.getline(in,100);
+	cout<<convert(str);
+	return 0;
+}
+*/
