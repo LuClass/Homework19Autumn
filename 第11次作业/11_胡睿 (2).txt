@@ -1,0 +1,82 @@
+1.水仙花数：
+#include <iostream>
+using namespace std;
+void daffodil()
+{
+    int x = 0;
+    int y = 0;
+    int z = 0;
+    int i,j;
+   cin>>i;cin>>j;
+    for (int n=i; n<j; n++)
+    {
+        x = n / 100;
+        y = (n % 100)/10 ;
+        z = n % 10;
+        
+        if(n == x*x*x + y*y*y +z*z*z)
+        {
+            cout<<n<<" 是水仙花数"<<endl;
+        }
+    }
+}
+
+
+int main()
+{
+   
+    cout<<"----------daffodil()---------"<<endl;
+    daffodil();
+    return 0;
+}
+2.回文数判定：
+#include<iostream>
+using namespace std;
+int main()
+{
+    bool hui(int n);
+    int a;
+    while(cin>>a)
+    {
+        if(hui(a))
+            cout<<"true"<<endl;
+        else
+            cout<<"false"<<endl;
+    }
+ 
+    return 0;
+}
+bool hui(int n)
+{
+    unsigned i=n;
+    unsigned m=0;
+    while(i>0)
+    {
+        m=m*10+i%10;
+        i/=10;
+    }
+    return m==n;
+}
+3.求完全数：   //输入为i1 j1
+#include<iostream>
+using namespace std;
+int main()
+{int i,j,m,sum=0;
+int i1,j1;
+cin>>i1;
+cin>>j1;
+for(m=i1;m<=j1;m++)
+{
+for(i=1;i<=m/2;i++)
+if(m%i==0)
+sum+=i;
+if(sum==m)
+for(j=1;j<=m/2;j++)
+{ if(m%j==0)
+cout<<j<<"+";
+if(j==m/2)
+cout<<"\b"<<"="<<sum<<endl;
+}
+sum=0;
+}
+}

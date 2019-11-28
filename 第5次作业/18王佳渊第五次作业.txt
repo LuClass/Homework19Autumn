@@ -1,0 +1,87 @@
+（2）
+#include <iostream>
+using namespace std;
+int main(void) {
+	long long I, bonus;
+	cout << "请输入利润：";
+	cin >> I;
+	if (I <= 100000)
+		bonus = I/10;
+	else if (I <= 200000)
+		bonus = 10000 + (I - 100000) * 0.075;
+	else if (I <= 400000)
+		bonus = 17500 + (I - 200000) * 0.005;
+	else if (I <= 600000)
+		bonus = 27500 + (I - 400000) * 0.003;
+	else if (I <= 1000000)
+		bonus = 33500 + (I - 600000) * 0.0015;
+	else
+		bonus = 39500 + (I - 1000000) * 0.001;
+	cout << "奖金总数为" << bonus;
+	return 0;
+}
+（4）
+#include <iostream>
+using namespace std;
+int main(void) {
+	int year,month,day;
+	int sum;
+	cout<< "请依次输入年月日（注意中间用空格分开）：";
+	cin >> year>> month >> day;
+	switch (month){
+	    case 1:sum = 0; break;
+	    case 2:sum = 31; break;
+	    case 3:sum = 59; break;
+	    case 4:sum = 90; break;
+	    case 5:sum = 120; break;
+	    case 6:sum = 151; break;
+	    case 7:sum = 181; break;
+	    case 8:sum = 212; break;
+	    case 9:sum = 243; break;
+	    case 10:sum = 273; break;
+	    case 11:sum = 304; break;
+	    case 12:sum = 334; break;
+	default:cout << "error"; break;
+	}
+	sum = sum + day;
+	if ((year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))&&(month>2))
+		sum++;
+	cout << year<<"年的第"<<sum<<"天";
+                return 0;
+}
+（6）
+#include <iostream>
+using namespace std;
+int main(void) {
+	cout<<"   *****\n";
+	cout<<"  *\n";
+	cout<<" * \n";
+	cout<<"  * \n";
+	cout<<"   *****\n";
+	return 0;
+}
+(8)
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(void) {
+	for (int i = 0; i < 9; i++) {
+		for (int j = 0; j < 9; j++)
+			cout << i + 1 << "*" << j + 1 << "\t";
+		cout << endl;
+	}
+	return 0;
+}
+(10)
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main(void){
+	int i, j;
+	cout << "\1\1"; 
+	for (i = 0; i < 10; i++){
+         for (j = 1; j <= i; j++)
+         cout << "■■";
+		 cout << ("\n");
+	}
+    return 0;

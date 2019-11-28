@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+int getSet(int rs[],const int a[],int n){
+	int c=0;int m;
+	for(int i=0;i<n;i++){
+	m=1;
+	for(int j=0;j<c;j++){
+	if(a[i]==rs[j])
+	m=0;
+	}
+    if(m==1)
+	rs[c++]=a[i];	}
+	for(int i=0;i<c;i++){
+	if(i==c-1)
+	cout<<rs[i]<<'\n';
+	else
+	cout<<rs[i];}
+	
+    return c;
+   }
+int getNum(int rs[],int c,const int a[],int n,int b[],int s){
+	for(int v=0;v<=c;v++){
+	for(int i=0;i<n;i++){
+	if(rs[v]==a[i])
+	s++;
+	}b[v]=s;
+	}
+	for(int v=0;v<=c;v++){
+	if(v==c)
+	cout<<b[v]<<'\n';
+	else
+	cout<<b[v];}
+	
+	}
+void selectSort(int b[], int v){
+	int a, d, temp;
+	for(a = 0; a < v-1; a++) 
+		for(d = a + 1; d < v; d++)	
+			if(b[a] < b[d]){
+				temp = b[a]; 
+				b[a] = b[d]; 
+				b[d] = temp;
+			}
+}
+void Order(int b[];int v;int rs[]){
+	selectSort(int b[],int v);
+	void show(int b[],int rs[],int v){
+ 	for(int v=0;v<n;v++){
+ 		cout<<rs[v]<<":"<<b[v]<<'\n';
+ 	}
+}
