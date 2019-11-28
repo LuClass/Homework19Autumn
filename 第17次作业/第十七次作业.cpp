@@ -32,13 +32,12 @@ void bubblesort(char *str[],int n)
 int main()
 {
 	int n;
-	cin>>n;
+	(cin>>n).get();
 	char *s[20];
 	for(int i=0;i<n;i++)
 	{
-		cin.get();
 		s[i]=(char*)malloc(sizeof(char)*21);
-		cin.getline(s[i],20);
+		cin.getline(s[i],20); 
 	}
 	for(int j=0;j<n;j++)
 	{
