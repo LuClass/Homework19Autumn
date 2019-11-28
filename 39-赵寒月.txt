@@ -1,14 +1,14 @@
-µÚÊ®Îå´Î×÷Òµ
- 174.14.£¨3£©ÓÃÖ¸Õë
+ç¬¬åäº”æ¬¡ä½œä¸š
+ 174.14.ï¼ˆ3ï¼‰ç”¨æŒ‡é’ˆ
   #include<iostream>
 #include<math.h>
 using namespace std;
-//¶¨Òå·ÖÊı½á¹¹Ìå
+//å®šä¹‰åˆ†æ•°ç»“æ„ä½“
 struct Fraction {
 	int a;
 	int b;
 };
-//¹¹Ôìº¯ÊıÊµÏÖ·ÖÊı»¯¼ò£¨Çó×î´ó¹«ÒòÊı£©
+//æ„é€ å‡½æ•°å®ç°åˆ†æ•°åŒ–ç®€ï¼ˆæ±‚æœ€å¤§å…¬å› æ•°ï¼‰
 void huajian(int * a, int * b) {
 	int t=1;                
 	for (int i = 2; i < (*a>*b?*a:*b); i++)
@@ -19,7 +19,7 @@ void huajian(int * a, int * b) {
 	*a = *a / t;
 	*b = *b / t;
 }
-//·Ö±ğ¹¹Ôì±È½Ï¡¢¼Ó¼õ³Ë³ıº¯ÊıÊµÏÖÏàÓ¦ÔËËã¡£
+//åˆ†åˆ«æ„é€ æ¯”è¾ƒã€åŠ å‡ä¹˜é™¤å‡½æ•°å®ç°ç›¸åº”è¿ç®—ã€‚
 void compare(Fraction f1, Fraction f2) {
 	if (f1.a == f2.a&&f1.b == f2.b)
 		cout << "f1=f2" << endl;
@@ -81,7 +81,7 @@ int main() {
 	system("pause");
 	return 0;
 }
-£¨4£©
+ï¼ˆ4ï¼‰
 #include<iostream>
 #include<math.h>
 using namespace std;
