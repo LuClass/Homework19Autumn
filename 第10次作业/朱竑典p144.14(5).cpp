@@ -1,6 +1,6 @@
 using namespace std;
 #include <iostream>
-int f3(int x)// 各位求和 
+int f3(int x)// 赂梅脦禄脟贸潞脥 
 {
 	int n=0;
 	while(x>0)
@@ -10,7 +10,7 @@ int f3(int x)// 各位求和
 	}
 	return n;
 }
-int f2(int x)//求因数和 
+int f2(int x)//脟贸脪貌脢媒潞脥 
 {
 	int i,n=0;
 	for(i=2;i<=x;i++)
