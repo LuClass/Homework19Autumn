@@ -1,0 +1,42 @@
+//1
+#include<iostream>
+#include<string.h>
+using namespace std;
+void change(char *a){
+	int m=strlen(a);
+	for(int i=0;i<m;i++){
+		if(*a>='A'&&*a<='Z'){
+		*a=*a+32;
+		}
+			a++;
+	    }
+
+}
+int main(){
+	char a[10];
+	cin.getline(a,10);
+	change(a);
+	cout<<a;
+	return 0;
+}
+//2
+#include<iostream>
+#include<string.h>
+using namespace std;
+int main(int argc,char *argv[]){
+	char *m=new char[10];
+	int a=argc-1;
+	for(int i=0;i<a-1;i++){
+		for(int j=0;j<a-i-1;j++){
+			if(strcmp(argv[j+1],argv[j])<0){
+				strcpy(m,argv[j]);
+				strcpy(argv[j],argv[j+1]);
+				strcpy(argv[j+1],m);
+			}
+		}
+	}
+	for(int i=0;i<argc;i++){
+		cout<<"argv["<<i<<"]="<<argv[i]<<endl;
+	}
+	return 0;
+}
