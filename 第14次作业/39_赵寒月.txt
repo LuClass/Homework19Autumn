@@ -1,14 +1,14 @@
-µÚÊ®ËÄ´Î×÷Òµ
- 174.14.£¨1£©
+ç¬¬åå››æ¬¡ä½œä¸š
+ 174.14.ï¼ˆ1ï¼‰
  #include<iostream>
 #include<math.h>
 using namespace std;
-//¹¹½¨½á¹¹ÌåÈ·¶¨·½³ÌµÄ¸ùºÍ¸ùµÄ¸öÊı¡£ 
+//æ„å»ºç»“æ„ä½“ç¡®å®šæ–¹ç¨‹çš„æ ¹å’Œæ ¹çš„ä¸ªæ•°ã€‚ 
 struct Result{
 	double x,x1,x2;
 	int count;
 };
-//¹¹½¨·µ»ØÖµÎª½á¹¹ÌåµÄº¯Êı£¬·½³ÌÏµÊı×÷ÎªÊµ²Î£¬ÅĞ¶Ï·½³Ì¸ùµÄ¸öÊı²¢ÇÒÎª½á¹¹Ìå¸³Öµ¡£ 
+//æ„å»ºè¿”å›å€¼ä¸ºç»“æ„ä½“çš„å‡½æ•°ï¼Œæ–¹ç¨‹ç³»æ•°ä½œä¸ºå®å‚ï¼Œåˆ¤æ–­æ–¹ç¨‹æ ¹çš„ä¸ªæ•°å¹¶ä¸”ä¸ºç»“æ„ä½“èµ‹å€¼ã€‚ 
 Result f(int a,int b,int c)
 {
 	Result R;
@@ -40,27 +40,27 @@ int main(){
 	    cout<<"The equation has two roots :x1="<<result.x1<<"  x2= "<<result.x2<<endl;
 	return 0;
 }
-£¨2£©
+ï¼ˆ2ï¼‰
 #include<iostream>
 #include<math.h>
 using namespace std;
-//¹¹½¨µã×ø±êµÄ½á¹¹Ìå
+//æ„å»ºç‚¹åæ ‡çš„ç»“æ„ä½“
 struct point {
 	double x, y;
 };
-//±àĞ´ÇóÁ½µã¼ä¾àÀëµÄº¯Êı
-double distance(point point1, point point2) //ÒÔ½á¹¹ÌåÎªĞÎ²Î£¬µ÷ÓÃx,y´úÈë¼ÆËã 
+//ç¼–å†™æ±‚ä¸¤ç‚¹é—´è·ç¦»çš„å‡½æ•°
+double distance(point point1, point point2) //ä»¥ç»“æ„ä½“ä¸ºå½¢å‚ï¼Œè°ƒç”¨x,yä»£å…¥è®¡ç®— 
 {
 	double d = sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
 	return d;
 }
-//¹¹½¨Èı½ÇĞÎ½á¹¹Ìå£¬³ÉÔ±ÊÇÈı±ß³¤. 
+//æ„å»ºä¸‰è§’å½¢ç»“æ„ä½“ï¼Œæˆå‘˜æ˜¯ä¸‰è¾¹é•¿. 
 struct triangle {
 	double d1 ;
 	double d2 ;
 	double d3 ;
 };
-//¼ÆËãÈı½ÇĞÎÖÜ³¤ºÍÃæ»ı£¬Èı½ÇĞÎ½á¹¹ÌåÒıÓÃ×÷ÎªĞÎ²Î 
+//è®¡ç®—ä¸‰è§’å½¢å‘¨é•¿å’Œé¢ç§¯ï¼Œä¸‰è§’å½¢ç»“æ„ä½“å¼•ç”¨ä½œä¸ºå½¢å‚ 
 double getperimeter(triangle &t1)
 {
 	return t1.d1 + t1.d2 + t1.d3;
@@ -69,7 +69,7 @@ double getarea(triangle &t1)
 {
 	return sqrt(getperimeter(t1)*(getperimeter(t1) - t1.d1)*(getperimeter(t1) - t1.d2)*(getperimeter(t1) - t1.d3));
 }
-//mainº¯Êı
+//mainå‡½æ•°
 int main() {
 	point p1, p2, p3;
 	double x1, y1;
@@ -82,7 +82,7 @@ int main() {
 	cin >> x3 >> y3;
 	p3 = { x3,y3 };
 
-	triangle T = { distance(p1,p2),distance(p1,p3),distance(p2,p3) };//½á¹¹ÌåtriangleµÄ³õÊ¼»¯£¡Çø±ğÔÚ½á¹¹ÌåÀïÃæ³õÊ¼»¯µÄ»°£¬ÔÙ¼ÓÉÏÁíÒ»¸ö½á¹¹ÌåpointÀàĞÍµÄ³ÉÔ±£¬²»ºÃ¸ã¡£
+	triangle T = { distance(p1,p2),distance(p1,p3),distance(p2,p3) };//ç»“æ„ä½“triangleçš„åˆå§‹åŒ–ï¼åŒºåˆ«åœ¨ç»“æ„ä½“é‡Œé¢åˆå§‹åŒ–çš„è¯ï¼Œå†åŠ ä¸Šå¦ä¸€ä¸ªç»“æ„ä½“pointç±»å‹çš„æˆå‘˜ï¼Œä¸å¥½æã€‚
 	if (fabs(T.d1 + T.d2) > T.d3 && fabs(T.d1 - T.d2) < T.d3)
 	{
 		cout << "T's perimeter is " << getperimeter(T) << endl;
@@ -94,7 +94,7 @@ int main() {
 	return 0;
 
 }
-¸½¼Ó£º½«×Ö·û´®ÖĞ´óĞ´×ÖÄ¸¸ÄÎªĞ¡Ğ´¡£
+é™„åŠ ï¼šå°†å­—ç¬¦ä¸²ä¸­å¤§å†™å­—æ¯æ”¹ä¸ºå°å†™ã€‚
 #include<iostream>
 using namespace std;
 int main() {
