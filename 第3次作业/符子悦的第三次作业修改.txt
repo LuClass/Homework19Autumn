@@ -1,0 +1,49 @@
+#include <iostream>
+#include <iomanip>
+
+using  namespace std;
+
+int main()
+{
+int a,b=1;
+int j=7,k;
+int i=128;
+ cin>>a;
+while(j>=0&&a>=0)
+ {
+ 	k=a&i;
+ 	cout<<(k>>j--)<<" ";
+ 	i>>=1;
+  }
+while(a<0&&j>=0)
+{    a=-a;  cout<<b;k=a&i;j=6;
+	}
+	while(j>=0&&a>=0)
+ {
+ 	k=a&i;
+ 	cout<<(k>>j--)<<" ";
+ 	i>>=1;
+ }
+}
+
+using namespace std;
+#include <iostream>
+#include<math.h>
+int main (void)
+{
+int a,b,c,d;
+cout<<"求方程a*x*x+b*x+c的根,分别输入a,b,c"<<endl;
+cin>>a>>b>>c;
+d=b*b-a*c*4;
+if(d>0)
+{cout<<"x1="<<(-b+sqrt(d))/(a*2)<<endl;
+cout<<"x2="<<(-b-sqrt(d))/(a*2);}
+else if(d==0)
+cout<<"x="<<(-b/(a*2));
+else
+cout<<"该方程无解";
+return 0;
+}
+
+
+

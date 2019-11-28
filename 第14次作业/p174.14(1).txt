@@ -1,0 +1,21 @@
+using namespace std;
+#include <iostream>
+#include <math.h>
+struct A{
+int d;int e;int h;	
+};A p;
+int f(int a,int b,int c){	
+int l,g;p.h=1;
+l=b*b-4.0*a*c;
+if(l>0){ g=sqrt(l);  p.d=(-b+g)/(2.0*a);p.e=(-b-g)/(2.0*a);}
+if(l==0){g=sqrt(l);  p.d=(-b)/(2.0*a);  p.e=p.d;} 
+if(l<0){p.h=0;	}
+}
+int main(){
+int a, b, c;
+cin>>a>>b>>c;
+f(a,b,c);
+if(p.h==0);
+else 
+cout<<p.d<<endl<<p.e;
+}

@@ -1,0 +1,29 @@
+(9).
+函数求面积
+#include<iostream>
+#include<math.h>
+using namespace std;
+double area(double a,double b,double c){
+	double s=(a+b+c)/2;
+	return sqrt(s*(s-a)*(s-b)*(s-c));
+}
+int main(){
+	double a,b,c;
+	cin>>a>>b>>c;
+	cout<<area(a,b,c)<<endl;
+	return 0;
+}
+宏求面积
+#include<iostream>
+#include<math.h>
+using namespace std;
+#define s(a,b,c) (a+b+c)/2
+#define area(s,a,b,c) sqrt(s*(s-a)*(s-b)*(s-c))
+int main(){
+	int s,a,b,c,n;
+	cin>>a>>b>>c;
+	s=s(a,b,c);
+	n=area(s,a3,b,c);
+	cout<<n<<endl;
+	return 0;
+}

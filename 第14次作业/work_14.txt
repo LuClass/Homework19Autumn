@@ -1,0 +1,105 @@
+(1)
+#include <iostream>
+#include <string.h>
+#include <math.h>
+using namespace std;
+struct Result
+{
+	double n,m;
+	int gen;
+};
+Result f(int a,int b,int c)
+{
+	Result r;
+	int d=b*b-4*a*c;
+	if(d<0)
+	{
+		r.gen=0;
+	}
+	else if(d==0)
+	{
+		r.gen=1;
+		r.n=r.m=(-b+sqrt(d))/2*a;
+	}
+	else
+	{
+		r.gen=2;
+		r.n=(-b+sqrt(d))/2*a;
+ 		r.m=(-b-sqrt(d))/2*a;
+	}
+	return r;
+}
+int main()
+{
+	int a,b,c;
+ 	cin>>a>>b>>c;
+ 	Result r=f(a,b,c);
+ 	if(r.gen==0) cout<<"无解"<<endl; 
+ 	if(r.gen==1) cout<<"有两个相同的解：x1 = x2 = "<<r.n<<endl;
+ 	if(r.gen==2) cout<<"有两个不同的解：x1 ="<<r.n<<", x2 ="<<r.m<<endl;
+}
+
+(2)
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct point
+{
+	int x;
+	int y;
+};
+double f(int x1,int x2,int y1,int y2)
+{
+	return sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));	
+}
+struct len
+{
+	double a,b,c;
+};
+bool ist(double x,double y,double z)
+{
+	if(x+y<=z||x+z<=y||y+z<=x||x<=0||y<=0||z<=0)return false;
+	else return true;
+}
+void Len(double x,double y,double z)
+{
+	cout<<"周长为："<<x+y+z<<endl; 
+}
+void S(double x,double y,double z)
+{
+	double s;
+	s=(x+y+z)/2;
+	cout<<"面积为："<<sqrt(s*(s-x)*(s-y)*(s-z))<<endl;
+}
+int main()
+{
+	point a,b,c;
+	cin>>a.x>>a.y>>b.x>>b.y>>c.x>>c.y;
+	cout<<"前两坐标点之间距离为"<<f(a.x,a.y,b.x,b.y)<<endl;
+	len l={f(a.x,a.y,b.x,b.y),f(a.x,a.y,c.x,c.y),f(b.x,b.y,c.x,c.y)};
+	if(ist(l.a,l.b,l.c))
+	{
+		Len(l.a,l.b,l.c);
+		S(l.a,l.b,l.c);
+	} 
+	else cout<<"不能构成三角形"<<endl;
+}
+
+extra：
+#include <iostream>
+using namespace std;
+int main()
+{
+	char a[51];
+	cin.getline(a,51);
+	cout<<a<<endl;
+	for(int i=0;a[i];i++)
+	{
+		if(a[i]>='A'&&a[i]<='Z')
+		{
+			a[i]=a[i]+32;
+			cout<<a[i];	
+		}
+		else cout<<a[i];
+	}
+}

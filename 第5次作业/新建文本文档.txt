@@ -1,0 +1,101 @@
+(2).
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	int l;
+	cout<<"输入利润：";
+	cin>>l;
+	if(l<=100000)
+		cout<<"奖金为："<<l*0.1<<endl;
+	else if(l<=200000)
+		cout<<"奖金为："<<10000+(l-100000)*0.075<<endl;
+	else if(l<=400000)
+		cout<<"奖金为："<<17500+(l-200000)*0.005<<endl;
+	else if(l<=600000)
+		cout<<"奖金为："<<27500+(l-400000)*0.003<<endl;
+	else if(l<=1000000)
+		cout<<"奖金为："<<33500+(l-600000)*0.0015<<endl;
+	else
+		cout<<"奖金为："<<39500+(l-1000000)*0.001<<endl;
+	return 0;
+}
+(4).
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	int leap,year,month,day,sum;
+	cout<<"第几年？";
+	cin>>year;
+	cout<<"第几月？";
+	cin>>month;
+	cout<<"第几日？";
+	cin>>day;
+	switch (int(month/1))
+		{
+		case 1 : sum=0;break;
+		case 2:sum=31;break;
+		case 3:sum=59;break;
+		case 4:sum=90;break;
+		case 5:sum=120;break;
+		case 6:sum=151;break;
+		case 7:sum=181;break;
+		case 8:sum=212;break;
+		case 9:sum=243;break;
+		case 10:sum=273;break;
+		case 11:sum=304;break;
+		case 12:sum=334;break;
+		default:cout<<"输入错误";break;
+	}
+	sum=sum+day;
+	if (year%400==0||(year%4==0&&year%100!=0))
+		leap=1;
+	else
+		leap=0;
+	if (leap==1&&month>2)
+		sum++;
+	cout<<"是"<<"第"<<year<<"年的第"<<sum<<"天";
+	return 0; 
+}
+(6).
+#include <iostream>
+using namespace std;
+int main(void)
+{
+	cout<<"  *****"<<endl;
+	cout<<" *"<<endl;
+	cout<<"*"<<endl;
+	cout<<"*"<<endl;
+	cout<<" *"<<endl;
+	cout<<"  *****";
+} 
+(8).
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(void)
+{
+	for (int i=1;i<=9;i++){
+		for (int j=1;j<=9;j++)
+			cout<<" "<<j<<"*"<<i<<"="<<setw(2)<<j*i;
+			cout<<endl;
+		}
+	return 0;
+}
+(10).
+#include <iostream>
+#include <conio.h>
+using namespace std;
+int main(void)
+{
+ int i,j;
+  cout<<("\1\1\n"); /*输出两个笑脸*/
+  for(i=1;i<11;i++)
+  {
+    for(j=1;j<=i;j++)
+      cout<<"■";
+    cout<<("\n");
+}
+	return 0;
+}

@@ -1,0 +1,72 @@
+1.
+#include <iostream>
+using namespace std;
+int wf(int i,int j){
+int k,n,x,y;
+for(n=i;n<=j;n++)
+{x=n%10;
+y=n/10%10;
+k=n/100;
+if(n==(x*x*x+y*y*y+k*k*k))
+{cout<<"water flower number:";
+cout<<n<<endl;
+}
+}
+}
+int main()
+{int i,j;
+while(1){cin>>i>>j;
+wf(i,j);
+}
+return 0;
+}
+2.
+#include <iostream>
+using namespace std;
+bool hws(long int n)
+{
+   int x,y=0;
+   x=n;
+   while(x>0)
+   {
+   	y=y*10+x%10;
+   	x=x/10;
+}
+if(n==y)
+return true;
+return false;
+	
+}
+int main()
+{long int n;
+while(1){cin>>n;
+if(hws(n))
+cout<<n<<"是回文数"<<endl;
+else cout<<n<<"不是回文数"<<endl; 
+}
+
+}
+3.
+#include <iostream>
+using namespace std;
+int wqs(int i,int j)
+{
+int k;
+for(i;i<j;i++)
+	{int sum=0;
+		for(k=1;k<=i;k++)
+		{if(i%k==0)
+		sum+=k;
+		}
+		if(sum==2*i)
+		cout<<i<<' ';
+	}
+	
+	
+}
+int main()
+{
+	int i,j;
+	cin>>i>>j;
+	wqs(i,j);
+}
