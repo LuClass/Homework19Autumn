@@ -1,0 +1,22 @@
+using namespace std;
+#include<iostream>
+#include<string.h>
+int getWordCount(char a[])
+{
+	int digit=strlen(a);
+	int count=1;
+	for(int i=0;i<digit-1;i++)
+	{
+		if((a[i]==32||a[i]==9)&&(a[i+1]!=32&&a[i+1]!=9))
+		count++;
+	}
+	return count;
+}
+
+int main()
+{
+	char a[1000];
+	cin.getline(a,1000);
+	cout<<getWordCount(a);
+	return 0;
+}

@@ -1,0 +1,95 @@
+#include <iostream>
+#include <iomanip>
+#include <string.h>
+#include <math.h>
+using namespace std;
+struct result
+{
+char a[6];
+float x1,x2;
+};
+result f(int a,int b,int c)
+{
+result r;
+double det;
+det=b*b-4*a*c;
+if(det<0)
+{
+strcpy(r.a,"无解");
+r.x1=-1;
+r.x2=-1;
+}
+if(det>=0)
+{
+strcpy(r.a,"有解");
+r.x1=(-b+sqrt(det))/(2*a);
+r.x2=(-b-sqrt(det))/(2*a);
+}
+cout<<setw(5)<<r.a<<" x1="<<r.x1<<" x2="<<r.x2;
+}
+int main()
+{
+int a,b,c;
+cin>>a>>b>>c;
+f(a,b,c);
+}
+
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct Point
+{
+	int a,b;
+};
+float length(Point A,Point B)
+{
+	float D;
+	D=sqrt((A.a-B.a)*(A.a-B.a)+(A.b-B.b)*(A.b-B.b));
+	return D;
+}
+float square(Point A,Point B,Point C)
+{
+	float c,s;
+	if ((A.a-B.a)/(A.b-B.b)==(A.a-C.a)/(A.b-C.b))
+		cout << "不是三角形"<<endl;
+	else
+	{
+		c=length(A,B)+length(B,C)+length(A,C);
+		s=sqrt(c*(c-length(A,B))*(c-length(B,C))*(c-length(A,C)));
+		cout<< "面积为" <<s<<endl;
+		cout<<"周长为"<<c<<endl; 
+	} 
+}
+int main()
+{
+	Point A,B,C;
+	cout<<"A的坐标：";cin>>A.a>>A.b;cout<<endl;
+	cout<<"B的坐标：";cin>>B.a>>B.b;cout<<endl;
+	cout<<"C的坐标：";cin>>C.a>>C.b;cout<<endl;
+	float l;
+	l=length(A,B);
+	square(A,B,C);
+	cout<<l;
+}
+
+
+
+#include <iostream>
+using namespace std;
+void change(char a[]){
+	int i=0;
+	while (a[i]!=0){
+		if (a[i]<=90&&a[i]>=65) 
+			a[i]=a[i]+32;
+		i++; 
+	}
+}
+int main()
+{
+	char a[51];
+	cin.get(a,51);
+	cout<<a<<endl;
+    change(a);
+    cout<<a;
+}

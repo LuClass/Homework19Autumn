@@ -1,0 +1,47 @@
+（8）
+//1
+#include <iostream>
+#include "max26.h"
+#include "hex26.h"
+using namespace std;
+int main(int argc, char** argv) {
+	int x,y;
+	cin>>x>>y;
+	int temp;
+	temp=max(x,y);
+	toHex(temp);
+	return 0;
+}
+
+//2
+#include<iostream>
+using namespace std;
+int max(int a,int b){
+	if(a>=b) 
+		return a;
+	else 
+		return b;
+}
+
+//3
+#include<iostream>
+using namespace std;
+void toHex(int x){
+	cout<<hex(a)<<endl;
+}
+
+
+（9）
+#include<iostream>
+#include "math.h"
+using namespace std;
+#define S(a,b,c) (a+b+c)/2
+#define AREA(s,a,b,c) sqrt(s*(s-a)*(s-b)*(s-c))
+int main(){
+	int s,a,b,c,area;
+	cin>>a>>b>>c;
+	s=S(a,b,c);
+	area=AREA(s,a,b,c);
+	cout<<area<<endl;
+	return 0;
+}
