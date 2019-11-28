@@ -1,0 +1,85 @@
+21.(2)
+#include<iostream>
+using namespace std;
+int funct(int n){
+	int sum=1;
+	for(int i=n;i>1;i--){
+		sum*=i;
+	}
+	return sum;
+}
+int main(){
+	int a,b,c;
+	a=funct(4)/(funct(2)*funct(2));
+	b=funct(6)/(funct(4)*funct(2));
+	c=funct(8)/(funct(7)*funct(1));
+	cout<<"C(4,2)="<<a<<endl;
+	cout<<"C(6,4)="<<b<<endl;
+	cout<<"C(8,7)="<<c<<endl;
+	return 0;
+}
+
+21.(4)
+#include<iostream>
+using namespace std;
+bool isPrime(int n){
+	if(n==2||n==3||n==5||n==7)
+	    return true;
+	else if(n>10){
+		for(int i=2;i<n;i++){
+		    if(n%i==0)
+			    return false;  
+		}
+		return true;
+	}
+	else
+	    return false;
+} 
+int main(){
+	for(int i=1;i<498;i++){
+		if(isPrime(i)&&isPrime(i+2))
+		    cout<<i<<" "<<i+2<<endl;
+	}
+	return 0;
+}
+
+21.（5）
+#include<iostream>
+using namespace std;
+bool isPrime(int n){
+	if(n==2||n==3||n==5||n==7)
+	    return true;
+	else if(n>10){
+		for(int i=2;i<n;i++){
+		    if(n%i==0)
+			    return false;  
+		}
+		return true;
+	}
+	else
+	    return false;
+}
+int main(){
+	int x;
+	int flag=0;
+	cin>>x;
+	cout<<x<<"=";
+	while(!isPrime(x)&&x>1){
+		for(int i=2;i<=x/2;i++){
+			if(isPrime(i)&&x%i==0){
+				if(flag==1)
+				    cout<<"*";
+				cout<<i;
+				flag=1;
+				x=x/i;
+				break;
+			}
+		}
+	}
+	if(x!=1){
+		if(flag==1)
+		    cout<<"*";
+		cout<<x<<endl;
+	}
+	return 0;
+}

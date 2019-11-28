@@ -1,0 +1,41 @@
+﻿第一题
+#include <iostream>
+#include <iomanip>
+
+using  namespace std;
+
+int main()
+{
+int a;
+int j=7,k;
+unsigned int i=128;
+ cin>>a;
+ 
+ while(j>=0)
+ {
+ 	k=a&i;
+ 	cout<<(k>>j--)<<" ";
+ 	i>>=1;
+  }
+ 
+}
+第二题
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+int a,b,c,x,d;
+cin>>a>>b>>c;
+if (b*b-4*a*c<0)
+cout<<"该方程无根"<<endl;
+else if(b*b-4*a*c==0)
+{x=-b/(2*a);
+cout<<"该方程有一根"<<x<<endl;}
+else
+{ (b*b-4*a*c>0);
+x=-b-(sqrt(b*b-4*a*c))/(2*a), d=-b+(sqrt(b*b-4*a*c))/(2*a);
+cout<<"该方程有两根"<<x<<d<<endl;
+}
+return 0;
+}

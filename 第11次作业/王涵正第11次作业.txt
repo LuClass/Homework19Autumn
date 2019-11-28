@@ -1,0 +1,105 @@
+1
+#include<iostream>
+using namespace std;
+bool flower(int i){int t=i;
+int sum=0;
+while(i>0){
+sum=sum+(i%10)*(i%10)*(i%10);
+i=i/10;		
+}	
+if(100<=t<=999){
+if(sum==t)
+return 1;
+else 
+return 0;		
+}
+else
+return 0;		
+}
+int main()
+{int i,j,x;
+cin>>i;
+cin>>j;
+if(i>=j)
+cout<<"输入有误";
+for(x=i;x<=j;x++)
+if(flower(x)==1)
+cout<<x<<endl;	
+}
+
+
+2
+#include<iostream>
+using namespace std;
+int length(int n){
+int sum=0;
+while(n>0){
+sum++;
+n=n/10;	
+}	
+return sum;		
+}
+
+int cifang(int n){int i=1;int sum=1;
+for(i;i<=n;i++)
+sum=sum*10;
+return sum;	
+}
+
+
+
+bool huiwen(int n){
+int i=1;
+int k=length(n)/2;
+for(i;i<=k;i++)
+if(
+(n%cifang(i))/(cifang(i-1))
+!=
+(n/(cifang(length(n)-i))%10)	
+)
+break;	
+if(i>k)
+return 1;
+else 
+return 0;		
+}
+
+int main()
+{int n;
+cin>>n;
+if(huiwen(n)==1)
+cout<<"是回文数";
+else
+cout<<"不是回文数";
+}
+
+
+
+
+
+3
+#include<iostream>
+using namespace std;
+bool wanquan(int i){
+int sum=0;int x=1;	
+while(x<i){
+if(i%x==0)
+sum=sum+x;
+x++;		
+}	
+if(sum==i)
+return 1;
+else
+return 0;		
+}
+
+int main()
+{int a,b,i;
+cin>>a;
+cin>>b;
+if(a>=b)
+cout<<"输入有误";
+for(i=a;i<=b;i++)
+if(wanquan(i)==1)
+cout<<i<<endl;		
+}
