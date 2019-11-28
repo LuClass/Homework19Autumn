@@ -1,16 +1,17 @@
 #include<iostream>
 using namespace std;
-int main()
+
+int main( )
 {
-	int x;
-	cout<<"请输入任意一个整数："; 
-	cin>>x;
-	int m=x,s=0;
-	while(m!=0)
-	{
-		s=s*10+(m%10);
-		m=m/10;
-	}
-	if(s==x)
-	cout<<x<<"是回文数"<<endl;
+  long ge,shi,qian,wan,x;
+  cin>>x;
+  wan=x/10000;
+  qian=x%10000/1000;
+  shi=x%100/10;
+  ge=x%10;
+  if(ge==wan&&shi==qian)/*个位等于万位并且十位等于千位*/
+    cout<<"this number is a huiwen\n";
+  else
+    cout<<"this number is not a huiwen\n";
+  return 0;
 }

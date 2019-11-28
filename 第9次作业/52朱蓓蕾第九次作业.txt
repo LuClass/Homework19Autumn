@@ -1,0 +1,76 @@
+﻿8. （project）
+main.cpp
+#include<iostream>
+using namespace std;
+#include"max.cpp"
+#include"hex.cpp"
+int main(){
+	int m,n;
+	cin>>m>>n;
+	toHex((max(m,n)));
+	return 0;
+} 
+
+max.cpp
+int max(int m,int n){
+	if(m<=n) 
+return n;
+    else 
+return m;
+}
+
+hex.cpp
+#include<iostream>
+using namespace std;
+void toHex(int m){	
+	cout<<hex<<m;
+return 0;
+}
+
+
+8(file) 
+#include<iostream>
+using namespace std;
+int max(int x,int y){
+	if(x<y)
+ return y;
+    else 
+ return x;}
+void toHex(int x){	
+	cout<<hex<<x;
+}
+int main(){
+	int x,y;
+	cin>>x>>y;
+	toHex((max(x,y)));
+	return 0;
+} 
+
+9.(函数) 
+#include<iostream>
+#include<math.h>
+using namespace std;
+double area(double a,double b,double c)
+{
+	double s=(a+b+c)/2;
+	return sqrt(s*(s-a)*(s-b)*(s-c));
+}
+int main(){
+	double a,b,c;
+	cin>>a>>b>>c;
+	cout<<area(a,b,c);
+} 
+
+9. (宏）
+#include <iostream>
+#include <math.h>
+using namespace std;
+#define S(a,b,c) (a+b+c)/2
+#define area(s) sqrt(s*(s-a)*(s-b)*(s-c))
+int main()
+{
+	int a,b,c;
+	cin>>a>>b>>c;
+	cout<<area(S(a,b,c));
+	return 0;
+	}

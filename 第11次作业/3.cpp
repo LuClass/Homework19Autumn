@@ -2,19 +2,18 @@
 using namespace std;
 int main()
 {
-	int i,j;
-	cin>>i>>j;
-	cout<<i<<"到"<<j<<"之间的完数：";
-	for(int k=i;k<=j;k++)
-	{
-		int s=0;
-		for(int i=1;i<k;i++)
-		{
-			if(k%i==0)
-			s=s+i;
-		}
-	    if(s==k)
-	    cout<<k<<'\t';
-	}
-	cout<<endl;
+    int a,b,x,sum=0;
+    int i,j;
+    cin>>i>>j;
+    cout<<endl<<"完全数:"<<endl;
+    for(a=i+1;a<j;a++){
+        for(b=1;b<a;b++){
+            if(a%b==0)
+                sum+=b;
+        }
+        if(sum==a)
+		    cout<<a<<endl;
+        sum=0;
+    }
+  return 0;
 }

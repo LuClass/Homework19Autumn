@@ -1,0 +1,51 @@
+#include<iostream>
+
+using namespace std;
+
+int main(){
+	int x,i,j;
+	int a[50];
+	i=0;
+	cin>>x;
+	if(x==1){
+		cout<<1;
+	}
+	else{
+		while(x!=1){
+			if(x%2==0){
+				a[i]=0;
+			}
+			else
+				a[i]=1;
+			x=x/2;
+			i++;	
+		}
+		a[i]=1;
+		for(j=i;j>=0;j--){
+			cout<<a[j];
+		}
+	}
+	return 0;
+}
+
+#include<iostream>
+#include <cmath>
+using namespace std;
+
+int main(){
+	double a,b,c,y1,y2,d;
+	cin>>a>>b>>c;
+	if(b*b-4*a*c<0)
+	cout<<"该方程无实根" ;
+	else if(b*b-4*a*c==0){
+		y1=y2=(-b)/2/a;
+    	cout<<"该方程的两根为"<<y1<<","<<y2;
+	}
+    else{
+    	d=sqrt(b*b-4*a*c);
+    	y1=(-b+d)/2/a;
+    	y2=(-b-d)/2/a;
+    	cout<<"该方程的两根为"<<y1<<","<<y2;
+	return 0;
+	}
+}

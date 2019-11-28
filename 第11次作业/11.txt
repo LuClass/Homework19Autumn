@@ -1,0 +1,73 @@
+水仙花数
+#include <iostream>
+using namespace std;
+bool isSxhs(int a){
+	int x1,x2,x3;
+	x1=a/100;
+	x2=a%10;
+	x3=a%100/10;
+	if(x1*x1*x1+x2*x2*x2+x3*x3*x3==a)
+	return true;
+	return false;
+}
+int main()
+{
+	int x,y;
+	cin>>x>>y;
+	for(int i=x;i<=y;++i)
+	if(isSxhs(i))
+	cout<<i<<endl;
+	return 0;
+}
+
+回文数
+#include <iostream>
+using namespace std;
+bool isHws(int a){
+	if(a<10)
+	return true;
+	int c[20];
+	int i=0;
+	while(a/10){
+		c[i++]=a%10;
+		a/=10;
+	}
+	c[i]=a;
+	for(int j=0;j<=i/2;++j)
+	if(c[j]!=c[i-j])
+	return false;
+	return true;
+}
+int main()
+{
+	int x;
+	while(cin>>x){
+		if(isHws(x))
+		cout<<"yes"<<endl;
+		else
+		cout<<"no"<<endl;
+	}
+	return 0;
+}
+
+完全数
+#include <iostream>
+using namespace std;
+bool isWqs(int a){
+	int s=0;
+	for(int i=1;i<a;++i)
+	if(a%i==0)
+	s+=i;
+	if(s==a)
+	return true;
+	return false;
+}
+int main()
+{
+	int x,y;
+	cin>>x>>y;
+	for(int i=x;i<=y;++i)
+	if(isWqs(i))
+	cout<<i<<endl;
+	return 0;
+}

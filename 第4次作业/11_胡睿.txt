@@ -1,0 +1,65 @@
+(4)#include<bits/stdc++.h>  //包含大部分头文件 
+using namespace std;
+int main()
+{
+	int i,sum=0;
+	char s[300];
+	gets(s);
+	for (i=0;i<strlen(s);++i)
+	if ('0'<=s[i]&&s[i]<='9')
+	++sum;
+	cout<<sum;
+	return 0;
+}
+
+(7)using namespace std;
+#include<iostream>
+int main()
+{
+	long a,b,c,i,n;
+	a=1,b=2;
+	cout<<"请输入想要显示数列前几项";
+	cin>>n;
+	for(i=1;i<=n;i++)
+	    {
+	    cout<<b<<"/"<<a<<endl;
+	    c=b;//把 b给 c
+		b=b+a;//b进位
+		a=c;//a进位
+	    }
+	    return 0;
+	    
+}
+
+(8)//输入一个正整数 显示其所有因子  求1-100完全数（数等于因子之和） 
+using namespace std;
+#include<iostream>
+int main()
+{
+	int i,n;
+	cin>>n;
+	for(i=1;i<=n/2;i++)
+	{
+		if(n%i==0)
+		    cout<<i<<" ";
+	}			//（1） 
+	
+	cout<<endl;
+	int sum;
+	for(n=1;n<=100;n++)
+	{
+		for(i=1,sum=0;i<n;i++)
+		{
+			if(n%i==0)
+			{
+				sum+=i;
+			}
+			
+		}
+		if(sum==n)
+			cout<<n<<endl;	
+	}         //（2） 
+
+	
+	return 0;
+ }

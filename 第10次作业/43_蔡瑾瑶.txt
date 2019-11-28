@@ -1,0 +1,122 @@
+(2)
+#include<iostream> 
+#include<stdlib.h>
+#include<ctime>
+using namespace std;
+
+void getRandom(int a[], int n){
+	  srand(time(0));	
+    for(int i = 0; i < n; i++)
+		a[i] = rand() % 100;
+}
+
+int getMax(const int a[],int n){
+	int xb=0,max=a[0];
+	for(int i=1;i<n;i++){
+		if(a[i]>max){
+		xb=i;
+		max=a[i];
+	}
+	}
+	return xb;
+}
+
+int main(){
+	int n;
+	cin>>n;
+	int a[n];
+   getRandom(a,n);
+   cout<<"a["<<n<<"]=";
+   for(int i=0;i<n;i++)
+   cout<<a[i]<<" ";
+   cout<<endl;
+   cout<<"Max:"<<"a["<<getMax(a,n)<<"]="<<a[getMax(a,n)];
+	return 0;
+}
+
+
+(5)
+#include<iostream>
+using namespace std;
+
+bool ss(int n){
+	if(n<=1)
+	return 0;
+	if(n==2)
+	return 1;
+	for(int i=2;n%i;i++) 
+		if(i*i>n)
+		return 1;
+	return 0;
+}
+
+int gwzh(int n){
+	int h=0;
+	while(n>=10){
+		h+=n%10;
+		n=n/10;
+	}
+	return h+n;
+}
+
+int zysgwzh(int n){
+	int h=0;
+	for(int i=2;n!=1;){
+		if(n%i){
+			i++;
+		continue;
+		}
+		else{
+		h=h+gwzh(i);
+		n/=i;
+		i=2;
+		}
+	}
+	return h;
+}
+
+bool issmith(int n){
+	if(ss(n)==0&&zysgwzh(n)==gwzh(n))
+	return 1;
+	else return 0;
+}
+
+int main(){
+	int n;
+	cin>>n;
+	do n++;
+	while(issmith(n)==0);
+	cout<<n;
+	return 0;
+}
+
+(10)
+#include<iostream> 
+using namespace std;
+
+int main(){
+	int r[21]={0,0};
+	int c=0,s=0,i=0;
+	for(;s<20;){
+		for(;i<21;i++){
+			if(r[i]==0){
+				c++;
+				if(c%5==0){
+		   	  r[i]=1;
+		   	  s++;
+		      } 
+			} 
+		   if(s==20)
+		      break;
+		} 
+		i=0;
+	}
+
+	for(int i=0;i<21;i++){
+		if(r[i]==0){
+			cout<<i+1;
+			break;
+		}
+	}
+	return 0;
+}
