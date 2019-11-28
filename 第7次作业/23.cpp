@@ -1,25 +1,20 @@
-#include <iostream>
-using namespace std;
-int main()
-{ 
-	int a,b;
-	cin>>a>>b;
-	for(int i=0;i<b;i++) 
-	{ 
-		for(int j=0;j<i;j++) 
-			cout<<" "; 
-		for(int j=0;j<a;j++) 
-			cout<<"*"; 
-		cout<<"\n"; 
-	} 
-	cout<<endl;
-	for(int i=0;i<a;i++) 
-	{ 
-		for(int j=0;j<i;j++) 
-			cout<<" "; 
-		for(int j=0;j<b;j++) 
-			cout<<"*"; 
-		cout<<"\n"; 
-	} 
-	return 0; 
+#include<iostream.h>
+void main()
+{    int l,h,i,j;
+     cin>>l>>h;
+	 for(j=0;j<h;j++)
+	 {   for(i=0;i<j;i++)
+	         cout<<" ";
+		 for(i=0;i<l;i++)
+	         cout<<"*";
+		 cout<<'\n';
+	 } 
+     cout<<'\n';
+	 for(j=0;j<h;j++)
+	 {   for(i=0;i<h-j-1;i++)
+	         cout<<" ";
+		 for(i=0;i<l;i++)
+	         cout<<"*";
+		 cout<<'\n';
+	 } 
 }

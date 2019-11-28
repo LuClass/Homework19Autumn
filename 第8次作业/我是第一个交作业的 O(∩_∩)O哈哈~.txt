@@ -1,0 +1,51 @@
+21.（6）
+int M(int num1,int num2){
+	int a, b,temp;
+	if(num1<num2)
+  {
+    temp=num1;
+    num1=num2;
+    num2=temp;
+  }
+  a=num1;b=num2;
+  while(b!=0)
+  {
+    temp=a%b;
+    a=b;
+    b=temp;
+  }
+  cout<<"最大公约数为："<<a<<endl;
+}
+int N(int num1,int num2){
+	int a, b,temp;
+	if(num1<num2)
+  {
+    temp=num1;
+    num1=num2;
+    num2=temp;
+  }
+  a=num1;b=num2;
+  while(b!=0)
+  {
+    temp=a%b;
+    a=b;
+    b=temp;
+  }
+cout<<"最小公倍数为："<<(num1*num2/a);
+}
+（7）
+递推
+using namespace std;
+#include <iostream>
+int Fan(int n){
+	for(;n!=0;n/=10)
+	   cout<<n%10;
+}
+递归
+using namespace std;
+#include <iostream>
+int Fen(int n){
+	if(n!=0)
+	  cout<<n%10;
+    Fen(n/10);
+}

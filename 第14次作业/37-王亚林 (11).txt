@@ -1,0 +1,98 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+using namespace std;
+struct Ans
+{   float x1,x2;
+	string d; 
+};
+Ans func(int a,int b,int c){
+	Ans ans;
+	int t;
+	t= b*b-4*a*c;
+	if(t>= 0){
+		ans.x1 = (-1*b+sqrt(t))/(2*a);
+		ans.x2 = (-1*b-sqrt(t))/(2*a);
+	}
+	else
+	ans.x1=ans.x2=0,ans.d="NO ANSWER";
+	return ans;
+}
+void printTitle(){
+	cout<<setw(10)<<"x1"<<setw(10)<<"x2"<<endl;
+	
+}
+void printA(Ans A){
+	cout<<setw(10)<<A.x1<<setw(10)<<A.x2<<setw(10)<<A.d<<endl;
+}
+	 		int main(){
+	Ans A;
+	int a,b,c;
+	cout<<"输入 a b c"<<endl;
+	cin>>a>>b>>c;
+	A = func(a,b,c);
+	printTitle();
+	printA(A);
+	return 0;
+	
+}	 
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct Point{
+	int x; 
+	int y; 	
+};
+struct Triangle{
+	Point a;
+	Point b;
+	Point c;
+};
+double funcdistance(Point A,Point B){
+     double d;
+	 d=sqrt((A.x-B.x)*(A.x-B.x)+(A.y-B.y)*(A.y-B.y));
+	 return d; 
+}
+void funcTriangle(Triangle D){
+    cout << endl; 
+	cout << "输入三点的横,纵坐标"<<endl;
+	cin >> D.a.x >> D.a.y >> D.b.x >> D.b.y >> D.c.x >> D.c.y;
+	float slope1,slope2;
+	if((D.b.x-D.a.x) != 0 && (D.c.x-D.a.x) != 0) {
+	 slope1 = (D.b.y-D.a.y)/(D.b.x-D.a.x);
+	 slope2 = (D.c.y-D.a.y)/(D.c.x-D.a.x);		
+	}
+	else if((D.b.x-D.c.x) != 0 && (D.c.x-D.a.x) != 0) {
+	 slope1 = (D.b.y-D.c.y)/(D.b.x-D.c.x);
+	 slope2 = (D.c.y-D.a.y)/(D.c.x-D.a.x);		
+	}
+	else  {
+	 slope1 = (D.b.y-D.a.y)/(D.b.x-D.a.x);
+	 slope2 = (D.c.y-D.b.y)/(D.c.x-D.b.x);	
+	}
+	if (slope1 != slope2){
+		cout<<"可以构成一个三角形"<<endl;
+		double x1,x2,x3;
+		x1 = funcdistance(D.a,D.b); 
+		x2 = funcdistance(D.a,D.c);
+		x3 = funcdistance(D.b,D.c);
+		double perimeter = x1+x2+x3;
+		double p = perimeter/2;
+		double area = sqrt(p*(p-x1)*(p-x2)*(p-x3));      
+		cout<<"周长 : "<<perimeter<<endl;
+		cout<<"面积 : "<<area<<endl; 
+	}
+	else
+	cout<<"不能构成三角形"<<endl;
+}
+int main(){
+	
+	Point A,B; 	
+	cout<<"输入两点的横,纵坐标"<<endl;
+	cin>>A.x>>A.y>>B.x>>B.y; 	 
+	cout<<"两点的距离 : "<<funcdistance(A,B)<<endl;
+	Triangle C;
+	funcTriangle(C); 
+	return 0;
+}
