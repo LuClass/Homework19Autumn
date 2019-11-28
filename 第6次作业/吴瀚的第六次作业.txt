@@ -1,0 +1,59 @@
+p110
+£¨2£©
+#include <iostream>
+using namespace std;
+int f(int n)
+{
+	return n>1?n*f(n-1):1;
+}
+ int c(int n,int k)
+ {
+ return f(n)/(f(k)*f(n-k));
+ }
+ 
+ int main(){
+  int n,k;
+  n=4,k=2; 
+  cout<<"C(4,2)="<<c(n,k)<<endl;
+  n=6,k=4;
+  cout<<"C(6,4)="<<c(n,k)<<endl;
+  n=8,k=7;
+  cout<<"C(8,7)="<<c(n,k)<<endl;
+}
+
+£¨4£©
+#include <iostream>
+using namespace std;
+int main(void){
+  int i,j,k,n;					
+  for(i=3,k=5;i<=500,k<=500; i+=2,k+=2){	
+	for(j=3,n=3;j*j<=i,n*n<=k;j+=2,n+=2)	
+	  	if(i%j==0||k%n==0)		
+		      	break;			
+   if(j*j>i&&n*n>k&&k==i+2)
+      cout<<i<<","<<k<<" ";} 
+}
+
+£¨5)
+#include <iostream>
+using namespace std;
+int main(void){
+	int i,x;
+	cin>>x;
+	if(x<=i)
+	  cout<<"wrong";
+	  else 
+	  {cout<<x<<"=";
+	  for(i=2;i<=x;i++)
+	   {if(x%i==0)
+	   {cout<<i;
+	   x=x/i;
+	   if(x!=1)
+	   cout<<"*"; 
+	   i=1;
+	   }
+	   }
+	   if(x!=1)
+	     cout<<x;
+	  }
+}

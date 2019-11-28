@@ -1,0 +1,95 @@
+(1).
+#include<iostream>
+#include<math.h>
+using namespace std;
+struct Quadratic_Equation
+{
+	int amount;
+	float root1,root2;
+};
+typedef Quadratic_Equation QE;
+QE calculate(int a,int b,int c)
+{
+	QE result;
+	int judge = b * b - 4 * a * c;
+	if(judge>0)
+	{
+		result.amount = 2;
+		result.root1 = (-b + sqrt(judge)) / (2 * a);
+		result.root2 = (-b - sqrt(judge)) / (2 * a);
+	}
+	else if(judge<0)
+	{
+		result.amount = 0;
+	}
+	else
+	{
+		result.amount = 1;
+		result.root1 = (result.root2 = -b / (2 * a));
+	}
+	return result;
+}
+int main()
+{
+	QE result;
+	result = calculate(1,2,1);
+} 
+(2)
+#include<iostream>
+#include<math.h>
+using namespace std;
+struct Point{int x,y;};
+float Distance(Point P1,Point P2)
+{
+	int a = P1.x - P2.x,b = P1.y -P2.y;
+	return sqrt(a*a + b*b);
+}
+bool IsTriangel(Point P1,Point P2,Point P3)
+{
+	Point ar1,ar2;
+	ar1.x = P1.x - P2.x;
+	ar2.x = P1.x - P3.x;
+	ar1.y = P1.y - P2.y;
+	ar2.y = P1.y - P3.y;
+	if(ar1.x == 0&& ar1.y ==0)
+	return false;
+	if(ar2.x == 0&& ar2.y ==0)
+	return false;
+	if(ar1.x * ar2.y == ar2.x * ar1.y)
+	return false;
+	return true;
+}
+int main()
+{
+	Point P1,P2,P3;
+	cin>>P1.x>>P1.y;
+	cin>>P2.x>>P2.y;
+	cin>>P3.x>>P3.y;
+	if(IsTriangel(P1,P2,P3))
+	{
+		float a1 = Distance(P1,P2),a2 = Distance(P2,P3),a3 = Distance(P3,P1);
+		float C = a1 + a2 + a3;
+		float p = C/2;
+		cout << "C = " << C << endl;
+		cout << "S = " << sqrt(p*(p-a1)*(p-a2)*(p-a3));
+	}
+	else
+	cout << "Not a triangel";
+}
+(3)
+#include<iostream>
+using namespace std;
+#define NUM 50
+int main()
+{
+	char a[NUM];
+	cin.getline(a,NUM);
+	for(int i=0;a[i];i++)
+	cout << a[i];
+	cout << endl;
+	for(int i=0;a[i];i++)
+	if(a[i]>'A'&&a[i]<'Z')
+	a[i] += 32;
+	for(int i=0;a[i];i++)
+	cout << a[i];
+}
