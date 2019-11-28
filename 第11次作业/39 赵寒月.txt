@@ -1,0 +1,63 @@
+第十一次作业
+ 1.
+#include<iostream>
+using namespace std;
+int main(){
+	int i,j;
+	cout<<"请输入两个三位数整数：";
+	cin>>i>>j;
+	cout<<"整数"<<i<<","<<j<<"之间的水仙花数有："; 
+	 for(int t=i;t<=j;t++)
+	 {
+	 	int a,b,c;
+    	int sum=0;
+	    a=t%10;
+	    b=t/10%10;
+     	c=t/100;
+	    sum=a*a*a+b*b*b+c*c*c;
+	 	if(sum==t)
+	 	 cout<<t<<" ";
+	 }
+	 return 0;
+} 
+ 2.
+#include<iostream>
+using namespace std;
+int main(){
+	int i,t;
+	cout<<"请输入一个正整数：";
+	cin>>i;
+	int sum=0;
+	t=i;
+    while(t!=0)
+    {
+    	sum=sum*10+t%10;
+		t/=10 ;
+	}
+	if(sum==i)
+	  cout<<"true"<<endl;
+	else
+	   cout<<"false"<<endl; 
+	return 0;
+} 
+ 3.
+#include<iostream>
+using namespace std;
+int main(){
+	int n;
+	cout<<"请输入一个正整数：";
+	cin>>n;
+	int sum=1;
+    for(int i=2;i<n/2;i++)
+    {
+    	if(n%i==0)
+    		sum+=i+n/i;
+	    
+	}
+	if(sum==n)
+	  cout<<"true"<<endl;
+	else
+	  cout<<"false";
+	return 0;
+} 
+ 

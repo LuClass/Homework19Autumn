@@ -1,0 +1,18 @@
+using namespace std;
+#include <iostream>
+#include <string.h>
+int getWordCount(char a[]){
+	int b,c,d=0;
+	b=strlen(a);
+	for(c=0;c<=b;c++){
+	if((a[c]>='a'&&a[c]<='z'||a[c]>='A'&&a[c]<='Z')&&a[c+1]==' ')
+	{d++;}
+	}if(a[b-1]>='a'&&a[b-1]<='z'||a[b-1]>='A'&&a[b-1]<='Z')  
+	cout<<d<<endl;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+}
+	char s1[100];
+int main (){
+	cin.getline(s1,100);
+	getWordCount(s1);
+    cout<<s1;	
+}

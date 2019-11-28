@@ -1,0 +1,101 @@
+第一题
+#include<iostream>
+using namespace std;
+bool isWaterFlower(int n){
+	int i,j,k;
+	i=n/100;
+	j=n/10%10;
+	k=n%10;
+	if(n==i*i*i+j*j*j+k*k*k)
+	    return true;
+	else
+	    return false;
+} 
+int main(){
+	int a,b;
+	int sum=0;
+	cin>>a>>b;
+	for(int i=a;i<=b;i++){
+	    if(isWaterFlower(i)){
+	    	if(sum==0){
+	    		cout<<"两者之间的水仙花数为："; 
+			}
+	    	cout<<i<<" ";
+	    	sum++;
+		}
+	}
+	if(sum==0)
+	    cout<<"两者之间没有水仙花数！"; 
+	return 0;
+}
+
+第二题
+(1).
+#include<iostream>
+using namespace std;
+int main(){
+	long long int n;
+	long long int sum=0;
+	cin>>n;
+	long long int m=n;
+	while(m){
+		sum=10*sum+m%10;
+		m=m/10;
+	}
+	if(sum==n)
+	    cout<<n<<"是回文数！";
+	else
+	    cout<<n<<"不是回文数！";
+	return 0; 
+}
+(2).用数组
+#include<iostream>
+using namespace std;
+int main(){
+    int a[50];
+    long long int n;
+    int m=0,flag=0;
+    cin>>n;
+    while(n){
+    	a[m]=n%10;
+    	n=n/10;
+    	m++; 
+	}
+	for(int i=0;i<=m/2;i++){
+		if(a[i]!=a[m-i-1]){
+			flag=1;
+			break;
+		}
+	}
+	if(flag==1)
+	    cout<<"不是回文数！";
+	else
+	    cout<<"是回文数！";
+	return 0;
+}
+
+
+第三题
+#include<iostream>
+using namespace std;
+bool isWanShu(int n){
+	int sum=1;
+	for(int i=2;i<n;i++){
+		if(n%i==0){
+			sum+=i;
+		}
+	}
+	if(n==sum)
+	    return true;
+	else
+	    return false;
+}
+int main(){
+	int i,j;
+	cin>>i>>j;
+	for(int k=i;k<=j;k++){
+		if(isWanShu(k))
+		    cout<<k<< " ";
+	}
+	return 0;
+} 
