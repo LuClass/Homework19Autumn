@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+char strcat(char *a,char *b)
+{
+	char c[100],*c1=&c[0];
+	while (*a!=0||*b!=0)
+	{
+		if (*a!=0)
+			{
+			*c1=*a;
+			*a++;
+			*c1++;
+			continue;
+			}
+		if (*b!=0)
+			{
+			*c1=*b;
+			*b++;
+			*c1++;
+			}
+	}
+	cout<<c;
+}
+int main()
+{
+	char a[50],b[50],c[100];
+	cin.getline(a,50);
+	cin.getline(b,50);
+	strcat(a,b);
+}
+
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+void delectSpace (char *a)
+{
+	char b[50],*b1=&b[0];
+	while (*a!=0)
+		{
+		if (*a!=' ')
+			{
+			*b1=*a;
+			*b1++;
+			}
+		*a++;
+		}
+		*b1=0;
+		b1=&b[0];
+	while (*b1!=0)
+	{
+		cout<<*b1;
+		*b1++;
+	}
+}
+int main()
+{
+	char a[50];
+	cin.getline(a,50);
+	delectSpace(a);
+}
