@@ -1,0 +1,62 @@
+8.十进制转16进制 多文件编译不知道该怎么完成
+using namespace std;
+#include<iostream>
+void DecToHex(int n)
+{
+	int i,j,k,l,m,temp;
+	char out;
+	temp=0;
+	for(i=7;i>=0;i--)//控制4x8=32位的二进制数 
+	{
+		out='0';			
+		if(n>=(1<<4*i)&&n<(1<<4*(i+1))) 
+		{
+			for(j=15;j>=0;j--)
+			{
+				if(j*(1<<4*i)<=n)
+				{
+					out=char(j+48);
+					if(out>'9')
+					{
+						out=char(out+39);
+					}
+					if((n-j*(1<<4*i))==0)
+					{
+						temp=i;
+					}
+					n=n-j*(1<<4*i);
+					break;
+				}
+			}
+			cout<<out;
+		}
+		else
+		cout<<'0';
+	}
+}
+
+
+int main()
+{
+	int n;
+	cin>>n;
+	DecToHex(n); 
+	cout<<endl<<hex<<n;
+	
+	return 0;
+}
+9.海伦公式求面积
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+using namespace std;
+int main()
+{
+	double a,b,c,p,Area;
+	cin>>a>>b>>c;
+	p=(a+b+c)/2;
+	Area=sqrt(p*(p-a)*(p-b)*(p-c));
+	cout<<Area<<endl;
+    return 0;	
+}
+设计函数即添加函数名即可。

@@ -1,0 +1,121 @@
+(2)#include<iostream>
+#include<stdlib.h>
+#include<time.h>
+using namespace std;
+void getrandom(int a[],int n)
+{     int i;
+srand(time(NULL));
+    for(i=0;i<=n;i++)
+    a[i]=rand()%101;
+}
+int getmax(const int a[],int n)
+{
+	int i,j=1;
+	for(i=2;i<=n;i++)
+	{
+	  a[j]>=a[i]?a[j]:j=i;
+	}
+	return j;
+}
+int main ()
+{   int a1[100],j=0;
+    getrandom(a1,100);
+    j=getmax(a1,100);
+    cout<<j;
+ } 
+ 
+ 
+ 
+(5)#include<iostream>
+using namespace std;
+bool isprime(int n)
+{   int i;
+    if(n==2||n==5||n==7||n==3)
+    return 1;
+    for(i=2;i*i<n;i++)
+    if(n%i==0)
+    return 0;
+    return 1;
+}
+int sum1(int n)
+{
+	int m,s=0;
+	for(;n!=0;n=n/10)
+	{
+	m=n%10;
+	s+=m;
+    }
+    return s;
+    
+}
+bool issmith(int n)
+{  int i,j,sum=0;
+   j=sum1(n);
+   for(i=2;i<n;i++)
+   { 
+   if(isprime(i)==1&&n%i==0)
+     {  
+         sum+=sum1(i);
+         n=n/i;        
+		 if(isprime(n==1))  
+          {sum+=sum1(n);
+            break;}        
+		  i=2;}
+      }
+   if(j==sum)
+   return 1;
+   return 0;
+   }
+   
+   
+int main()
+{   int i,n;
+	cin>>n;
+	if(isprime(n==0))
+	cout<<issmith(n)<<endl;
+	else
+	cout<<0<<endl;
+	for(i=4937774;;i++)
+	if(issmith(i)==1)
+	  {cout<<i;
+	  break;
+	  }
+}
+
+
+
+
+(10)#include<iostream>
+using namespace std;
+int main ()
+{
+	int  k,i,j=1,a1[22];
+	for(i=0;i<=21;i++)
+	{  a1[i]=i;
+		}
+   for(i=0;j<=100;)
+    {
+    	if(a1[i]!=0)
+    	{
+    		if(j%5==0)
+    		 { a1[i]=0;
+    		    i++;
+    		    j++;
+			 }
+			 else
+			{  i++;
+			    j++;
+			 }
+		}
+		else
+		i++;
+	    if(i==21)
+		 {i=0;
+			 }	
+	}
+	for(k=1;k<=21;k++)
+	{if(a1[k]!=0)
+	   cout<<k;
+	}
+}
+  

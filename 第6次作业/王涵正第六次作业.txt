@@ -1,0 +1,104 @@
+P110
+（3）#include<iostream>
+using namespace std;
+int f(int x){
+int i=1,s=1;	
+while(i<=x){
+s=s*i;i++;	
+}	
+return s;	
+	
+}
+
+
+
+
+
+
+int main()
+{int n,k;
+cout<<"C(n,k)"<<endl;
+cout<<"输入n,k     要求：(n>k)"; 
+cin>>n;cin>>k; 
+if(n<=k)
+cout<<"输的数有误";
+else 
+cout<<"C("<<n<<","<<k<<")="<<f(n)/f(k)/f(n-k);	
+		
+}
+
+
+C(4，2)=6，C(6，4)=15，C（8,7）=8
+
+
+（4）#include<iostream>
+using namespace std;
+bool prime(int x){
+int i=2;
+
+while(i<x){
+if(x%i!=0) 
+i++;
+else
+break;}
+
+
+if(i==x)
+return true;
+else
+return false;
+
+}
+
+int main(){
+int i=2;
+cout<<"500以内的孪生素数有："; 
+while(i<=498){
+if(prime(i)==1&&prime(i+2)==1)	
+cout<<i<<","<<i+2<<"   ";
+i++;		
+}
+} 
+
+（5）#include<iostream>
+using namespace std;
+bool prime(int x){
+int i=2;
+
+while(i<x){
+if(x%i!=0) 
+i++;
+else
+break;}
+
+
+if(i==x)
+return true;
+else
+return false;
+
+}
+int main()
+{int x,a[20],i=2,j=1,k=1;
+
+cout<<"输入一个正整数"<<endl;
+cin>>x;
+cout<<x<<"=";
+while(prime(x)==0){
+
+while(i<x){
+if(x%i==0&&prime(i)==1){
+a[j]=i;j++;break;
+}
+else i++;
+}
+x=x/i;
+i=2;
+}
+while(k<j)
+{cout<<a[k]<<"*";
+k++;
+}
+cout<<x;
+
+}

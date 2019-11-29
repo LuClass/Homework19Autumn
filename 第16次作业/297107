@@ -1,0 +1,41 @@
+#include <stdlib.h>
+#include <iostream>
+using namespace std;
+
+void getRandom(int data[],int n){
+	  srand(data[0]);
+    for(int i=0;i<n;i++)
+		data[i]=rand()%100;	
+}
+int getMax(int data[],int n){
+	int i,j,temp;
+	for(i=0;i<n-1;i++)
+		for(j=0;j<n-1-i;j++)
+			if(data[j]>data[j+1]){
+				temp=data[j]; 
+				data[j]=data[j+1]; 
+				data[j+1]=temp;
+				
+			}
+			}
+			
+	void print1(int data[],int n){
+	for(int i = 0; i < n; i++)		
+		cout<<data[i]<<' ';			
+	cout<<endl;}
+    void print2(int data[],int n){
+    int i=n-1;	
+    cout<<data[i]<<endl;}	
+int main()
+{   int n;
+    cin>>n;
+    int a[n];
+    getRandom(a,n);
+    cout<<"数组的值为 ";
+    print1(a,n);
+    getMax(a,n);
+    cout<<"数组中最大值为 ";
+    print2(a,n);
+    
+	return 0;
+}

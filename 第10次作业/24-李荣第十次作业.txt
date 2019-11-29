@@ -1,0 +1,117 @@
+14.(2)
+#include<iostream>
+#include<stdlib.h>
+#include<time.h>
+using namespace std;
+void getRandom(int a[],int n){
+	srand((unsigned)time(0));
+	for(int i=0;i<n;i++){ 
+        a[i]=rand()%100;
+    }
+} 
+int getMax(const int a[],int n){
+	int t;
+	int m=a[0];
+	for(int i=1;i<n;i++){
+		if(a[i]>m){
+			m=a[i];
+		    t=i;
+		}
+	}
+	return t;
+}
+int main(){
+	int a[20];
+	getRandom(a,20);
+	cout<<"随机数组为：";
+	for(int i=0;i<20;i++){
+		cout<<a[i]<<" ";
+	}
+	cout<<endl;
+	cout<<"最大值下标为："; 
+	cout<<getMax(a,20)<<endl;
+	return 0;
+}
+
+(5).
+#include<iostream>
+using namespace std;
+bool isPrime(int n){
+	if(n<2)
+	    return false;
+	else if(n==2)
+	    return true;
+	else{
+		for(int i=2;i*i<=n;i++){
+			if(n%i==0)
+			    return false;
+		}
+		return true;
+	}
+}
+int sum(int n){
+	int m=0;
+	while(n){
+		m+=n%10;
+		n=n/10;
+	}
+	return m;
+}
+bool isSmith(int n){
+	int j=0;
+	int ant=0;
+	int m=n;
+	int a[100];
+	while(!isPrime(m)){
+		for(int i=2;i<m;i++){
+		    if(isPrime(i)&&m%i==0){
+		    	m=m/i;
+		    	a[j]=i;
+		    	j++;
+			}
+		}
+	}
+	a[j]=m;
+	for(int i=0;i<j;i++){
+		ant+=sum(a[i]);
+	}
+	if(ant==sum(n))
+	    return true;
+	else
+	    return false;
+}
+int main(){
+	for(int i=4937774;;i++){
+		if(isSmith(i)){
+			cout<<i<<endl;
+			break;
+		}
+	}
+	return 0;
+}
+
+(10).
+#include<iostream>
+#include<string.h>
+using namespace std;
+int main(){
+	int a[21];
+	int k=-1;
+	memset(a,0,sizeof(a));
+	for(int i=0;i<20;i++){
+		for(int j=0;j<5;j++){
+			k++;
+			if(k==21)
+			    k=0;
+			if(a[k]==1)
+			    j--;
+		}
+		a[k]=1;
+	}
+	for(int i=0;i<21;i++){
+		if(a[i]==0){
+			cout<<"最后一人的编号为："<<i+1<<endl;
+		}
+	}
+	return 0;
+} 
