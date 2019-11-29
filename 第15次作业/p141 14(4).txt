@@ -1,0 +1,29 @@
+using namespace std;
+#include <iostream>
+int main (){
+struct Course1{
+	int Cnumber;
+	char Cname;
+	Assmethod Percentile; 	
+};
+struct Course2{
+	int Cnumber;
+	char Cname;
+	Assmethod Hierachy; 	
+};
+	Course Cpp;
+enum Assmethod{
+	Percentile,Hierachy
+};
+struct Studen{
+	int id;
+	char name;
+	Course	Cpp.Cnumber;
+	record  Cppa.Percentile;
+};
+union record{
+    Assmethod Percentile;
+	Assmethod Hierachy;
+};
+record Cppa;
+}
