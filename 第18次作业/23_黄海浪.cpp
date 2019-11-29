@@ -1,5 +1,4 @@
 #include<iostream>
-#include<string.h>
 using namespace std;
 /*
  *黄海浪 9181040G0818
