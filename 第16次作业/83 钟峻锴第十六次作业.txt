@@ -1,0 +1,100 @@
+（4）
+
+#include <iostream>
+#include <string.h>
+#include <iomanip>
+#define N 10
+#define X 20
+using namespace std;
+void sort(char* x[],int n){
+	int i, j;
+	char *t;
+	for(i = 0; i <n-1; i++) 
+	{        
+		for(j = 0; j < n-1-i; j++){
+			if(strcmp(x[j],x[j+1])>0){	
+				t = x[j]; 
+				x[j] = x[j+1]; 
+				x[j+1]= t;
+			}
+		}
+    }	
+}
+
+void count(char* ch[],int n)
+ {
+ 	char s[10][20];
+ 	int times[10],key=1,x=0,a=0;
+ 	for (int i=0;i<n;i++)
+ 	{
+ 		for (int j=0;j<i;j++)
+ 		{
+ 			if (!strcmp(ch[j],ch[i]))
+ 			{
+ 				key=0;
+ 				break;
+ 			}
+ 		}
+ 		if (key==1)
+ 			strcpy(s[x++],ch[i]);
+ 		key=1;
+ 	}
+ 	for (int y=0;y<x;y++)
+ 	{
+ 		int m=0;
+ 		for (int b=0;b<n;b++)
+ 		{
+ 			if (!strcmp(s[y],ch[b]))
+ 				m++;
+ 		}
+ 		times[a++]=m;
+ 	}
+ 	for (int k=0;k<x;k++)
+ 	{
+ 		cout<<setw(20)<<s[k]<<"   "<<times[k]<<endl;
+ 	}
+ }
+
+int main(){
+	char c[N][X];
+	int n;
+	cin>>n;
+	for (int i=0;i<(n%10);i++){
+cin.getline(c[i],N);}
+    char* ch[]={c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9]};//char (*ch)[X]=c;
+sort(ch,n);
+	cout<<endl;
+	for (int x=0;x<n;x++)	
+ 		cout<<ch[x]<<endl;
+ 	cout<<endl;
+ 	count(ch,n);	
+ 	return 0;
+}
+
+
+（5）
+
+#include <iostream>
+#define N 100
+using namespace std;
+int main(){
+	char a[N];
+cin.getline(a,N);
+	int b[N];int count=0;
+	for (int i=0,j=0;j<100;)
+	{if((a[j]<48)||(a[j]>57))
+		j++;
+	else {b[i]=0;
+	for(;((a[j]>=48)&&(a[j]<=57))&&j<100;j++)
+	{
+	b[i]=b[i]*10+((int)a[j]-48);
+}    i++;count++; } 
+	}
+	
+	for (int i=0;i<count;i++)
+	{		
+		cout<<b[i]<<endl;
+	}
+ cout<<"整数的个数为："<<count;
+ return 0;
+}
