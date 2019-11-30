@@ -1,0 +1,48 @@
+//1
+#include<iostream>
+using namespace std;
+char* joint(char *a,char *b){
+	if(a!=NULL&&b!=NULL){
+	char *m=a;
+	while(*m!='\0')
+	m++;
+	do{
+	*m=*b++;
+}while((*m++)!='\0');
+	return a;
+}
+}
+int main(){
+	char a[]="week",b[]="day";
+	char *q=joint(a,b);
+	cout<<q<<endl;
+	return 0;
+}
+//2 
+#include<iostream>
+#include<string.h>
+using namespace std;
+char *trim(char *s){
+	if(s==NULL)return NULL;
+	if(strlen(s)==0)return s;
+    char *m=s;
+    do{
+    char *t=m;
+    if(*t==' '){
+    	do{
+    	*t=*(t+1);
+    }
+    	while(*t++!='\0');
+	}
+	}
+	while(*m++!='\0');
+	return s;
+}
+      
+int main(){
+	char s[]=" a b c ";
+	cout<<strlen(s)<<endl;
+	char *s1=trim(s);
+	cout<<s1<<endl;
+  return 0;
+} 
