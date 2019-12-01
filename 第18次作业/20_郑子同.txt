@@ -1,0 +1,52 @@
+1.
+#include <iostream>	
+using namespace std;
+void xianjie( char *a1,const char *a2)
+{
+    char* b1=a1;
+    const char* b2=a2;
+    while(*b1){
+		b1++;
+	}
+	while(*b2){
+		*b1 = *b2;
+		b1++;
+		b2++;
+	}
+	*b1=*b2;   //将' \0 '拷贝到arr1中
+	cout<<a1;
+}
+
+int main()
+{
+    char a1[32]="I am a ";
+    const char a2[]="good student!";
+    xianjie(a1,a2);
+}
+
+
+
+
+2.
+#include <iostream>
+#include <string.h>
+using namespace std;
+char * qkg(char *s){
+	if (s==NULL)return NULL;
+	if(strlen(s)==0)return s;
+	char *a;
+	for(int j=0,i=0;*(s+i);i++){
+		if(*(s+i)!=' '){
+			*(a+j)=*(s+i);
+			j++;
+		}
+	}
+	*s=*a;
+	return s;
+}
+
+int main()
+{
+    char a1[32]="I am a ";
+    cout<<qkg(a1);
+}
