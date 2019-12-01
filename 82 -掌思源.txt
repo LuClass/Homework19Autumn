@@ -1,98 +1,40 @@
-p237
-(4)
+1.
+#include <string.h>
+#include <iostream>
+using namespace std;
+void turn(char* a){
+	for(int i=0;*(a+i);i++)
+	if ((*(a+i)<91)&&(*(a+i)>64))
+	*(a+i)+=32;
+}
+int main(){
+	char a[100];
+	cin.getline(a,100);
+	turn(a);
+	cout<<a;
+}
+2.
 #include <iostream>
 #include <string.h>
-#include <iomanip>
 using namespace std;
-char sort(char *data[],char n){
-	int i, j, k;
-	char *t;
-	for(i = 0; i <n-1; i++){        
-		for(j = 0; j < n-1-i; j++){
-			if(strcmp(data[j],data[j+1])>0){	
-				t = data[j]; 
-				data[j] = data[j+1]; 
-				data[j+1]= t;
-			}
-		}
-    }		
+void rank(char* a[],int n){
+	for(int i=0;i<n-1;i++）{
+         for(int j=i+1;j<n;j++){
+         	if(strcmp(a[i],a[j])>0)
+         	{char tmp[100];
+         	strcpy(tmp,*(a+i));
+         	strcpy(*(a+i),*(a+j));
+         	strcpy(*(a+j),tmp);
+			 }
+		 }
+	}
 }
-
-void count(char* ch[],int n){
- 	char s[10][20];
- 	int times[10],key=1,x=0,a=0;
- 	for (int i=0;i<n;i++){
- 		for (int j=0;j<i;j++){
- 			if (!strcmp(ch[j],ch[i])){
- 				key=0;
- 				break;
- 			}
- 		}
- 		if (key==1)
- 			strcpy(s[x++],ch[i]);
- 		key=1;
- 	}
- 	for (int y=0;y<x;y++){
- 		int m=0;
- 		for (int b=0;b<n;b++){
- 			if (!strcmp(s[y],ch[b]))
- 				m++;
- 		}
- 		times[a++]=m;
- 	}
- 	for (int k=0;k<x;k++){
- 		cout<<setw(20)<<s[k]<<"   "<<times[k]<<endl;
- 	}
- }
-
-int main(){
-	int n;
-	cin>>n;
-	char c[10][21];
-	char* ch[]={c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9]};	
-	for(int i=0;i<n;i++)		
-	cin.getline(c[i],21);
-	sort(ch,n);
-	cout<<endl;
-	for (int x=0;x<n;x++)	
- 		cout<<ch[x]<<endl;
- 	cout<<endl;
- 	count(ch,n);	
+ void print(char* a[],int n)
+{for(int i=1;i<n;i++)
+{cout<<*(a+i)<<endl;}
 }
-
-(5)
-#include <iostream>
-using namespace std;
-char number(char s[100]){
-	int k=0,a,b;
-    for(int j=0;s[j];j++){
-        if((s[j]>=48&&s[j]<=57)&&((s[j-1]>=65&&s[j-1]<=122)||s[j-1]==32)){
-				k++;
-	}			
-}
-if(s[0]>=48&&s[0]<=57)
-   k++;
-	cout<<"ÕûÊý¸öÊýÎª "<<k<<endl;
-}
-
-char ZShu(char s[100]){
-	char a[100];
-	int k=0;
-		for(int j=0;s[j];j++){
-			if((s[j]>=48&&s[j]<=57)||s[j]==' ')
-				a[k]=s[j];
-			else
-			    a[k]=' ';
-			    k++;
-		}
-		cout<<"ÕûÊýÎª ";
-		for(int i=0;a[i];i++)		
-	      cout<<a[i];
-}
-int main(){
-	int n=0;
-	char s[100],a[100];
-	cin.getline(s,100);
-	number(s);
-	ZShu(s);	
+int main(int argc,char *argv[]){
+	rank(argv,argc);
+	print(argv,argc);
+	return 0;
 }
