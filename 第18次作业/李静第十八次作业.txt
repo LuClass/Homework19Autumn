@@ -1,0 +1,54 @@
+//1.
+#include<iostream>
+using namespace std;
+char * strcat(char * s1, char * s2) {
+	char * tail = s1 + strlen(s1) ;
+	char * head = s2;
+	for (int i = 0; i < strlen(s2); i++) {
+		*tail++ = *head++;
+	}
+	*tail = '\0';
+	return s1;
+}
+int main() {
+	char s1[100] = "ndaibalGAYUF1694";
+	char s2[100] = "kvdvh87g8qgfig";
+	cout<<strcat(s1, s2);
+    return 0;
+}
+//2.
+#include<iostream>
+using namespace std;
+char * trim(char * s) {
+	if (s == NULL)
+		return NULL;
+	if (strlen(s) == 0)
+		return s;
+	char * tail = s + strlen(s) - 1;
+	while (*tail == ' ') tail--; 
+	if (tail < s + strlen(s) - 1)
+		*(tail + 1) = '\0';
+	char * head = s;
+	while (*head = ' ')
+		head++;
+	char * h = s;
+	if (head > h) {
+		while (1)
+			*h++ = *head++;
+	}
+	
+	for (int i = 0; i < strlen(s); i++) {
+		if (s[i] == ' ')
+		  
+	       for (int j = i + 1; j < strlen(s); j++) {
+			  s[j - 1] = s[j];
+		   }
+	}
+	return s;
+}
+int main() {
+	char s[] = "  sfis fdn nsiiiwuev bcsu    ";
+	char * s1 = trim(s);
+	cout << s1;
+	return 0;
+}
