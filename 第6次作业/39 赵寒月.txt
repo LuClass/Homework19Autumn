@@ -1,0 +1,79 @@
+第六次作业
+  （2）
+ #include<iostream>
+using namespace std;
+void C(int n,int k)
+{
+	int s1=1,s2=1,s3=1;
+	for(int j=1;j<=n;j++)
+	{
+		s1*=j;
+	}
+	for(int j=1;j<=k;j++)
+	{
+		s2*=j;
+	}
+	for(int j=1;j<=n-k;j++)
+	{
+		s3*=j;
+	}
+	cout<<"C("<<n<<","<<k<<")="<<s1/s2/s3<<endl;
+}
+int main()
+{
+	int n,k;
+	cin>>n>>k;
+	C(n,k);
+	C(4,2);
+	C(6,4);
+	C(8,7);
+	return 0;
+	
+}
+（4）
+ #include<iostream>
+using namespace std;
+int main()
+{    int a,b,c,i,j;
+     for(i=2;i<=500;i++)
+	 {   for(j=2;j<i;j++)
+	 {      if (i%j==0)
+	         break;
+	 }
+	    if (j==i)
+		{   for(a=2;a<i+2;a++)
+		{   if((i+2)%a==0)
+		     break;
+		}
+		}
+		if(a==i+2)
+		{  cout<<i<<'\t'<<i+2<<'\n';
+		}
+	 }
+}
+（5）
+ #include<iostream>
+using namespace std;
+int fun(int n)
+{   int i;
+    for(i=2;i<=n/2;i++)
+	{	if(n%i==0)
+			return 1;
+			} 
+    	return 0;
+}
+int main()
+{    int n,i;
+     cin>>n;
+      cout<<n<<"=";
+	 if(n==1)
+		 cout<<n;
+	 for(i=2;i<=n;i++)
+	 	 if(n%i==0)
+		 {   cout<<i;
+			 if(fun(n)) 
+		     cout<<"*";
+		     n=n/i;
+			 i=1;				 
+		 }
+}

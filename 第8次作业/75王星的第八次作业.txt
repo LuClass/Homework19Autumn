@@ -1,0 +1,70 @@
+（6）.
+#include <iostream>
+using namespace std;
+int gon(int a,int b)
+{
+	int x;
+	for (x=a>b?b:a;x>1;x--)
+	if(a%x==0&b%x==0)
+	break;
+	return x;
+ } 
+ int main()
+ {
+ 	int a,b,x,y;
+ 	cout<<"input two numbers:";
+ 	cin>>a>>b;
+ 	x=gon(a,b);
+ 	y=a*b/x;
+ 	cout<<a<<"和"<<b<<"的最小公倍数是："<<y; 
+ }
+（7）.
+递推：
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x,y=10,count=1,sum=0,z;
+	cout<<"输入一个正整数：";
+	cin>>x;
+	for (int a=1;a>0;a++)
+	{
+		if (x%y==x)
+		break;
+		else
+		{
+		count++;
+		y=y*10;
+		continue;
+		}
+	}
+	int a=1,m=1;
+		for (int c=1;c<count;c++)
+			m=m*10;
+	for (int b=1;b<=count;b++)
+	{
+		z=x/m;
+		x=x-z*m;
+		m=m/10;
+		sum=sum+a*z;
+		a=a*10;
+	}
+	cout<<sum;
+}
+递归：
+# include <iostream>
+using namespace std;
+int f(int x)
+{
+	cout<<x%10;
+	if (x/10!=0)
+	(f(x/10));
+	else
+	cout<<endl;
+}
+int main()
+{
+	int x;
+	cin>>x;
+	f(x);
+}

@@ -1,0 +1,95 @@
+144.14
+(2)
+#include <stdlib.h>
+#include <time.h>
+#include <iostream>
+using namespace std;
+void getRandom(int a[],int n){
+	srand(time(NULL));
+	for(int i=0;i<n;i++)
+	    a[i]=rand() % 100;
+}
+int getMax(const int a[],int n){
+	int i,j,maxValue,maxIndex,temp;
+	for(i=0,maxValue=a[i],maxIndex=i;i<n-1;i++){
+	j=i+1;
+	if(maxValue<a[j]){
+		maxValue=a[j];
+		maxIndex=j;}
+		}
+	cout<<maxIndex<<endl;
+}
+(5)
+#include <iostream>
+using namespace std;
+bool isPrime(int n){
+	if(n==2) return true;
+	for(int i=2;i*i<=n;i++)
+	   if(n%i==0) return false;
+	   return true;
+}
+bool isSmith(int n){
+	if(isPrime(n)) return false;
+	int sum1=0,sum=0,sum2=0,m;
+	 for(int y;n!=0;n/10){
+	 	y=n%10;
+	 	sum+=y;
+	 }
+          m=n;
+		for(int i=2;i<=n;i++){
+			while(m%i==0){
+				for(int x,h=i;h!=0;h/=10){
+					x=h%10;
+					sum1+=x;
+				}
+		    sum2+=sum1;
+		    m/=i;
+			}
+			}
+	if(sum==sum2) return true;
+	return false;
+}
+main(){
+	int t=4937774;
+	while(isSmith(t)){
+		t++;
+	}
+	cout<<t<<endl;
+}
+(10)
+#include<iostream>
+using namespace std;
+
+int getNum(int a[]){
+	int x=0;
+	for(int i=0;i<21;i++){
+		if(a[i]==1) x++;
+	}
+	return x;
+}
+int main(){
+	int a[21];
+	for(int i=0;i<21;i++){
+		a[i]=1;		
+	}
+	int x=0;
+	while(getNum(a)!=1){		
+		for(int i=0;i<21;i++){
+			if(a[i]==1) x++;	
+			if(x==5){		 
+				a[i]=0;
+				x=0;
+			} 
+		}
+	}
+	int y=0; 
+	for(int i=0;i<21;i++){
+		if(a[i]==1){
+			y=i;		
+			break;
+		}
+	}
+	cout<<"剩最后一个人的编号为:"<<y+1<<endl;		
+	
+
+}

@@ -1,0 +1,127 @@
+14（3）
+#include<iostream>
+using namespace std;
+struct Fraction{
+ 	int a,b;
+ };
+int yueshu(int a,int b){
+   while (a%b != 0) {
+        int temp = a;
+        a = b;
+        b = temp % a;
+     }
+    return b;
+}
+void yuefen(Fraction *x){
+ 	int yinzi=yueshu(x->a,x->b);
+ 	x->a/=yinzi;
+ 	x->b/=yinzi;
+}
+bool equal(Fraction x,Fraction y)
+{
+ 	yuefen(&x);
+ 	yuefen(&y);
+ 	return (x.a == y.a && x.b == y.b);
+}
+void daxiao(Fraction x,Fraction y){
+	if(x.a*y.b>y.a*x.b)
+		cout<<"x>y!"<<endl;
+	else 
+		cout<<"x<y!"<<endl;	
+}
+Fraction plus_(Fraction x,Fraction y)
+{
+ 	Fraction ans;
+ 	ans.b = x.b  * y.b;
+ 	ans.a = x.a * y.b + x.b * y.a ;
+ 	yuefen(&ans);
+ 	return ans;
+}
+Fraction subtract(Fraction x,Fraction y){
+ 	Fraction ans;
+ 	ans.b = x.b  * y.b;
+ 	ans.a = x.a * y.b - x.b * y.a ;
+ 	yuefen(&ans);
+ 	return ans;
+}
+Fraction multiply(Fraction x,Fraction y){
+ 	Fraction ans;
+ 	ans.b = x.b  * y.b;
+ 	ans.a = x.a * y.a;
+ 	yuefen(&ans);
+ 	return ans;
+}
+Fraction division(Fraction x,Fraction y){
+ 	Fraction ans={0};
+ 	if(y.a == 0)
+ 	return ans;
+ 	ans.b = x.b  * y.a;
+ 	ans.a = x.a * y.b;
+ 	yuefen(&ans);
+ 	return ans;
+}
+ int main()
+ {
+ 	Fraction x,y,ans;
+ 	char yunsuan;
+ 	cout <<"请输入第一个分子和分母："<<endl;
+ 	cin>>x.a>>x.b;
+ 	cout <<"请输入第一个分子和分母："<<endl;
+ 	cin>>y.a>>y.b;
+ 	if(equal(x,y))
+ 		cout<<"x=y!"<<endl;
+ 	else
+ 		daxiao(x,y);
+ 	cout<<"请输入运算(+ - * /) :";
+ 	cin>>yunsuan;
+ 	if(yunsuan=='+')
+ 		ans=plus_(x,y);
+ 	else if(yunsuan=='-')
+ 	 	ans=subtract(x,y);
+ 	else if(yunsuan=='*')
+ 		ans=multiply(x,y);
+ 	else if(yunsuan=='/')
+ 		ans=division(x,y);
+ 	cout<<"answer is "<<ans.a<<"/"<<ans.b<<endl;
+}
+
+
+14（4）
+#include<iostream>
+using namespace std;
+struct Course{
+	char id[10];
+	char coursename[20];
+	char way;
+};
+ enum ways{baifenzhi,dengjizhi};
+ enum dengji{A=1,B,C,D,E};
+ union Grade{
+	float gradebaifen;
+	dengji gradedengji;
+};
+struct student{
+	char id[10];
+	char name[10];
+	char coursename[20];
+	ways way;
+	Grade chengji;
+};
+ void printlevel(ways way,Grade chengji){
+	if(way==baifenzhi){
+		cout<<setw(5)<<chengji.gradebaifen;
+	}
+	else{
+		cout<<setw(5);
+		switch(chengji.gradedengji){
+			case 1:cout<<"A";break;
+			case 2:cout<<"B";break;
+			case 3:cout<<"C";break;
+			case 4:cout<<"D";break;
+			case 5:cout<<"E";break;			
+		};
+	}
+}
+ int main(){
+ 	return 0;
+} 

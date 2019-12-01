@@ -1,27 +1,17 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-int main()
+
+int main( )
 {
-	int n,a,b,c,t;
-	cin>>n;
-	a=n,b=0,c=1,t=1;
-	while(a>0)
-	{
-		a/=10;
-		b++;
-		c*=10;
-	}
-	while(t<=b/2)
-	{
-		c/=10;
-		if((n/c)!=(n%10))
-		{
-			cout<<"不是回文数";
-			return 0;
-		}
-		n=n%(c*10)/10;
-		t++;
-	}
-	cout<<"是回文数"; 
-	return 0;
+  long ge,shi,qian,wan,x;
+  cin>>x;
+  wan=x/10000;
+  qian=x%10000/1000;
+  shi=x%100/10;
+  ge=x%10;
+  if(ge==wan&&shi==qian)/*个位等于万位并且十位等于千位*/
+    cout<<"this number is a huiwen\n";
+  else
+    cout<<"this number is not a huiwen\n";
+  return 0;
 }

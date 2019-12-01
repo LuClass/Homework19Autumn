@@ -1,0 +1,126 @@
+2.
+#include<iostream>
+#include<time.h>
+using namespace std;
+void getRandow(int a[], int n) {
+	srand(time(NULL));
+	for (int i = 0; i < n; i++) {
+		a[i] = rand() % 100;
+	}
+}
+int getMax(const int a[], int n) {
+	int maxvalue = a[0];
+	int maxindex = 0;
+	for (int j = 1; j < 100; j++) {
+		if (a[j] > maxvalue) {
+			maxindex = j;
+			maxvalue = a[j];
+		}
+	}
+	return maxindex;
+}
+int main() {
+	int a[100];
+	getRandow(a, 100);
+	cout << getMax(a, 100);
+	return 0;
+}
+5.
+#include<iostream>
+using namespace std;
+bool isNotPrime(unsigned int n) {
+	if (n <= 2)
+		return false;
+	unsigned int i;
+	for ( i = 2; i*i <= n; i++) {
+		if (n%i == 0) {
+			return true;
+		}
+	}
+	return false;
+}
+//计算输入数各位数之和
+int sum(int n) {
+	int sum2 = 0;
+	while (n) {
+		sum2 += n % 10;
+		n = n / 10;
+	}
+	return sum2;
+}
+//计算各质因数各位数之和
+int facter(unsigned int n) {
+	unsigned int i = 2;
+	unsigned int sum1 = 0;
+	while (i != n) {
+		if (n%i == 0) {
+			n = n % i;
+			sum1 += sum(i);
+		}
+		else
+			i++;
+	}
+	return sum1;
+}
+//判定是否为Smith数
+bool isSmith(int n) {
+	if (sum(n) == facter(n))
+		return true;
+	else
+		return false;
+}
+//计算4937774的下一个Smith数
+void after() {
+	for (unsigned int i = 4937774;; i++) {
+		if (isSmith(i))
+			cout<<i;
+		    break;
+	}
+}
+int main() {
+	unsigned int n;
+	cout << "please input an unsigned integer(which is not a prime)" << endl;
+	cin >> n;
+	if (isNotPrime(n)) {
+		if (isSmith(n))
+			cout << "该数为Smith数" << endl;
+		else
+			cout << "该数非Smith数" << endl;
+	}
+	else
+		cout << "please input an non-prime" << endl;
+	cout << "4937774的下一个Smith数为:" << endl;
+	after();
+	return 0;
+}
+10.
+#include<iostream>
+using namespace std;
+int main() {
+	cout << "留到最后的人的编号是 " << endl;
+	int a[21];
+	for (int i = 1; i < 21; i++) {
+		a[i] = i ;
+	}
+	int i =1;
+	int index = 0;
+	int outperson = 0;
+	while (outperson < 20) {
+		if (a[i]) {
+			index++;
+			if (index % 5 == 0) {
+				index = 0;//5的倍数的人置零
+				a[i] = 0;
+				outperson++;//统计出局人数
+			}
+		}
+		if (i == 21)
+			i =0;
+		i++;
+	}
+                for (int i = 1; i<=21;i++){
+	   if( a[i] != 0)
+		cout << i;
+	}
+	return 0;
+}

@@ -1,0 +1,42 @@
+1.
+#include <iostream>
+using namespace std;
+void lower(char * a){
+	for(int i=0;a[i];++i){
+		if(a[i]<='Z'&&a[i]>='A')
+		a[i]=a[i]-'A'+'a';
+	}
+}
+int main(){
+	char * b=new char [50];
+	cin.getline(b,50);
+	lower(b);
+	cout<<b;
+	return 0;
+ } 
+2.
+#include <iostream>
+#include <string.h>
+using namespace std;
+void csort(char * c[],int n){
+	char * t;
+	for(int i=0;i<n-1;i++){
+		for(int j=0;j<n-i-1;j++){
+			if(strcmp(c[j],c[j+1])>0){
+				t=c[j];
+				c[j]=c[j+1];
+				c[j+1]=t;
+			}
+		}
+	}
+}
+int main(int argc,char * argv[]){
+	char * m[50];
+	for(int i=1;i<argc;i++){
+		c1[i-1]=argv[i];
+	}
+	csort(m,argc-1);
+	for(int i=0;i<argc-1;i++)
+	                cout<<m[i]<<endl;
+	return 0;
+ }  

@@ -1,20 +1,19 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 int main()
 {
-	int i,j,n,a,x;
-	cin>>i>>j;
-	n=i;
-	while(n<=j)
-	{
-		for(a=1,x=0;a<n;a++)
-		{
-			if(n%a==0)
-				x+=a;
-		}
-		if(n==x)
-			cout<<n<<' ';
-		n++;
-	}
-	return 0;
+    int a,b,x,sum=0;
+    int i,j;
+    cin>>i>>j;
+    cout<<endl<<"ÍêÈ«Êý:"<<endl;
+    for(a=i+1;a<j;a++){
+        for(b=1;b<a;b++){
+            if(a%b==0)
+                sum+=b;
+        }
+        if(sum==a)
+		    cout<<a<<endl;
+        sum=0;
+    }
+  return 0;
 }

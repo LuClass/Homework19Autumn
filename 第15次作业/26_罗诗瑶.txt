@@ -1,0 +1,188 @@
+//（3）分数运算
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+struct Fraction{
+	int a;
+	int b;	//分子为a，分母为b
+	double res; 
+}fr[2];
+Fraction *p2=NULL;
+int gcd(int x,int y){
+	if(x<y){
+		int temp=x;
+		x=y;
+		y=temp;
+	}
+	int g=0;
+	int t=0;
+	while(y!=0){
+		t=x%y;
+		x=y;
+		y=t;
+	}
+	g=x;
+	return g;
+}
+
+double Res(int x,int y){
+	double res;
+	res = 1.0*x/y;
+	return res;
+}
+
+Fraction reduction(Fraction *p){
+	if(p->b<0){
+		p->a=-p->a;
+		p->b=-p->b;
+	}
+	else{
+		int d=gcd(abs(p->a),abs(p->b));
+		p->a/=d;
+		p->b/=d;
+	}
+	return *p;
+} 
+
+void add(Fraction *p){
+	
+	(p+2)->a = p->a*(p+1)->b + (p+1)->a*p->b;
+	(p+2)->b = (p)->b * (p+1)->b;
+	reduction((p+2));
+	cout<<"和:"<<(p+2)->a<<'/'<<(p+2)->b<<endl;
+}
+void minu(Fraction *p){
+	
+	(p+2)->a = p->a * (p+1)->b - (p+1)->a * p->b;
+	(p+2)->b = p->b * (p+1)->b;
+	reduction((p+2));
+	cout<<"差:"<<(p+2)->a<<'/'<<(p+2)->b<<endl;
+}
+void multi(Fraction *p){
+
+	(p+2)->a=p->a*(p+1)->a;
+	(p+2)->b=p->b*(p+1)->b;
+	reduction((p+2));
+	cout<<"乘:"<<(p+2)->a<<'/'<<(p+2)->b<<endl;
+}
+void divide(Fraction *p){
+
+	(p+2)->a=p->a*(p+1)->b;
+	(p+2)->b=p->b*(p+1)->a;
+	reduction((p+2));
+	cout<<"除:"<<(p+2)->a<<'/'<<(p+2)->b<<endl;
+}
+
+void cmp(Fraction *p){
+	if((p)->res==((p+1)->res)){
+		cout<<"两数相等"<<endl; 
+	}
+	else if((p)->res>(p+1)->res) {
+		cout<<(p)->a<<'/'<<(p)->b<<" > "<<(p+1)->a<<'/'<<(p+1)->b<<endl;
+	}
+	else if((p)->res<(p+1)->res){
+		cout<<(p)->a<<'/'<<(p)->b<<" < "<<(p+1)->a<<'/'<<(p+1)->b<<endl;
+	};
+}
+
+int main(){	 
+	for(int i=0;i<2;i++){
+		cin>>fr[i].a>>fr[i].b;
+		fr[i].res=Res(fr[i].a,fr[i].b);
+	}
+	Fraction *p=fr;
+	for(int i=0;i<2;i++){
+		//比较大小 
+		reduction(p+i);	
+	}
+	add(p);
+	minu(p);
+	multi(p);
+	divide(p);
+	cmp(p);	
+	return 0;
+}
+
+
+
+//（4）
+#include<iostream>
+#include<string.h>
+#include<string>
+#include<stdlib.h>
+using namespace std;
+#define N 1005
+struct Course{
+	char ID[5];
+	string name;
+	int way;
+}cl[N]; 
+
+struct Student{
+	char num[10];
+	string name;
+	char ID[5];
+	union Score{
+		int s;
+		char ch;
+	}score[N];
+}st[N];
+
+
+int main(){
+	cout<<"请输入课程门数和查询学生人数"<<endl; 
+	int n,m;
+	cin>>n>>m;//课程门数n，查询学生人数 m
+	//输入课程信息 
+	for(int i=0;i<n;i++){
+		cout<<"请输入课程编号和名称:"; 
+		cin>>cl[i].ID>>cl[i].name; 
+		cout<<endl;
+		cout<<"输入课程考核方式(“1”为百分制，“2”为等级制):";
+		cin>>cl[i].way;
+		cout<<"\n";
+		system("cls");
+	}
+	
+	//输入查询学生信息 
+	for(int i=0;i<m;i++){
+		cout<<"请输入学生学号和姓名:";
+		cin>>st[i].num>>st[i].name;
+		cout<<endl;
+		for(int k=0;k<n;k++){
+			cout<<"请输入要查询的课程编号:";
+			cin>>st[i].ID;
+			
+			for(int j=0;j<n;j++){
+				//判断对应课程考核方式
+				if(!strcmp(st[i].ID,cl[j].ID)){
+					if(cl[j].way==1){
+						cout<<"请输入学生百分成绩:";
+						cin>>st[i].score[j].s; 
+					}
+					else if(cl[j].way==2){
+						cout<<"请输入学生等级成绩:";
+						cin>>st[i].score[j].ch; 
+					}
+				}
+			}
+		}
+		system("cls");
+	}
+	cout<<"\n\n";
+	//输出所有学生成绩 
+	for(int i=0;i<n;i++){
+		cout<<st[i].num<<' '<<st[i].name<<' ';
+		for(int j=0;j<m;j++){
+			if(cl[j].way==1){
+				cout<<cl[j].name<<":"<<st[i].score[j].s<<' ';
+			}
+			else
+				cout<<cl[j].name<<":"<<st[i].score[j].ch<<' ';
+		}
+		cout<<"\n";
+	}	
+
+	return 0;
+} 

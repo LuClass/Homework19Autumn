@@ -1,18 +1,20 @@
-using namespace std;
-#include <iostream>
-int main()
-{
-	int x,y,a,b,c;
-	cin>>x;
-	cin>>y;
-	for(a=1;a<=y;a++)
-	{
-		for(b=1;b<=x;b++)
-		cout<<'*';
-		cout<<'\n';
-		for(c=0;c<a;c++)
-		cout<<' ';
-	}
-	return 0;
+#include<iostream.h>
+void main()
+{    int l,h,i,j;
+     cin>>l>>h;
+	 for(j=0;j<h;j++)
+	 {   for(i=0;i<j;i++)
+	         cout<<" ";
+		 for(i=0;i<l;i++)
+	         cout<<"*";
+		 cout<<'\n';
+	 } 
+     cout<<'\n';
+	 for(j=0;j<h;j++)
+	 {   for(i=0;i<h-j-1;i++)
+	         cout<<" ";
+		 for(i=0;i<l;i++)
+	         cout<<"*";
+		 cout<<'\n';
+	 } 
 }
-

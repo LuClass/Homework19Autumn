@@ -1,0 +1,74 @@
+第六次作业
+21（2）
+#include<iostream>
+using namespace std;
+unsigned factorial(unsigned x){
+	if(x==1)
+		return 1;
+	else 
+		return x*factorial(x-1);
+}
+int main(){
+	cout<<"C(4,2)="<<factorial(4)/(factorial(2)*factorial(2))<<endl;
+	cout<<"C(6,4)="<<factorial(6)/(factorial(4)*factorial(2))<<endl;
+	cout<<"C(8,7)="<<factorial(8)/(factorial(7)*factorial(1))<<endl;
+	int n,k,cal;
+	cout<<"Please input n,k: "<<endl;
+	cin>>n>>k;
+	if(n<=k)
+		cout<<"error!"<<endl;
+	else{
+		cal=factorial(n)/(factorial(k)*factorial(n-k));
+		cout<<cal<<endl;
+	}
+	return 0;
+}
+
+（4）
+#include<iostream>
+#include<math.h>
+using namespace std;
+bool isPrime(int num){
+	if(num==2)
+		return true;
+	int temp=sqrt(num);
+	for(int i=2;i<=temp;i++){
+		if(num%i==0)
+			return false;
+	}
+	return true;	
+}
+int main(){
+	int p1=2;
+	bool flag=false;
+	for(int p=2;p<=500;p++){
+		if(isPrime(p)){
+			if((p-p1)==2)
+				cout<<"("<<p1<<","<<p<<")";
+			p1=p;
+		}
+	}
+	return 0;
+} 
+
+（5）
+#include<iostream>
+using namespace std;
+int main(){
+	cout<<"请输入一个正整数:"<<endl;
+	int num;
+	cin>>num;
+	cout<<num<<"=";
+	int i;
+	for(i=2;i<=num;i++){
+		while(num!=i){
+			if(num%i==0){
+				cout<<i<<"*";
+				num=num/i;
+			}
+			else break;
+		}
+	}
+	cout<<num;
+	return 0;
+} 
