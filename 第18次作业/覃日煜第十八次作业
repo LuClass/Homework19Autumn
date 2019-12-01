@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+	char *strim1(char *s)
+	{  int i; 
+		if (s==NULL)
+		return NULL;
+		if(s=='\0')
+		return s;
+		for(i=0;;i++)
+		{
+			if(*(s+i)=='\0')
+			{
+				if(*(s+i-1)==' ')
+				*(s+i-1)=='\0';
+				break;
+		    }
+		}
+		for(i=0;*(s+i)!='\0';i++)
+		{
+		  if(*(s+i)==' ')
+		  {   
+			char *head1=s+i;
+			head1++;
+			char*h=s+i;
+			if(head1>h)
+			while(*h++=*head1++);
+			
+		   }
+	    }
+		return s;
+	}
+
+    int main ()
+    {
+    	char s[]=" ab c 1 2 3 ";
+    	char *s1=strim1(s);
+    	cout<<s1;
+	}
