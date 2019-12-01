@@ -1,32 +1,49 @@
-//（5）
+//第十八次作业
+//1.指针实现strcat函数，不用string.h
+#include<iostream>
+using namespace std;
+char *strcat(char *str1,char *str2){
+	char *p=str1;
+	while((*str1)!='\0')
+		str1++;
+	while((*str2)!='\0'){
+		*str1++=*str2++;
+	}
+	*str1='\0';
+	return p;
+}
+int main(){
+	char str1[100];
+	char str2[100];
+	gets(str1);
+	gets(str2);
+	cout<<strcat(str1,str2)<<endl;
+	return 0;
+} 
+
+
+//2.去除字符串空格
 #include<iostream>
 #include<string.h>
 using namespace std;
-void findnum(string &ch);
-bool isnum(char n);
-void findnum(string &ch){
-	int k=ch.size();
-	int *num=new int[k];
-	int result;
-	int n,i=0;
-	for(n=0;n<k;n++){
-		result=0;
-		if(isnum(ch[n])){
-			result=ch[n]-'0';
-			while(n<k && isnum(ch[++n]))
-				result=(ch[n]-'0')+10*result;
-			num[i++]=result;
+char *trim(char *s){
+	if(s==NULL)	return NULL;
+	if(strlen(s)==0)	return s;
+	char *p=s;
+	while(*p!=0){
+		if(*p==' '){
+			char *q=p;
+			while(*q!=0){
+				*q=*(q+1);
+				q++;
+			}
 		}
+		else	p++;
 	}
-	for(int j=0;j<i;j++)
-		cout<<num[j]<<endl;
-}
-bool isnum(char n){
-	return (n>='0'&&n<='9');
+	return s;
 }
 int main(){
-	string m;
-	while(cin>>m && cin.get()!='\n');
-	findnum(m);
-	return 0;	
+	char s[]=" ab c 1 2 3 ";
+	cout<<trim(s)<<endl;
+	return 0;
 }
