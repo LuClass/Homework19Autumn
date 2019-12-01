@@ -1,0 +1,36 @@
+using namespace std;
+#include<iostrem>
+#include<cmath>
+struct Point{
+	int x;
+	int y;
+};
+
+double dis(Point m,Point n)
+{
+	double distance=sqrt((m.x-n.x)*(m.x-n.x)+(m.y-n.y)*(m.y-n.y));
+	return distance;
+}
+
+struct tri{
+	Point a;
+	Point b;
+	Point c;
+};
+
+int main()
+{
+	double l1=dis(tri.a,tri.b);
+	double l2=dis(tri.a,tri.c);
+	double l3=dis(tri.c,tri.b);
+	double sum1=l2+l3;
+	double sum2=l1+l3;
+	double sum3=l1+l2;
+	if(sum1>l1&&sum2>l1&&sum3>l3)
+	{
+		double C=l1+l2+l3;
+		double p=(l1+l2+l3)/2;
+		double S=sqrt(p(p-a)(p-b)(p-c))
+	}
+	return 0;
+}

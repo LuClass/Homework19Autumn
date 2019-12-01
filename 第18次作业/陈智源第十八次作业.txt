@@ -1,0 +1,52 @@
+（1）.
+#include <iostream>
+using namespace std;
+void strcat(char *p1,char *p2)
+{
+	char *x1=p1;
+	char *x2=p2;
+	while(*x1)
+	{ x1++;
+	}
+	while(*x2)
+	{ *x1=*x2;
+	   x2++;
+	   x1++;
+	}
+	*x1=*x2;
+	cout<<p1;
+ } 
+ int main()
+ {
+ 	char p1[30];
+ 	char p2[30];
+ 	cin.getline(p1,30);
+ 	cin.getline(p2,30);
+ 	strcat(p1,p2);
+ }
+(2).
+#include <iostream>
+#include <string.h>
+using namespace std;
+void del_sp(char *src);    
+void del_sp(string &str);  
+int main()
+{
+    char hl[50];
+    cin.getline(hl,50);
+    del_sp(hl);
+    cout << hl << endl;
+    return 0;
+}
+void del_sp(char *src)    
+{
+    char * fp = src;
+    while (*src) {
+        if (*src != ' ') { 
+            *fp = *src;
+            fp++;
+        }
+        src++;
+    }
+    *fp = '\0' ; 
+}

@@ -1,0 +1,134 @@
+第1题不用数组
+#include<iostream>
+using namespace std; 
+int main(){
+  int i,j,k,n;
+  int x,y;
+  cout<<"please input two number x and y(x<y):";
+  cin>>x>>y;
+  if(x<100||y>999){
+  	cout<<"iuput error!";
+  	return 0;
+  }
+  cout<<"water flower number is:";
+  for(n=x;n<y;n++)
+  {
+    i=n/100;
+    j=(n/10)%10;
+    k=n%10;
+    if(i*100+j*10+k==i*i*i+j*j*j+k*k*k)
+      cout<<n<<"  ";
+  }
+  return 0;
+}
+
+第1题用数组
+#include<iostream>
+using namespace std; 
+int main(){
+  int n;
+  int a[3];
+  int x,y;
+  cout<<"please input two number x and y(x<y):";
+  cin>>x>>y;
+  if(x<100||y>999){
+  	cout<<"iuput error!";
+  	return 0;
+  }
+  cout<<"water flower number is:";
+  for(n=x;n<y;n++)
+  {
+    a[0]=n/100;
+    a[1]=(n/10)%10;
+    a[2]=n%10;
+    if(a[0]*100+a[1]*10+a[2]==a[0]*a[0]*a[0]+a[1]*a[1]*a[1]+a[2]*a[2]*a[2])
+      cout<<n<<"  ";
+  }
+  return 0;
+}
+
+第2题不用数组
+#include<iostream>
+using namespace std;
+int main(){
+	int x;
+	cin>>x;
+	if(x<10000||x>99999){
+		cout<<"input error!";
+		return 0;
+	}
+	int a,b,c,d,e;
+	a=(x/10000)%10;
+	b=(x/1000)%10;
+	c=(x/100)%10;
+	d=(x/10)%10;
+	e=x%10;
+	if(a==e&&b==d)
+		cout<<"is a huiwenshu";
+	else
+		cout<<"is not a huiwenshu";
+}
+
+第2题用数组
+#include<iostream>
+using namespace std;
+int main(){
+	int x;
+	cin>>x;
+	if(x<10000||x>99999){
+		cout<<"input error!";
+		return 0;
+	}
+	int a[5];
+	a[0]=(x/10000)%10;
+	a[1]=(x/1000)%10;
+	a[2]=(x/100)%10;
+	a[3]=(x/10)%10;
+	a[4]=x%10;
+	if(a[0]==a[4]&&a[1]==a[3])
+		cout<<"is a huiwenshu";
+	else
+		cout<<"is not a huiwenshu";
+}
+
+
+第3题不用数组
+#include<iostream>
+using namespace std;
+int main(){
+	int x;
+	cin>>x;
+	int sum=1;
+	for(int i=2;i<x;i++){
+		if(x%i==0)
+			sum+=i;
+	}
+	if(sum==x)
+		cout<<"is a wanshu";
+	else
+		cout<<"is not a wanshu";
+}
+
+第3题用数组
+#include<string.h>
+#include<iostream>
+using namespace std;
+int main(){
+	int x;
+	cin>>x;
+	int a[1000];
+	int sum=1;
+	int j=0;
+	for(int i=2;i<x;i++){
+		if(x%i==0){
+			a[j]=i;
+			j++;
+		}
+	}
+	for(int i=0;i<j;i++)
+		sum+=a[i];
+	if(sum==x)
+		cout<<"is a wanshu";
+	else
+		cout<<"is not a wanshu";
+}

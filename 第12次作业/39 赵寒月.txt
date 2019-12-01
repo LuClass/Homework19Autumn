@@ -1,0 +1,145 @@
+第十二次作业
+ 144.14.（7）
+①int getSet(int rs[],const int a[],int n)
+{
+	for(int i=0;i<=sizeof(a);i++)
+	{
+	    rs[n]=a[i];
+		for(int j=0;j<n;j++)
+		{
+			if(a[i]==rs[j])
+			{
+				n--;
+			}
+		}
+		n++;
+	}
+	cout<<"rs={";
+	for(int i=0;i<n;i++)
+     {
+     	  cout<<rs[i];
+     	  if(i!=n-1)
+     	    cout<<",";
+     	  else
+     	    cout<<"}";
+	 }
+	 cout<<"  ";
+	 return n;
+}
+②
+int getSet(int rs[],const int a[],int n)
+{
+	for(int i=0;i<=sizeof(a);i++)
+	{
+	    rs[n]=a[i];
+		for(int j=0;j<n;j++)
+		{
+			if(a[i]==rs[j])
+			{
+				n--;
+			}
+		}
+		n++;
+	}
+	cout<<"rs={";
+	for(int i=0;i<n;i++)
+     {
+     	  cout<<rs[i];
+     	  if(i!=n-1)
+     	    cout<<",";
+     	  else
+     	    cout<<"}";
+	 }
+	 cout<<endl;
+	 int geshu[n];
+	 int t=0;
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<sizeof(a);j++)
+		{
+			if(rs[i]==a[j])
+			    geshu[i]=++t;
+		}
+	    t=0;
+	}
+	cout<<"rs中元素在数组a中对应的个数分别为：{";
+	for(int i=0;i<n;i++)
+	{
+		if(i!=n-1)
+		cout<<geshu[i]<<",";
+		else
+		 cout<<geshu[i]<<"}";
+	}
+	return n;
+}
+③
+#include<iostream>
+using namespace std;
+int getSet(int rs[],const int a[],int n)
+{
+	for(int i=0;i<=sizeof(a);i++)
+	{
+	    rs[n]=a[i];
+		for(int j=0;j<n;j++)
+		{
+			if(a[i]==rs[j])
+			{
+				n--;
+			}
+		}
+		n++;
+	}
+	cout<<"rs={";
+	for(int i=0;i<n;i++)
+     {
+     	  cout<<rs[i];
+     	  if(i!=n-1)
+     	    cout<<",";
+     	  else
+     	    cout<<"}";
+	 }
+	 cout<<endl;
+	 int geshu[n];
+	 int t=0;
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<sizeof(a);j++)
+		{
+			if(rs[i]==a[j])
+			    geshu[i]=++t;
+		}
+	    t=0;
+	}
+	cout<<"rs中元素在数组a中对应的个数分别为：{";
+	for(int i=0;i<n;i++)
+	{
+		if(i!=n-1)
+		cout<<geshu[i]<<",";
+		else
+		 cout<<geshu[i]<<"}";
+	}
+	cout<<endl;
+	for(int i=0;i<n;i++){
+		for(int j=i;j<n;j++)
+		{
+			if(geshu[j]>geshu[i])
+			{
+				int t1;                  int t2;
+				t1=geshu[i];             t2=rs[i];
+				geshu[i]=geshu[j];       rs[i]=rs[j];
+				geshu[j]=t1;             rs[j]=t2;
+			}
+		}
+	}
+	for(int i=0;i<n;i++)
+	{
+		cout<<rs[i]<<":"<<geshu[i]<<endl;
+	}
+ } 
+ int main()
+ {
+ 	int a[]={3,1,2,3,1,5,2,1};
+ 	int rs[sizeof(a)];
+ 	int n=0;
+ 	getSet(rs,a,n);
+  } 

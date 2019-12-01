@@ -1,0 +1,57 @@
+王雨昕的第四次作业
+p68 11 (4)
+#include <iostream>
+using namespace std;
+int main()
+{ int count=0;
+  char a=0;
+  do{
+  a=cin.get();
+  if(a>=' '&&a<='~')
+  count++;  
+  }while(a!='\n');
+  cout<<"count="<<count<<endl;
+  return 0;
+}
+
+(7)
+#include <iostream>
+using namespace std;
+int main()
+{ 
+  cout<<"1/2"<<'\n';
+  int a=3,b=2,c=2;
+  do{ cout<<a<<'/'<<b<<' '<<'\n';
+      a+=b;
+      b=a-b;
+      c++;
+  }while(c<21);
+  return 0;
+}
+
+(8)
+#include <iostream>
+using namespace std;
+int main()
+{ int i,j=1,k=1,sum;
+  cout<<"请输入一个正整数"; 
+  cin>>i;
+  cout<<"i的因子为 ";  
+  do{if(i%j==0)
+     cout<<j<<' ';
+     j++;
+    }while(j<=i);
+    
+  cout<<'\n'<<"1~100完全数为"; 
+  for(k=1;k<=100;k++)
+    {sum=0;
+     for(j=1;j<k;j++)
+      {if(k%j==0)
+         sum+=j;
+      }
+     if(sum==k)
+      cout<<k<<' ';
+    }
+  return 0;
+}
+

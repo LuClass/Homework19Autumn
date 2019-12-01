@@ -1,0 +1,44 @@
+(4)
+#include <iostream>	
+#include <algorithm>
+#include <string.h>
+using namespace std;
+int main(){
+    int n;
+	cin>>n;
+	for(;n>10;){
+		cout<<"请输入不大于10的数"<<endl;
+		cin>>n;
+	}
+	string c1[n];
+	for(int i=0;i<n;i++){
+		cout<<"请输入第"<<i+1<<"个字符串"<<endl;
+		cin>>c1[i];
+	}
+	sort(c1,c1+n);
+	for(int i=0;i<n;i++)cout<<c1[i]<<endl;
+}
+
+
+(5)
+#include <iostream>
+using namespace std;
+int main(){
+	char c[100];
+	int d[20];
+	int j=0;
+	d[0]=0;
+	cin.getline(c,100);
+	for(int i=0;c[i];i++){
+		if(c[i]>='0'&&c[i]<='9'){
+			for(;c[i]>='0'&&c[i]<='9';i++){
+				d[j]=d[j]*10+(c[i]-'0');
+			}
+			j++;
+			d[j]=0;
+		}
+	}
+	for(int x=0;x<j;x++){
+		cout<<d[x]<<endl;
+	}
+}
