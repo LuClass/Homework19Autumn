@@ -1,0 +1,89 @@
+(1)
+#include <iostream>
+using namespace std;
+int max(int i,int j){
+	int temp;
+	if(i>j){
+		temp=i;
+		i=j;
+		j=temp;
+	}
+	return j;
+}
+int min(int i,int j){
+	int temp;
+	if(i>j){
+		temp=i;
+		i=j;
+		j=temp;
+	}
+	return i;
+}
+int main(){
+	int i,j,a,b,c;
+	cout<<"input two number:";
+	cin>>i;
+	cin>>j;
+	if(max(i,j)<=100||min(i,j)>=1000)
+	cout<<"error data"<<endl;
+	else
+	for(int n=max(min(i,j),100);n<=max(i,j);n++){
+		a=n%10;
+		b=n/10%10;
+		c=n/100;
+		if(c*100+b*10+a==c*c*c+b*b*b+a*a*a)
+		cout<<n<<endl;
+	}
+}
+
+
+(2)
+#include <iostream>
+using namespace std;
+int main(){
+	int a,c,n,b=0,i=1,j;
+	cout<<"input number:";
+	cin>>n;
+	int e[100];
+	do{ 
+		c=n/i%10;
+		b++;
+		e[b]=c;
+		i=i*10;
+	}while(n/i!=0);
+    for(j=1;j<=b/2;j++){
+    	if(e[j]!=e[b-j+1]){
+         	cout<<"is not 回文数"; 
+    		break;
+		}	
+	}
+	if(j>b/2)
+	cout<<"is 回文数"<<endl; 
+} 
+
+
+
+
+(3)
+#include <iostream>
+using namespace std;
+int main(){
+	int n,j,i,m,temp,c;
+	cout<<"input two number:";
+	cin>>i>>j;
+	if(i>j){
+		temp=i;
+		i=j;
+		j=temp;
+	}
+	for(n=i;n<=j;n++){
+		for(m=1,c=0;m<n;m++){
+			if(n%m==0)
+			c=c+m;
+			else
+			c=c;
+		}
+		if(n==c)
+		cout<<n<<endl;
+}
+}

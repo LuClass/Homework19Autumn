@@ -1,0 +1,72 @@
+(1)
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+void cat(char* a,char* b){
+if (a == NULL||b==NULL) return;
+	for(int i=0;;i++)
+	{if(*(a+i)==0)
+	{int j=0;
+	for(;*(b+j);j++)
+	*(a+i+j)=*(b+j);
+	*(a+j+i+1)='\0';i=-1;
+}if(i==-1)break;
+}
+}
+void prInt(char* n)
+{if (n == NULL) return;
+for(int i=0;*(n+i);i++)
+cout<<*(n+i);
+}
+int main(){
+	char* a;char*b;
+	cin.getline(a,40);
+	cin.getline(b,60);
+	cat(a,b);
+	prInt(a);
+	return 0;
+}
+
+(2)
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+char * trim(char * s){
+if (s == NULL) return NULL;
+if (strlen(s) == 0) return s;
+for(int i=0,j=0;*(s+i);i++)//将非空格移至串头 
+   {
+   	if(*(s+i)!=' ')
+   	{*(s+j)=*(s+i);
+   		if(i!=j)
+   		*(s+i)=' ';
+		j++;
+	   }
+   }
+char *tail = s + strlen(s) - 1; //1，收缩串尾的空格
+while (*tail == ' ') tail--;
+//if(tail < s + strlen(s) - 1)
+*(tail + 1) = '\0';
+/*char * head = s; //2，收缩串头的空格
+while (*head == ' ') head++;
+char *h = s; //3，各字符前移
+if(head > h)
+while (*h++ = *head++);*/
+/*for(int i=0;*(s+i);i++)//4，除去串中空格 
+{if(*(s+i)==' ') {
+char* mid=s+i;
+trim(mid);
+}}*/
+return s;
+}
+int main(){
+char *s;
+cin.getline(s,100);
+cout<<strlen(s); //输出原串长
+char * s1 = trim(s);
+cout<<":"<<s1<<":"<<strlen(s1)<<endl; //输出处理之后的串及长度
+return 0;
+}
+

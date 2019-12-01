@@ -1,0 +1,56 @@
+第十七次作业
+#include<iostream>
+using namespace std;
+void A(char * s) {
+	do {
+		if (*s > 'A'&&*s < 'Z')
+			*s += 32;
+	} while (*s++ != 0);
+}
+int main() {
+	char s[100] ;
+	cin.getline(s, 100);
+	A(s);
+	cout << s << endl;
+	system("pause");
+	return 0;
+}
+ 
+#include<iostream>
+#include<string.h>
+using namespace std;
+void A(char * s1[], int n){
+	char *temp=s1[0];
+	char *ss[n];
+	int m;
+	for(int i = 0; i < n; i++)
+	{
+		for(int j = i+1; j < n; j++)
+			if(strcmp(temp, s1[j]) ==0){
+			    ss[m++]=temp;
+			}
+		for(int j=i+1;j<n;j++)
+		    if(strcmp(temp,s1[j])!=0)
+		       {
+		       	ss[m++]=temp;
+		       	temp=s1[j];
+		       	break;
+			   } 
+	}
+	for(int i=0;i<n;i++)
+		cout<<ss[i]<<endl;
+}
+
+int main()
+{
+	int n;
+	char * s1[10],s12[10][20];
+	cin>>n;
+	for(int i=0;i<n;i++)
+	{
+		cin.getline(s12[i],20);
+		s1[i]=s12[i];
+	}
+	A(s1,n);
+	return 0;
+}

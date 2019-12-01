@@ -1,0 +1,74 @@
+//第一题 实现strcat函数
+#include<iostream>
+using namespace std;
+
+char *strcat(char *a,char *b)
+{
+	if (a!=NULL&&b!=NULL)
+	{
+		char *t=a;
+		while (*a)
+			a++;
+		while (*b!='\0')
+		{
+			*a=*b;
+			a++;
+			b++;
+		}
+		*a='\0';
+		return t;
+	}	
+}
+
+int main()
+{
+	int n;
+	cout<<"请输入字符串个数"<<endl;
+	cin>>n;
+	const int N=n;
+	char a[N][100];
+	char temp[100];
+	char *tem=temp;
+	cin.getline(a[0],20);
+	for (int i=0;i<N;i++)
+	cin.getline(a[i],20);
+	for(int k=(N-1);k>0;k--)
+	{
+		tem=(char *)(a+k-1);
+		tem=strcat((char *)(a+k-1),(char *)(a+k));
+	}
+	cout<<*a<<endl;
+	return 0;
+}
+
+
+//第二题 字符串去掉空格
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+char *trim(char *a)
+{
+	char p;
+	int len=strlen(a);
+	for (int i=0;i<len&&*(a+i)!=0;i++)
+	{
+		while (*(a+i)==' ')
+		{
+			for(int j=i;j<len;j++)
+				*(a+j)=*(a+j+1);
+		}
+	}
+	return a;
+}
+
+int main()
+{
+	char a[100];
+	cin.getline(a,100);
+	cout<<strlen(a)<<endl;
+	char *pa=trim(a);
+	cout<<pa<<endl;
+	cout<<strlen(pa)<<endl;
+	return 0;
+}

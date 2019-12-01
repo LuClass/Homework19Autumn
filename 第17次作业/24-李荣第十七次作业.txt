@@ -1,0 +1,50 @@
+1.
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+using namespace std;
+void sort_print(char *buff)
+{
+	char *p=buff; 
+	for(;*p;++p)
+	{
+		if(*p<='Z'&&*p>='A')
+		{
+			*p+=('a'-'A');
+		}
+		if(*p)
+		cout<<*p;
+	}
+	cout<<endl;
+}
+
+int main()
+{
+	char str[1000];
+	cin>>str;
+	sort_print(str);
+	return 0;
+}
+
+2.
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<algorithm>
+using namespace std;
+int main()
+{
+	string buffers[1000];
+	string buff;
+	int tot=0;
+	while(cin>>buff)
+	{
+		
+		buffers[++tot]=buff;
+		char bre=getchar();
+		if(bre=='\n')break;	
+	}
+	sort(buffers+1,buffers+tot+1);
+	for(int i=1;i<=tot;++i)cout<<buffers[i]<<endl;
+	return 0;
+}
