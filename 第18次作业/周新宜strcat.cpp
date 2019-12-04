@@ -1,4 +1,4 @@
-using namespace std;
+zhou'xinusing namespace std;
 #include <iostream>
 char* Strcat(char *des, const char *src)
 {
