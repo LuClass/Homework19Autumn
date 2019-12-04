@@ -1,0 +1,106 @@
+6.
+using namespace std;
+#include <iostream>
+#define M 4
+int strlen(const char *a)
+{
+	if (a==NULL)
+	return 0;
+	const char *a1=a;
+	while (*a++);
+	return a-a1-1;
+}
+int getRev(char *a)
+{
+	int m=strlen(a);
+	int i,j,t=0;
+	for (i=0;i<m-1;i++)
+	{
+		for (j=i+1;j<m;j++)
+		{
+			if (*(a+i)>*(a+j))
+			t++;
+		}
+	}
+	return t;
+}
+char s(char *a,char *b)
+{
+	char c[10];
+	int i,j;
+	for (i=0;i<10;i++)
+	{
+		*(c+i)=*(a+i);
+	}
+	for (i=0;i<10;i++)
+	{
+		*(a+i)=*(b+i);
+	}
+	for (i=0;i<10;i++)
+	{
+		*(b+i)=*(c+i);
+	}
+}
+int main()
+{
+	char a[10][10];
+	int b[10];
+	int i,j,t;
+	for (i=0;i<M;i++)
+	{
+	    cin>>a[i];
+		b[i]=getRev(a[i]);
+	}
+	for (i=0;i<M;i++)
+	{
+		for (j=0;j<M-i-1;j++)
+		{
+			if (b[j]>b[j+1])
+			{
+				t=b[j+1];
+				b[j+1]=b[j];
+				b[j]=t;
+				s(a[j],a[j+1]);
+			}
+		}
+	}
+	for (i=0;i<M;i++)
+	{
+		cout<<a[i]<<' '<<b[i]<<endl;
+		
+	}
+}
+
+
+
+8.
+using namespace std;
+#include <iostream>
+int strlen(const char *a)
+{
+	if (a==NULL)
+	return 0;
+	const char *a1=a;
+	while (*a++);
+	return a-a1-1;
+}
+int getWordCount(char *a)
+{
+	int m=strlen(a);
+	int count=1,i;
+	for (i=0;i<m-1;i++)
+	{
+		if ((*(a+i)!=' '&&*(a+i)!='\t')&&(*(a+i+1)==' '||*(a+i+1)=='\t'))
+		count++;
+	}
+	cout<<m<<endl;
+	cout<<count;
+	return count;
+}
+int main()
+{
+	char a[200];
+	cin.getline(a,200);
+	getWordCount(a);
+	return 0;
+}
