@@ -1,0 +1,42 @@
+1.
+#include <iostream>
+using namespace std;
+char f(char*s)
+{
+   for(int i=0;*(s+i);i++)
+    {
+    if(*(s+i)>='A'&&*(s+i)<='Z')
+    *(s+i)=*(s+i)+32;
+            cout<<*(s+i);
+    }
+} 
+int main()
+{
+	char s[50];
+	cin.getline(s,50);
+	f(s);
+}
+
+2.
+#include <iostream>
+#include <string.h>
+using namespace std;
+int main()
+{		
+    //int a[6]={31,9,15,156,78,5};
+    int a[6]={8,456,12,546,4,32};
+    int n=6,temp;
+ 	for(int i=0;i<n-1;i++)
+	 {
+	 	for(int j=0;j<n-i-1;j++)
+ 			if(a[j]>a[j+1])
+			 {
+ 				temp=a[j];				
+ 				a[j]=a[j+1];
+ 				a[j+1]=temp; 	 
+ 			 }
+	 }	 
+	 for(int j=0;j<n;j++)
+		cout<<a[j]<<'\t';			
+	cout<<endl;	
+}

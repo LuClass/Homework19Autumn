@@ -1,0 +1,32 @@
+1.
+#include <iostream>
+using namespace std;
+char zh(char * a){
+	for(int i=0;*(a+i);i++){
+	    if(*(a+i)>='A'&&*(a+i)<='Z'){
+		}
+		*(a+i)=*(a+i)+32;
+	}
+} 
+int main(){
+    char c[]="bfio3draDFQ41fa";
+    char *a= &c[0];
+    zh(a);
+    for(int i=0;*(a+i);i++){
+    	cout<<*(a+i);
+	}
+}
+
+
+
+
+2.
+#include <iostream>	
+#include <algorithm>
+#include <string.h>
+using namespace std;
+int main(){
+	string c1[5]={"gsrfgk","gdfgs","htyfj","ktr","QWRA"};
+	sort(c1,c1+5);
+	for(int i=0;i<5;i++)cout<<c1[i]<<endl;
+}

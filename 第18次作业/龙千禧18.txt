@@ -1,0 +1,52 @@
+1.
+#include <iostream>
+using namespace std;
+char * strcat(char * a,char * b){
+	char * p;
+	int i=0,j=0;
+	for(;a[i];++i)
+	p[i]=a[i];
+	for(;b[j];++j)
+	p[i+j]=b[j];
+	p[i+j]=0;
+	return p;
+}
+int main()
+{
+	char a[]="fjalkfjwei";
+	char b[]="abc";
+	cout<<strcat(a,b)<<endl;
+	return 0;
+ } 
+
+2.
+#include <iostream>
+#include <cstring>
+using namespace std;
+char * trim(char * s){
+	if(s==NULL) return NULL;
+	if(strlen(s)==0) return s;
+	char *tail=s+strlen(s)-1;
+	while(*tail==' ') tail--;
+	if(tail<s+strlen(s)-1)
+		*(tail+1)='\0';
+	char * head=s;
+	while(*head==' ') head++;
+	char *h=s;
+	if(head>h){
+		for(;*head;){
+			if(*head==' ')
+			head++;
+			else
+			*h++=*head++;
+		}
+	}
+	*h=0;
+	return s;
+}
+int main()
+{
+	char a[]="  a b    c 1   23  ";
+	cout<<trim(a)<<endl;
+	return 0;
+ } 

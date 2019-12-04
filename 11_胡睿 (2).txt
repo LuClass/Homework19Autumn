@@ -1,16 +1,45 @@
-4.#include<iostream>
+1.
+#include<iostream>
+using namespace std;
+void transform(char*str)
+{
+	for(int i=0;*(str+i);i++)
+	{
+		if(*(str+i)<='Z'&&*(str+i)>='A')
+		{
+			*(str+i)=*(str+i)+('a'-'A');
+		}
+	}
+	for(int i=0;*(str+i);i++)
+		cout<<*(str+i);	
+}
+int main()
+{
+	char a[100];
+	cin.getline(a,100);
+	transform(a);
+	return 0;
+}
+
+
+2.#include<iostream>
 #include<cstring>
 using namespace std;
+static int count=0;
 void bubblesort(char*strs[],int n)
 {   char*temp;    
-	for(int i=0;i<n-1;i++)
-
-		for(int j=0;j<n-i-1;j++)
-		if(strcmp(strs[j],strs[j+1])>0)
-　　　　	{  temp=strs[j];
-　　　　　　	strs[j]=strs[j+1];
-　　　　　　	strs[j+1]=strs[j];
-　　　　　　	}
+	for(int i=0;i<=n-1;i++)
+	{
+		for(int j=0;j<=n-i-1;j++)
+		{
+		   if(strcmp(strs[j],strs[j+1])>0)
+				{temp=strs[j];
+				strs[j]=strs[j+1];
+				strs[j+1]=temp;
+				count++;
+				}
+		}
+	}
 
 }
 int main()					//也可用二维数组存放一组字符串    //string 对象输入忽略开头遇到的所有空字符，从第一个有效字符开始输入，直到遇到下一个空字符结束。 
@@ -18,57 +47,17 @@ int main()					//也可用二维数组存放一组字符串    //string 对象�
 	/*string str;
 	getline(cin,str);  //输入*/ 
 	int n;cin>>n;int num=n;
-	for(int i=0;i<n;i++)
-	{
-		char a[100];cin.getline(a,100);
-	char*strings[i]=a;
-	}
-	bubblesort(strings,num);
-	for(int i=0;i<num;i++)
-	{
-		cout<<strings[i]<<endl;  //输出 
-	}
-	
-}
-5.
-#include<iostream>
-#include<cstring>
-using namespace std;  //实现指针数组的输入 
-static int count=0;
-int main(){
-	int n;
-	string b[100];   //字符串数组 
-	cin>>n;
-	/*char*strings[100];   //声明 */   //野指针
-	char *strings[100];
+	char*strings[100];
 	char a[100][100];   //使其不为野指针 
 	for(int i=0;i<=n;i++)   //字符串结束标志   '0' 
 	{
 		cin.getline(a[i],100);     //*****输入第i行元素****二维数组中a[i]同样可用 
 		strings[i]=a[i];
-	}   //输入完 n个字符数组
-	for(int i=0;i<=n;i++)
+	}
+	bubblesort(strings,num);
+	for(int i=0;i<=num;i++)
 	{
-		for(int j=0;j<20;j++)
-		{
-			if((strings[i][j]>'1')&&(strings[i][j]<'9')&&(strings[i][j+1]>'1')&&(strings[i][j+1]<'9'))  //判断是否连续 
-			{
-				int num=j;
-				char c[100];   //
-				for(;((strings[i][num]>'1')&&(strings[i][num]<'9')) ;num++)   //是数字继续循环 
-				{
-					 c[num-j]=strings[i][num];
-					string b[count]=(string)c;   //强制类型转换 
-				} 
-				
-				count++; 		 
-			}
-		}
-    } 
-	 for(int i=0;i<=count;i++)
-	 {
-	 	cout<<b[count]<<endl;
-	  } 
-	  cout<<count;
-	  return 0; 
+		cout<<strings[i]<<endl;  //输出 
+	}
+	cout<<count;
 }
