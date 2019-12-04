@@ -1,0 +1,77 @@
+(3)#include <iostream>
+#include <stdlib.h>
+using  namespace std;
+struct fenshu{
+	int a;
+	int b;
+};
+struct answer{
+	bool equal;
+	fenshu plus;
+	fenshu minus;
+	fenshu time;
+	fenshu divide;
+};
+
+answer fun(fenshu *x,fenshu *y)
+{
+	answer count;
+	int i;
+	if(x->a/x->b-y->a/y->b<0.000001)
+	count.equal=true;
+	else count.equal=false;
+	for(i=1;;i++)
+	{if((x->b*i)%y->b==0)
+	break;
+	}
+   count.plus.a=(x->a)*i+(y->a)*((x->b)*i/y->b);
+   count.plus.b=x->b*i;
+   count.minus.a=(x->a)*i-(y->a)*(x->b*i/y->b);
+   count.minus.b=(x->b)*i;
+   count.time.a=(x->a)*(y->a);
+   count.time.b=(x->b)*(y->b);
+   count.divide.a=(x->a)*(y->b);
+   count.divide.b=(x->b)*(y->a);
+   if(count.plus.b<0)
+   {count.plus.b=-count.plus.b;
+    count.plus.a=-count.plus.a;
+   }
+   if(count.minus.b<0)
+   {count.minus.b=-count.minus.b;
+    count.minus.a=-count.minus.a;
+   }
+   if(count.time.b<0)
+   {count.time.b=-count.time.b;
+    count.time.a=-count.time.a;
+   }
+   if(count.divide.b<0)
+   {count.divide.b=-count.divide.b;
+    count.divide.a=-count.divide.a;
+	} 
+	return count;
+}
+(4).
+#include <iostream>
+using namespace std;
+struct  course{
+	int cid;
+	char cna[20];
+	bool cway;
+};
+enum score1{
+	A=65,
+	B=66,
+	C=67,
+	D=68,
+	E=69
+};
+union number{
+	int a;
+	score1 b;
+};
+struct student{
+	int sid;
+	char name[20];
+	int cid;
+	number score;
+};

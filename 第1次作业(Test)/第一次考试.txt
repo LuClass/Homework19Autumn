@@ -1,0 +1,47 @@
+角谷步数
+#include <iostream>
+using namespace std;
+int main(){
+	int n,i;
+	cin>>n;
+    cout<<"它的角谷步数为";
+	for(i=0,n;n!=1;i++)
+	{
+	 if(n%2==0)
+	  n/=2;
+	   else
+	   n=n*3+1;
+	   }
+	  cout<<i; 
+}
+
+菱形
+#include <iostream>
+using namespace std;
+int main(){
+	int n,i,j,k,t,s=1;
+	cin>>n;
+	t=n-1;
+	for(i=0;i<2*n;i+=2)
+	{   
+	    for(k=1;k<=t;k++)
+	    cout<<" ";
+	    for(j=0;j<=i;j++)
+		{
+			cout<<"*";
+		}
+		t-=1;
+		cout<<endl;
+	}
+	for(i=(2*n-2);i>=1;i-=2)
+	{   for(k=1;k<=s;k++)
+	    cout<<" ";
+		for(j=1;j<i;j++)
+		{
+			cout<<"*";
+		}
+		s+=1;
+		cout<<endl;
+	}
+}
+

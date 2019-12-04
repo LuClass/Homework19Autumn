@@ -1,0 +1,29 @@
+22.   a=1,b=2
+      -(c=a==1):-1
+      c=a>=b:0
+23.(x%2==0)&&(x>2)
+24.(x>8)||(x<-8)
+25.(A)  0
+   (B)  0.333333
+   (C)  1
+   (D)  7
+26. 设有语句：int a=9,b=9,c=9; 分别给出下列表达式的值。
+   A. a/=2+b++-c++     b=10  c=10  a=4
+   B. a+=b+c++         b=9   c=10  a=27
+   C a-=++b-c--         b=10  c=8   a=8
+   D a*=b+c--          b=9  c=8   a=162
+
+27.A .   1
+　 B.   1
+   C.    31
+　 D.    0
+28.(1)  #include <iostream>
+       using namespace std;
+       int main(){  
+       double C,F,K;
+       cin>>C;
+       F=C*9/5+32;
+       K=C+273.15;
+       cout<<F<<" "<<K<<endl;
+       return 0;
+     }

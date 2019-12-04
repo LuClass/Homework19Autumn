@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+int main(){
+	//第七题，递推
+	int a,i=1,s=0;
+	cin>>a;
+	for (;(a/i)>0;i*=10){
+    s=(a/i)%10;
+    cout<<s;}
+    return 0;}
+    #include <iostream>
+using namespace std;
+int f(int n){
+	if (n>0){
+	cout<<n%10;
+	f(n/10);}
+return n;}
+int main (){
+	//递归
+	int n;
+	cin>>n;
+	f(n);
+}
+#include <iostream>
+using namespace std;
+int f(int a,int b){
+	//第六题
+	int n;
+	if (a>=b){
+	for (;a%b!=0;a%b){
+		n=a%b;
+		a=b;
+		b=n;}
+		return b;}
+	else if (a<b){
+	for (;b%a!=0;b%a){
+		n=b%a;
+		b=a;
+		a=n;}}
+		return a;}
+int g(int a,int b){
+	int p,x;
+	p=a*b;
+	x=p/f(a,b);
+	return x;}
+int main (){
+	int a,b;
+	cin>>a>>b;
+	cout<<"最小公倍数="<<g(a,b)<<" "<<"最大公约数="<<f(a,b);
+	return 0;}

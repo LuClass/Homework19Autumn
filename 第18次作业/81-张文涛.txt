@@ -1,0 +1,57 @@
+1.
+#include <iostream>
+using namespace std;
+char*strcat(char s1[],char s2[])
+{
+	int k=0;
+	char a[50]={0};
+	for(int i=0;*(s1+i);i++)
+	{
+		*(a+i)=*(s1+i);
+		k++;
+	}
+	for(int j=0;*(s2+j);j++)
+	{
+		*(a+k)=*(s2+j);	
+		k++;	
+	}
+	cout<<a;
+}
+int main()
+{
+	char*s1;
+	char*s2;
+	cin.getline(s1,50);
+	cin.getline(s2,50);
+	strcat(s1,s2);
+}
+
+
+
+2.
+#include<iostream>
+#include <string.h>
+using namespace std;
+char*trim(char*s)
+{
+	if (s==NULL)
+	return NULL;
+	if(strlen(s)==0)
+	return s;
+	char a[50]={0};
+	for(int i=0,j=0;*(s+i);i++)
+	{
+		if(*(s+i)!=' ')
+		{
+			*(a+j)=*(s+i);
+			j++;
+		}
+	}
+	cout<<a;
+}
+int main()
+{
+	char*s;
+	cin.getline(s,50);
+	trim(s);
+}

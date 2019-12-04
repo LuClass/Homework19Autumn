@@ -1,0 +1,32 @@
+//（5）
+#include<iostream>
+#include<string.h>
+using namespace std;
+void findnum(string &ch);
+bool isnum(char n);
+void findnum(string &ch){
+	int k=ch.size();
+	int *num=new int[k];
+	int result;
+	int n,i=0;
+	for(n=0;n<k;n++){
+		result=0;
+		if(isnum(ch[n])){
+			result=ch[n]-'0';
+			while(n<k && isnum(ch[++n]))
+				result=(ch[n]-'0')+10*result;
+			num[i++]=result;
+		}
+	}
+	for(int j=0;j<i;j++)
+		cout<<num[j]<<endl;
+}
+bool isnum(char n){
+	return (n>='0'&&n<='9');
+}
+int main(){
+	string m;
+	while(cin>>m && cin.get()!='\n');
+	findnum(m);
+	return 0;	
+}

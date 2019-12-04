@@ -1,0 +1,38 @@
+1.
+
+#include<iostream>
+#include<string.h> 
+using namespace std;
+void deal(char *p,int n){
+	for(int i=0;i<n;i++){
+		if(p[i]>=65&&p[i]<=90)
+			p[i]+=32;
+	}
+}
+int main(){
+	char*p=new char[100];
+	cin.getline(p,100);
+	deal(p,100);
+	cout<<p;
+} 
+
+2.
+#include<iostream>
+#include<string.h> 
+using namespace std;
+void sort(char * strs[], int n){		
+	char *temp;
+	for(int i = 0; i < n-1; i++)				
+		for(int j = 0; j < n-i-1; j++)
+			if(strcmp(strs[j], strs[j+1]) > 0){
+				temp = strs[j];				
+				strs[j] = strs[j+1];
+				strs[j+1] = temp;
+			}
+}
+int main(int argc, char* argv[]){
+	sort(argv, argc);
+	for(int i=0;i<argc;i++)
+		cout<<argv[i]<<endl; 
+	return 0;
+} 
