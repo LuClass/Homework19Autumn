@@ -1,0 +1,82 @@
+!!!(6).
+#include <iostream>
+#include <string.h>
+#define MAX 3
+using namespace std;
+int getRev(char a[])
+{
+	char *s1=&a[0],*s2=&a[0];
+	int count=0;
+	while (*s1!=0)
+	{
+		s2=s1+1;
+		while (*s2!=0)
+			if (*s1<*s2)
+			{
+				count++;
+				s2++;
+			}
+		s1++;
+	}
+	return count;
+}
+int main()
+{
+	int num,i,j,temp1;
+	char a[MAX][20],n[MAX],temp2[100];
+	for (i=0;i<MAX;i++)
+	cin.getline(a[i],20);
+	for (i=0;i<MAX;i++)
+	{
+	n[i]=getRev(a[i]);
+	
+}
+	for (i=0;i<MAX-1;i++)
+		for (j=0;j<MAX-1-i;j++)
+			if (n[j]>n[j+1])
+			{
+				temp1=n[j];
+				n[j]=n[j+1];
+				n[j+1]=temp1;
+				strcpy(temp2,a[j]);
+				strcpy(a[j],a[j+1]);
+				strcpy(a[j+1],temp2);
+			}
+	for (i=0;i<MAX;i++)
+		{
+			for (j=0;j<20;j++)
+				cout<<a[i];
+			cout<<" "<<n[i]<<endl;
+		}
+}
+
+
+
+
+
+
+
+
+(8).
+#include <iostream>
+using namespace std;
+int getWordCount(char a[])
+{
+	char *s=&a[0];
+	int count=0;
+	while (*s!=0)
+	{
+		if (((*s>'a'&&*s<'z')||(*s>'A'&&*s<'Z'))&&(*(s+1)<'A'||(*(s+1)>'Z'&&*(s+1)<'a')||*(s+1)>'z'))
+		count++;
+		s++;
+	}
+	return count;
+}
+int main()
+{
+	char a[100];
+	cin.getline(a,100);
+	int n;
+	n=getWordCount(a);
+	cout<<n;
+}
