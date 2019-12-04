@@ -1,4 +1,4 @@
-#include <iostream>
+wang#include <iostream>
 using namespace std;
 void TRIM(char *S1)
 {   while (*S1!=0)
