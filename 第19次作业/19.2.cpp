@@ -1,30 +1,50 @@
 #include<iostream>
 #include<string.h>
 using namespace std;
-int getWordCount(char *a){
-	int m=strlen(a),j=0,i=0;
-		while(*a==' '){
-			a++; 
-			i++;
+
+#define MAX 4
+
+int getRev(char* a)
+{
+	int s = 0;
+	char* b = a;
+	for (int i = 0; i < strlen(a); i++)
+	{
+		for (int j = i + 1; j < strlen(b); j++)
+		{
+			if (*(a + i) > * (b + j))
+				s++;
 		}
-		for(;i<m;i++){
-			if(*a!=' '){
-				j++;
-				while(*a!=' '&&i<m){
-					a++;
-					i++;
-				}i--;
-			}
-			else{a++;
-			}
-		}
-		
-	
-	return j;
+	}
+	return s;
 }
-int main(){
-	char a[100];
-	gets(a);
-	int q=getWordCount(a);
-	cout<<q;
+
+void display(char* s[])
+{
+	char* temp = s[0];
+	for (int i = 0; i < MAX - 1; i++)
+	{
+		for (int j = 0; j < MAX - 1 - i; j++)
+		{
+			if (getRev(s[j]) > getRev(s[j + 1]))
+			{
+				temp = s[j];
+				s[j] = s[j + 1];
+				s[j + 1] = temp;
+			}
+		}
+	}
+	for (int i = 0; i < MAX; i++)
+		cout << s[i] << " (" << getRev(s[i]) << ") " << endl;
+}
+
+int main()
+{
+	char s[MAX][21];
+	for(int k=0;k<MAX;k++){
+		gets(s[k]);
+	}
+	char* a[] = { s[0],s[1],s[2],s[3] };
+	display(a);
+	return 0;
 }
