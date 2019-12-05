@@ -1,49 +1,62 @@
-//第十八次作业
-//1.指针实现strcat函数，不用string.h
-#include<iostream>
-using namespace std;
-char *strcat(char *str1,char *str2){
-	char *p=str1;
-	while((*str1)!='\0')
-		str1++;
-	while((*str2)!='\0'){
-		*str1++=*str2++;
-	}
-	*str1='\0';
-	return p;
-}
-int main(){
-	char str1[100];
-	char str2[100];
-	gets(str1);
-	gets(str2);
-	cout<<strcat(str1,str2)<<endl;
-	return 0;
-} 
-
-
-//2.去除字符串空格
+//第十九次作业
+//（6）计算各串逆序数
 #include<iostream>
 #include<string.h>
 using namespace std;
-char *trim(char *s){
-	if(s==NULL)	return NULL;
-	if(strlen(s)==0)	return s;
-	char *p=s;
-	while(*p!=0){
-		if(*p==' '){
-			char *q=p;
-			while(*q!=0){
-				*q=*(q+1);
-				q++;
-			}
+#define MAX 5
+int getRev(char *a){
+	int n=strlen(a);
+	int i,j,count=0;
+	for(i=0;i<n;i++){
+		for(j=i+1;j<n;j++){
+			if(*(a+i)>*(a+j))
+				count++;
 		}
-		else	p++;
 	}
-	return s;
+	return count;
 }
 int main(){
-	char s[]=" ab c 1 2 3 ";
-	cout<<trim(s)<<endl;
+	char s[MAX][21]={"DAABEC","abc","edbac","shdsilfh","sggiesausgf"};
+	int x[MAX],temp1;
+	char temp2[21];
+	for(int i=0;i<MAX;i++)
+		*(x+i)=getRev(*(s+i));
+	for(int i=0;i<MAX-1;i++){
+		for(int j=0;j<MAX-1-i;j++){
+			if(*(x+j)<*(x+j+1)){
+				temp1=*(x+j);
+				*(x+j)=*(x+j+1);
+				*(x+j+1)=temp1;
+				strcpy(temp2,*(s+j));
+				strcpy(*(s+j),*(s+j+1));
+				strcpy(*(s+j+1),temp2);
+			}
+		}
+	}
+	for(int i=0;i<MAX;i++)
+		cout<<*(s+i)<<':'<<*(x+i)<<endl;	
+	return 0;
+} 
+
+//（10）计算单词个数
+#include<iostream>
+#include<string.h>
+using namespace std;
+int getWordCount(char a[]){
+	int i,count=0;
+	for(i=0;i<n;i++){
+		if((a[i]==' '&&a[i+1]!=' ') || (a[i]=='	'&&a[i+1]!='	' )|| (a[i+1]=='\0'))
+			count++;
+	}
+	return count;
+}
+int main(){
+	char s[100];
+	cout<<"请输入一串字符（以一个空格或多个空格或tab符隔开）"<<endl; 
+	cin.getline(s,100);
+	int count1; 
+	count1=getWordCount(s);
+	cout<<"单词共"<<count1;
+	cout<<"个"<<endl;
 	return 0;
 }
