@@ -1,0 +1,70 @@
+//（6）
+#include <iostream>
+#include <cstring>
+#define MAX 10
+using namespace std;
+int getRev(char * a){
+	int ans=0;
+	for(int i=0;a[i+1];++i){
+		for(int j=i+1;a[j];++j){
+			if(a[i]>a[j])
+			ans++;
+		}
+	}
+	return ans;
+}
+struct abc{
+	char a[20];
+	int nx;
+};
+abc b[MAX];
+void getrev(abc * t,int n){
+	for(int i=0;i<n;++i){
+		t[i].nx=getRev(t[i].a);
+	}
+	for(int i=0;i<n-1;++i){
+		for(int j=0;j<n-i-1;++j){
+			if(t[j].nx>t[j+1].nx){
+				abc temp;
+				temp=t[j];
+				t[j]=t[j+1];
+				t[j+1]=temp;
+			}
+		}
+	}
+}
+int main()
+{
+	char a[]="DAABEC";
+	cout<<getRev(a)<<endl; 
+	for(int i=0;i<MAX;++i)
+	cin.getline(b[i].a,20);
+	getrev(b,MAX);
+	for(int i=0;i<MAX;++i)
+	cout<<b[i].a<<' '<<b[i].nx<<endl;
+	return 0;
+}
+
+//（8）
+#include <iostream>
+#include <cstring>
+#define MAX 654321
+using namespace std;
+int getWordCount(char * a){
+	int ans=0;
+	int i=0;
+	char * p=a;
+	while(*p){
+		for(;*p==' '||*p=='\t';++p);
+		for(;*p>='a'&&*p<='z'||*p>='A'&&*p<='Z';++p)
+		++ans;
+	}
+	return ans;
+}
+char a[MAX];
+int main()
+{
+	cin.getline(a,MAX);
+	cout<<getWordCount(a)<<endl;
+	return 0;
+}
