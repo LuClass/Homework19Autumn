@@ -1,0 +1,67 @@
+(6)
+#include<iostream>
+#include<string.h>
+using namespace std;
+#define MAX 3
+int getRev(char *a)
+{
+	int sum=0;
+	int n=strlen(a);
+	for(int i=0;i<n;i++)
+	{
+		for(int j=i+1;j<n;j++)
+		{
+			if(*(a+i)>*(a+j))
+			sum++;
+		}	
+	}
+	return sum;
+} 
+int main()
+{
+	char a[MAX][20];
+	char t[20]; 
+	int sum[MAX];
+	int temp;
+	for(int i=0;i<MAX;i++)
+	{
+		cin.getline(a[i],20);
+		sum[i]=getRev(a[i]);
+	}
+	for(int i=0;i<MAX-1;i++)
+	{		
+		for(int j=0;j<MAX-i-1;j++)
+		{
+			if(sum[j]>sum[j+1])
+			{
+				temp=sum[j];
+				sum[j]=sum[j+1];
+				sum[j+1]=temp;
+				strcpy(t,a[j]);
+				strcpy(a[j],a[j+1]);
+	 	        strcpy(a[j+1],t);
+			}
+		}
+	}
+	for(int i=0;i<MAX;i++)
+	{
+		cout<<a[i]<<":"<<sum[i]<<endl; 
+	}
+}
+(8)
+using namespace std;
+#include <iostream>
+#include <string.h>
+int getWordCount(char a[]){
+	char *p=a;int count=0;
+	for(;*p!='\0';p++)
+	   if((*p>='a'&&*p<='z')||(*p>='A'&&*p<='Z'))
+	   count+=1;
+	cout<<"单词的个数为："<<count<<endl;
+}
+main(){
+	char a[50];
+	gets(a); //利用这个东东，呵呵 
+	getWordCount(a);
+	return 0;
+}
