@@ -1,0 +1,87 @@
+(6)先编写一个函数：int getRev(char a[])，计算并返回字符串 a 的逆序。
+逆序的概念：在一个字符串中，如果存在 i<j，且 a[i]>a[j]，则称 a[i]和 a[j]构成 1 个逆序。
+例如"DAABEC"的逆序是 5，其中 D 与 A、A、B、C 构成 4 个逆序，E 与 C 构成 1 个逆序。
+要求任意输入 MAX 个字符串(MAX 是一个宏，值为>2 的正整数)，每个串不多于 20 个字符，先计算各
+串的逆序数，再按逆序数升序输出各串及其逆序数。
+
+#include <iostream>
+#include <string.h>
+#define N 100
+#define M 20
+#define MAX 3
+using namespace std;
+long long ni(char a[])
+{int i=0,j;
+long long count=0;
+for(;a[i];i++)
+   {for(j=i+1;a[j];j++)
+   		if(a[i]>a[j])
+   		count++;		   
+   }return count;
+}
+void rank(char a[][M])
+{char tem[M];
+int tmp,j,num[MAX];
+for (int i=0;i<MAX;i++)
+num[i]=ni(a[i]);
+for (int i=0;i<MAX-1;i++)
+	{
+		for (j=i+1;j<MAX;j++)
+		{
+			if (num[i]<num[j])
+			{
+				tmp=*(num+i);
+				*(num+i)=*(num+j);
+				*(num+j)=tmp;
+				strcpy(tem,a[i]);
+				strcpy(a[i],a[j]);
+				strcpy(a[j],tem);
+			}
+		}
+	}for(int i=0;i<MAX;i++)
+	cout<<num[i]<<' '<<a[i]<<'\n';
+}
+
+int main(){
+	char a[N][M];
+	int num[N];
+	for(int i=0;i<MAX;i++)
+	cin.getline(a[i],M);
+	rank(a);	
+	return 0;
+}
+
+
+
+(8)编写一个函数：int getWordCount(char a[])，统计字符串 a 中的单词个数，单词之间用一
+个或多个空格或 tab 符隔开。
+
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+int getWordCount(char a[])
+{
+	int count,i,n;
+	n=strlen(a);
+	if(*a==32||*a==9)
+	count=0;
+	else
+	count=1;
+	for(i=0;i<n-1;i++)
+	if(((*(a+i)==32)||(*(a+i)==9))&&((*(a+i+1)!=32)&&(*(a+i+1)!=9)))
+	count++;
+	return count;
+}
+int main()
+{
+	char a[999];
+	cin.getline(a,999);
+	cout<<getWordCount(a);
+	return 0;
+}
+
+
+
+
+
