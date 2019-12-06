@@ -1,0 +1,80 @@
+6.
+#include <iostream>
+#include <string.h>
+using namespace std;
+int getRev(char *a){
+	char *t=a;
+	int count=0,n=0;
+	do{
+		for(int i=1;i<strlen(a)-n;i++){
+			if(*t>*(t+i))
+			count++;
+		}
+		t++;
+		n++;
+	}while(strlen(a)-n!=1);
+	return count;
+}
+int main(){
+    char p[20][20];
+	int a[100];
+	int max=5;
+	cin>>max;
+	for(int i=0;i<=max;i++)
+	cin.getline(p[i],20);
+    for(int i=1;i<=max;i++)
+    a[i]=getRev(p[i]);
+    for(int i=1;i<=max-1;i++){
+    	int temp;
+    	for(int j=1;j<=max-1-i;j++){
+    		if(a[j]>a[j+1]){
+    			temp=a[j];
+    			a[j]=a[j+1];
+    			a[j+1]=temp;
+			}
+		}
+	}
+    for(int i=1;i<=max;i++){
+    	cout<<a[i]<<" ";
+	}
+}
+
+
+
+4.#include <iostream>
+#include <string.h>
+using namespace std;
+int Z(char a[]){
+	for(int i=0;i<strlen(a);i++){
+	int j,count=1;
+    if(i==0){
+    for(int k=1;k<strlen(a);k++){
+    	if(a[0]==a[k])
+		count++;
+	}
+	cout<<a[0]<<":"<<count<<" ";
+    }
+    else{
+    for(j=i-1;j>=0;j--){
+    	if(a[i]==a[j])
+    	break;
+	}
+	if(j==-1){
+	for(int k=i+1;k<strlen(a);k++){
+		if(a[i]==a[k])
+		count++;
+	}
+	cout<<a[i]<<":"<<count<<" ";
+	cout<<endl;
+   }}
+}  
+}
+int main(){
+	char p[50][50];
+	int n;
+	cin>>n;
+	for(int i=0;i<=n;i++)
+	cin.getline(p[i],50);
+    for(int i=0;i<=n;i++)
+    Z(p[i]);
+}
