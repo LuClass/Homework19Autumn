@@ -1,0 +1,65 @@
+//6.
+#include<iostream>
+#include<iomanip>
+#define MAX 5
+using namespace std;
+int getRev(char * a,int n) {
+	int rev = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if (a[i] > a[j])
+				rev++;
+		}
+	}
+	return rev;
+}
+int main() {
+	char s[MAX][21];
+	int rev[MAX];
+	for (int i = 0; i < MAX; i++) {
+		cin.getline(s[i], 21);
+		rev[i] = getRev(s[i], strlen(s[i]));
+	}
+	
+	char temps[21];
+	for (int i = 0; i < MAX; i++) {
+		for (int j = i + 1; j < MAX; j++) {
+			if (rev[i] > rev[j]) {
+				strcpy(temps, s[j]);
+				strcpy(s[j], s[i]);
+				strcmp(s[i], temps);
+			}
+		}
+	}
+	cout << setw(21) << "字符串：" << '\t' << "逆序数"<<endl;
+	for (int i = 0; i < MAX; i++) {
+		cout << setw(21) << s[i] << '\t' << getRev(s[i],strlen(s[i])) << endl;
+	}
+	return 0;
+}
+//8.
+#include<iostream>
+using namespace std;
+int words(char * s) {
+	int count = 0;
+	while (* ++s != 0) {
+		if (isalpha(*s) && !isalpha(* ++s)) {
+			count++;
+		}
+		s++;
+	}
+	if (isalpha(*s))
+		count  ++;
+    if (isalpha(*--s)&&!isalpha(*s))
+		count ++;
+	return count;
+}
+int main() {
+	int n;
+	cout << "please input an integer as the length of string" << endl;
+	cin >> n;
+	char  * s =new char[n];
+	cin.getline(s, n);
+	cout << "该字符串包含单词个数为: " << words(s);
+	return 0;
+}
