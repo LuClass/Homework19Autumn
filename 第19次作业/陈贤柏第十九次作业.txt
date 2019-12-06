@@ -1,0 +1,81 @@
+1、
+#include<iostream>
+#include<algorithm>
+#define MAX 5
+using namespace std;
+int getRev(char *a){
+	char *aa;
+	int sum=0;
+	while(*a!=0&&*(a+1)!=0){
+		aa=a;
+		while(*aa!=0){
+			if(*a>*aa){
+				sum++;
+			}
+			aa++;
+		}
+		a++;
+	}
+	return sum;
+}  
+bool Compare(char *s1,char *s2){
+	return getRev(s1)<getRev(s2);
+}
+ 
+int main(){
+	char *temp;
+	char a[MAX][20];
+	for(int i=0;i<MAX;i++){
+		cin.getline(a[i],20);
+	}
+	char *aa[MAX];
+	for(int i=0;i<MAX;i++){
+		aa[i]=a[i];
+	}
+	sort(aa,aa+MAX,Compare);  
+	for(int i=0;i<MAX;i++){
+		cout << *(aa+i) << "   "<< getRev(*(aa+i)) << endl;
+	}
+}
+
+
+2、
+#include<iostream>
+#define MAX 100
+using namespace std;
+bool isAlpha(char c){
+	if((c>='a'&&c<='z')||(c>='A'&&c<='Z')){
+		return true;
+	}
+	else return false;
+}
+int getWordCount(char *s){
+	int sum=0;
+	char *temp;
+	if(isAlpha(*s)){
+		while(isAlpha(*s)){
+			s++;
+		}
+		if(*s==' ') sum++;
+	}
+	while(*(s+1)!=0){
+		if(*(s-1)==' '){
+			while(isAlpha(*s)){
+				s++;
+			}
+		    if(*(s)==' '){
+			    sum++;
+		    }
+	    }
+	s++;
+	}
+	if(*(s-1)==' '&&isAlpha(*s)){
+		sum++;
+	}	
+	return sum;
+}
+int main(){
+	char s[MAX];
+	cin.getline(s,MAX);
+	cout << getWordCount(s);
+}
