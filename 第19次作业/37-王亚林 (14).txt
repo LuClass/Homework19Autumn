@@ -1,0 +1,82 @@
+#include <iostream>
+#include <string.h>
+#define MAX 4
+using namespace std;
+int getRev(char a[])
+{
+	int length = strlen(a);
+	int count = 0;
+	for(int i=0; i<length; i++)
+	{
+		for(int j=i+1; j<length; j++)
+		{
+			if(*(a+i)>*(a+j))
+				count++;
+		} 
+	}
+	return count;
+}
+int main()
+{
+	char a[MAX][20];
+	cin>>*a>>*(a+1)>>*(a+2)>>*(a+3);
+	int num[MAX];
+	for(int i=0; i<MAX; i++)
+	{
+		if(strlen(a[i])>20)
+		{cout<<"字符串长度过长"<<endl;
+			return 0;
+		}
+	}
+	for(int i=0; i<MAX; i++)
+		*(num+i)= getRev(*(a+i));
+	
+	for(int i=0; i<MAX-1; i++)
+	{
+		int temp;
+		char temp_a[20];
+		for(int j=i+1; j<MAX; j++)
+		{
+			if(*(num+i)>*(num+j))
+			{
+				temp = *(num+i);
+				strcpy(temp_a,*(a+j));
+				*(num+i) = *(num+j);
+				strcpy(*(a+i),*(a+j));
+				*(num+j)= temp;
+				strcpy(*(a+j),temp_a);
+			}}
+	}
+	cout<<"结果为："<<endl;
+	for(int i=0; i<MAX; i++)
+		cout<<*(a+i)<<" "<<*(num+i)<<endl;
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+int getWordCount(char a[])
+{
+	int num=0; 
+    bool word=false;
+	for (int i=0;*(a+i)!='\0'; i++)
+    {
+        if (*(a+i)==' '||*(a+i)=='\t' )
+            word=false;
+        else
+            if (word==false)
+            {word=true;
+                num++;
+            }
+    }
+	return num;
+}
+int main()
+{
+    char str[100];
+	cin.getline(str,100);
+	int i=getWordCount(str);
+	cout<<"The number of words:"<<endl;
+	cout<<i<<endl;
+    return 0;
+}
