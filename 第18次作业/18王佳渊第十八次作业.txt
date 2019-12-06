@@ -1,0 +1,47 @@
+（1）
+#include<iostream>
+using namespace std;
+char* strcat(char* a1, char* a2) {
+	char* m = a1;
+	while (*m != '\0')
+		m++;
+	while (*a2) {
+		*m = *a2;
+		a2++;
+		m++;
+	}
+	return a1;
+}
+int main(){
+	char a1[] = "abc", a2[] = "defgh";
+	char* m = strcat(a1, a2);
+	cout << m ;
+	return 0;
+}
+（2）
+#include<iostream>
+#include<string.h>
+using namespace std;
+char* trim(char* a){
+	char* m, * n;
+	for (m = a; *n != '\0';){
+		m = n;
+		if (*n == ' '){
+			while (*n != '\0'){
+				*n = *(n + 1);
+				n++;
+			}
+		}
+		else{
+			n++;
+		}
+	}
+	return a;
+}
+int main(){
+	char a[] = " ab c 1 2 3";
+	char* n;
+	n = trim(a);
+	cout << n;
+	return 0;
+}
