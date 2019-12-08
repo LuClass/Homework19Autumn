@@ -1,0 +1,50 @@
+//P144.(6)
+#include<iostream>
+#include<string.h>
+using namespace std;
+int getRev(char *a){
+	int sum=0;
+	int len=strlen(a);
+	for(int i=0;i<len;i++){
+		for(int j=i+1;j<len;j++){
+			if(*(a+i)>*(a+j))
+			    sum++;
+		} 
+	}
+	return sum;
+}
+int main(){
+	int max;
+	cout<<"请输入需要计算的字符串个数："<<endl;
+	cin>>max;
+	cout<<"请输入长度不大于20的字符串："<<endl; 
+	char str[max][20];
+    char ss[20];
+    int ch[max];
+    for(int i=0;i<=max;i++){
+		cin.getline(str[i],20);
+		ch[i]=getRev(str[i]); 
+	}
+
+	int temp;//排序 
+	for(int j=0;j<max;j++){
+		for(int k=0;k<max-j;k++){
+			if(ch[k]>ch[k+1]){
+				temp=ch[k];
+				ch[k]=ch[k+1];
+				ch[k+1]=temp;
+				strcpy(ss,str[k]);
+				strcpy(str[k],str[k+1]);
+				strcpy(str[k+1],ss);
+			}
+		}
+	} 
+	for(int i=0;i<max;i++){
+		cout<<ch[i]<<' '; 
+	}
+	cout<<"字符串按逆序数升序排序如下:\n"; 
+	for(int i=0;i<max;i++){
+		cout<<ch[i]<<": "<<str[i]<<endl;
+	}
+	return 0;
+}
