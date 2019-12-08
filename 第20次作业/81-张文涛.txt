@@ -1,0 +1,152 @@
+P144
+6.
+#include <iostream>
+#include <string.h>
+#define size 20
+#define max 4
+using namespace std;
+int getRev(char*a)
+{
+	int i,j,count=0,temp;
+	int length=strlen(a);
+	for(i=0;i<length;i++)
+	{
+		for(j=i+1;j<length;j++)
+		{
+			if(*(a+i)>*(a+j))
+			{
+				count++;
+			}
+		}
+	}	return count;
+}
+
+char s(char *a,char *b)
+ {
+ 	char c[10];
+ 	int i,j;
+ 	for (i=0;i<10;i++)
+ 	{
+ 		*(c+i)=*(a+i);
+ 	}
+ 	for (i=0;i<10;i++)
+ 	{
+ 		*(a+i)=*(b+i);
+ 	}
+ 	for (i=0;i<10;i++)
+ 	{
+ 		*(b+i)=*(c+i);
+ 	}
+ }
+ int main()
+ {
+ 	char a[10][10];
+ 	int b[10];
+ 	int i,j,t;
+ 	for (i=0;i<max;i++)
+ 	{
+ 	    cin>>a[i];
+ 		b[i]=getRev(a[i]);
+ 	}
+ 	for (i=0;i<max;i++)
+ 	{
+ 		for (j=0;j<max-i-1;j++)
+ 		{
+ 			if (b[j]>b[j+1])
+ 			{
+ 				t=b[j+1];
+ 				b[j+1]=b[j];
+ 				b[j]=t;
+ 				s(a[j],a[j+1]);
+ 			}
+ 		}
+ 	}
+ 	for (i=0;i<max;i++)
+ 	{
+ 		cout<<a[i]<<' '<<b[i]<<endl;
+
+  	}
+ }
+
+
+
+
+P237
+4.
+#include<iostream>
+#include<string.h>
+#define N 100
+using namespace std;
+char*s1[N];
+char*s2[N];
+int b[N];
+void f(char*data[N],int a[],int n)
+{    int i,j,temp;char*c[1];
+      for(i=0;i<n-1;i++)
+         for(j=0;j<n-1-i;j++)
+          if(a[j]<a[j+1])
+            {strcpy(c[0],data[j]);
+              strcpy(data[j],data[j+1]);
+              strcpy(data[j+1],c[0]);
+              temp=a[j];
+              a[j]=a[j+1];
+              a[j+1]=temp;
+             }
+}
+bool num(char*a[N],char*b[N],int m,int n)
+{
+     int i;
+     for(i=0;i<n;i++)
+ 	{
+         if(strcmp(a[i],b[m])==0)
+         break;	
+     }
+     if(i==n)
+     return 0;
+     else
+     return 1;	
+}
+int main()
+{
+     int n,i,j,k=1,p=0;
+     cin>>n;
+     cin.get();
+     if(n<=2)
+     return 0;
+     else
+   {
+          for(i=0;i<n;i++)
+ 		 {
+          s1[i]=new char[100];	
+          s2[i]=new char[100];
+          cin.getline(s1[i],100);
+          if (!cin)
+             {cin.clear();
+              cin.ignore(1024,'\n');
+             }
+          }
+     for	(i=0;i<n;i++)
+ 	{
+     for	(j=i+1;j<n;j++)
+ 	{
+         if(strcmp(s1[j],s1[i])==0)
+         k=k+1;		
+     }
+     if(num(s2,s1,i,p)==0)
+     {
+ 	     strcpy(s2[p],s1[i]);
+          b[p]=k;
+          p++;
+     }
+     k=1;
+     }
+     f(s2,b,p);
+      for(i=0;i<=p-1;i++)
+      cout<<s2[i]<<"   "<<b[i]<<endl;	
+      for(i=0;i<n;i++)
+ 	{
+      delete s1[i];
+      delete s2[i];	
+     }
+   }	
+}
