@@ -1,0 +1,127 @@
+1.#include<iostream>
+using namespace std;
+struct Row{int num,Ni;char*rowp;
+}; 
+void del(Row*r,int max)
+{
+	for(int i=0;i<max;i++)
+	{delete  []r[i].rowp;
+	}
+	delete []r;
+}
+int main()
+{     
+	int i,j,k,max=0;
+	cin>>max;
+	Row *R=new Row[max];
+	for(i=0;i<max;i++)
+	{int n=0;
+	cin>>n;
+	 R[i].rowp=new char[n];
+	 R[i].num=n;
+	 for(j=0;j<n;j++)
+	 {char k;
+	   cin>>k;
+	   R[i].rowp[j]=k;
+	 }
+		
+	}
+	for(i=0;i<max;i++)
+	{
+		R[i].Ni=0;
+		for(j=0;j<R[i].num;j++)
+		for(k=j+1;k<R[i].num;k++)
+		{if(R[i].rowp[j]<R[i].rowp[k])
+		   {
+		   	R[i].Ni++;
+		   }
+		}
+	}
+		for(i=0;i<max-1;i++)
+		for(j=i+1;j<max;j++)
+		{   if(R[i].Ni<R[j].Ni)
+			{
+			int temp;
+			temp=i;
+			i=j;
+			j=temp;
+			}
+		}
+		for(i=0;i<max;i++)
+		{
+			for(j=0;j<R[i].num;j++)
+			{cout<<R[i].rowp[j];
+			}
+			cout<<" "<<":"<<R[i].Ni<<endl;
+		}
+	
+	del(R,max);
+}
+
+
+2.#include<iostream>
+using namespace std;
+struct Row{int num1,num2;char*rowp;
+}; 
+void del(Row*r,int max)
+{
+	for(int i=0;i<max;i++)
+	{delete  []r[i].rowp;
+	}
+	delete []r;
+}
+int main()
+{     
+	int i,j,t,row=0;
+	cin>>row;
+	Row *R=new Row[row];
+	for(i=0;i<row;i++)
+	{int num=0;
+	cin>>num;
+	 R[i].rowp=new char[num];
+	 R[i].num1=num;
+	 R[i].num2=-1;
+	 for(j=0;j<num;j++)
+	 {char k;
+	   cin>>k;
+	   R[i].rowp[j]=k;
+	 }
+		
+	}
+	for(i=0;i<row-1;i++)
+	{
+		R[i].num2=1;
+		for(j=i+1;j<R[i].num1;j++)
+	  {  if(R[i].num1==R[j].num1)
+		{
+		for(t=0;t<R[i].num1;t++)
+		  {if(R[i].rowp[t]!=R[j].rowp[t])
+		   	continue;
+		   	if(t==R[i].num1)
+		   	{
+		   		R[i].num2++;
+		   		R[j].num2=-1;
+			   }
+		   
+	       }
+	    }
+		else continue;
+	  }
+    }
+    for(i=0;i<row-1;i++)
+     for(j=i+1;j<row;j++)
+      if(R[i].num2<R[j].num2)
+      {
+      	int temp;
+      	temp=i;
+      	i=j;
+      	j=temp;
+	  }
+	  for(i=0;i<row;i++)
+	  {
+	  for(j=0;j<R[i].num1;j++)
+	  if(R[i].num2!=-1)
+	  cout<<R[i].rowp[j];
+      cout<<endl;
+	   }
+}
