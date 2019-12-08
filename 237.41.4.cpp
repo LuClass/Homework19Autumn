@@ -4,8 +4,8 @@ using namespace std;
 
 int main() {
 	int n = 3;
-	cout << "n<=10。\n输入‘ - ’做为每个字符串的结尾。" << endl;
-	//cin >> n;
+	cout << "n<=10。" << endl;
+	cin >> n;
 	char a[10][20] = {};
 	char tem[1][20] = {};
 	int i = 0;
