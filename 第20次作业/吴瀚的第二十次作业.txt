@@ -1,0 +1,108 @@
+//p144(6)max为变量 
+#include<iostream>
+#include<string.h>
+using namespace std;
+int getRev(char *a){
+ 	int s=0;
+ 	for(int i=0;a[i];i++){
+ 		for(int j=i+1;a[j];j++){
+ 			if(a[i]>a[j])
+ 			s++;
+ 		}
+ 	}
+ 	return s;
+ }
+ struct MAX{
+ 	char *max;
+ };
+ void del(MAX *tb, int row){
+ 	for(int i = 0; i < row; i++){
+ 		delete [] tb[i].max;
+ 	}
+ 	delete []tb;
+ }
+
+ int main(){
+ 	int row = 0,temp;
+ 	char t[20];
+ 	cin>>row;
+    const int x=row;
+    getchar();	
+ 	int count[x];
+ 	MAX * ta = new MAX[row];
+ 	for ( int i = 0; i < row; i++){
+ 		ta[i].max=new char[20];
+ 		cin.getline(ta[i].max,20);
+ 	}	
+ for(int i=0;i<row;i++){
+ 	count[i]=getRev(ta[i].max);
+ }
+ for(int i=0;i<row-1;i++){
+ 	for(int j=0;j<row-i-1;j++){	
+ 	if(count[j]>count[j+1]){
+ 		temp=count[j];
+ 		count[j]=count[j+1];
+ 		count[j+1]=temp;
+ 		strcpy(t,ta[j].max);
+ 		strcpy(ta[j].max,ta[j+1].max);
+ 		strcpy(ta[j+1].max,t);
+ 	}
+ }
+ }
+ for(int i=0;i<row;i++){
+ 	cout<<count[i]<<"  "<<ta[i].max<<endl;
+ }
+ del(ta,row);
+ 	return 0;
+ }
+
+//p234(4) n为变量 
+ #include<iostream>
+ #include<string.h>
+ using namespace std;
+ struct wu
+ {
+ 	int l=0;
+ 	char *a=NULL;
+ };
+
+ int main(void)
+ {
+ 	int n;
+ 	cin>>n;
+ 	cin.get();
+ 	wu *q=new wu[n];
+ 	for(int x=0;x<n;x++)
+ 	{
+ 		cout<<"μú"<<x+1<<"??"<<endl;
+ 		cin>>q[x].l;
+ 		cin.get();
+ 		q[x].a=new char[q[x].l+1];
+ 		for(int y=0;y<q[x].l;y++)
+ 		{
+ 			char s;
+ 			cin>>s;
+ 			*(q[x].a+y)=s;
+ 		}
+ 		*(q[x].a+q[x].l)=0;
+ 	}
+ 	wu temp;
+ 	for(int i=0;i<n-1;i++)
+ 	{
+ 		for(int j=0;j<n-1-i;j++)
+ 		{
+ 			if(strcmp(q[j].a,q[j+1].a)>0)
+ 			{
+ 				temp=q[j];
+ 				q[j]=q[j+1];
+ 				q[j+1]=temp;
+ 			}
+ 		}
+ 	}
+ 	cout<<endl<<"sort:"<<endl<<endl;
+ 	for(int i=0;i<n;i++)
+ 	{
+ 		cout<<q[i].a<<endl;
+ 	}
+ 	return 0;
+ }
