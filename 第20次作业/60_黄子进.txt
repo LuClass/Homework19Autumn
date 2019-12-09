@@ -1,0 +1,153 @@
+(4)
+#include<iostream>
+using namespace std;
+int MAX;
+struct Row{
+	int num;
+	char *roap;
+};
+int getRev(char a[])
+{
+	int count=0;
+	for(int i=0;a[i];i++)
+	{
+		for(int j=i+1;a[j];j++)
+		if(a[i]>a[j])
+		count++;
+	}
+	return count;
+}
+void change(void *p1,void *p2,int Len)
+{
+	char *a=(char *)p1,*b=(char *)p2,temp;
+	for(int i=0;i<Len;i++)
+	{
+		temp=a[i];
+		a[i]=b[i];
+		b[i]=temp;
+	}
+}
+void del(Row *ptr,int MAX)
+{
+	for(int i=0;i<MAX;i++)
+	delete []ptr[i].roap;
+	delete []ptr;
+}
+int main()
+{
+	cout<<"要输入多少行？\n";
+	cin>>MAX;
+	getchar();
+	int *count = new int[MAX];
+	Row *ptr = new Row[MAX];
+	char **cha = new char *[MAX];
+	for(int x=0;x<MAX;x++)
+	{
+		cout<<"要输入多少个字符\n";
+		cin>>ptr[x].num;
+		ptr[x].roap = new char[ptr[x].num+1];
+		getchar();
+		cin.getline(ptr[x].roap,ptr[x].num+1);
+	}
+	for(int i=0;i<MAX;i++)
+	{
+		count[i]=getRev(ptr[i].roap);
+	}
+	for(int i=0;i<MAX;i++)
+	{
+		cha[i] = ptr[i].roap;
+	}
+	for(int i=0;i<MAX;i++)
+	for(int j=0;j<MAX-i-1;j++)
+	if(count[j]>count[j+1])
+	{
+		change(cha + j,cha + 1 + j,sizeof(char *));
+		change(count+j,count+1+j,sizeof(int));
+	}
+	for(int i=0;i<MAX;i++)
+	{
+		cout<<count[i]<<' ';
+		cout<<cha[i]<<endl;
+	}
+	delete []count;
+	delete []cha;
+}
+(4)
+#include<iostream>
+#include<string.h>
+using namespace std;
+int MAX;
+struct Row{
+	int num;
+	char *roap;
+};
+int getRev(char a[])
+{
+	int count=0;
+	for(int i=0;a[i];i++)
+	{
+		for(int j=i+1;a[j];j++)
+		if(a[i]>a[j])
+		count++;
+	}
+	return count;
+}
+void change(void *p1,void *p2,int Len)
+{
+	char *a=(char *)p1,*b=(char *)p2,temp;
+	for(int i=0;i<Len;i++)
+	{
+		temp=a[i];
+		a[i]=b[i];
+		b[i]=temp;
+	}
+}
+void del(Row *ptr,int MAX)
+{
+	for(int i=0;i<MAX;i++)
+	delete []ptr[i].roap;
+	delete []ptr;
+}
+int main()
+{
+	cout<<"要输入多少行？\n";
+	cin>>MAX;
+	getchar();
+	int *count = new int[MAX]{0};
+	Row *ptr = new Row[MAX];
+	char **cha = new char *[MAX];
+	for(int x=0;x<MAX;x++)
+	{
+		cout<<"要输入多少个字符\n";
+		cin>>ptr[x].num;
+		ptr[x].roap = new char[ptr[x].num+1];
+		getchar();
+		cin.getline(ptr[x].roap,ptr[x].num+1);
+	}
+	for(int i=0;i<MAX;i++)
+	{
+		count[i]++;
+		cha[i] = ptr[i].roap;
+	}
+	
+	for(int i=0;i<MAX;i++)
+	for(int j=0;j<MAX-i-1;j++)
+	if(count[j]!=-1&&count[j+1]!=-1&&(strcmp(*(cha+j),*(cha+j+1)))==1)
+	{
+		change(cha + j,cha + 1 + j,sizeof(char *));
+		change(count+j,count+1+j,sizeof(int));
+	}
+	else if(count[j]!=-1&&count[j+1]!=-1&&!strcmp(*(cha+j),*(cha+j+1)))
+	{
+		count[j+1]=-1;
+		count[j]++;
+	}
+	for(int i=0;i<MAX;i++)
+	{
+		cout<<count[i]<<' ';
+		cout<<cha[i]<<endl;
+	}
+	delete []count;
+	delete []cha;
+}
+
