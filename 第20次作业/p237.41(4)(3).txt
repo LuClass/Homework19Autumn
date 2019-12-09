@@ -1,0 +1,70 @@
+using namespace std;
+#include <iostream>
+#include <string.h>
+#include <iomanip>
+struct row{
+	int n;
+	char *rowp;
+	
+};
+int getl(char *n1){
+	int n2=0;
+	n2=strlen(n1);
+	return n2;
+}
+int rank(row *t,int max){
+	char *c;
+	int i,j,n1=0;
+	for(i=0;i<max-1;i++){
+		for(j=i+1;j<max;j++){
+			if(strcmp(t[i].rowp,t[j].rowp)>0){
+				c=t[i].rowp;        n1=t[i].n;
+				t[i].rowp=t[j].rowp;t[i].n=t[j].n;
+				t[j].rowp=c;        t[i].n=n1;
+			}
+		}
+	}
+}
+void ad(row *t,int max){
+	int i=0,j,k,k1=1,max1=1,i1=0,k2;
+	for(i=0;i<max;i++){
+		for(k=i;k>=0;k--){
+			if(strcmp(t[i].rowp,t[k].rowp)==0){t[i].n=0;break;}
+		}
+		for(k1=1,j=i+1;j<max;j++){
+			if(strcmp(t[i].rowp,t[j].rowp)==0)k1++;
+		}
+		t[i].n=k1;k1=1;
+	}
+	for(i=0;i<max;i++){
+		if(t[i].n!=0){
+			cout<<t[i].rowp<<"  "<<t[i].n<<endl;
+		}
+	}
+}
+void del(row *a,int n){
+	for(int i=0;i<n;i++){
+		delete a[i].rowp;
+	}
+	delete a;
+}
+int main (){
+	int i,max=0,n2=0;
+	cin>>max;
+	row *t=new row[max];
+	//if(t==NULL)break;
+	for(i=0;i<max;i++){
+		char n1[100];
+		cin>>n1;cout<<endl;
+		n2=getl(n1);
+		t[i].rowp=new char[n2+1];
+		t[i].n=n2;
+		strcpy(t[i].rowp,n1);
+	}
+	rank(t,max);
+	for(i=0;i<max;i++){
+		cout<<t[i].rowp<<endl;
+	}
+	ad(t,max);
+	del(t,max);
+}
