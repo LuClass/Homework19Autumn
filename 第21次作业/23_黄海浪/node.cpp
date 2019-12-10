@@ -46,6 +46,7 @@ void destroy(node *p){
 	if(p!=NULL){
 		destroy(p->next);
 		delete p;
+		p = NULL;
 	}
 }
 
