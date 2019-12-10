@@ -50,7 +50,7 @@ node * del(node *p,unsigned x) {
 	return renode;
 }
 
-destroy(node **p) {
+void destroy(node **p) {
 	if(*p!=NULL) {
 		destroy( &((*p)->next) );
 		delete *p;
