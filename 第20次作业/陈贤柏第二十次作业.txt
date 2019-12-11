@@ -1,0 +1,138 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+int getRev(char *a)
+{
+	int num=0;
+	for(int i=0;i<strlen(a)-1;i++)
+	{
+		for(int j=i+1;j<strlen(a);j++)
+		{
+			if(a[i]>a[j])
+			{
+				num++;
+			}
+		}
+	}
+	return num;
+} 
+
+void sort(char *a[],int MAX)
+{
+	char b[20];
+	for(int i=0;i<MAX-1;i++)
+	{
+		for(int j=0;j<MAX-1-i;j++)
+		{
+			if(getRev(a[j])>getRev(a[j+1]))
+			{
+				strcpy(b,a[j]);
+				strcpy(a[j],a[j+1]);
+				strcpy(a[j+1],b);
+			}
+		}
+	}
+}
+
+int main()
+{
+	char a[20][20];
+	int max;
+	cin >> max;
+	cin.get();
+	char *b[20];
+	for(int i=0;i<max;i++)
+	{
+		cin.getline(a[i],20);
+		b[i]=a[i];	
+	}		
+	sort(b,max);
+	for(int j=0;j<max;j++)
+	{
+		for(int k=0;k<strlen(b[j]);k++)
+		{
+			cout<<b[j][k];
+		}
+		cout<<' '<<getRev(b[j])<<endl;
+	}
+	return 0;
+}
+2
+#include <iostream>
+#include <string.h>
+using namespace std;
+
+bool judge(char a[20],char b[20])
+{
+	if(strcmp(a,b)==0)
+	return 1;
+	return 0;
+}
+
+int main()
+{
+	int n;
+	cin>>n;
+	cin.get();
+	char str[10][20];
+	for(int i=0;i<n;i++)
+	{
+		cin.getline(str[i],20);
+	}
+	int num[10],flag[10];
+	int x=0,y=0;
+	for(int j=0;j<n;j++)
+	{
+		num[j]=1;
+		flag[j]=1;
+	}
+	for(int i=0;i<n;i++)
+	{
+		if(flag[i]!=0)
+		{
+			for(int j=i+1;j<n;j++)
+			{
+				if(judge(str[i],str[j]))
+				{
+					num[x]++;
+					flag[j]=0;
+				}
+			}
+		}
+		x++;
+	}
+	char m1[10][20];
+	int m2[10];
+	for(int i=0;i<n;i++)
+	{
+		if(flag[i]!=0)
+		{
+			strcpy(m1[y],str[i]);
+			m2[y]=num[i];
+			y++;
+		}
+	}
+	char p1[20];
+	int p2;
+	for(int i=0;i<y;i++)
+	{
+		for(int j=0;j<y-1-i;j++)
+		{
+			if(m2[j]<m2[j+1])
+			{
+				strcpy(p1,m1[j]);
+				strcpy(m1[j],m1[j+1]);
+				strcpy(m1[j+1],p1);
+				p2=m2[j];
+				m2[j]=m2[j+1];
+				m2[j+1]=p2;
+			}
+		}
+	}
+	for(int i=0;i<y;i++)
+	{
+		cout<<m1[i]<<"   "<<m2[i]<<endl;
+	}
+	return 0;
+}
