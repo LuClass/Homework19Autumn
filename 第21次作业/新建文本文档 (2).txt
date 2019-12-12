@@ -1,0 +1,86 @@
+2参考8.22的例题， 建立一个单向链表，节点的结构 struct node{ 
+unsigned num; //序号
+node *next; //指向下一个结点的指针
+};    设计一下几个函数： 
+1） create（），建立链表，通过键盘输入一批整数，每个节点存放一个整数。
+2）print（）输出整个链表的内容  
+3）del()根据输入的整数，把链表中对应的节点删除； 
+4）destroy() 释放整个链表的空间。   每个函数的形参自己设计。  
+*//*测试数据 
+6
+1 3 5 3 7 8
+*/
+#include<iostream>
+using namespace std;
+struct node{
+	unsigned num; //序号
+	node *next; //指向下一个结点的指针
+};
+node* create(unsigned n){
+	cout<<"输入数据：" ;
+	node *head=new node;
+	node *rear=head;
+	rear->next=NULL;
+	for(int i=0;i<n;i++){
+		node*p=new node;
+		cin>>p->num;
+		rear->next=p;
+		rear=p;	
+	}
+	rear->next=NULL;
+	return head;
+}
+void print(node*L){
+	cout<<"表中所有内容:"<<endl;
+	node *p=L->next;
+	if(!p){
+		cout<<"无任何内容"<<endl;
+		return;
+	}
+	while(p){
+		cout<<p->num<<" ";
+		p=p->next;
+	}
+	cout<<endl;
+}
+node *del(node *head, int num)
+{
+	node *p1=new node;
+	node *rear=head;
+	while(num!=rear->num&&rear->next!=NULL){
+
+		p1=rear;
+		rear=rear->next;
+	}
+	if(num==rear->num){		
+		if(rear==head){
+			head=rear->next;
+			delete rear;
+		}
+		else{
+			p1->next=rear->next;
+			delete rear;
+		}
+	}
+	else{
+		cout<<"表中找不到"<<num<<endl;
+	}
+	return head;
+}
+void destroy(node *head){
+	if(head!=NULL){
+		delete[] head;
+	}
+}
+int main(){
+	cout<<"输入数据个数：";
+	unsigned n;	cin>>n;
+	node*List=NULL;
+	if(n>0)List=create(n);
+	else cout<<"长度为0"<<endl;
+	cout<<"原始表"<<endl;
+	print(List);
+	List=del(List,5);
+	cout<<"新表"<<endl;
+	print(List);
+} 
