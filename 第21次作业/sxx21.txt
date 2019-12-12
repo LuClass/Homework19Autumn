@@ -1,0 +1,105 @@
+1.
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+int main(){
+	cout<<"输入字符串："<<endl;
+	char s[100];
+	char p[100][100];
+	char *pp[100];
+	cin.getline(s,100);
+	int num=0;
+
+	for(int i=0;i<strlen(s);i++){
+		int n=0;
+		while(s[i]>='0'&&s[i]<='9'){		
+			p[num][n++]=s[i];
+			i++;
+		}
+		pp[num]=p[num];
+		if(n){
+			num++;
+		}
+	}
+	cout<<"整数个数： "<<num<<endl;
+	cout<<"有： "<<endl;
+	for(int i=0;i<num;i++){
+		cout<<pp[i]<<endl;
+	}
+}
+2.
+#include<iostream>
+using namespace std;
+struct node{
+	unsigned num; //序号
+	node *next; //指向下一个结点的指针
+};
+node* create(unsigned n){
+	cout<<"输入：" ;
+	node *head=new node;
+	node *rear=head;
+	rear->next=NULL;
+	for(int i=0;i<n;i++){
+		node*p=new node;
+		cin>>p->num;
+		rear->next=p;
+		rear=p;	
+	}
+	rear->next=NULL;
+	return head;
+}
+void out(node*L){
+	cout<<"表中所有内容:"<<endl;
+	node *p=L->next;
+	if(!p){
+		cout<<"无任何内容"<<endl;
+		return;
+	}
+	while(p){
+		cout<<p->num<<" ";
+		p=p->next;
+	}
+	cout<<endl;
+}
+node *del(node *head, int num)
+{
+	node *p1=new node;
+	node *rear=head;
+	while(num!=rear->num&&rear->next!=NULL){
+
+		p1=rear;
+		rear=rear->next;
+	}
+	if(num==rear->num){		
+		if(rear==head){
+			head=rear->next;
+			delete rear;
+		}
+		else{
+			p1->next=rear->next;
+			delete rear;
+		}
+	}
+	else{
+		cout<<"表中找不到"<<num<<endl;
+	}
+	return head;
+}
+void destroy(node *head){
+	if(head!=NULL){
+		delete[] head;
+	}
+}
+int main(){
+	cout<<"输入数据个数：";
+	unsigned n;	cin>>n;
+	node*List=NULL;
+	if(n>0)List=create(n);
+	else cout<<"长度为0"<<endl;
+	cout<<"原始表"<<endl;
+	out(List);
+	List=del(List,5);
+	cout<<"新表"<<endl;
+	out(List);
+} 
