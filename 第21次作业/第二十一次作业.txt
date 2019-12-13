@@ -1,0 +1,76 @@
+using namespace std;
+#include <iostream>
+#include <string.h>
+struct node{
+	unsigned num;
+	node *next;
+};
+unsigned n2;
+int n3=0;
+node *creat(unsigned n,int *a){
+	int *b=a;
+	node *h=NULL; node *r=NULL;
+	for(unsigned i=0;i<n;i++){
+		node *p=new node {*b,h};
+		if(h==NULL){
+			h=p;r=p;
+		}
+		else{
+			r->next=p;
+			r=p;
+		}
+		b++;
+	
+	} 
+	r->next=h;
+	return h;
+}
+void print(node *h,unsigned n){
+	node *h1=h;
+	for(int i=0;i<n;i++){
+		cout<<h1->num<<endl;h1=h1->next;
+	}
+}
+node *del(node *h,unsigned n){
+	cin>>n2;
+	node *p=NULL,*h1=h;
+	if(n2<=n){
+		n3=1;
+		for(int j=0;j<n2;j++){
+			p=h1;
+			h1=h1->next;
+		}
+		for(int k=0;k<n;k++){
+			if(h1->next=p){
+				h1->next=p->next;
+				break;
+			}
+			else
+			h1=h1->next;
+		}
+	delete p;
+	if(h==NULL)h=h->next;
+	return h;
+	}
+}
+void destory(node *h,unsigned n){
+	for(int i=0;i<n-1-n3;i++){
+		node *p=h;
+		h=h->next;
+		delete p;
+	}
+  delete h;
+}
+int main (){
+	unsigned n;
+	cin>>n;
+	int *a=new int[n];
+	for(int i=0;i<n;i++){
+		cin>>a[i];
+	}
+	node *h=NULL;
+	if(n>0) h=creat(n,a);
+	if(h!=NULL)print(h,n);
+	h=del(h,n);
+	destory(h,n);
+}
