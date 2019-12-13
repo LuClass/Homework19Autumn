@@ -1,0 +1,133 @@
+p238(5)
+#include <iostream>
+using namespace std;
+char number(char s[100]){
+	int k=0,a,b;
+for(int j=0;s[j];j++)
+{
+  if((s[j]>=48&&s[j]<=57)&&((s[j-1]>=65&&s[j-1]<=122)||s[j-1]==32)){
+				k++;
+	}			
+}
+if(s[0]>=48&&s[0]<=57)
+   k++;
+	cout<<"整数个数为 "<<k<<endl;
+}
+
+char ZShu(char s[100]){
+	char a[100];
+	int k=0;
+		for(int j=0;s[j];j++)
+		{
+			if((s[j]>=48&&s[j]<=57)||s[j]==' ')
+				a[k]=s[j];
+			else
+			    a[k]=' ';
+			    k++;
+		}
+		cout<<"整数为 ";
+		for(int i=0;a[i];i++)		
+	      cout<<a[i];
+}
+
+int main(){
+	int n=0;
+	char s[100],a[100];
+	cin.getline(s,100);
+	number(s);
+	ZShu(s);	
+}
+
+// 参考8.22的例题， 建立一个单向链表，结点的结构 struct node{ 
+//                                               unsigned num; //序号
+//                                               node *next; //指向下一个结点的指针
+//                                               };
+//设计一下几个函数： 
+//1） create（），建立链表，通过键盘输入一批整数，每个节点存放一个整数。
+//2）print（）输出整个链表的内容? 
+//3）del()根据输入的整数，把链表中对应的节点删除； 
+//4）destroy() 释放整个链表的空间。
+//每个函数的形参自己设计。
+
+#include <iostream>
+#include <string.h>
+#define MAX 100
+using namespace std;
+struct node{
+	unsigned num;//序号
+	node *next;//指向下一个节点的指针 
+};
+
+node* create(const int a[],int n){   //利用数组创建链表（尾插法） 
+	node *head=NULL;
+	node *p1;//指向新建结点 
+	node *p2;//链尾结点 
+	for(int i=0;i<n;i++){
+		p1=new node;
+		p1->num=a[i];
+		p1->next=NULL;
+	    if(head==NULL)
+	       head=p1;
+		else
+		   p2->next=p1;
+		p2=p1;
+	}
+	return head;
+}
+
+void print(const node *head){   //完成结点的值的输出 
+	const node *p=head;
+	while(p!=NULL){
+		cout<<p->num<<' ';
+	    p=p->next;
+	}
+	    cout<<endl;
+}
+
+void destroy(node *&head){   //释放整个链表 
+	node *p1;
+	while(head){
+		p1=head;
+		head=head->next;
+		delete p1;
+	}
+}
+
+bool del(node *&head,int n){  //删除指定值结点
+     node *p1,*p2;
+	if(head==NULL)	return false;
+	if(head->num==n){          //若为删除头结点 
+		p1=head;
+		head=head->next;
+		delete p1;
+		return true;
+	}
+	p1=p2=head;
+	while(p2->num!=n&&p2->next!=NULL){
+		p1=p2;
+		p2=p2->next;
+	}
+	if(p2->num==n){
+		p1->next=p2->next;
+		delete p2;
+		return true;
+	}
+	return false;
+}
+
+
+int main(){
+	int a[]={6,2,3,4};
+	node *head=NULL;       //说明一个空链表 
+	head=create(a,sizeof(a)/sizeof(int));        //head指向链表头结点 
+	print(head);
+	int n;
+	cin>>n;
+	if(del(head,n))
+	cout<<"成功删除"<<n<<"结点！"<<endl;
+	else
+	 cout<<"链表中没有"<<n<<"结点!"<<endl;
+	 print(head);
+	destroy(head);
+	return 0; 
+}
