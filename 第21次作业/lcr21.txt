@@ -1,0 +1,102 @@
+//1
+#include<iostream>
+#include<string.h> 
+using namespace std;
+void record(char *a,int n){
+	int p=0,q=0;int c[50]={'0'};
+	for(int m=0;m<strlen(a);m++){
+	 if(a[m]>='0'&&a[m]<='9'){
+	    if(q==0){
+	    	q=1;
+			p++;
+		}
+		c[p]=c[p]*10+a[m]-48;	
+	  
+	 }
+	 else {
+		q=0;
+	} 
+	
+
+}   
+for(int i=1;i<=p;i++)
+cout<<c[i]<<endl;
+cout<<p<<endl;
+}
+int main(){
+	int n;
+	cin>>n;
+	getchar();
+	char *a=new char[n];
+	cin.get(a,n);
+	record(a,n);
+	delete a;
+	return 0;
+}
+//2
+#include<iostream>
+using namespace std;
+struct node{
+	int num;
+	node *next;
+};
+node *create(int n){
+	node *head=NULL,*rear=NULL;
+	for(int i=0;i<n;i++){
+		int m;cin>>m;
+		node*p=new node{m,head};
+		if(head==NULL){
+			head=p;
+			rear=p;
+		}
+		else{
+			rear->next=p;
+			rear=p;
+		}
+	}
+	rear->next=NULL;
+	return head;
+}
+void print(node *x){
+	node *prin=x;
+	do{
+		cout<<prin->num<<" ";
+		prin=prin->next;
+	}while(prin!=nullptr);
+}
+node *del(node *a){
+		node *p=a;
+		int y;
+		cin>>y;
+		node *fore=p;
+		node *hind=p;
+		do{
+			if(fore->num==y){
+				node *x1=fore;
+				hind->next=fore->next;
+				fore=fore->next;
+				delete x1;
+			}
+			else {
+			hind=fore;
+			fore=fore->next;
+			}
+		}while(fore!=nullptr);
+	
+	return a;
+}
+void destroy(node *x,int w){
+	for(int i=0;i<w;i++){
+		delete x;
+		x=x->next;
+	}
+}
+int main(){
+	cout<<"请输入五个数："; 
+	node *r=create(5);print(r);
+	cout<<"请输入一个数："; 
+	del(r);
+	print(r);
+	destroy(r,3);
+	return 0;
+}
