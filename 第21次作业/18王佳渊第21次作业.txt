@@ -1,0 +1,77 @@
+#include<iostream>
+using namespace std;
+int main() {
+	char s[100];
+	cin >> s;
+	int b[100] = { 0 };
+	int count = 0, m = 0,boo = 0;					//第（1+m）个数
+	for (int i = 0; s[i] != '\0'; i++) {
+		if ((s[i] >= '0') && (s[i] <= '9')) {
+			boo = 1;
+			count = m + 1;
+			b[m] = 10 * b[m] + s[i] - 48;
+		}
+		else if (boo) {
+			b[++m] = 0;
+			boo = 0;
+		}
+		
+	}
+	for (int k = 0; k < count; k++)
+		cout << b[k] << endl;
+	cout << "整数数量："<<count;
+	return 0;
+}
+（2）
+#include<iostream>
+using namespace std;
+struct node { //结点类型
+	unsigned num; //序号
+	node* next; //指向下一个结点的指针
+};
+node* create(unsigned n) {
+	cout << "please input：";
+	node* head = new node;
+	node* rear = head;
+	rear->next = NULL;
+	for (int i = 0; i < n; i++) {
+		node* p = new node;
+		cin >> p->num;
+		rear->next = p;
+		rear = p;
+	}
+	rear->next = NULL;
+	return head;
+}
+
+void print(node* head) {
+	node* rear = NULL;
+	rear = head;
+	while (rear != NULL) {
+		cout << rear->num << endl;
+		rear = rear->next;
+	}
+}
+void del(node* head, int n) {
+	node* fore = head, * hind = head;
+	node* p = fore; 
+	hind->next = fore->next; 
+	fore = fore->next; 
+	delete p; 
+}
+void destroy(node* head) {
+	node* fore = head, * hind = head;
+	while (fore->next != NULL) {
+		hind = fore->next;
+		delete(fore);
+		fore = hind;
+	}
+	delete(fore);
+}
+int main() {
+	node* r = create(5); print(r);
+	del(r,3);
+	print(r);
+	destroy(r);
+	return 0;
+}
