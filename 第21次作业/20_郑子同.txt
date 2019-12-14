@@ -1,0 +1,92 @@
+(5)
+#include <iostream>
+using namespace std;
+int main(){
+	char c[100];
+	int d[20];
+	int j=0;
+	d[0]=0;
+	cin.getline(c,100);
+	for(int i=0;c[i];i++){
+		if(c[i]>='0'&&c[i]<='9'){
+			for(;c[i]>='0'&&c[i]<='9';i++){
+				d[j]=d[j]*10+(c[i]-'0');
+			}
+			j++;
+			d[j]=0;
+		}
+	}
+	for(int x=0;x<j;x++){
+		cout<<d[x]<<endl;
+	}
+}
+
+
+
+2.
+#include <iostream>	
+using namespace std;
+struct sz{
+	int x;
+	sz *next;
+};
+sz* create(int n){
+	sz *p=NULL;
+	sz *p1;
+	sz *p2;
+	for(int i =0;i<n;i++){
+		sz *p=NULL;
+		int s;
+		p1=new sz;
+		cin>>(p1->x);
+		p1->next=NULL;
+		if(p == NULL)
+		    p=p1;
+		else 
+			p2->next=p1;
+		p2=p1;
+	}
+	return p;
+} 
+void print(sz *q){
+	for(int i=0;q->next!=NULL;i++)
+		cout<<q->x<<" ";
+		q=q->next;
+}
+void del(sz *&head,int n){
+	sz *p1,*p2;
+	if(head->x==NULL){
+		p1=head;
+		head=head->next;
+		delete p1;
+	}
+	
+}
+void destroy(sz *&head,int y,int y1){
+	sz *q,*q1;
+	q->x=y;
+	if(y1=1){
+		q->next=head;
+		head=q; 
+	}
+	else{q1=head->next;
+		for(int i=0;i<y1-2;i++){
+			q1=q1->next;
+		}
+		q->next=q1->next;
+		q1->next=q;
+	}
+	
+}
+
+int main(){
+	int n,x,y,y1;
+	sz* head;
+	cin>>n;
+	head=create(n);
+	print(head);
+	cin>>x;
+	del(head,x);
+	cin>>y>>y1;
+	destroy(head,y,y1);
+}
