@@ -1,0 +1,110 @@
+using namespace std;
+#include<iostream>
+struct node{
+	unsigned seq;
+	int num;
+	node *next;
+};
+
+node* create(unsigned n)
+{
+	node *head=NULL; node *rear=NULL;
+	for(int i = 0; i < n; i++)
+	{
+		node *p = new node{i+1,0,head};
+		if(head==NULL)
+		{
+			head=p;
+			rear=p;
+		}
+		else
+		rear->next=p;
+		rear=p;			
+	}
+	rear->next=NULL;
+	return head;
+}
+
+node* print(node *p)
+{
+	for(;p!=NULL;)
+	{		
+		cout<<"No."<<p->seq<<" "<<p->num<<"  address:"<<p<<" "<<"    next address:"<<p->next<<endl;				
+		p=p->next;	
+	}
+}
+
+node* del(int n,node *&head)
+{
+	node *fore = head;
+	node *hind = head->next;
+
+	for(;hind!=NULL;) 
+	{
+		if(fore->num==n)
+		{
+			node *del=head;
+			head=hind;
+			fore=fore->next;
+			hind=hind->next;
+			delete del;						
+		}
+		else
+			break;					
+	}
+
+		
+	node *fore1 = head;
+	node *hind1 = head->next;
+	
+	for(;hind1!=NULL;)
+	{
+		if(hind1->num==n)
+		{
+			node *del=hind1;
+			fore1->next=hind1->next;
+			hind1=fore1->next;
+			delete del;
+		}
+		else
+		{
+			fore1=hind1;
+			hind1=hind1->next;
+		}	
+	}
+	return 	head;	
+}
+
+void destory(node *p)
+{
+	for(;p!=NULL;)
+	{
+		node *del=p;
+		p=p->next;
+		delete del;
+	}
+}
+
+int main()
+{
+	cout<<"Number to be entered:"<<endl;
+	int size;
+	cin>>size;
+	node *head=create(size);
+	node *temp=head;
+	cout<<"Number below:"<<endl;
+	for(;temp!=NULL;)
+	{
+		cin>>temp->num;
+		temp=temp->next;		
+	}
+	print(head);
+	cout<<endl;
+	cout<<"Delete a number"<<endl;
+	int select;
+	cin>>select;	
+	head=del(select,head);
+	print(head);
+	destory(head);
+	return 0;	
+}

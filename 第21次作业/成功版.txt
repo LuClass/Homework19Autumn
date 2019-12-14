@@ -1,0 +1,58 @@
+using namespace std;
+#include<iostream>
+#include<string.h>
+int main()
+{
+	char in[200];
+	cin.getline(in,200);
+	int len=strlen(in);
+	int sum=0;
+	if(in[0]>=48&&in[0]<=57)
+		sum++;
+	for(int i=1;i<len-1;i++)
+	{
+		if(in[i]<48||in[i]>57)
+		{
+			if(in[i+1]>=48&&in[i+1]<=57)
+				sum++;
+		}
+	}
+	cout<<"Num"<<" "<<sum<<endl;
+	struct Row{
+	int num=1;
+	char  * rowp;
+	};
+	Row * table = new Row[sum];
+	int t,j=0;
+	int num[sum];
+	for(int i=0;i<sum;i++)
+		num[i]=1;		
+	for(int i=0;i<len;)
+	{
+		if(in[i]>=48&&in[i]<57)
+			{
+				int temp=1;
+				for(j=i+1;j<len;)
+				{
+					if(in[j]>=48&&in[j]<57)
+					{
+						temp++;
+						j++;
+					}
+					else
+						break;
+					//table[t].num=temp;
+				}
+				//table[t].rowp=new char[temp+1];
+				for(int m=0;m<temp;m++)
+					cout<<in[i+m];
+				cout<<endl;							
+				t++;
+				i=j;															
+			}
+			else
+				i++;
+	}
+	return 0;
+
+} 
