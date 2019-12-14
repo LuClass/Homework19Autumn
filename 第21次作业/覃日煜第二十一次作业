@@ -1,0 +1,107 @@
+1.#include<iostream>
+#include<cstring>
+using namespace std;
+int main()
+{
+	char a[100];
+	int b[10][10],len,i,j=0,k=0,num,m,n;
+	for(i=0;i<10;i++)
+	for(n=0;n<10;n++)
+	b[i][n]=-1;
+	cin.getline(a,100);
+	 len=strlen(a);
+	 for(i=0;i<len;i++)
+	 {
+	 	if(a[i]<='9'&&a[i]>='0')
+	 	{  b[j][k]=a[i]-48;
+		    num++;
+	 	   k++;
+		 }
+		 else{
+		  k=0;
+		  if(a[i-1]<='9'&&a[i-1]>='0')
+		  j++; 
+		 } 
+	 }
+	 
+	  cout<<num<<endl;
+	for(i=0;i<=k;i++)
+	for(j=0;j<10;j++)
+	if(b[i][j]!=-1)
+	cout<<b[i][j]<<" ";
+	
+ } 
+ 
+ 2.#include<iostream>
+using namespace std;
+struct node{ unsigned num;int data;
+node*next;
+};
+node* create(unsigned n)
+{  int i,len;
+   node*head=NULL, *rear=NULL;
+	for(i=0;i<n;i++)
+	{    int j;
+		node*p=new node{i,j,head};
+		cin>>p->data;
+		if(head==NULL){
+			head=p;
+			rear=p;
+		}
+		else{
+			rear->next=p;
+			rear=p;
+		}
+	}
+	rear->next=NULL;
+	return head;
+}
+
+void print(node*head1)
+{
+	int n=0;
+	node*fore=head1;
+	cout<<"output data"<<endl; 
+	while(fore!=NULL)
+	{    
+		cout<<fore->data<<endl;
+		fore=fore->next;
+		n++;
+	}
+	
+}
+void del(node*head,int data)
+{
+	cin>>data;
+	node*A=head,*B=head;
+	
+	if(A->num==data)
+	{node*p=A;
+	  A=A->next;
+	  B->next=A;
+      delete p;
+    }
+    else {
+    	B=A;
+    	A=A->next;
+	}
+	
+}
+void destory(node*head)
+{   
+    while(head!=NULL)
+    {
+    	node*p=head;
+    	head=head->next;
+    	delete p;
+    	
+	}
+}
+int main(){
+unsigned a;int b;
+cin>>a;
+node*m=create(a);
+print(m);
+del(m,b);
+destory(m);
+}
