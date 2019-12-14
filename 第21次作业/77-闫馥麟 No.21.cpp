@@ -1,0 +1,166 @@
+//第八章41（5） 
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	char str[50],*p=str;
+    int i,j=0,key=0,sum,a[100]={0};
+	cin.getline(str,50);
+	for(i=0;*(p+i)!='\0';i++)
+	{ 
+		if((*(p+i)>='0')&&(*(p+i)<='9'))
+		{
+			sum=j+1;
+			a[j]=a[j]*10+*(p+i)-'0';
+			key=1;
+		}
+		else if(key)
+		{
+   			a[++j]=0;
+			key=0;
+		}
+	}
+	cout<<"整数的个数为：" <<sum<<endl;
+	cout<<"这些整数依次输出如下："<<endl;
+	for(i=0;i<sum;i++)
+		cout<<a[i]<<endl;
+	return 0;	
+}
+
+//第二题
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+struct node
+{
+	unsigned int num;
+	int number;
+	node *next;
+};
+
+struct ret
+{
+	unsigned int minus,taghead;
+};
+
+node *create(unsigned int num,int s[])
+{
+	node *head=NULL,*rear=NULL;
+	for (unsigned int i=0;i<num;i++)
+	{
+		node *p=new node{i+1,s[i],head};
+		if (head==NULL)
+		{
+			head=p;
+			rear=p;
+		}
+		else
+		{
+			rear->next=p;
+			rear=p;
+		}
+	}
+	rear->next=head;
+	return head;
+}
+
+void print(node *head,unsigned int num)
+{
+	node *tag=head;
+	for (int t=1;t<=num;t++)
+	{
+		cout<<setw(8)<<tag->number;
+		tag=tag->next;
+		if (t%5==0)
+			cout<<endl;
+	}
+}
+
+ret del(node *head,unsigned int num,int input_num[],unsigned int n)
+{
+	ret ret_;
+	ret_.minus=0;ret_.taghead=0;
+	node *tag1=head,*tag2=head;
+	for (int t=0;t<n;t++)
+	{
+		for (int i=1;i<=num;i++)
+		{
+			if (tag1->number==input_num[t])
+			{
+				if (tag1==tag2)
+				{
+					node *k=tag1;
+					tag2=tag1->next;
+					tag1=tag1->next;
+					ret_.taghead++;
+					delete k;
+				}
+				else
+				{
+					node *p=tag1;
+					tag2->next=tag1->next;
+					tag1=tag1->next;
+					delete p;
+					ret_.minus++;
+				}	
+			}
+			else
+			{
+				tag2=tag1;
+				tag1=tag1->next;
+			}
+				
+		}
+	}
+	return ret_;
+}
+
+void destroy(node *head,unsigned int num)
+{
+	node *tagg1=head,*tagg2=head;
+	for (int p=0;p<num;p++)
+	{
+		tagg1=tagg2;
+		tagg2=tagg2->next;
+		delete tagg1->next;
+	}
+	delete tagg2;
+}
+
+int main()
+{
+	int s[100],input_num[100],minus;
+	unsigned int num=0,n=0;
+	ret ret_;
+	cin>>s[num++];
+	while (cin.get()!='\n')
+		cin>>s[num++];
+	node *head=NULL;
+	if (num>0)
+	{
+		head=create(num,s);
+		if (head!=NULL)
+		{
+			cout<<"数据输出如下："<<endl; 
+			print(head,num);
+			cout<<endl;
+			cout<<"输入你想要删除的数据"<<endl; 
+			cin>>input_num[n++];
+			while (cin.get()!='\n')
+				cin>>input_num[n++];
+			ret_=del(head,num,input_num,n);
+			num=num-ret_.minus-ret_.taghead;
+			cout<<endl;
+			cout<<"删除后的数据输出如下："<<endl;
+			for (int j=1;j<=ret_.taghead;j++)
+				head=head->next;
+			print(head,num);
+		}
+			cout<<endl<<(head->num)<<endl<<head->number;
+		destroy(head,num);
+	
+	}
+	return 0;
+} 
