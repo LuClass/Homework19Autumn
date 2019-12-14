@@ -1,0 +1,127 @@
+(6)#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+int getRev(char a[])
+{
+	int s = 0;
+	int len = strlen(a);
+	for (int i = 0; a[i]; i++)
+	{
+		for (int j = i + 1; a[j]; j++)
+		{
+			if ((int)a[i] > (int)a[j])
+			{
+				s++;
+
+
+			}
+
+
+		}
+
+
+	}
+	return s;
+
+}
+
+
+int main()
+{
+	int max;
+	cin >> max;
+	char * a = new char[21 * max];
+	
+	int s;
+	cin.getline(a, 21);
+	for (int i = 0; i < 21 * max; i++)
+	{
+		if (a[i] == ' ')
+		{
+			a[i] = '\0';
+
+		}
+
+	}
+	int * len=new int [max]{ 0 };
+	int * b=new int[max];
+	for (int i = 0; i < max; i++)
+	{
+
+		*(b + i) = getRev(a + *(len + i));
+		if (i != max - 1)
+		{
+			*(len + i + 1) = strlen(a + *(len + i)) + *(len + i) + 1;
+		}
+
+	}
+
+	for (int i = 0; i < max; i++)
+	{
+		for (int j = 0; j < max - 1 - i; j++)
+		{
+			if (b[j] > b[j + 1])
+			{
+				s = b[j];
+				b[j] = b[j + 1];
+				b[j + 1] = s;
+				s = len[j];
+				len[j] = len[j + 1];
+				len[j + 1] = s;
+			}
+
+
+		}
+	}
+	for (int i = 0; i < max; i++)
+	{
+		cout << a + len[i] << '\t' << b[i] << endl;
+	}
+	delete[]a;
+	delete[]len;
+	delete[]b;
+
+}
+(4)
+#include<iostream>
+#include<string.h>
+using namespace std;
+struct ch{
+	int len = 0;
+	char* p = NULL;
+};
+int main(void){
+	int n;
+	cin >> n;
+	cin.get();
+	ch* chs = new ch[n];
+	for (int i = 0; i < n; i++){
+		cout << "¦Ì¨²" << i + 1 << "??" << endl;
+		cin >> chs[i].len;
+		cin.get();
+		chs[i].p = new char[chs[i].len + 1];
+		for (int y = 0; y < chs[i].len; y++){
+			char a;
+			cin >> a;
+			*(chs[i].p + y) = a;
+		}
+		*(chs[i].p + chs[i].len) = 0;
+	}
+	ch temp;
+	for (int i = 0; i < n - 1; i++){
+		for (int j = 0; j < n - 1 - i; j++)		{
+			if (strcmp(chs[j].p, chs[j + 1].p) > 0){
+				temp = chs[j];
+				chs[j] = chs[j + 1];
+				chs[j + 1] = temp;
+			}
+		}
+	}
+	cout << endl << "sort:" << endl;
+	for (int i = 0; i < n; i++)	{
+		cout << chs[i].p << endl;
+	}
+	return 0;
+} 
