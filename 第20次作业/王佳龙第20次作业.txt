@@ -1,0 +1,114 @@
+第一题
+#include<iostream>
+#include<string.h>
+using namespace std;
+int getRev(char a[]){
+	int count=0;
+	char *p=&a[0];
+	char *q;
+	while(*p){
+	q=p;
+		while(*q){
+			if(*p>*q)
+			count++;
+			q++;
+		}
+		p++;
+	}
+	return count ;
+}
+int main(){
+char*a[100];int b[100]; 
+int max,temp1;
+char temp[20];
+cout<<"输入字符串个数";
+cin>>max;
+cin.get();
+for(int i=0;i<max;i++){
+a[i]=new char[20];
+cin.getline(a[i],20);  
+b[i]=getRev(a[i]);		
+}
+for(int i=0;i<max;i++){
+  	for(int j=i+1;j<max;j++){
+  		if(b[i]>b[j]){
+  			strcpy(temp,a[i]);
+  			strcpy(a[i],a[j]);
+  			strcpy(a[j],temp);
+  			temp1=b[i];
+  			b[i]=b[j];
+  			b[j]=temp1;
+		  }
+	  }
+  }
+for(int i=0;i<max;i++){
+cout<<a[i]<<'\t'<<b[i]<<endl;	
+delete a[i];	
+}	
+} 
+
+
+
+
+第二题
+#include<iostream>
+#include<string.h>
+using namespace std;
+bool isequal(char *a, char *b){
+	int count;	
+	char *p=&a[0], *q=&b[0];
+	if(strlen(a)!=strlen(b))
+	return false;
+	else
+	while(*p){
+		if(*p==*q)
+		count++;
+		p++;q++;
+	}
+	count++;
+	if (count==strlen(a))
+	return true;
+	else 
+	return false;
+	}
+int main (){
+     int n,temp1;
+     char temp[50];
+     char *a[20];
+	 cout<<"输入字符串个数n：";
+	 cin>>n;
+	 const int m=n;
+	 int b[m];
+	 cin.get();
+	 if(n<3)
+	 return	0;
+	 for(int i=0;i<n;i++){
+     a[i]=new char[20];
+     cin.getline(a[i],20);
+	 }
+	 for(int i=0;i<n;i++)
+	 b[i]=0;
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+		if(strcmp(a[i],a[j])==0){
+		b[i]++;
+	}	
+		}
+	}
+	for(int i=0;i<n;i++){
+  	for(int j=i+1;j<n;j++){
+  		if(b[i]>b[j]){
+  			strcpy(temp,a[i]);
+  			strcpy(a[i],a[j]);
+  			strcpy(a[j],temp);
+  			temp1=b[i];
+  			b[i]=b[j];
+  			b[j]=temp1;
+		  }
+	  }
+  }
+	 for(int i=0;i<n;i++){
+     cout<<a[i]<<'\t'<<b[i]<<endl;	
+     delete a[i];
+}
+}

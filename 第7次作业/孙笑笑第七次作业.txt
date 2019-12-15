@@ -1,0 +1,99 @@
+2.
+#include <iostream>
+using namespace std;
+int main()
+{
+    double i;
+    double bonus1,bonus2,bonus4,bonus6,bonus10,bonus;
+    cout<<"你的净利润是：";
+    cin>>i;
+    bonus1=100000*0.1;
+    bonus2=bonus1+100000*0.075;
+    bonus4=bonus2+200000*0.05;
+    bonus6=bonus4+200000*0.03;
+    bonus10=bonus6+400000*0.015;
+switch(int(i/100000))
+    {
+	case 0:bonus=i*0.1;
+	break;
+	case 1:bonus=bonus1+(i-100000)*0.075;
+	break;
+	case 2:
+	case 3:bonus=bonus2+(i-200000)*0.05;
+	break;
+	case 4:
+	case 5: bonus=bonus4+(i-400000)*0.03;
+	break;
+	case 6:
+	case 7:
+	case 8:
+	case 9:bonus=bonus6+(i-600000)*0.015;
+	break;
+    default: bonus=bonus10+(i-1000000)*0.01;
+   }
+ cout<<"bonus="<<bonus;    
+ return 0;
+ }
+13.
+#include <iostream>
+using namespace std;
+int main()
+{int i,j,k,n;
+cout<<"'water flower'number is:"<<endl;
+for(n=100;n<1000;n++)
+{i=n%10;
+j=n/10%10;
+k=n/100;
+if(n==(i*i*i+j*j*j+k*k*k))
+cout<<n<<" ";
+}
+return 0;
+}
+16.
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a,b,t,r;
+    cout<<"请输入两个数字a,b："<<endl;
+    cin>>a>>b;
+    if(a<b)
+    {t=b;b=a;a=t;}
+    r=a%b;
+    int n=a*b;
+    while(r!=0)
+    {
+        a=b;
+        b=r;
+        r=a%b;
+    }
+   cout<<"这两个数的最大公约数为"<<b<<",最小公倍数为"<<n/b;
+    return 0;
+}
+23.
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i,j,k;
+    cout<<"请输入平行四边形的高和底：";
+    cin>>i>>k;
+    for(int x=0;x<=(i-1);x++) {
+         for(j=0;j<i-x;j++) {
+           cout<<" ";}
+   for(int p=k;p>0;p--)       
+     {cout<<"*";
+   }
+    cout<<"\n";
+    }
+    for(int y=0;y<=(i-1);y++) {
+        for(j=0;j<y;j++) {
+            cout<<" ";
+        }
+        for(int q=k;q>0;q--)
+		{cout<<"*";
+		}
+		
+        cout<<"\n";
+    }
+}

@@ -1,0 +1,94 @@
+//8/41.4（输入多个字符串）
+#include<iostream>
+#include<algorithm>
+using namespace std;
+bool ifSame(char * s[],int i) {
+	for (int c = 0; c < i; c++) {
+		if (strcmp(s[i], s[c]) == 0)
+			return false;
+	}
+	return true;
+}
+void output(char * s[], int n) {
+	for (int i = 0; i < n; i++) {
+		cout << s[i] << endl;
+	}
+}
+void input(char * s[], int n) {
+	char *str0 = new char[20];
+	for (int i = 0; i < n; i++) {
+		cout << "输入第" << i + 1 << "个字符串：" << endl;
+		cin.getline(str0, 20);
+		s[i] = new char[strlen(str0) + 1];
+	    strcpy(s[i], str0);
+	}
+}
+int main() {
+	int n;
+	cout << "please input an integer n(n>2)" << endl;
+	cin >> n; cin.get();
+	char * s[10];
+	input(s, n);
+	
+	sort(s, s + n, [](auto s1, auto s2) {return strcmp(s1, s2) < 0; });
+	
+	output(s, n);
+	
+	int sum[10] = { 0 }; int m = 0;
+	for (int i = 0; i < n; i++) {
+		if (ifSame(s, i)) {
+			s[m] = s[i];
+			for (int j = i + 1; j < n; j++) {
+				if (strcmp(s[i], s[j]) == 0) {
+					sum[m] ++;
+				}
+			}
+			m++;
+		}
+	}
+	for (int i = 0; i < m; i++) {
+		for (int j = i; j < m; j++) {
+			if (sum[j] > sum[i]) {
+				char * p = s[i];
+				s[i] = s[j];
+				s[j] = p;
+			}
+		}
+	}
+	for (int i = 0; i < m; i++) {
+		cout << s[i] << '\t'<<"出现次数为： "<<sum[i]+1<<endl;
+	}
+	return 0;
+}
+//8.41.5
+#include<iostream>
+#include<algorithm>
+using namespace std;
+bool isDigit(char s) {
+	if (s >= '0'&&s <= '9')
+		return true;
+	return false;
+}
+int main() {
+	char s[100];
+	cin.getline(s, 100);
+	for (int i = 0; i < strlen(s); i++) {
+		cout << s[i];
+	}
+	int sum = 0; int d[100]; int count=0;
+	for (int i = 0; i < 99; i++) {
+		if (isDigit(s[i])) {
+			sum = sum * 10 + s[i] - '0';
+			if (!isDigit(s[i + 1])) {
+				d[count] = sum;
+				count++;
+				sum = 0;
+			}
+		}
+	}
+	cout << "共有 " << count << " 个数字" << endl;
+	for (int i = 0; i < count; i++) {
+		cout << d[i] << endl;
+	}
+	return 0;
+}

@@ -1,0 +1,73 @@
+#include <iostream>
+p.144 (6)
+#include <string.h>
+#define max 5
+using namespace std;
+int getrve(char a[]){
+	int count=0;
+	char *p=&a[0];
+	char *q=&a[1];
+	while(*p){
+		while(*q){
+			if(*p>*q)
+			count++;
+			q++;
+		}
+		p++;
+	}
+	return count ;
+}
+int main(){
+  char a[max][20];
+  char temp[20];
+  int temp1;
+  int b[max];
+  for(int i=0;i<max;i++){
+  	cin.getline(a[i],20); 	
+    b[i]=getrve(a[i]);
+  }
+  for(int i=0;i<max;i++){
+  	for(int j=i+1;j<max;j++){
+  		if(b[i]>b[j]){
+  			strcpy(temp,a[i]);
+  			strcpy(a[i],a[j]);
+  			strcpy(a[j],temp);
+  			temp1=b[i];
+  			b[i]=b[j];
+  			b[j]=temp1;
+		  }
+	  }
+  }
+   for(int i=0;i<max;i++){
+   cout<<a[i]<<endl;
+   }
+}
+
+
+
+
+
+p145(8)
+#include <iostream>
+using namespace std;
+int getwordcount(char a[]){
+	int count=0;
+	char *p=&a[0];
+	char *q=&a[1];
+	while(*p==' '){
+		p++;
+		q++;
+	}
+	for(;*p;p++){
+		if((*p!=' '&&*q==' ')||(*p!=' '&&*q==0)){
+			count++;		
+	}
+	q++;
+	}
+return count;
+}
+int main(){
+	char a[100];
+	cin.getline(a,100);
+	cout<<getwordcount(a);
+}

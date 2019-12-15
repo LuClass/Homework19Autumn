@@ -1,0 +1,63 @@
+（6）
+int gcd(int a,int b){//递归 
+	if(b==0)
+	return a;
+	else 
+	return gcd(b,a%b);
+}
+int Gcd(int a,int b){//递推 
+	if(a>b)
+	swap(a,b);
+	for(int i=a;i>1;--i)
+	if(a%i==0&&b%i==0)
+	return i;
+	return 1; 
+}
+int lcm(int a,int b){//递归 
+	if(gcd(a,b)==1)
+	return a*b;
+	else
+	return lcm(a,b/gcd(a,b));
+}
+int Lcm(int a,int b){//递推 
+	if(a>b)
+	swap(a,b);
+	for(int i=a;i>1;--i)
+	if(a%i==0&&b%i==0)
+	return a*b/i;
+	return a*b;
+}
+
+（7）
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a;
+	while(cin>>a){
+		while(a%10){
+			cout<<a%10;
+			a/=10;
+		}
+		cout<<endl;
+	}
+	return 0;
+ } 
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+	char a[15];
+	char b[15];
+	while(cin>>a){
+		int len=strlen(a);
+		for(int i=0;i<len;++i)
+		b[i]=a[len-1-i];
+		for(int i=0;i<len;++i)
+		cout<<char(b[i]);
+		cout<<endl;
+	}
+	return 0;
+}

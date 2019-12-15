@@ -1,0 +1,105 @@
+2.
+using namespace std;
+#include <iostream>
+int main()
+{
+	long int i,n;
+	int bonus1,bonus2,bonus4,bonus6,bonus10,bonus;
+	cin>>i;
+	n=i/100000;
+	switch (n)
+{
+	case 0: bonus=i*0.1; break;
+	case 1: bonus=100000*0.1+(i-100000)*0.075; break;
+	case 2: bonus=17500+(i-200000)*0.05; break;
+	case 3: bonus=17500+(i-200000)*0.05; break;
+	case 4: bonus=27500+(i-400000)*0.03; break;
+	case 5: bonus=27500+(i-400000)*0.03; break;
+	case 6: bonus=33500+(i-600000)*0.015; break;
+	case 7: bonus=33500+(i-600000)*0.015; break;
+	case 8: bonus=33500+(i-600000)*0.015; break;
+	case 9: bonu1s=33500+(i-600000)*0.015; break;
+	default :bonus=39500+(i-1000000)*0.01; break;
+}
+	cout<<bonus;
+	return 0;
+
+}
+13.
+using namespace std;
+#include <iostream>
+int main()
+{
+	int n,a,b,c;
+	for (n=100;n<=999;n++)
+{
+	a=n/100;
+	b=(n%100)/10;
+	c=(n%100)%10;
+	if (n==a*a*a+b*b*b+c*c*c)
+	cout<<n<<endl;
+}
+    return 0;
+}
+16.
+using namespace std;
+#include <iostream>
+int main()
+{
+	int m,n,a,b,i=1,x,y,z;
+	cin>>m>>n;
+	if (m>n)
+{   
+    a=m;
+    b=n;	
+}
+	else 
+{   
+    a=n;
+	b=m;
+}	
+	if (a%b==0)
+{
+	cout<<"最大公倍数="<<a<<endl;
+	cout<<"最大公约数="<<b<<endl; 
+}	
+    else
+{	
+    x=a;
+    y=b;
+    while (i!=0)
+{
+    i=a%b;
+    a=b;
+    b=i;
+}   cout<<"最大公约数="<<a<<endl;
+    z=a*(x/a)*(y/a);
+    cout<<"最大公倍数="<<z<<endl;
+}
+    
+    return 0;
+}
+23.
+using namespace std;
+#include <iostream>
+int main()
+{
+	int a,b,c,d,e,f;
+	for (a=1;a<=4;a++)
+{
+	for (b=1;b<=a;b++)
+	cout<<' ';
+	for (c=1;c<=4;c++)
+	cout<<'*';
+	cout<<endl;
+}
+    for (d=1;d<=4;d++)
+{
+	for (e=1;e<=(5-d);e++)
+	cout<<' ';
+	for (f=1;f<=4;f++)
+	cout<<'*';
+	cout<<endl;
+}
+    return 0;
+}

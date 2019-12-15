@@ -1,0 +1,81 @@
+(6)
+#include <iostream>
+#include <string.h>
+#define N 100
+#define M 20
+#define MAX 3
+using namespace std;
+long long ni(char a[])
+{int i=0,j;
+long long count=0;
+for(;a[i];i++)
+   {for(j=i+1;a[j];j++)
+   		if(a[i]>a[j])
+   		count++;		   
+   }return count;
+}
+void rank(char a[][M])
+{char tem[M];
+int tmp,j,num[MAX];
+for (int i=0;i<MAX;i++)
+num[i]=ni(a[i]);
+for (int i=0;i<MAX-1;i++)
+	{
+		for (j=i+1;j<MAX;j++)
+		{
+			if (num[i]<num[j])
+			{
+				tmp=*(num+i);
+				*(num+i)=*(num+j);
+				*(num+j)=tmp;
+				strcpy(tem,a[i]);
+				strcpy(a[i],a[j]);
+				strcpy(a[j],tem);
+			}
+		}
+	}for(int i=0;i<MAX;i++)
+	cout<<num[i]<<' '<<a[i]<<'\n';
+}
+
+int main(){
+	char a[N][M];
+	int num[N];
+	for(int i=0;i<MAX;i++)
+	cin.getline(a[i],M);
+	rank(a);	
+	return 0;
+}
+(8)
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+int getWordCount(char* a)
+{
+	int n=0,len=strlen(a),key=0;
+	for(int x=0;x<len;x++)
+	{
+		if(*(a+x)>='a'&&*(a+x)<='z'&&key==0)
+		{
+			key=1;
+			n++;
+		}
+		if(*(a+x)>='A'&&*(a+x)<='Z'&&key==0)
+		{
+			key=1;
+			n++;
+		}
+		if((*(a+x)=='\t'||*(a+x)==' ')&&key==1)		
+			key=0;		
+	}
+	return n;
+}
+
+int main(void)
+{
+	char a[30];
+	cin.getline(a,30);
+	int (*p)(char*)=getWordCount;
+	cout<<p(a);
+	return 0;
+}

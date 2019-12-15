@@ -1,0 +1,125 @@
+14-(2)
+#include<iostream>
+#include<stdlib.h>
+#include<time.h>
+using namespace std;
+void getRandom(int a[],int n)
+{
+	srand((int)time(0));
+	for(int i=0;i<n;i++)
+	{
+		a[i]=rand()%100;
+	}
+}
+int getMax(const int a[],int n)
+{
+	int max=0;
+	int num=0;
+	for(int i=0;i<n;i++)
+	{
+		if(a[i]>max)
+		{
+			max=a[i];
+			num=i;
+		}
+	}
+	return num;
+}
+int main()
+{
+	int a[5];
+	getRandom(a,5);
+	for(int i=0;i<5;i++)
+	{
+		cout<<a[i]<<endl;
+	}
+	cout<<"最大值的下标为"<<getMax(a,5);
+}
+
+14-(5)
+#include<iostream>
+using namespace std;
+bool isPrime(int n)
+{
+	if(n<2) return false;
+	for(int i=2;i<n;i++)
+	{
+		if(n%i==0)	return false;
+	}
+	return true;
+}
+int f1(int x)
+{
+	int s=0;
+	while(x)
+	{
+		s=s+x%10;
+		x=x/10;
+	}
+	return s;
+}
+int f2(int x)
+{
+	int s=0;
+	while(!isPrime(x))
+	{
+		for(int i=2;i<x;i++)
+		{
+			if(x%i==0)
+			{
+				s=s+f1(i);
+				x=x/i;
+			}
+		}
+	}
+	s=s+f1(x);
+	return s;
+}
+bool isSmith(int x)
+{
+	if(f1(x)==f2(x)) return true;
+	else return false;
+}
+int main()
+{
+    int i=4937774;
+	while(1)
+	{
+		if(isSmith(i))
+		{
+			cout<<i;
+			break;
+		}
+		else
+		{
+			i++;
+		}
+	}
+}
+
+14-(10)
+#include<iostream>
+using namespace std;
+int main()
+{
+    int a[21],b[21];
+	int k=0,j=0;
+    for(int i=0;i<21;i++)
+    {
+    	a[i]=i+1;
+	}
+    while(j!=21)
+    {
+        for(int i=0;i<21;i++)
+        {
+            if(a[i]==0) continue;
+            k++;
+            if(k!=5) continue;
+            k=0;
+            b[j]=a[i];
+            j++;
+            a[i]=0;
+        }   
+    }
+    cout<<b[20];
+}

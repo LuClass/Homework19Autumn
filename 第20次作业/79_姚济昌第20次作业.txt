@@ -1,0 +1,131 @@
+#include<iostream>
+#include<string.h>
+#include <iomanip>
+using namespace std;
+struct node{
+	char*str;
+	int num;
+};
+void sort(node*s,int n){
+	char *temp;
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n-i-1;j++){
+			if(strcmp(s[j].str,s[j+1].str)>0){
+				temp=s[j].str;
+				s[j].str=s[j+1].str;
+				s[j+1].str=temp;
+			}
+		}
+	}
+}
+node* count(node* ss,int n){
+	for(int i=0;i<n;i++){
+		ss[i].num=0;
+	}
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n;j++){
+			if(strcmp(ss[i].str,ss[j].str)==0){
+				ss[i].num+=1;
+			}
+		}
+	}
+	for(int i=0;i<n;i++){
+		for(int j=0;j<n-i-1;j++){
+			if(ss[j].num<ss[j+1].num){
+				int mm=ss[j].num;
+				ss[j].num=ss[j+1].num;
+				ss[j+1].num=mm;	
+				char *temp=ss[j].str;
+				ss[j].str=ss[j+1].str;
+				ss[j+1].str=temp;
+			}
+		}
+	}	
+	return ss;
+}
+
+int main(){
+	cout<<"请输入要计算的串数 n: ";
+	int n;cin>>n;
+	cout<<"请输入要计算的字符串"<<endl;	
+	node* table=new node[n];
+	for(int i=0;i<n;i++){
+		table[i].str=new char[20];
+		cin>>table[i].str;
+	}
+	///////////////////////////	
+	cout<<"按串内容进行排序结果："<<endl;
+	sort(table,n);
+	for(int i=0;i<n;i++){
+		cout<<table[i].str<<endl;
+	}
+	//////////////////////////
+	
+	
+	table=count(table,n);	
+	for(int i=0;i<n;i++){
+		if(strcmp(table[i].str,table[i+1].str)==0){
+			i++;		
+		}
+		cout<<"按串重复次数降序结果："<<table[i].str<<endl;
+		cout<<"次数"<<table[i].num<<endl;		
+	}
+	
+	for(int i=0;i<n;i++){
+		delete []table[i].str;
+	}
+	delete []table;	
+}
+
+
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+struct Row{
+	int num;
+	char *str;
+};
+int getRev(char a[]){
+	int len=strlen(a);
+	int num=0;
+	for(int i=0;i<len-1;i++){
+		for(int j=i+1;j<len;j++){
+			if(a[i]>a[j]){
+				num++;
+			}
+		}
+	}
+	return num;
+}
+int main(){
+	cout<<"输入字符串数是：";
+	int MAX;cin>>MAX;
+	Row*table =new Row[MAX];
+	cout<<"请输入要计算的字符串"<<endl;
+	for(int i=0;i<MAX;i++){
+		table[i].str=new char[20];	
+		cin>>table[i].str;
+		table[i].num=getRev(table[i].str);
+	}
+	for(int i=0;i<MAX-1;i++){
+		for(int j=i;j<MAX;j++){
+			if(table[i].num>table[j].num){
+				int temp=table[i].num;
+				table[i].num=table[j].num;
+				table[j].num=temp;
+				char s[20];
+				strcpy(s,table[i].str);
+				strcpy(table[i].str,table[j].str);
+				strcpy(table[j].str,s);
+			}
+		}
+	}
+	for(int i=0;i<MAX;i++){
+		cout<<"逆序数: "<<table[i].num<<" 字符串：" <<table[i].str<<endl;
+	}
+	for(int i=0;i<MAX;i++){
+		delete []table[i].str;
+	}
+	delete []table;
+} 

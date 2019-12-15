@@ -1,0 +1,127 @@
+14.（6）
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+int getRev(char *a) {
+	int k = 0;
+	for (int i = 0; i < strlen(a) - 1; i++) {
+		for (int j = i + 1; j < strlen(a); j++) {
+			if (*(a+i)>*(a+j))
+				k++;
+		}
+	}
+	return k;
+}
+void exchange(char*a,char*b){
+	char tem[21];
+	strcpy(tem, a);
+	strcpy(a, b); 
+	strcpy(b, tem); 
+}
+int main() {
+	int max;
+	cout<<"输入要输入的最大字符串数："<<endl;
+	cin>>max;
+	int n=max;
+	int b=max;
+	char **down=new char*[max];
+	for(int i=0;i<max;++i){
+		down[i]=new char[21];
+	}
+	int *rev=new int[max];
+	getchar();
+	while (n--) {
+		char a[21];
+		cin.getline(a, 20);
+		strcpy(*(down+n),a);
+		char *p=a;
+		rev[n]=getRev(p);
+	}
+	for (int i = 0;i<b-1; i++) {
+		for (int j = 0; j < b- i - 1; j++) {
+			if (rev[j] > rev[j + 1]) {
+				int temp =rev[j];
+				rev[j] = rev[j + 1];
+				rev[j + 1] = temp;
+				exchange(*(down+j),*(down+j+1));
+			}
+		}
+	}
+	for(int i=0;i<b;i++){
+		cout<<"逆序数："<<rev[i]<<endl<<*(down+i)<<endl;
+	}
+	delete rev;
+	delete []down; 
+	return 0;
+} 
+
+41.（4）
+
+#include<iostream>
+#include<string.h>
+#include<iomanip>
+using namespace std;
+void sort(char* strs[],int n){
+	int *k=new int[n];
+	char *temp1;
+	for(int i=0;i<n;i++)
+		k[i]=1;
+	for(int i = 0; i < n; i++)				
+		for(int j = 0; j < n; j++)
+			if(strcmp(strs[i], strs[j])==0){
+				k[i]++;
+			}
+	for(int i=0;i<n;i++)
+		k[i]--;
+	for(int i=0;i<n-1;i++)
+		for(int j=0;j<n-1-i;j++){
+			if(k[j]<k[j+1]){
+				int temp=k[j];
+				k[j]=k[j+1];
+				k[i+1]=temp;
+				temp1 = strs[j];				
+				strs[j] = strs[j+1];
+				strs[j+1] = temp1;
+			}
+	}
+	cout<<"       字符串       "<<" 次数"<<endl; 
+	for(int i=0;i<n;i++){
+		if(i==0){
+				cout<<setw(10)<<strs[0]<<"  "<<setw(10)<<k[0]<<endl;
+				continue;
+		}
+		if(strcmp(strs[i],strs[i-1])==0)
+			continue;
+		cout<<setw(10)<<strs[i]<<"  "<<setw(10)<<k[i]<<endl;
+	}
+	delete k;
+}
+int main(){
+	int n;
+	cout<<"输入要输入的字符串数！"<<endl;
+	while(1){
+		cin>>n;
+		if(n<=2)
+			cout<<"please input n>2"<<endl;
+		else
+			break;
+	}
+	char **ms=new char*[n];
+	for(int i=0;i<n;i++){
+		memset(ms[i],sizeof(ms[i]),0);
+	}
+	cout<<endl;
+	for(int i=0;i<n;i++){
+		cout<<"输入第"<<i+1<<"串的长度："; 
+		int len;
+		char a;
+		cin>>len; 
+		getchar();
+		ms[i]=new char[len];
+		cin>>ms[i];
+ 	}
+	cout<<"排序后："<<endl;
+	sort(ms,n);
+	delete []ms;
+} 

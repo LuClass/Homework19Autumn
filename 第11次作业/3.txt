@@ -1,0 +1,21 @@
+using namespace std;
+#include <iostream>
+int sb(int n){
+int a=0,b=1;
+for(b,a;(b+b)<=n;b++){
+if(n%b==0)a+=b;	
+}if(a==n)cout<<n<<"  ";	
+} 
+int qq(int q,int w){
+int c; 
+if(q>w){c=q;q=w;w=c;}	
+}
+int main (){
+int q,w,e;
+cin>>q>>w;
+qq(q,w);
+e=q+1;
+for(e;e<w;e++){
+sb(e);	
+    }
+}

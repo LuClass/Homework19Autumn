@@ -1,0 +1,80 @@
+王雨昕的第八次作业
+6.
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x,y;
+	int gongyueshu(int,int);
+	int gongbeishu(int,int);
+	cout<<"请输入两个数"<<endl;
+	cin>>x>>y;
+	cout<<"它们的最大公约数是 "<<gongyueshu(x,y)<<endl;
+	cout<<"它们的最小公倍数是 "<<gongbeishu(x,y)<<endl;
+}
+
+int gongyueshu(int x,int y)
+{
+  int a,b;
+  if (x<y)
+  {
+    a=x;
+    x=y;
+    y=a;
+  }
+  while(y!=0)
+  {
+    a=x%y;
+    x=y;
+    y=a;
+  }
+  b=x;
+  return b;
+}
+int gongbeishu(int x,int y)
+{int n;
+ n=x*y/gongyueshu(x,y);
+  return n;
+}
+
+7.递推
+#include <iostream>
+using namespace std;
+int main()
+{int n;
+cin>>n;
+int f(int);
+f(n);
+return 0;}
+int f(int n)
+{ 
+for(int a,b;b!=0;n=n/10)
+ { a=n%10;
+  cout<<a;
+  b=n/10;
+ }
+}
+  
+
+递归
+#include <iostream>
+using namespace std;
+int main()
+{int n;
+ cin>>n;
+  int f(int);
+ f(n);
+ return 0;
+}
+int f(int n)
+{int a,b;
+a=n%10;
+cout<<a;
+b=n/10;
+if (b==0)
+return 0;
+else 
+f(b);
+}
+
+

@@ -1,0 +1,68 @@
+using namespace std;
+#include<iostream>
+#include<string.h>
+int main()
+{
+	int n=0;
+	cin>>n;
+	const int N=n;
+	struct row{
+		int num;
+		char *rowp;
+	};	
+	row *table = new row[N];
+	for(int i=0;i<N;i++)
+	{
+		int len=0;
+		cin>>len;
+		
+		table[i].rowp = new char[len+1];
+		table[i].num=len;
+		for(int j=0;j<len;j++)
+		{
+			char x;
+			cin>>x;
+			table[i].rowp[j]=x;
+		}
+	}
+	
+	char *strs[N];
+	for(int i=0;i<N;i++)
+	{
+		strs[i]=table[i].rowp;
+	}
+	
+	char *temp;
+	for(int i = 0; i < n-1; i++)				
+		for(int j = 0; j < n-i-1; j++)
+			if(strcmp(strs[j], strs[j+1]) > 0)
+			{
+				temp = strs[j];				
+				strs[j] = strs[j+1];
+				strs[j+1] = temp;
+			}			
+	cout<<"print by strcmp:"<<endl;
+	for(int i=0;i<N;i++)
+	{
+		cout<<strs[i]<<endl;
+	}	
+	int count[N];
+	for(int i=0;i<N;i++)
+		count[i]=0;
+	for(int i=0;(i<N-1)&&(strcmp(strs[i],"0")!=0);i++)
+	{
+		int j=i+1;
+		for(;j<N;j++)
+		{
+			if(strcmp(strs[i],strs[j])== 0)
+			{
+				count[i]++;
+				strs[j]="0";
+			}
+		}
+	}
+	cout<<"print by time appear"<<endl;		
+	for(int i=0;(i<N)&&(strcmp(strs[i],"0")!=0);i++)
+		cout<<strs[i]<<endl;	
+	return 0;			
+}

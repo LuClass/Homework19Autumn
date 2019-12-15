@@ -1,0 +1,83 @@
+21.（2）
+#include<iostream>
+using namespace std;
+
+int JC(unsigned int a){
+	unsigned int h;
+	h=1;
+	for(int i=2;i<=a;i++)
+		h*=i;
+	return h;
+}
+
+int C(unsigned int a,unsigned int b) {
+	unsigned int h;
+	h=JC(a)/(JC(b)*JC(a-b));
+	return h;
+}
+
+int main(){
+	int n,k;
+	cout<<"putin C(n,k):";
+	while(cin>>n>>k){
+		cout<<"C("<<n<<" "<<k<<")="<<C(n,k)<<endl;
+		cout<<"putin C(n,k):";}	
+return 0;
+}
+
+(4)
+#include<iostream>
+using namespace std;
+
+bool SS(int a){
+   if(a==2)	
+      return true;
+	for(int i=2;i*i<=a;i++)
+		if(a%i==0)
+		   return false;
+	return true;
+}
+
+int main(){	
+for(int n=1;n<=498;n++)
+	if(SS(n)==1&&SS(n+2)==1)
+	   cout<<n<<"and"<<n+2<<endl;	
+return 0;
+}
+
+(5)
+#include<iostream>
+using namespace std;
+
+bool SS(int a){
+   if(a==2)	
+      return true;
+	for(int i=2;i*i<=a;i++)
+		if(a%i==0)
+		   return false;
+	return true;
+}
+
+int main(){	
+unsigned int n;
+cout<<"putin an unsigned int:";
+cin>>n;
+cout<<n<<"=";
+int h=n;
+for(int i=2;i<=h;i++)
+	if(SS(i)==1&&h%i==0){
+	   cout<<i;
+		h=h/i;	
+		break;	   
+	}
+while(h>=2){
+for(int i=2;i<=h;i++)
+	if(SS(i)==1&&h%i==0){
+	   cout<<"*"<<i;
+		h=h/i;	
+		break;	   
+	}
+	
+}
+return 0;
+}

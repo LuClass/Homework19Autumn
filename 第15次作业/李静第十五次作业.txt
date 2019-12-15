@@ -1,0 +1,106 @@
+3.//
+#include <iostream>
+using namespace std;
+3.//
+#include<iostream>
+using namespace std;
+int getMax(int a, int b) {
+	int temp;
+	if (a < 0)
+		a = -a;
+	if (b < 0)
+		b = -b;
+	if (a < b) {
+		temp = b;
+		b = a;
+		a = temp;
+	}
+	while (b != 0) {
+		temp = a % b;
+		a = b;
+		b = temp;
+	}
+	return a;
+}
+struct Fraction {
+	int a, b;
+	Fraction(int x, int y) :a(x), b(y) {
+		if (b == 0) {
+			throw "denominator is zero";
+		}
+		if (a == 0) {
+			b = 1;
+			return;
+		}
+		int t = getMax(a, b);
+		if (t != 1) {
+			a = a / t;
+			b = b / t;
+		}
+	}
+	void print() {
+		cout << "(" << a << "/" << b << ")";
+	}
+};
+Fraction operator +(Fraction f1, Fraction f2) {
+	return Fraction(f1.a*f2.b + f1.b*f2.a, f2.b*f1.b);
+}
+Fraction operator -(Fraction f1, Fraction f2) {
+	return Fraction(f1.a*f2.b - f1.b*f2.a, f2.b*f1.b);
+}
+Fraction operator *(Fraction f1, Fraction f2) {
+	return Fraction(f1.a*f2.a, f2.b*f1.b);
+}
+Fraction operator /(Fraction f1, Fraction f2) {
+	return Fraction(f1.a*f2.b, f2.a*f1.b);
+}
+using f = Fraction;
+int main() {
+	f f1 = operator +(f(1, 2), f(2, 3));
+	f1.print;
+	return 0;
+}
+4.//
+#include<iostream>
+#include<string>
+using namespace std;
+enum type{percent,level};
+struct course
+{
+	string coursenumber;
+	string coursename;
+	type t;
+};
+union mark {
+	char level;
+	int score;
+};
+struct grade {
+	string stnumber;
+	string stname;
+	mark c;
+	course m;
+	grade(string stnumber1, string stname1,string coursenumber, type t,char x) :stnumber(stnumber1), stname(stname1) {
+		m.coursenumber = coursenumber;
+		m.t = t;
+		if (t == 0)
+			c.score = (int)x;
+		else
+			c.level = x;
+	}
+};
+void print_grade(grade stu)
+{
+	cout << stu.stnumber << " " << stu.stname << " " << stu.m.coursenumber << " " << stu.m.t << " ";
+	if (stu.m.t == 0)
+		cout << stu.c.score << endl;
+	else
+		cout << stu.c.level << endl;
+}
+int main() {
+	grade g1("9625418", "lisi", "111", level, 'A');
+	grade g2("5236848", "zs", "222", percent, 99);
+	print_grade(g1);
+	print_grade(g2);
+	return 0;
+}
