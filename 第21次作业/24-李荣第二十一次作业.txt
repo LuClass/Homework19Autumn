@@ -1,0 +1,27 @@
+#include<iostream>
+#include<string.h> 
+using namespace std;
+char str[101];
+int res[101];
+    
+int main(){
+    int n;
+    int m=0;
+    int p=0;
+    int f=0;
+
+    cin.getline(str,100);
+    memset(res,0,sizeof(res));
+    n=strlen(str);
+    while(p<n-1){
+        if(str[p]>='0' && str[p]<='9'){
+            res[m]=res[m]*10+str[p];
+            p++;
+        }
+        else if(str[p+1]>='0' && str[p+1]<='9')
+            m++;
+    }
+    for(int i=0;i<m;i++)
+	    cout<<res[i]<<" ";
+    return 0;
+}
