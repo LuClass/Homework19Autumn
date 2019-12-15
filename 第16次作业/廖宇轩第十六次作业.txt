@@ -1,0 +1,119 @@
+（4）#include <iostream>
+#include <math.h>
+using namespace std;
+
+int tj(char a[])
+{
+	int s = 0;
+	while (*(a + s) != '\0')
+	{
+		s++;
+
+	}
+	return s;
+}
+
+
+int main()
+{
+	int n,s=0;
+	cin >> n;
+	char a[10][21]= { 0 };
+	for (int i=0;i<n;i++)
+	{
+
+		cin >> a[i];
+
+	}
+	int * p=new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		p[i]=tj(a[i]);
+
+	}
+	char len[21] = { 0 };
+	for (int i = 0; i <n; i++)
+	{
+		for (int j = 0; j < n- 1 - i; j++)
+		{
+			if (p[j] < p[j + 1])
+			{
+				s = p[j];
+				p[j] = p[j + 1];
+				p[j + 1] = s;
+				for (int m= 0; m < 21; m++)
+				{
+					len[m] = a[j][m];
+					 a[j][m]= a[j+1][m];
+					 a[j + 1][m] = len[m];
+
+				}
+			}
+
+
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+
+		cout << p[i] << '\t';
+	}
+	cout << endl;
+	for (int i = 0;i<n; i++)
+	{
+
+		cout << a[i]<<'\t';
+	}
+	
+	delete[]p;
+}
+（5）#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+
+	char a[100] = { 0 };
+	int b[100];
+	cin.getline(a,100);
+	int s;
+	int x=0;
+	for (int i = 0; a[i] != '\0'; i++)
+	{
+		
+		if (a[i] <= '9'&&a[i] >= '0')
+		{
+
+			s = 1;
+			i++;
+			for (; a[i] <= '9'&&a[i] >= '0'; i++)
+			{
+
+				s++;
+				
+			}
+			i--;
+			int p = 1;
+			b[x] = 0;
+			for (int m = 1; m <= s; m++)
+			{
+				b[x] += (a[i + 1 - m]-'0') * p;
+				p = p * 10;
+
+
+			}
+			x++;
+		}
+	
+	}
+	s = 0;
+	for (int i = 0; b[i]>=0; i++)
+	{
+		s++;
+		cout << b[i]<<'\t';
+
+	}
+	cout << endl << s ;
+
+}

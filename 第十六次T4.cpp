@@ -1,0 +1,70 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+void sort(char *a[],int n)
+  {char *t;
+  for(int i=0;i<n-1;i++)
+    {for(int j=0;j<n-1-i;j++)
+      {if(strcmp(a[j],a[j+1])==1)
+         {t=a[j];
+         a[j]=a[j+1];
+         a[j+1]=t;
+		 }
+	  }
+	}
+  }
+void shushu(char*a[],int n)
+  {int time[10];
+  for(int i=0;i<n;i++)
+    {int times=0;
+	for(int j=i+1;j<n;j++)
+      {for(int m=0;m<j;m++)
+      if(strcmp(a[m],a[j])==0)
+      break;
+	  if(strcmp(a[i],a[j])==0)
+      times++;
+	  }
+	  time[i]=times;
+	}
+      int s;
+	  char*t;
+	  for(int p=0;p<n-1;p++)
+	   {for(int q=0;q<n-1-p;q++)
+	    if(time[q]<time[q+1])
+	    {s=time[q];
+	    time[q]=time[q+1];
+	    time[q+1]=s;
+	    t=a[q];
+	    a[q]=a[q+1];
+	    a[q+1]=t;
+		}
+	   }
+	   for(int i=0;i<n-1;i++)
+	 {if(i==0)
+	  cout<<a[i]<<time[i]<<" ";
+	  else{int x=1;
+	  for(int n=0;n<i;n++)
+	         {if(strcmp(a[i],a[n])==0)
+                x=0;
+	         }
+	         if(x)
+	         cout<<a[i]<<" "<<time[i]<<" ";
+	  } 
+
+  }
+}
+  int main()
+  {char c[10][20];
+ 	char* ch[]={c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9]};
+ 	int n;
+ 	cin>>n;
+ 	cin.getline(c[9],20);
+ 	for (int x=0;x<n;x++)
+ 	   cin.getline(c[x],20);
+ 	sort(ch,n);
+ 	for(int y=0;y<n;y++)
+ 	cout<<ch[y]<<" ";
+ 	cout<<endl<<endl;
+ 	shushu(ch,n);
+ 	return 0;
+  }

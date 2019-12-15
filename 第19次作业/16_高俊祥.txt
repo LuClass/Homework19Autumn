@@ -1,0 +1,78 @@
+14.（6）
+
+#include<iostream>
+#include<string.h>
+#define MAX 3
+using namespace std;
+int getRev(char *a) {
+	int k = 0;
+	for (int i = 0; i < strlen(a) - 1; i++) {
+		for (int j = i + 1; j < strlen(a); j++) {
+			if (*(a+i)>*(a+j))
+				k++;
+		}
+	}
+	return k;
+}
+void exchange(char*a,char*b){
+	char tem[21];
+	strcpy(tem, a);
+	strcpy(a, b); 
+	strcpy(b, tem); 
+}
+int main() {
+	int n = MAX;
+	int b=MAX; 
+	char down[MAX][21];
+	int rev[MAX];
+	while (n--) {
+		char a[21];
+		cin.getline(a, 20);
+		strcpy(*(down+n),a);
+		char *p=a;
+		rev[n]=getRev(p);
+	}
+	for (int i = 0;i<b-1; i++) {
+		for (int j = 0; j < b- i - 1; j++) {
+			if (rev[j] > rev[j + 1]) {
+				int temp =rev[j];
+				rev[j] = rev[j + 1];
+				rev[j + 1] = temp;
+				exchange(*(down+j),*(down+j+1));
+			}
+		}
+	}
+	for(int i=0;i<b;i++){
+		cout<<"逆序数："<<rev[i]<<endl<<*(down+i)<<endl;
+	}
+	return 0;
+}
+
+14.（8）
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+int getWordCount(char *a){
+	int count=0;
+	for(int i=1;i<strlen(a);i++){
+		if(*(a+i)==' '||*(a+i)=='	'){
+			continue;
+		}
+		if(*(a+i)!=' '||*(a+i)!='	'){
+			for(;;i++){
+				if(*(a+i)==' '||*(a+i)=='	'){
+					count++;
+					break;
+				}
+			}
+		}
+	}
+	return count;
+}
+int main(){
+	char *a=new char[500];
+	cin.getline(a,500);
+	int count=getWordCount(a);
+	cout<<count;
+}

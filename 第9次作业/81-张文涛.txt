@@ -1,0 +1,83 @@
+p110
+(8)
+//main76.cpp
+#include <iostream>
+using namespace std;
+#include "max.h"
+#include "hex.h"
+int main(){
+	int m,n,t;
+	cin>>m>>n;
+	t=max(m,n);
+	toHex(t);
+	return 0;
+}
+
+//max.h
+#include <iostream>
+using namespace std;
+max(int a, int b){
+   if (a > b) 
+     return a;
+   else 
+     return b;
+ }
+
+//hex.h
+#include <iostream>
+using namespace std;
+toHex(int x){
+	cout<<hex<<x<<endl;
+}
+
+
+
+
+
+(9)
+（函数）
+#include <iostream>
+#include <cmath>
+using namespace std;
+double area(double a,double b,double c,double s,double t){
+	s=(a+b+c)/2;
+	t=sqrt(s*(s-a)*(s-b)*(s-c));
+	cout<<"area="<<t<<endl;
+}
+int main(){
+double a,b,c,s,t;
+  cin>>a>>b>>c;
+  if(a+b>=c&&a+c>=b&&c+b>=a)
+    area(a,b,c,s,t);
+    else 
+      cout<<"error";
+}
+
+（9)宏定义
+#include <iostream>
+#include <cmath>
+using namespace std;
+#define s(a,b,c) (a+b+c)/2.0
+#define area(a,b,c)  sqrt(s(a,b,c)*(s(a,b,c)-a)*(s(a,b,c)-b)*(s(a,b,c)-c))
+int main(){
+	float a,b,c;
+	cout<<"输入三角形的三条边："<<endl;
+	cin>>a>>b>>c;
+	cout<<area(a,b,c);
+}
+函数
+#include <iostream>
+#include <math.h>
+using namespace std;
+float f(float area,float s,float a,float b,float c)
+{s=(a+b+c)/2.0;
+area=sqrt(s*(s-a)*(s-b)*(s-c));
+return  area;
+}
+
+int main()
+{float a,b,c,area,s;
+cout<<"输入三角形的三条边："<<endl;
+cin>>a>>b>>c;
+cout<<f(area,s,a,b,c);
+}

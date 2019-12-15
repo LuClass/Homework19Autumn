@@ -1,0 +1,78 @@
+(6)
+
+#include<iostream>
+using namespace std;
+#define MAX 3
+int getRev(char a[])
+{
+	int count=0;
+	for(int i=0;a[i];i++)
+	{
+		for(int j=i+1;a[j];j++)
+		if(a[i]>a[j])
+		count++;
+	}
+	return count;
+}
+void change(void *p1,void *p2,int Len)
+{
+	char *a=(char *)p1,*b=(char *)p2,temp;
+	for(int i=0;i<Len;i++)
+	{
+		temp=a[i];
+		a[i]=b[i];
+		b[i]=temp;
+	}
+}
+int main()
+{
+	int count[MAX];
+	char str[MAX][20],*ptr[MAX];
+	for(int i=0;i<MAX;i++)
+	{
+		cin.getline(str[i],20);
+		count[i]=getRev(str[i]);
+		ptr[i]=str[i];
+	}
+	for(int i=0;i<MAX;i++)
+	for(int j=0;j<MAX-i-1;j++)
+	if(count[j]>count[j+1])
+	{
+		change(ptr[j],ptr[j+1],sizeof(char *));
+		change(count+j,count+1+j,sizeof(int));
+	}
+	for(int i=0;i<MAX;i++)
+	{
+		cout<<count[i]<<' ';
+		cout<<ptr[i]<<endl;
+	}
+}
+
+
+(8)
+#include<iostream>
+using namespace std;
+int dlb(const char *pa)
+{
+	bool isWord = false;
+	int word=0;
+	for(int i=0;pa[i];i++)
+	{
+		if(pa[i] != ' ' && pa[i] != '\t')
+		isWord = true;
+		if(isWord && (pa[i] == ' ' || pa[i] == '\t'))
+		{
+			word++;
+			isWord = false;
+		}
+	}
+	if(isWord)
+	return ++word;
+	return word;
+}
+int main()
+{
+	char str[1000];
+	cin.getline(str,1000);
+	cout<<dlb(str);
+}

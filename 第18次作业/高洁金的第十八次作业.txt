@@ -1,0 +1,54 @@
+1.
+using namespace std;
+#include <iostream>
+int slen(const char *a)
+{
+	if (a==NULL)
+	return 0;
+	const char *a1=a;
+	while (*a ++ !=0);
+	return a-a1-1;
+}
+int scat(char *a,char *b)
+{
+    int c=slen(a),d=slen(b);
+	int i,m=c+d;
+	for (i=c;i<m;i++)
+	{
+		*(a+i) = *(b+i-c);
+	}	
+}
+int main()
+{
+	char a[10],b[10];
+	int n=sizeof(a);
+	cin.getline(a,10);
+	cin.getline(b,10);
+	scat(a,b);
+	cout<<a;
+	return 0;	
+}
+2.
+using namespace std;
+#include <iostream>
+#include <string.h>
+int f(char a[])
+{
+	char b[100]={'\0'},c[2];
+	for (int i=0;a[i];i++)
+	{
+		if (a[i]!=' ')
+		{
+			c[0]=a[i];
+			strcat(b,c);
+		}
+	}
+	strcpy(a,b);
+}
+int main()
+{
+	char a[100];
+	cin.getline(a,100);
+	f(a);
+	cout<<a;
+}

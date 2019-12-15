@@ -1,0 +1,88 @@
+p174
+1.
+#include <iostream>           
+#include <math.h>            
+using namespace std;
+struct solution{
+	double x1,x2;
+	}; 
+solution f(int a,int b,int c){
+	solution s;
+	float n;
+	n=b*b-4*a*c;
+	  s.x1=(-1*b-sqrt(n))/(2*a);
+	  s.x2=(-1*b+sqrt(n))/(2*a);
+	  return s;
+    }		        
+   
+int main(){
+	int a,b,c,n;
+	solution s;
+	cin>>a>>b>>c;
+	if(b*b-4*a*c<0)
+	cout<<"erorr";
+	else
+	{f(a,b,c);
+	cin>>n;//n为0输出x1,x2;n为1输出x1; n为2输出x2;
+	switch(n){
+		case 0:cout<<s.x1<<' '<<s.x2;break;
+		case 1:cout<<s.x1;break;
+		case 2:cout<<s.x2;break;
+	}
+	}
+	
+}
+
+2.
+#include <iostream>
+#include <math.h>
+using namespace std;
+struct Point{
+	int x,y;
+}; 
+float distance(int x1,int y1,int x2,int y2){
+	float s;
+	s=sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+	return s;
+}
+
+struct length{
+ 	float s1;
+ 	float s2;
+ 	float s3;
+ };
+ 
+float triangle(float s1,float s2,float s3){
+	float l,area,p;
+	if(s1+s2>s3&&s1-s2<s3){
+		l=s1+s2+s3;
+		p=(s1+s2+s3)/2;
+		area=sqrt(p*(p-s1)*(p-s2)*(p-s3));
+		cout<<"能构成三角形且三角形周长为 "<<l<<" 面积为 "<<area<<endl;
+	}
+	else cout<<"不能构成三角形"<<endl; 		
+}
+
+int main(){
+	Point a={1,2};
+ 	Point b={3,4};
+ 	Point c={2,1};
+ 	cout<<"两点间距离为 "<<distance(a.x,a.y,b.x,b.y)<<endl;
+ 	length l={distance(a.x,a.y,b.x,b.y),distance(a.x,a.y,c.x,c.y),distance(c.x,c.y,b.x,b.y)};
+ 	triangle(l.s1,l.s2,l.s3);
+}
+
+补充
+#include <iostream>
+using namespace std;
+int main(){
+	char s[50];
+	cout<<"输入一个长度不超过50的字符串"; 
+	cin>>s;
+	cout<<endl<<"输出该字符串："<<s<<endl;
+	for(int i=0;s[i];i++){
+	  	if(s[i]>=65&&s[i]<=90)
+	  	s[i]+=32;
+	  }
+	  cout<<"将大写改为小写"<<s;
+} 

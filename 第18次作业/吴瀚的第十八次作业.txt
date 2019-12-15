@@ -1,0 +1,76 @@
+//1 用指针实现 strcat 函数， 不要用string.h;
+#include <iostream>
+#define N 100
+using namespace std;
+char *strcat(char *a,char *b){
+	char c[N];
+	int k;
+	for(int i=0;*(a+i);i++)
+	{
+		*(c+i)=*(a+i);
+		k=i;
+	}
+	k++;
+	for(int j=0;*(b+j);j++)
+	{
+		*(c+k)=*(b+j);
+		k++;
+	}
+    for(int n=0;*(c+n);n++)
+        cout<<*(c+n);
+}
+
+int main(){
+	char a[N],b[N];
+	cin.getline(a,N);
+	cin.getline(b,N);
+	strcat(a,b);	
+}
+
+//2 参考教材的8.16例题，去除一个字符串中所有的空格，如"  ab c 1 2 3 ", 最终变为  “abc123",trim函数的原型与8.16一致
+#include<iostream>
+#include<string.h>
+#define N 100
+using namespace std;
+char * trim(char * s){
+   if (s == NULL) return NULL;
+   if (strlen(s) == 0) return s;
+   bool temp = true;
+   int sign = 0,i = 0;
+   while(i!=strlen(s))
+  {
+   if(*(s+i)== ' ' && temp == true)
+   {
+      temp = false;
+     sign = i;
+   }
+  if(*(s+i)!=' ' && temp == false)
+  {
+   temp = true;
+   *(s+sign)= *(s+i);
+   *(s+i)= ' ';
+   i = sign;
+  }
+      i++;
+  }  
+   char *tail = s + strlen(s) - 1; 
+   while (*tail == ' ') 
+      tail--;
+   if(tail < s + strlen(s) - 1)
+     *(tail + 1) = '\0';
+   char * head = s; 
+   while (*head == ' ') 
+       head++;
+   char *h = s; 
+   if(head > h)
+      while (*h++ = *head++);
+   return s;
+}
+
+int main(){
+   char s[N];
+   cin.getline(s,N);
+   char * s1 = trim(s);
+   cout<<"'"<<s1<<"'"<<endl; 
+   return 0;
+}

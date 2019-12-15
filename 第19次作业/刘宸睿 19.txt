@@ -1,0 +1,72 @@
+//6
+#include<iostream>
+#include<string.h>
+#define MAX 4
+using namespace std;
+int (*fpq)(char *);
+int getRev(char *a){
+	int s=0;
+	for(int i=0;i<strlen(a);i++){
+		for(int j=i+1;j<strlen(a);j++){
+			if(a[i]>a[j])
+			s++;
+		}
+	}
+	return s;
+}
+int main(){
+	fpq=getRev;
+	int *count=new int[MAX],temp;
+	char *tem=new char[21];
+	char m[MAX][21]={
+	"defrgew",
+	"fdsfdsa",
+	"qfewqfr",
+	"DAABEC"
+};
+for(int i=0;i<MAX;i++){
+	count[i]=fpq(m[i]);
+}
+for(int i=0;i<MAX-1;i++){
+	for(int j=0;j<MAX-i-1;j++){	
+	if(count[j]>count[j+1]){
+		temp=count[j];
+		count[j]=count[j+1];
+		count[j+1]=temp;
+		strcpy(tem,m[j]);
+		strcpy(m[j],m[j+1]);
+		strcpy(m[j+1],tem);
+	}
+}
+}
+for(int i=0;i<MAX;i++){
+	cout<<count[i]<<'\n';
+}
+delete []count;
+delete []tem;
+	return 0;
+}
+//8
+#include<iostream>
+#include<string.h>
+using namespace std;
+int (*q)(char *);
+int getWordCount(char *a){
+    int s=0;
+    for(int i=0;i<strlen(a);i++){
+    	if (a[i]==' '&&a[i+1]!=' ') {
+		s++;
+	}
+	
+}
+return s+1;
+}
+int main(){
+	q=getWordCount;
+	char *m=new char[20];
+	cin.getline(m,20);
+	int s=getWordCount(m);
+	cout <<s<< endl;
+	delete []m;
+    return 0;
+}

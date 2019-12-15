@@ -1,0 +1,100 @@
+using namespace std;
+#include<iostream>
+#include<string.h>
+struct Fraction{int a;int b;};
+int abs(int t)
+{
+	int k;
+	if(t<0)
+	k=-t;
+	else
+	k=t;
+	return k;
+}
+Fraction simplfy(Fraction x)
+{
+
+	if(x.a==0)
+	{
+		x.b=1;
+		return x;
+	}
+	else
+	{
+		for(int i=2;i<=abs(x.b);)
+		{
+			if(x.a%i==0&&x.b%i==0)
+			{
+				x.b/=i;
+				x.a/=i;
+				i=2;
+			}
+			else
+			i++;
+		}
+	}	
+	return x;
+}
+struct ans{Fraction sum;Fraction sub;Fraction time;Fraction quo;string com;};
+
+ans op(Fraction x, Fraction y)
+{
+	ans out;
+	int a1=x.b*y.b;
+	int b1=x.a*y.b;
+	int c1=x.b*y.a;
+	int d1=x.a*x.a;
+	Fraction psum;
+	psum.a=b1+c1;
+	psum.b=a1;
+	out.sum=simplfy(psum);
+	
+	Fraction psub;
+	psub.a=b1-c1;
+	psub.b=a1;
+	out.sub=simplfy(psub);
+	
+	Fraction ptime;
+	ptime.a=d1;
+	ptime.b=a1;
+	out.time=simplfy(ptime);
+	
+	Fraction pquo;
+	pquo.a=b1;
+	pquo.b=c1;
+	out.quo=simplfy(pquo);
+	double xa=x.a;
+	double xb=x.b;
+	double ya=y.a;
+	double yb=y.b;
+	double tempx=xa/xb;
+	double tempy=ya/yb;
+	if(tempx>tempy)
+	{
+		out.com="former";
+		return out;
+	}
+	
+	if(tempx==tempy)
+		{
+			out.com="equal";
+			return out;
+		}
+	if(tempx<tempy)
+	{
+		out.com="latter";
+		return out;
+	}		
+}
+int main()
+{
+	Fraction m,n;	
+	cin>>m.a>>m.b>>n.a>>n.b;
+	ans output=op(m,n);
+	cout<<output.sum.a<<"/"<<output.sum.b<<endl;
+	cout<<output.sub.a<<"/"<<output.sub.b<<endl;
+	cout<<output.time.a<<"/"<<output.time.b<<endl;
+	cout<<output.quo.a<<"/"<<output.quo.b<<endl;
+	cout<<output.com;	
+	return 0;
+}

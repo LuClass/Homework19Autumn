@@ -1,0 +1,113 @@
+2.
+#include<iostream>
+using namespace std;
+int main(){
+float l,j,j1=10000,j2=7500,j3=0.05*200000,j4=0.03*200000,j5=0.015*400000;
+cout<<"putin l=";
+cin>>l;
+if(l<=100000) 
+j=0.1*l;
+else if(l>100000&&l<=200000)
+     j=j1+(l-100000);
+     else if(l>200000&&l<=400000)
+          j=j1+j2+0.05*(l-200000);
+          else if(l>400000&&l<=600000)
+               j=j1+j2+j3+0.03*(l-400000);
+               else if(l>600000&&l<=1000000)
+                    j=j1+j2+j3+j4+0.015*(l-600000);
+                    else j=j1+j2+j3+j4+j5+0.01*(l-1000000);
+cout<<"bonus="<<j;
+return 0;
+}
+
+
+4.
+#include<iostream>
+using namespace std;
+int main(){
+int n,y,r,d;
+cout<<"putin date:";
+cin>>n>>y>>r;
+int y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,y11;
+y1=y3=y5=y7=y8=y10=31,y4=y6=y9=y11=30;
+y2=(y%4==0&&y%100!=0||y%400)?29:28;
+int yb=y1+y2+y3+y4+y5+y6;
+switch(y){
+   case 1:d=r;
+   break;
+   case 2:d=y1+r;
+	break;
+	case 3:d=y1+y2+r;
+	break;
+	case 4:d=y1+y2+y3+r;
+	break;
+	case 5:d=y1+y2+y3+y4+r;
+	break;
+	case 6:d=y1+y2+y3+y4+y5+r;
+	break;
+	case 7:d=yb+r;
+	break;
+	case 8:d=yb+y7+r;
+	break;
+	case 9:d=yb+y7+y8+r;
+	break;
+	case 10:d=yb+y7+y8+y9+r;
+	break;
+	case 11:d=yb+y7+y8+y9+y10+r;
+	break;
+	default:d=yb+y7+y8+y9+y10+y11+r;
+   break;
+}
+cout<<"total days:"<<d;
+return 0;
+}
+
+
+6.
+#include<iostream>
+using namespace std;
+int main(){
+cout<<"   "<<"**"<<" "<<"**"<<endl;
+cout<<" "<<"**"<<endl;
+cout<<"**"<<endl;
+cout<<"**"<<endl;
+cout<<"**"<<endl;
+cout<<" "<<"**"<<endl;
+cout<<"   "<<"**"<<" "<<"**"<<endl;
+return 0;
+}
+
+
+8.
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main(){
+int i=1,j=1;
+while(i<=9) {
+	while(j<=i){
+   cout<<setw(2)<<j<<"*"<<setw(2)<<i<<"="<<setw(2)<<i*j<<"  ";
+	j++;
+   }
+cout<<endl; 
+i++;
+j=1;
+}
+return 0;
+}
+
+
+10.
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main(){
+cout<<"\2\2"<<endl;
+for(int i=1;i<=9;i++){
+	for(int j=1;j<=i;j++){
+		cout<<"\26";
+	   }
+	cout<<endl;
+   }
+return 0;
+}

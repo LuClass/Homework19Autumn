@@ -1,0 +1,122 @@
+（3）
+#include <iostream>
+#include <math.h>
+using namespace std;
+int gcd(int a, int b) {
+	if (b == 0)
+		return a;
+	return gcd(b, a % b);
+}
+struct Fraction {
+	int a, b;
+};
+void SC(Fraction* f) {
+	if (f->a == 0)
+		return;
+	int g = gcd(f->a, f->b);
+	f->b = f->b / g;
+	if (f->a < 0)
+		f->b = -f->b;
+	f->a = abs(f->a / g);
+}
+void print(Fraction f) {
+	if (f.a == 0) {
+		cout << '0' << endl;
+		return;
+	}
+	SC(&f);
+	cout << f.a << '/' << f.b << endl;
+}
+bool ifequal(Fraction x, Fraction y) {
+	SC(&x);
+	SC(&y);
+	if (x.a == y.a && x.b == y.b)
+		return true;
+	return false;
+}
+Fraction add(Fraction x, Fraction y) {
+	Fraction m;
+	m.a = x.a * y.b + y.a * x.b;
+	m.b = x.b * y.b;
+	SC(&m);
+	return m;
+}
+Fraction substract(Fraction x, Fraction y) {
+	Fraction p;
+	p.a = x.a * y.b - y.a * x.b;
+	p.b = x.b * y.b;
+	SC(&p);
+	return p;
+}
+Fraction multiplyand(Fraction x, Fraction y) {
+	Fraction q;
+	q.a = x.a * y.a;
+	q.b = x.b * y.b;
+	SC(&q);
+	return q;
+}
+Fraction divide(Fraction x, Fraction y) {
+	Fraction n;
+	n.a = x.a * y.b;
+	n.b = x.b * y.a;
+	SC(&n);
+	return n;
+}
+int main(){
+	int a1, a2, a3, a4;
+	Fraction f, g;
+	cin >> a1 >> a2 >> a3 >> a4;
+	f.a = a1;
+	f.b = a2;
+	g.a = a3;
+	g.b = a4;
+	print(f);
+	print(g);
+	print(add(f,g));
+	print(substract(f,g));
+	print(multiplyand(f,g));
+	print(divide(f,g));
+	return 0;
+}
+（4）
+#include<iostream>
+#include<string>
+using namespace std;
+enum evaluationmode{ percent, level };
+struct course {
+	string coursenumber;
+	string coursename;
+	evaluationmode s;
+};
+union mark {
+	char level;
+	int score;
+};
+struct grade {
+	string number;
+	string name;
+	mark c;
+	course m;
+	grade (string number1, string name1, string coursenumber, evaluationmode s, char x) :number(number1), name(name1) {
+		m.coursenumber = coursenumber;
+		m.s = s;
+		if (s == 0)
+			c.score = (int)x;
+		else
+			c.level = x;
+	}
+};
+void print_grade(grade g){
+	cout << g.number << " " << g.name << " " << g.m.coursenumber << " " << g.m.s << " ";
+	if (g.m.s == 0)
+		cout << g.c.score << endl;
+	else
+		cout << g.c.level << endl;
+}
+int main() {
+	grade f1("91810386", "章哲", "00001", level, 'A');
+	grade f2("91810684", "游信中", "00002", percent, 88);
+	print_grade(f1);
+	print_grade(f2);
+	return 0;
+}

@@ -1,0 +1,72 @@
+（6）.
+#include <iostream>
+#include <string.h>
+#define MAX 8
+char s[MAX][20];
+int a[MAX];
+using namespace std;
+int getRev(char *a)
+{ char *p1=a;
+  char *p2=a;
+  int count=0;
+  while(*p1)
+  { p2=p1+1;
+    while(*p2)
+    { if(*p1>*p2)
+       count++;
+        p2++;
+	}
+	p1++;
+  }
+  return count;
+}
+ int main()
+ {
+ 	char tmp[20];
+ 	int temp;
+ 	for(int i=0;i<MAX;i++)
+ 	{
+	cin>>s[i];
+ 	a[i]=getRev(s[i]);
+ }
+ for(int i=0;i<=MAX-2;i++)
+     for(int j=0;j<=MAX-2-i;j++)
+     {
+     	if(a[j]>a[j+1])
+     	{
+     		strcpy(tmp,s[j]);
+     		strcpy(s[j],s[j+1]);
+			strcpy(s[j+1],tmp);
+			 temp=a[j];
+			 a[j]=a[j+1];
+			 a[j+1]=temp;
+		 }
+	 }
+	 for(int i=0;i<MAX;i++)
+	 cout<<s[i]<<' '<<a[i]<<'\n';
+  } 
+
+
+（8）.
+#include <iostream>
+using namespace std;
+int getwordcount(char *a)
+{char *p=a;
+int count=0;
+int flag=0;
+ while(*p)
+ {if(*p==' ')
+ flag=0;
+ else if(flag==0)
+ {flag=1;
+ count++;
+ }
+ p++;
+ }
+ return count;
+}
+int main()
+{ char a[50];
+  cin.getline(a,50);
+  cout<<getwordcount(a);
+}

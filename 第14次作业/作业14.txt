@@ -1,0 +1,79 @@
+1
+#include<iostream>
+#include<math.h>
+using namespace std;
+struct A{
+	double x,y;
+}q;
+int f(int a,int b,int c){
+
+	int s=b*b-4*a*c;
+	if(s>=0){
+	    q.x=(-b+sqrt(s))/2*a;
+		q.y=(-b-sqrt(s))/2*a;
+	}
+	if(s<0){
+		cout<<"wrong!!!";
+	}
+	
+}
+int main(){
+	f(1,2,1);
+	cout<<q.x;
+	cout<<q.y;
+                return 0；
+}
+2
+#include<iostream>
+#include<math.h>
+using namespace std;
+struct Point {
+	int x,y;
+};
+double getLenth(Point a,Point b){
+	double s;
+	s=sqrt((a.x-b.y)*(a.x-b.y)+(a.y-b.y)*(a.y-b.y));
+	return s;
+}
+bool judge(Point a,Point b,Point c){
+	double m,l,k;
+	m=getLenth(a,b);
+	l=getLenth(b,c);
+	k=getLenth(a,c);
+	if(m+l>k&&m+k>l&&k+l>m)
+	return true;
+	else 
+	return false;
+}
+void count(Point a,Point b,Point c){
+	double s,n,m,l,k;
+	m=getLenth(a,b);
+	l=getLenth(b,c);
+	k=getLenth(a,c);
+	n=m+l+k;
+	cout<<"周长是"<<n;
+	s=sqrt(n/2*(n/2-m)*(n/2-k)*(n/2-l));
+	cout<<"面积是"<<s;
+}
+int main(){
+	Point a={0,3},b={4,0},c={4,3};
+	cout<<getLenth(a,b)<<'\n';
+	cout<<judge(a,b,c)<<'\n';
+	count(a,b,c);
+	return 0;
+}
+3
+#include<iostream>
+using namespace std;
+int main()
+{
+	char m[50];
+    cin>>m;
+    cout<<m<<'\n';
+	for(int i=0;m[i]!='\0';i++)
+    {
+	    if(m[i]>='A'&&m[i]<='Z')
+	    m[i]=m[i]+32;
+	}
+   cout<<m;
+}

@@ -1,0 +1,67 @@
+﻿#include <iostream>
+#include <iomanip>
+using namespace std;
+int getSet(int rs[],const int a[],int n)
+{
+int count=0;int k=1;int sum=1;
+rs[0]=a[0];
+for(int i=1;i<n;i++)
+{count=0;
+for(int j=0;j<k;j++)
+{
+if(a[i]!=rs[j])
+count++;
+}
+if(count==k)
+{rs[k]=a[i];
+k++;
+sum++
+}
+}
+return sum;
+}
+
+int COUNT(int rs[],int num;const int a[],int n)
+{
+int sum=0;
+for(int r=0;r<n;r++)
+{if(rs[num]==a[r])
+sum++;
+}return sum;
+}
+
+int Paixu(int a[],int n)
+{
+int i,j,min,Index,tmp;
+for(j=i+1;j<n;j++)
+{
+if(min>a[j])
+{
+min=a[j];
+Index=j;
+}
+}
+if(i!=Index)
+{
+tmp=a[i];
+a[i]=a[Index];
+a[Index]=tmp;
+}
+}
+}
+int main()
+{
+int n,num,s;
+cin>>n;
+cout<<endl;
+int a[n],rs[n];
+for(int t=0;t<n;t++)
+cin>>a[t];
+cout<<endl;
+num=getSet(rs,a,n);
+cout<<"rs中元素个数为"<<num<<endl;
+cout<<"集合rs中各元素在集合a中出现的次数如下:"<<endl;
+for(int p=0;p<num;p++)
+cout<<setw(2)<<COUNT(rs,p,a,n);
+return 0;
+}

@@ -1,0 +1,60 @@
+﻿#include <iostream>
+using namespace std;
+ int slen(const char *a)
+ {
+ 	if (a==NULL)
+ 	return 0;
+ 	const char *a1=a;
+ 	while (*a ++ !=0);
+ 	return a-a1-1;
+ }
+ int scat(char *a,char *b)
+ {
+     int c=slen(a),d=slen(b);
+ 	int i,m=c+d;
+ 	for (i=c;i<m;i++)
+ 	{
+ 		*(a+i) = *(b+i-c);
+ 	}	
+ }
+ int main()
+ {
+ 	char a[10],b[10];
+ 	int n=sizeof(a);
+ 	cin.getline(a,10);
+ 	cin.getline(b,10);
+ 	scat(a,b);
+ 	cout<<a;
+ 	return 0;	
+ }
+ 
+2.
+#include <iostream>
+#include <string.h>
+#define N 20
+using namespace std;
+char * trim(char * s)
+{
+if(s==NULL)return NULL;	
+	if(strlen(s)==0) return s;
+	char *tail=s+strlen(s)-1;
+	while(*tail==' ')tail--;
+	if(tail<s+strlen(s)-1)
+	*(tail+1)='\0';//
+	char *head=s;
+	while (*head==' ')head++;//
+	char *h=s;
+	if(head>h)
+{	while(*h++=*head++)
+	{if(*head==' ')
+	head++;
+	}}
+	return s;
+}
+int main(){
+	char s[N];
+	cin.getline(s,N);
+	char * s1=trim(s);
+	cout<<s1;
+	
+}
