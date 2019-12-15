@@ -1,0 +1,140 @@
+6.
+using namespace std;
+#include <iostream>
+#include <string.h>
+#define M 4
+struct row{
+	int x;
+	char *y;
+};
+int getRev(char *a)
+{
+	int m=strlen(a);
+	int i,j,t=0;
+	for (i=0;i<m-1;i++)
+	{
+		for (j=i+1;j<m;j++)
+		{
+			if (*(a+i)>*(a+j))
+			t++;
+		}
+	}
+	return t;
+}
+int main()
+{
+	row *table =new row[M];
+	int i,j,t;
+	char s[20];
+	for (i=0;i<M;i++)
+	{
+		table[i].y=new char[20];
+		cin>>table[i].y;
+		table[i].x=getRev(table[i].y);
+	}
+	for (i=0;i<M-1;i++)
+	{
+		for (j=0;j<M-i-1;j++)
+		{
+			if (table[j].x>table[j+1].x)
+			{
+				t=table[j].x;
+				table[j].x=table[j+1].x;
+				table[j+1].x=t;
+				strcpy(s,table[j].y);
+				strcpy(table[j+1].y,table[j].y);
+				strcpy(table[j].y,s);
+			}
+	}
+	for (i=0;i<M;i++)
+	{
+		cout<<table[i].x<<" "<<table[i].y<<endl;
+	}
+}
+}
+
+237.4
+using namespace std;
+#include <iostream>
+#include <string.h>
+struct row{
+	int x;
+	char *y;
+};
+int f(int n)
+{
+	row *table = new row[n];
+	char b[10][10];
+	char *temp;
+	int c[10];
+	int i,j,t=1,y;
+	if (n<=2)
+	cout<<"wrong"<<endl;
+	else 
+{
+		for (i=0;i<n;i++)
+		{
+			table[i].y = new char [20];
+			cin>>table[i].y;
+		}
+	for (i=0;i<n;i++)
+{
+	for (j=0;j<n-i-1;j++)
+	{
+		if (strcmp(table[j].y,table[j+1].y)>0)
+		{
+			strcpy(temp,table[j+1].y);
+			strcpy(table[j+1].y,table[j].y);
+			strcpy(table[j].y,temp);
+		}
+	}
+}
+    cout<<endl;
+	for (i=0;i<n;i++)
+	cout<<table[i].y<<endl;
+	cout<<endl;
+	int m=0;
+	for (j=0;j<n-1;j++)
+	{
+	if (strcmp(table[j].y,table[j+1].y)==0)
+		{
+			t++;
+			c[m]=t;
+		}
+		else 
+		{	
+			strcpy(b[m],table[j].y);
+			c[m]=t;
+			m++;
+			t=1;
+		}
+	}
+	strcpy(b[m],table[n-1].y);
+	c[m]=t;
+	for (i=0;i<m+1;i++)
+{
+	for (j=0;j<m-i;j++)
+	{
+		if (c[j]>c[j+1])
+		{
+			y=c[j+1];
+			c[j+1]=c[j];
+			c[j]=y;
+			strcpy(b[m+1],b[j+1]);
+			strcpy(b[j+1],b[j]);
+			strcpy(b[j],b[m+1]);
+		}
+	}
+}
+    for (i=0;i<=m;i++)
+    {
+    	cout<<b[i]<<' '<<c[i]<<endl;
+	}
+}
+}
+int main()
+{
+	int n;
+	cin>>n;
+	f(n);	
+}
