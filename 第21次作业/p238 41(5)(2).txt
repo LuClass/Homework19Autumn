@@ -1,0 +1,50 @@
+using namespace std;
+#include <iostream>
+#include <string.h>
+int getm(char *b){
+	char *c=b;
+	int i=0,j=0;
+	while(*c!=0){
+		if(*c>='0'&&*c<='9'&&i==0){
+			j++;i=1;
+		}
+		if((*c>='A'&&*c<='Z')||(*c>='a'&&*c<='z')||*c==' '){
+			i=0;
+		}
+		c++;
+	}
+	return j;
+}
+
+void ad(char*a,int*b){
+	int i=1,q=0,d=0;
+	char *a1=a;
+	while(*a1!=0){
+	if(*a1>='0'&&*a1<='9'&&i==0){
+		i=1;
+	}	
+	if(*a1>='0'&&*a1<='9'&&i==1){
+		q=q*10+((int)*a1-48);
+    }
+	if(((*a1>='a'&&*a1<='z')||(*a1>='A'&&*a1<='Z')||*a1==' ')&&i==1&&q!=0||*(a1+1)==0){
+	
+	    i=0;*(b+d)=q;q=0;d++;	
+	}	
+	a1++;
+    }
+}
+int main (){
+	char *a=new char[100];
+	cin.getline(a,100);
+	int n=strlen(a);
+	char *b=new char[n+1];
+	strcpy(b,a);
+	delete a;
+	static int m=getm(b);
+	int *t=new int[m];
+	ad(b,t);
+	for(int i=0;i<m;i++){
+		cout<<t[i]<<endl;
+	}
+	delete b,t;
+}

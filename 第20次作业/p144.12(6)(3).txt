@@ -1,0 +1,67 @@
+using namespace std;
+#include <iostream>
+#include <string.h>
+#include <iomanip>
+struct row{
+	int n;
+	char *rowp;
+	
+};
+int getl(char *n1){
+	int n2=0;
+	n2=strlen(n1);
+	return n2;
+}
+int* get(char *a,int *b){
+	char *t=a;
+	int i=1,i1=0;
+	for(;*t!=0;t++){
+		for(i=1,i1;*(t+i)!=0;i++){
+		if(*t>*(t+i))
+		i1++;
+	    }
+	}
+	*b=i1;
+	return b;
+}
+int ad(int *b,int n,row *a){
+	char *c1;
+	int i=0,i1,c;
+	for(i;i<n-1;i++){
+		for(i1=i+1;i1<n;i1++){
+		if(b[i]>b[i1])
+		{c=b[i];c1=a[i].rowp;
+		b[i]=b[i1];a[i].rowp=a[i1].rowp;
+		b[i1]=c;a[i1].rowp=c1;}
+	    }
+	}	
+}
+void del(row *a,int n){
+	for(int i=0;i<n;i++){
+		delete a[i].rowp;
+	}
+	delete a;
+}
+int main (){
+	int i,max=0,n2=0;
+	cin>>max;
+	row *t=new row[max];
+	//if(t==NULL)break;
+	for(i=0;i<max;i++){
+		char n1[100];
+		cin>>n1;cout<<endl;
+		n2=getl(n1);
+		t[i].rowp=new char[n2+1];
+		t[i].n=n2;
+		strcpy(t[i].rowp,n1);
+	}
+	int b[max];
+	for(i=0;i<max;i++){
+    	get(t[i].rowp,&b[i]);
+    }
+	ad(b,max,t);
+	for(i=0;i<max;i++){
+		cout<<setw(20)<<t[i].rowp<<"  "<<b[i]<<endl;
+	}
+	del(t,max);
+}
