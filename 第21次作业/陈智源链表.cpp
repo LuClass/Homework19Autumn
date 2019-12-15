@@ -59,7 +59,7 @@ int main(){
 	node * head = NULL;
 	head = create(a);
 	print(head);
-	cout <<"ÊäÈëÒªÉ¾³ıµÄÁ´±íĞòºÅ£º"<<endl;
+	cout <<"è¾“å…¥è¦åˆ é™¤çš„é“¾è¡¨åºå·ï¼š"<<endl;
 	cin >> m; 
 	del(head,m);
 	destroy(head);
