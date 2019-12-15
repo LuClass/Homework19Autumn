@@ -1,0 +1,128 @@
+1. 
+
+#include<iostream>
+#include<string.h>
+#include<iomanip>
+using namespace std;
+int main(){
+	char *p;
+	char s[100];
+	int x=0,len;
+	int m=1;
+	int b[50];
+	cin.getline(s,100);
+	p=s;
+	len=strlen(s);
+	for(int i=0;i<len;i++){
+		if(p[i]>'0'&&p[i]<='9'){
+			int j=i+1;
+			
+			for(;j<len;j++){
+				if(p[j]<'0'||p[j]>'9')
+					break;
+			}
+			
+			b[x]=0;
+			
+			for(int n=j-1;n>=i;n--){
+				
+				b[x]+=(p[n]-'0')*m;
+				m*=10;
+			}
+			
+			x++;
+			m=1;
+			i=j;
+		}
+	}
+	for(int i=0;i<x;i++){
+		cout<<"b["<<i<<"] = ";
+		cout<<b[i]<<endl;
+	}
+}
+
+2.
+
+#include<iostream>
+#include<string.h>
+#include<iomanip>
+using namespace std;
+
+struct node{
+	unsigned  num;
+	int a;
+	node *next;
+};
+
+node *create(int n){
+	node *head=NULL,*rear=NULL;
+	int *a=new int[n];
+	cout<<"请输入一系列数：";
+	for(int i=0;i<n;i++){
+		cin>>a[i];
+	}
+	for(unsigned i=0;i<n;i++){
+		node *p=new node{i+1,a[i],head};
+		if(head==NULL){
+			head=p;
+			rear=p;
+		}
+		else {
+			rear->next=p;
+			rear=p;
+		}
+	}
+	rear->next=head;
+	delete a;
+	return head;
+}
+
+void print(node *head){
+	node *headd=head;
+    if (headd== NULL) {
+        cout<<"链表为空"<<endl;
+    }
+
+    while (headd->next!=head) {
+    	cout<<headd->a<<endl;
+        headd=headd->next;
+    }
+	cout<<headd->a<<endl;
+}
+
+void del(node *head,unsigned n)
+{
+	node *headd=head,*rear=NULL;
+	while(headd->a!=n)
+	{
+		rear=headd;
+		headd=headd->next;
+	}	
+	rear->next=headd->next;
+	delete headd;	
+}
+
+void destroy(node *head)
+{
+	node *headd=head,*rear=NULL;	
+	while(headd->next!=head)
+	{
+		rear=headd;
+		headd=headd->next;
+		delete rear;
+	}
+	delete headd;	
+}
+
+int main(){
+	cout<<"请输入要创建的链表的节点数："<<endl;
+	int m;
+	cin>>m;
+	node *head=create(m);
+	print(head);
+	cout<<"请输入要删除的节点 "<<endl;
+	int n;
+	cin>>n;
+	del(head,n);
+	destroy(head);
+}
