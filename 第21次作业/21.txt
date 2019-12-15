@@ -1,0 +1,116 @@
+1.
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+void f1(char *p)
+{
+	int a[100],j=0,b=0;
+	for(int i=0;*(p+i)!='\0';i++)
+	{
+		if(*(p+i)>='0'&&*(p+i)<='9')
+		{
+			b=*(p+i)-48+b*10;
+			if (*(p+i+1)<'0'||*(p+i+1)>'9')
+			{
+				a[j]=b;
+				j++;
+				b=0;
+			}
+		}
+	}
+	int sum=0;
+	for(int i=0;i<j;i++)
+	{
+		cout<<a[i]<<" ";
+		sum++;
+	}
+	cout<<endl;
+	cout<<"共有"<<sum<<"个整数";
+}
+int main()
+{
+	char s[100];
+	cin.getline(s,100);
+	f1(s);
+}
+
+2.
+#include<iostream>
+#include<string.h>
+#define MAX 5
+using namespace std;
+struct node
+{
+	unsigned num;//序号 
+	node *next;//指向下一个节点的指针 
+};
+node *create(int *a)
+{
+	node *head=NULL,*rear=NULL;
+ 	for(int i=0;i<MAX;i++)
+	{
+ 		node *p=new node{*(a+i),head};
+ 		if(head==NULL)
+		{
+ 			head=p;
+ 			rear=p;
+ 		}
+ 		else
+		{
+ 			rear->next=p;
+ 			rear=p;
+ 		}
+ 	}
+ 	return head;
+}
+void print(node *head)
+{
+	node *q=head;
+ 	for(int i=0;i<MAX;i++)
+	{
+ 		cout<<q->num<<" ";
+ 		q=q->next;
+ 	}
+ 	cout<<endl;
+}
+void del(int c,node *head)
+{
+	node *q=head;
+ 	for(int i=0;i<MAX;i++)
+	{
+ 		if(q->num%c!=0)
+		{
+			cout<<q->num<<" ";
+			q=q->next;
+		}
+ 		else
+		{
+			node *p=q;
+			q=q->next;
+			delete p;
+        }
+ 	}
+}
+void destroy(node *head)
+{
+	if(head!=NULL)
+	{
+		delete[] head;
+	}
+}
+int main()
+{
+	int a[MAX];
+	node *head;
+	cout<<"请输入5个整数："<<endl; 
+ 	for(int i=0;i<MAX;i++)
+ 	cin>>a[i];
+ 	head=create(a);
+ 	print(head);
+ 	cout<<"请输入要删除第n个节点 n="; 
+ 	int c;
+ 	cin>>c;
+ 	cout<<"删除第"<<c<<"个节点后："<<endl; 
+ 	del(c,head);
+ 	destroy(head);
+}
