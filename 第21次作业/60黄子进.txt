@@ -1,0 +1,126 @@
+#include<iostream>
+#include<string>
+#include<string.h>
+#include<math.h>
+using namespace std;
+int getWordCount(char a[])
+{
+	int n = strlen(a),count = 0;
+	bool word = false;
+	for(int i = 0;i < n;i++)
+ 	{
+ 		if((a[i]>='0'&&a[i]<='9')||(a[i]>='0'&&a[i]<='9'))		
+ 		{
+ 			if(word==false)			
+ 			{
+ 				word = true;			
+ 				count++;	
+ 			}	
+ 		}	
+ 		else if(word)
+ 		word = false;
+ 	}
+ 	return count;
+}
+int getNum(char *p1,char *p2)
+{
+	const int Len = p2 - p1;
+	int result = 0;
+	for(int i = Len - 1;i>=0;i--)
+	{
+		result += (*(p1+i) - '0') * pow(10,Len-1-i);
+	}
+	return result;
+}
+int main()
+{
+	int count;
+	char *p1,*p2;
+	char ptr[100];
+	
+	cin.getline(ptr,100);
+	count = getWordCount(ptr);
+	int *Int = new int[count];
+	p1 = ptr;
+	p2 = ptr;
+	
+	for(int i = 0;i<count;i++)
+	{
+		p1 = p2;
+		while(*p1<'0' || *p1>'9')
+		p1++,p2++;
+		while(*p2>='0' && *p2<='9')
+		p2++;	
+		Int[i] = getNum(p1,p2);
+	}
+	
+	cout<<"有"<<count<<"个数"<<endl;
+	cout<<"分别是:\n";
+	for(int i = 0;i<count;i++)
+	cout<<Int[i]<<endl;
+	
+	delete []Int;
+}
+(4)
+#include<iostream>
+using namespace std;
+struct Node
+{
+	unsigned a;
+	Node *next;
+};
+Node *create(int Len)
+{
+	Node *head = new Node;
+	head->next = NULL;
+	Node *to = head;
+	for(int i = 0;i<Len;i++)
+	{
+		cin>>to->a;
+		to->next = new Node;
+		to = to->next;
+	}
+	return head;
+}
+void print(Node *head)
+{
+	Node *temp = head;
+	while(temp->next != NULL)
+	{
+		cout<<temp->a<<' ';
+		temp = temp->next;
+	}
+}
+void del(Node *head,int num)
+{
+	Node *temp1 = head,*temp2;
+	if(num == 1)
+	{
+		head = head->next;
+		delete temp1;
+		return;
+	}
+	else if(num<0)
+	return;
+	for(int i = 2;i < num;i++)
+	{
+		temp1 = temp1->next;
+	}
+	temp2 = temp1->next;
+	temp1->next = temp2->next;
+	delete temp2;
+}
+int main()
+{
+	Node *head;
+	int num,Len;
+	cout<<"你要输入多少个数\n";
+	cin>>Len;
+	cout<<"输入链表数据"<<endl;
+	head = create(Len);
+	print(head);
+	cout<<"\n删除第几个"<<endl;
+	cin>>num;
+	del(head,num);
+	print(head);
+}
