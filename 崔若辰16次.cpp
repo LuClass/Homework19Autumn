@@ -31,7 +31,7 @@ int main(){
     int n;
     cin>>n;
     cin.get();
-    char ** aa = new char * [n];//n¸ö×Ö·û´®
+    char ** aa = new char * [n];//nÂ¸Ã¶Ã—Ã–Â·Ã»Â´Â®
     for(int i=0;i<n;++i){
         char b;
         char *a = 0;
