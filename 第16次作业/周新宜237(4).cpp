@@ -1,4 +1,4 @@
-周新宜using namespace std;
+using namespace std;
 #include <iostream>
 #include <string.h>
 #include <iomanip>
@@ -38,4 +38,31 @@ void count(char* ch[],int n)
  		int nn=0;
  		for (int yy=0;yy<n;yy++)
  		{
- 			if (!strcmp(temp[y],ch[
+ 			if (!strcmp(temp[y],ch[yy]))
+ 				nn++;
+ 		}
+ 		num[xx++]=nn;
+ 	}
+ 	for (int u=0;u<x;u++)
+ 	{
+ 		cout<<setw(20)<<temp[u]<<"   "<<num[u]<<endl;
+ 	}
+ }
+int main()
+ {
+ 	int n;
+ 	cin>>n;cin.get();
+ 	char s[10][20];
+ 	char *p[]={s[0],s[1],s[2],s[3],s[4],s[5],s[6],s[7],s[8],s[9]};
+ 	for(int i=0;i<n;i++)
+ 	{
+ 		cin.getline(s[i],20);
+ 	}
+ 	sort(p,n);
+ 	for(int i=0;i<=n;i++)
+ 	{
+ 		cout<<p[i]<<endl;
+	}
+	count(p,n);
+	return 0;
+}
