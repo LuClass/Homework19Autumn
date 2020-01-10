@@ -24,7 +24,7 @@ int main(){
 			i=j;
 		}
 	}
-	cout<<"整数有"<<x<<"个,分别是："<<endl;
+	cout<<"脮没脢媒脫脨"<<x<<"赂枚,路脰卤冒脢脟拢潞"<<endl;
 	for(int i=0;i<x;i++)
 	cout<<b[i]<<'\t';
 }
