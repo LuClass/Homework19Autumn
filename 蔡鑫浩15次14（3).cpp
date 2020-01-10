@@ -90,7 +90,7 @@ struct function{
 };
 int main()
 {
-	cout<<"¨º?¨¨?¡¤????¡é¡¤?¡Á¨®¦Ì??¦Ì"<<endl;
+	cout<<"Â¨Âº?Â¨Â¨?Â¡Â¤????Â¡Ã©Â¡Â¤?Â¡ÃÂ¨Â®Â¦ÃŒ??Â¦ÃŒ"<<endl;
 	int a,b;
 	cin>>a>>b;
 	Fraction data;
