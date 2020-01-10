@@ -1,0 +1,78 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+int main()
+{
+	int n,temp; 
+    char str[20];
+    cin>>n;	
+	cout<<"PRESS ENTER TO SEPERATE"<<endl;				
+    const int N=n;
+    int count[N];			
+    char a[N][20],b[N][20];
+    for (int u=0;u<N;u++)	
+    	count[u]=1;
+    
+	cin.getline(a[0],20);	
+	for(int i=0;i<N;i++)
+        cin.getline(a[i],20);
+   
+	for (int p=0;p<N;p++)
+		strcpy(b[p],a[p]);
+		
+	
+	for(int t=0;t<N;t++)
+	{
+		for (int h=0;h<N-t-1;h++)
+		{
+			if (strcmp(b[h],b[h+1])>0)
+			{
+				strcpy(str,b[h+1]);
+				strcpy(b[h+1],b[h]);
+				strcpy(b[h],str);
+			}
+		}
+	}
+	
+	
+	for (int m=0;m<N;m++)
+		cout<<m+1<<" "<<b[m]<<endl;
+
+
+    for(int j=0;j<N;j++)	
+	{
+    	for(int k=(j+1);k<N;k++)
+    	{
+    		if(count[j]&&count[k]&&strcmp(a[j],a[k])==0)
+    		{
+    			count[j]++;
+    			count[k]=0;
+			}
+		}
+	}
+
+
+
+	for(int x=0;x<N;x++)		
+	{
+		for(int y=0;y<N-x-1;y++)
+		{
+			
+			if(count[y]<count[y+1])
+			{
+				temp=count[y+1];
+				count[y+1]=count[y];
+				count[y]=temp;
+				
+				strcpy(str,a[y+1]);
+				strcpy(a[y+1],a[y]);
+				strcpy(a[y],str);
+			}
+		}
+	}
+	cout<<endl;
+
+	for(int k=0;count[k]&&k<N;k++)
+	    cout<<a[k]<<" "<<count[k]<<endl;
+	    return 0;
+}

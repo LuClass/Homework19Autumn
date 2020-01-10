@@ -1,0 +1,36 @@
+using namespace std;
+#include <iostream>
+void Scat(char* a,char* b){
+    while( *a!=0){
+		a++;
+	}
+	while(*b!=0){
+	*a=*b;a++;b++;	
+	}
+}
+int main(){
+	const int n=100;
+	char a[n],b[2*n];
+	cin.getline(a,100);
+	cin.getline(b,100);
+	Scat(a,b);
+	cout<<a<<endl<<b;
+} 
+
+
+
+using namespace std;
+#include <iostream>
+#include <string.h>
+void ad(char*ar[],char *a){
+	ar++;
+	while(*ar!=0){
+		strcat(a,*ar);ar++;
+	}
+}
+int main (int argc,char*argv[]){
+const int b=argc-1;
+char a[100];
+ad(argv,a);
+cout<<a<<endl;	
+}
