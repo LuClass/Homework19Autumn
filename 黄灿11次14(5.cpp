@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-int s(int x)//ÅĞ¶ÏÊÇ·ñÎªËØÊı 
+int s(int x)//åˆ¤æ–­æ˜¯å¦ä¸ºç´ æ•° 
 {
 	int i;
 	for(i=2;i*i<=x;i++)
@@ -9,11 +9,11 @@ int s(int x)//ÅĞ¶ÏÊÇ·ñÎªËØÊı
 		break;
 	}
 	if(i*i>x)
-	return 1;//ÊÇËØÊı 
+	return 1;//æ˜¯ç´ æ•° 
 	else
-	return 0;//·ÇËØÊı 
+	return 0;//éç´ æ•° 
 }
-int f1(int y)//¸÷Î»ÊıÖ®ºÍ
+int f1(int y)//å„ä½æ•°ä¹‹å’Œ
 {
 	int s=0;
 	while(y!=0)
@@ -23,7 +23,7 @@ int f1(int y)//¸÷Î»ÊıÖ®ºÍ
 	}
 	return s;
 } 
-int f2(int z)//ÖÊÒòÊıÖ®ºÍ 
+int f2(int z)//è´¨å› æ•°ä¹‹å’Œ 
 {
 	int s=0;
 	for(int i=2;i<=z;i++)
@@ -37,14 +37,14 @@ int f2(int z)//ÖÊÒòÊıÖ®ºÍ
 	}
 	return s;
 }
-bool isSmith(int n)//ÅĞ¶ÏÊÇ·ñÎªÊ·ÃÜË¹Êı
+bool isSmith(int n)//åˆ¤æ–­æ˜¯å¦ä¸ºå²å¯†æ–¯æ•°
 {
 	if(s(n)==1)
 	return false;
 	else
 	{
 		if(f1(n)==f2(n))
-		return true;//ÊÇ 
+		return true;//æ˜¯ 
 		else
 		return false;
 	}
