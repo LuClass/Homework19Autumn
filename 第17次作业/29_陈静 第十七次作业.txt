@@ -1,0 +1,241 @@
+1.
+
+
+
+using namespace std;
+
+
+
+ #include <iostream>
+
+
+
+ #include <string.h>
+
+
+
+ void bubbleSort(char *p[],int n)
+
+
+
+ {
+
+
+
+ 	int i,j;
+
+
+
+ 	char *t;
+
+
+
+ 	for(i=0;i<n-1;i++)
+
+
+
+ 		for(j=0;j<n-1-i;j++)
+
+
+
+ 			if(strcmp(p[j],p[j+1])>0)
+
+
+
+ 			{	
+
+
+
+ 				t=p[j]; 
+
+
+
+ 				p[j]=p[j+1]; 
+
+
+
+ 				p[j+1]=t;
+
+
+
+ 			}
+
+
+
+ }
+
+
+
+ int main (int b,char *a[])
+
+
+
+ {
+
+
+
+ 	cin>>b;cin.get();
+
+
+
+ 	for(int i=0;i<b;i++)
+
+
+
+ 	{
+
+
+
+ 		cin.getline(a+i,100);
+
+
+
+ 	}
+
+
+
+ 	bubbleSort(a,b);
+
+
+
+ 	for(int i=0;i<b;i++)
+
+
+
+ 	{
+
+
+
+ 		cout<<*(a+i)<<endl; 
+
+
+
+ 	} 
+
+
+
+ 	return 0;
+
+
+
+ }
+
+
+
+
+
+
+
+2.
+
+
+
+#include <iostream>
+
+
+
+ #include <string.h>
+
+
+
+ using namespace std;
+
+
+
+ void rank(char* a[],int n){
+
+
+
+ 	for(int i=0;i<n-1;i++)
+
+
+
+ 	{
+
+
+
+          for(int j=i+1;j<n;j++)
+
+
+
+          {
+
+
+
+          	if(strcmp(a[i],a[j])>0)
+
+
+
+          	{char tmp[100];
+
+
+
+          	strcpy(tmp,*(a+i));
+
+
+
+          	strcpy(*(a+i),*(a+j));
+
+
+
+          	strcpy(*(a+j),tmp);
+
+
+
+ 			 }
+
+
+
+ 		 }
+
+
+
+ 	}
+
+
+
+ }
+
+
+
+  void print(char* a[],int n)
+
+
+
+ {for(int i=1;i<n;i++)
+
+
+
+ {cout<<*(a+i)<<endl;
+
+
+
+ }
+
+
+
+ }
+
+
+
+ int main(int argc,char *argv[])
+
+
+
+ {
+
+
+
+ 	rank(argv,argc);
+
+
+
+ 	print(argv,argc);
+
+
+
+ 	return 0;
+
+
+
+ }
